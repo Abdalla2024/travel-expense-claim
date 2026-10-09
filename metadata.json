@@ -1,0 +1,63 @@
+{
+  "cli_version": "0.11.3",
+  "checkpoint_id": "01M4GX0YYFDY14XNK8JQFQD39P",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "artifacts/runs/replay-20261009T175720Z/batches/batch-1.json",
+    "artifacts/runs/replay-20261009T175720Z/batches/batch-2.json",
+    "artifacts/runs/replay-20261009T175720Z/batches/batch-3.json",
+    "artifacts/runs/replay-20261009T175720Z/batches/batch-4.json",
+    "artifacts/runs/replay-20261009T175720Z/claims.csv",
+    "artifacts/runs/replay-20261009T175720Z/queue/drafts/EMP-01.md",
+    "artifacts/runs/replay-20261009T175720Z/queue/drafts/EMP-03.md",
+    "artifacts/runs/replay-20261009T175720Z/queue/drafts/FIN-01.md",
+    "artifacts/runs/replay-20261009T175720Z/queue/drafts/LEAD-01.md",
+    "artifacts/runs/replay-20261009T175720Z/queue/events.jsonl",
+    "artifacts/runs/replay-20261009T175720Z/queue/items.json",
+    "artifacts/runs/replay-20261009T175720Z/report.md",
+    "artifacts/runs/replay-20261009T175720Z/run.json",
+    "artifacts/runs/replay-20261009T175720Z/sources.json",
+    "artifacts/runs/replay-20261009T175720Z/sources/binders/claim-updates-binder.pdf",
+    "artifacts/runs/replay-20261009T175720Z/sources/binders/initial-claim-binder.pdf",
+    "artifacts/runs/replay-20261009T175720Z/sources/binders/receipt-binder.pdf",
+    "artifacts/runs/replay-20261009T175720Z/sources/policy/notion-page-chunk.json",
+    "artifacts/runs/replay-20261009T175720Z/sources/registers/travel-registers.xlsx",
+    "artifacts/runs/run-20261009T175711Z/batches/batch-1.json",
+    "artifacts/runs/run-20261009T175711Z/batches/batch-2.json",
+    "artifacts/runs/run-20261009T175711Z/batches/batch-3.json",
+    "artifacts/runs/run-20261009T175711Z/batches/batch-4.json",
+    "artifacts/runs/run-20261009T175711Z/claims.csv",
+    "artifacts/runs/run-20261009T175711Z/queue/drafts/EMP-01.md",
+    "artifacts/runs/run-20261009T175711Z/queue/drafts/EMP-03.md",
+    "artifacts/runs/run-20261009T175711Z/queue/drafts/FIN-01.md",
+    "artifacts/runs/run-20261009T175711Z/queue/drafts/LEAD-01.md",
+    "artifacts/runs/run-20261009T175711Z/queue/events.jsonl",
+    "artifacts/runs/run-20261009T175711Z/queue/items.json",
+    "artifacts/runs/run-20261009T175711Z/report.md",
+    "artifacts/runs/run-20261009T175711Z/run.json",
+    "artifacts/runs/run-20261009T175711Z/sources.json",
+    "artifacts/runs/run-20261009T175711Z/sources/binders/claim-updates-binder.pdf",
+    "artifacts/runs/run-20261009T175711Z/sources/binders/initial-claim-binder.pdf",
+    "artifacts/runs/run-20261009T175711Z/sources/binders/receipt-binder.pdf",
+    "artifacts/runs/run-20261009T175711Z/sources/policy/notion-page-chunk.json",
+    "artifacts/runs/run-20261009T175711Z/sources/registers/travel-registers.xlsx"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": ""
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 6,
+    "cache_creation_tokens": 2741,
+    "cache_read_tokens": 1584191,
+    "output_tokens": 2094,
+    "api_call_count": 3
+  }
+}
