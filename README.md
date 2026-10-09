@@ -25,7 +25,7 @@ Follow the shared [Setting Up entire.io for a Project](https://classroom.google.
 | [interviews/](interviews/) | Original Work Sim exports, one per session, unmodified |
 | [tests/](tests/) | Rule tests, synthetic branch tests (labelled `SYN-*`), and checks on the primary run |
 | `artifacts/runs/<run-id>/` | Retained runs: sources, sealed snapshots, `claims.csv`, queue and `report.md` |
-| [artifacts/synthetic/partial-resumption-2/](artifacts/synthetic/partial-resumption-2/report.md) | **Synthetic** scenario (all `SYN-*`), kept outside `artifacts/runs/`: a partial reply resuming only the work it supports. The earlier copy `partial-resumption/` (from `557b1a2`) is kept unmodified |
+| [artifacts/synthetic/partial-resumption-3/](artifacts/synthetic/partial-resumption-3/report.md) | **Synthetic** scenario (all `SYN-*`), kept outside `artifacts/runs/`: a partial reply resuming only the work it supports, a hold's stated cost, and a wrong-role reply kept as history. Earlier copies `partial-resumption/` (`557b1a2`) and `partial-resumption-2/` (`c1411c5`) are kept unmodified |
 
 ## Setup
 
@@ -58,13 +58,13 @@ python3 -m venv .venv
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
-`tests/test_primary_run.py` encodes the expected results of the current primary run under the current rules. By default it checks the newest fresh run; `TEC_RUN=<run-id>` selects another run that should meet the same expectations. It is not a test for historical runs. For example, `run-20261009T023446Z` predates interview 3, so its C117 ownership correctly differs, runs before `run-20261009T173123Z` predate interview 4, so C21's funding return still sits with the employee there, and runs before `run-20261009T175711Z` predate interview 5's return-request wording. Check older runs with `verify <run-id>` (and `--compare` for replays).
+`tests/test_primary_run.py` encodes the expected results of the current primary run under the current rules. By default it checks the newest fresh run; `TEC_RUN=<run-id>` selects another run that should meet the same expectations. It is not a test for historical runs. For example, `run-20261009T023446Z` predates interview 3, so its C117 ownership correctly differs, runs before `run-20261009T173123Z` predate interview 4, so C21's funding return still sits with the employee there, runs before `run-20261009T175711Z` predate interview 5's return-request wording, and runs before `run-20261009T181801Z` have no hold-impact explanations. Check older runs with `verify <run-id>` (and `--compare` for replays).
 
 The results are success (exit 0), partial (exit 1: some source portion unusable, affected scope reported, affected claims held), or failure (exit 2: a required source unusable, no snapshots, attempt and error recorded). A run ID that already exists is refused (exit 4); sealed outputs are never overwritten. The full table is in [SKILL.md](skills/travel-expense-claim/SKILL.md#errors-and-retry).
 
 ## Submitted run results
 
-Primary run **[`run-20261009T175711Z`](artifacts/runs/run-20261009T175711Z/report.md)**: a fresh read of all five sources at code revision `c1411c5`, outcome `SUCCESS`. Its offline replay is [`replay-20261009T175720Z`](artifacts/runs/replay-20261009T175720Z/report.md). It supersedes `run-20261009T173123Z` (linked by its `run.json` sha256) to apply interview 5. C21's and C09's return requests now state the claim, revision, returning role, source versions reviewed and affected fields, and say that the reviewer who returned the work evaluates the repair. Claim states, money, owners, requests, Finance events, cancellations and issue IDs are identical to the previous primary run in every batch.
+Primary run **[`run-20261009T181801Z`](artifacts/runs/run-20261009T181801Z/report.md)**: a fresh read of all five sources at code revision `089356e`, outcome `SUCCESS`. Its offline replay is [`replay-20261009T181810Z`](artifacts/runs/replay-20261009T181810Z/report.md). It supersedes `run-20261009T175711Z` (linked by its `run.json` sha256) to apply interview 6. Each held claim now states what the whole-claim hold withholds, why, and what proceeding on independent lines would risk (report §2 "What each hold withholds", queue `hold_impact`). Report §6 tabulates review replies not admitted. Claim states, money, owners, reasons, requests, Finance events, cancellations and issues are identical to the previous primary run in every batch.
 
 | Batch | Claims | closed-reimbursed | pending | held | rejected / withdrawn | Finance events admitted | Open issues | Net paid | Cancellations (status / financial) |
 |---|---|---|---|---|---|---|---|---|---|
@@ -82,24 +82,27 @@ Still open after batch-4:
 Reasons and next actions are in report §2. The drafts are in `queue/drafts/`.
 
 Run history (every run is retained unmodified):
-- [`run-20261009T173123Z`](artifacts/runs/run-20261009T173123Z/report.md) with [`replay-20261009T173131Z`](artifacts/runs/replay-20261009T173131Z/report.md): the previous primary run at `557b1a2`, after interview 4 and before interview 5.
+- [`run-20261009T175711Z`](artifacts/runs/run-20261009T175711Z/report.md) with [`replay-20261009T175720Z`](artifacts/runs/replay-20261009T175720Z/report.md): the previous primary run at `c1411c5`, after interview 5 and before interview 6.
+- [`run-20261009T173123Z`](artifacts/runs/run-20261009T173123Z/report.md) with [`replay-20261009T173131Z`](artifacts/runs/replay-20261009T173131Z/report.md): at `557b1a2`, after interview 4 and before interview 5.
 - [`run-20261009T025952Z`](artifacts/runs/run-20261009T025952Z/report.md) with [`replay-20261009T025958Z`](artifacts/runs/replay-20261009T025958Z/report.md): at `0ebcd29`, after interview 3 and before interview 4.
 - [`run-20261009T023446Z`](artifacts/runs/run-20261009T023446Z/report.md) with [`replay-20261009T023452Z`](artifacts/runs/replay-20261009T023452Z/report.md): at `93b2b5b`, before interview 3.
 - [`run-20261009T023340Z`](artifacts/runs/run-20261009T023340Z/report.md) with [`replay-20261009T023346Z`](artifacts/runs/replay-20261009T023346Z/report.md): the first run at `698a6b0`, superseded only by the per-tab `content_sha256` addition.
 
 Verification:
-- **Primary run:** `verify run-20261009T175711Z` reports 79 checks, 0 failed. This includes that the superseded run is unchanged, and that no request is misplaced, duplicated or written with raw codes.
-- **Replay:** `verify replay-20261009T175720Z --compare run-20261009T175711Z` reports 80 checks, 0 failed.
+- **Primary run:** `verify run-20261009T181801Z` reports 79 checks, 0 failed. This includes that the superseded run is unchanged, and that no request is misplaced, duplicated or written with raw codes.
+- **Replay:** `verify replay-20261009T181810Z --compare run-20261009T181801Z` reports 80 checks, 0 failed.
 - **Earlier runs:** every one still verifies with 0 failures.
-- **Tests:** `python -m unittest discover -s tests` reports 59 tests OK: rules 4, engine branches 8, undefined categories 8, return routing 9, partial resumption 8, primary run and replay 20, failure paths 2.
+- **Tests:** `python -m unittest discover -s tests` reports 69 tests OK: rules 4, engine branches 8, undefined categories 8, return routing 9, partial resumption 10, interview 6 rules 7, primary run and replay 21, failure paths 2.
 
 Not run or not covered. The supplied sources exercise the branches listed in requirements §3. They do **not** exercise the branches below, which are covered only by synthetic tests (all identifiers `SYN-*`) or not at all:
 - **Undefined categories:** a Finance definition, an eligibility instruction (including an ineligible zero), or a reclassification. These are synthetic only (`tests/test_undefined_category.py`). The supplied sources contain no such Finance decision, and reclassification has no native source format. For C117, only "stays unresolved" is checked against real data.
-- **Invalid review replies:** wrong-role and stale-revision replies, synthetic only (`tests/test_engine_synthetic.py`). No supplied reply is rejected.
+- **Invalid review replies:** wrong-role, wrong-person and stale-revision replies, which are rejected and kept as history without advancing the case (interview 6, 02:09). Synthetic only (`tests/test_engine_synthetic.py`, `tests/test_interview6.py`, `SYN-D-C2-SUP-X` in the synthetic scenario). No supplied reply is rejected, and report §6 says so.
+- **Re-review after a late Finance rate or cap:** only the administration, budget-owner and director reviews repeat; the supervisor's stands (interview 6, 02:09). Synthetic only (`tests/test_interview6.py`). No supplied rate or cap row carries an arrival batch.
+- **Proceeding on independent lines:** not implemented. We hold the whole claim (permitted, interview 6, 02:08) and explain its cost. The independent-line alternative is described in each hold explanation but never executed.
 - **Finance redelivery conflict:** a redelivery whose payload conflicts, synthetic only. The supplied data contains only an exact replay (F-C01-1).
 - **Over-refund:** a refund larger than the remaining unrecovered amount, synthetic only.
 - **Orphan confirmation:** a cancellation confirmation that arrives before its request, and one by the wrong confirmer, synthetic only.
-- **Partial employee evidence and resumption:** synthetic only. This covers evidence arriving in a later batch, a partial reply resuming one line while another stays open, and a reply made stale by late evidence (`artifacts/synthetic/partial-resumption-2/`, `tests/test_partial_resumption.py`, `tests/fixtures/synthetic_partial_response.json`). No supplied evidence row carries an arrival batch. The only real partial response is Finance's on C20.
+- **Partial employee evidence and resumption:** synthetic only. This covers evidence arriving in a later batch, a partial reply resuming one line while another stays open, and a reply made stale by late evidence (`artifacts/synthetic/partial-resumption-3/`, `tests/test_partial_resumption.py`, `tests/fixtures/synthetic_partial_response.json`). No supplied evidence row carries an arrival batch. The only real partial response is Finance's on C20.
 - **Resuming a returned review:** the reviewer who returned the work evaluates the repair (interview 5, 01:52). This is synthetic only (`tests/test_return_routing.py`, scenario SYN-C2); C21 never receives a later reply.
 - **Returns naming an owner, unclassified or ambiguous returns:** routing to an owner named in the repair text, or to the Travel Administration Lead when none or several are named. Synthetic only. Neither supplied return names an owner, and both match a route. Who owns an unnamed repair is still an open point (requirements row 31).
 - **A second request for the same fact:** merged into the original item (interview 5, 01:51). Synthetic only; no supplied case produces two requests for the same fact and person.
@@ -110,7 +113,13 @@ Not run or not covered. The supplied sources exercise the branches listed in req
 **Trade-offs.**
 - **Deterministic engine, no model at runtime.** Every result can be replayed and verified from retained bytes, and a run costs nothing per call. The price is that free-text inputs, such as a reviewer's repair request, are read with keyword patterns (`tec/routing.py`). Text that matches no route, or more than one, goes to the Travel Administration Lead instead of being guessed.
 - **Batch-by-batch simulation.** Each batch's snapshot sees only what had arrived. This adds code compared with evaluating everything at once, but it is what makes later corrections, cancellations and late transfers show up as changes rather than as rewritten history.
-- **Conservative holds.** Every new revision is fully rechecked and needs fresh approvals for that revision, and one unresolved line holds the whole claim (interview 3, 10:49). This may ask reviewers for more work than a dependency-based recheck, but it never relies on a stale approval.
+- **Conservative revalidation.** Every new revision is fully rechecked and needs fresh approvals for that revision. Within a revision, late evidence repeats only what depends on it: a late Finance rate or cap repeats the amount-dependent reviews (interview 6, 02:09), and late receipts or proof repeat all of them (interview 5, 01:52). A new revision may ask reviewers for more work than a dependency-based recheck would, but it never relies on a stale approval.
+- **Holding the whole claim rather than paying independent lines.** Interview 6 (02:08–02:09) permits either, if the business cost is explained. We hold for three reasons:
+  - Reviews cover the whole claim revision (interview 1, 06:33), so a revision cannot be approved while its entitlement is unknown.
+  - Holding keeps `allowed_cents` a true entitlement or null, rather than a partial figure.
+  - Paying part of a revision early would mean a second payment, or a Finance adjustment and resolution if the open line changes what was paid (policy ¶11).
+
+  In the supplied data the choice changes no paid amount: only C114 (EUR 20.00) and C117 (EUR 40.00) have a supported line beside an open one, and neither has any review reply. Each hold's cost is stated in the report and queue item.
 - **Raw xlsx XML parsing and retained bytes.** Amounts keep their exact decimal text, and each run keeps about 580 KB of sources (about 1.4 MB per run in all) as evidence of what was read. The repository grows with every run.
 - **Notion's public page-chunk endpoint** instead of the official API, which would need a credential. No secret is needed, but this route is the one most likely to break. A failed read is recorded as unavailable.
 - **Sealed runs, never overwritten.** A behaviour change produces a new run linked with `--supersedes`. History stays auditable, at the cost of more run folders.
@@ -136,7 +145,7 @@ Not run or not covered. The supplied sources exercise the branches listed in req
 - **Authority:** people keep approval, exception and payment authority. The Skill only records replies, exceptions and Finance outcomes that appear in the sources, and never fabricates them. Instructions inside imported records are treated as data.
 
 **Cost and tools.**
-- **Runtime:** Python 3.13 with `pypdf` and `jsonschema`. A fresh run takes about 9 s and a replay about 1 s (`run.json` timestamps for `run-20261009T175711Z` and its replay). There are no model or API charges.
+- **Runtime:** Python 3.13 with `pypdf` and `jsonschema`. A fresh run takes about 9 s and a replay about 1 s (`run.json` timestamps for `run-20261009T181801Z` and its replay). There are no model or API charges.
 - **Development:** the cost was the coding session in Claude Code (model `claude-opus-5-5`), captured by Entire. For example, `entire checkpoint tokens 01M4GVJBHER3RKPK9HJ7F2XSTM` reports 2,871k tokens for one checkpoint, 99.6% of them cache reads of the long session context.
 
 ## Coding-session capture (Entire)
@@ -182,6 +191,7 @@ All eighteen belong to Claude Code session `96590d86-1b96-4de5-9951-fef2a17d395f
   - §8 records source access and limitations.
 - Request drafts are in `queue/drafts/<owner>.md`. They are local and unsent; a person reviews and sends them.
 - Finance or reviewer answers arrive only as new source records in a later batch. The Skill never records an answer itself.
+- A held claim's queue item and report §2 state what the hold withholds, why, and what proceeding on the independent lines would risk (interview 6, 02:08–02:09).
 - A returned claim goes to the owner the return names. Otherwise it goes to whoever must supply what the reviewer asked for: a funding decision to the budget owner (C21 → LEAD-01), an evidence correction to the employee. Anything else goes to the Travel Administration Lead to identify the owner (interviews 3–5). The reviewer who returned the work evaluates the repair.
 - An undefined expense category (for example "entertainment" on C117) stays unresolved and holds its claim until Finance supplies a definition or a cost-specific eligibility instruction (interview 3). The Travel Administration Lead follows up. Never assume eligibility or ineligibility in code.
 - If a run reports `PARTIAL` or `FAILURE`, read `sources.json` (`error`, `missing_scope`) and rerun when the native location is reachable. Use `replay` only for offline reprocessing, and it is labelled as such.
