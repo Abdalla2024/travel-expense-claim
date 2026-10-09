@@ -1,0 +1,2641 @@
+{
+ "chunks": 1,
+ "page_id": "3d80b700-541e-81ed-93eb-d386abc1dcb0",
+ "recordMap": {
+  "automation": {
+   "3a50b700-541e-8077-a734-004de0135d99": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "3a60b700-541e-80c8-81ba-004d7967d486": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "3ae0b700-541e-80c2-a2f3-004d684a37c7": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   }
+  },
+  "automation_action": {
+   "3a50b700-541e-804b-83da-005a1e52591d": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "3a50b700-541e-8080-87af-005aaaa34f1f": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "3a60b700-541e-8033-9813-005a5e1d4114": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "3ae0b700-541e-80ee-872f-005ab6b43d01": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   }
+  },
+  "block": {
+   "0c8f2f50-bc83-4fbb-b318-e939ab4b7c56": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "reader",
+     "value": {
+      "alive": true,
+      "crdt_data": {
+       "title": {
+        "n": {
+         "-lGX5bSqU80jP0HvlU7vTA,\"start\",\"end\"": {
+          "c": [],
+          "s": {
+           "i": [
+            {
+             "t": "s"
+            },
+            {
+             "c": "Only supplied Finance outcomes establish pending, failed, settled, cancellation, refund and resolution facts. Failed attempts do not change paid amount; a new attempt requires Finance authorization. An immutable event ID identifies one payload across all batches/versions: exact replay has no extra effect, conflicting replay holds the case without erasing admitted money. Validate request, payee, currency, positive integer cents, time and actor before admission. Unmatched/invalid events remain visible for Finance resolution. A confirmed refund must name a prior settled transfer and cannot exceed its unrecovered amount. Refund promises/requests do not change paid amount.",
+             "i": [
+              "Q6LpLccMbUEu",
+              1
+             ],
+             "l": 676,
+             "o": "start",
+             "t": "t"
+            },
+            {
+             "t": "e"
+            }
+           ],
+           "l": "",
+           "x": "-lGX5bSqU80jP0HvlU7vTA"
+          }
+         }
+        },
+        "r": "-lGX5bSqU80jP0HvlU7vTA,\"start\",\"end\""
+       }
+      },
+      "crdt_format_version": 1,
+      "created_time": 1789144336168,
+      "id": "0c8f2f50-bc83-4fbb-b318-e939ab4b7c56",
+      "last_edited_time": 1789144336168,
+      "parent_id": "3d80b700-541e-81ed-93eb-d386abc1dcb0",
+      "parent_table": "block",
+      "properties": {
+       "title": [
+        [
+         "Only supplied Finance outcomes establish pending, failed, settled, cancellation, refund and resolution facts. Failed attempts do not change paid amount; a new attempt requires Finance authorization. An immutable event ID identifies one payload across all batches/versions: exact replay has no extra effect, conflicting replay holds the case without erasing admitted money. Validate request, payee, currency, positive integer cents, time and actor before admission. Unmatched/invalid events remain visible for Finance resolution. A confirmed refund must name a prior settled transfer and cannot exceed its unrecovered amount. Refund promises/requests do not change paid amount."
+        ]
+       ]
+      },
+      "space_id": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+      "type": "text",
+      "version": 3
+     }
+    }
+   },
+   "20bc87a1-96f9-402e-b9b7-1607063186ab": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "reader",
+     "value": {
+      "alive": true,
+      "crdt_data": {
+       "title": {
+        "n": {
+         "DB3c-PxOKKzrLU7_wTOuBA,\"start\",\"end\"": {
+          "c": [],
+          "s": {
+           "i": [
+            {
+             "t": "s"
+            },
+            {
+             "c": "Independent travel cancellation records identify an employee initiation and supervisor confirmation separately. Each delivery states immutable event ID, cancellation process ID, requested/confirmed action, trip/permit target, exact trip ID and revision, associated permit ID and revision (both blank for a domestic trip), acting person, initiating event reference, UTC business/effective time, arrival batch and reason. Trip and permit revisions are independent of claim revisions. The trip employee may request; only the directory supervisor for that employee may confirm. Administration records these facts; Finance has no authority to confirm the business cancellation. A requested record has no initiating-event reference or effective time. A confirmation names the exact matching request and target, occurs strictly later, and takes effect at its own occurrence time. Scheduled or backdated effective times are not supported. Blank first commitment date in Trips explicitly means no commitment has yet been made.",
+             "i": [
+              "Yyl5K3PFcVGq",
+              1
+             ],
+             "l": 1017,
+             "o": "start",
+             "t": "t"
+            },
+            {
+             "t": "e"
+            }
+           ],
+           "l": "",
+           "x": "DB3c-PxOKKzrLU7_wTOuBA"
+          }
+         }
+        },
+        "r": "DB3c-PxOKKzrLU7_wTOuBA,\"start\",\"end\""
+       }
+      },
+      "crdt_format_version": 1,
+      "created_time": 1789181620875,
+      "id": "20bc87a1-96f9-402e-b9b7-1607063186ab",
+      "last_edited_time": 1789181620875,
+      "parent_id": "3d80b700-541e-81ed-93eb-d386abc1dcb0",
+      "parent_table": "block",
+      "properties": {
+       "title": [
+        [
+         "Independent travel cancellation records identify an employee initiation and supervisor confirmation separately. Each delivery states immutable event ID, cancellation process ID, requested/confirmed action, trip/permit target, exact trip ID and revision, associated permit ID and revision (both blank for a domestic trip), acting person, initiating event reference, UTC business/effective time, arrival batch and reason. Trip and permit revisions are independent of claim revisions. The trip employee may request; only the directory supervisor for that employee may confirm. Administration records these facts; Finance has no authority to confirm the business cancellation. A requested record has no initiating-event reference or effective time. A confirmation names the exact matching request and target, occurs strictly later, and takes effect at its own occurrence time. Scheduled or backdated effective times are not supported. Blank first commitment date in Trips explicitly means no commitment has yet been made."
+        ]
+       ]
+      },
+      "space_id": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+      "type": "text",
+      "version": 5
+     }
+    }
+   },
+   "22987498-ddaa-4382-a1d0-a86bd49875db": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "reader",
+     "value": {
+      "alive": true,
+      "crdt_data": {
+       "title": {
+        "n": {
+         "Jto4LhutupcaFSI7Stuc5A,\"start\",\"end\"": {
+          "c": [],
+          "s": {
+           "i": [
+            {
+             "t": "s"
+            },
+            {
+             "c": "A material change to employee, trip, dates, money, policy/evidence or authority invalidates dependent review, approvals and payment readiness even if the total is unchanged. Full recheck and justified dependency recheck are both valid. Preserve old versions and decisions as history. Before dispatch, rebuild readiness from current facts. After dispatch, hold replacement requests until Finance confirms cancellation/status. Pending cancellation is not confirmed cancellation. Withdrawal never erases an actual payment.",
+             "i": [
+              "JJWRwfHakFrc",
+              1
+             ],
+             "l": 519,
+             "o": "start",
+             "t": "t"
+            },
+            {
+             "t": "e"
+            }
+           ],
+           "l": "",
+           "x": "Jto4LhutupcaFSI7Stuc5A"
+          }
+         }
+        },
+        "r": "Jto4LhutupcaFSI7Stuc5A,\"start\",\"end\""
+       }
+      },
+      "crdt_format_version": 1,
+      "created_time": 1789144336166,
+      "id": "22987498-ddaa-4382-a1d0-a86bd49875db",
+      "last_edited_time": 1789144336166,
+      "parent_id": "3d80b700-541e-81ed-93eb-d386abc1dcb0",
+      "parent_table": "block",
+      "properties": {
+       "title": [
+        [
+         "A material change to employee, trip, dates, money, policy/evidence or authority invalidates dependent review, approvals and payment readiness even if the total is unchanged. Full recheck and justified dependency recheck are both valid. Preserve old versions and decisions as history. Before dispatch, rebuild readiness from current facts. After dispatch, hold replacement requests until Finance confirms cancellation/status. Pending cancellation is not confirmed cancellation. Withdrawal never erases an actual payment."
+        ]
+       ]
+      },
+      "space_id": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+      "type": "text",
+      "version": 3
+     }
+    }
+   },
+   "379e8009-aa19-4b3b-b95f-f5965f273f5d": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "reader",
+     "value": {
+      "alive": true,
+      "crdt_data": {
+       "title": {
+        "n": {
+         "vVt0GblMxQlySI7PS8oMfg,\"start\",\"end\"": {
+          "c": [],
+          "s": {
+           "i": [
+            {
+             "t": "s"
+            },
+            {
+             "c": "A payment request is a proposal to Finance, not a transfer. Use a stable request ID for the same obligation; replay cannot create another request or reimbursement of a previously committed/settled cost. A later final claim may contain a previously prepaid cost; link and exclude that settled obligation, showing the remaining entitlement rather than paying it twice. Legitimate adjustments link the original claim/cost/request and preserve its transfers.",
+             "i": [
+              "pppr-0GKpnft",
+              1
+             ],
+             "l": 454,
+             "o": "start",
+             "t": "t"
+            },
+            {
+             "t": "e"
+            }
+           ],
+           "l": "",
+           "x": "vVt0GblMxQlySI7PS8oMfg"
+          }
+         }
+        },
+        "r": "vVt0GblMxQlySI7PS8oMfg,\"start\",\"end\""
+       }
+      },
+      "crdt_format_version": 1,
+      "created_time": 1789144336167,
+      "id": "379e8009-aa19-4b3b-b95f-f5965f273f5d",
+      "last_edited_time": 1789144336167,
+      "parent_id": "3d80b700-541e-81ed-93eb-d386abc1dcb0",
+      "parent_table": "block",
+      "properties": {
+       "title": [
+        [
+         "A payment request is a proposal to Finance, not a transfer. Use a stable request ID for the same obligation; replay cannot create another request or reimbursement of a previously committed/settled cost. A later final claim may contain a previously prepaid cost; link and exclude that settled obligation, showing the remaining entitlement rather than paying it twice. Legitimate adjustments link the original claim/cost/request and preserve its transfers."
+        ]
+       ]
+      },
+      "space_id": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+      "type": "text",
+      "version": 3
+     }
+    }
+   },
+   "39c0b700-541e-8015-b902-e468f987dea9": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "39c0b700-541e-8025-8932-e35634e28c19": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "3a30b700-541e-81cf-a0c7-f18261458efd": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "3b60b700-541e-80b0-a74c-e6c754eb419f": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "3c166324-31fd-4a6f-87f7-0d293556e454": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "reader",
+     "value": {
+      "alive": true,
+      "crdt_data": {
+       "title": {
+        "n": {
+         "kAztSfVEFmUou5kBXC7BTA,\"start\",\"end\"": {
+          "c": [],
+          "s": {
+           "i": [
+            {
+             "t": "s"
+            },
+            {
+             "c": "Net paid = admitted confirmed transfers minus linked confirmed refunds. Current balance = current authorized obligation minus net paid; a negative balance is an overpayment requiring Finance resolution. Partial settlement stays pending. Cancellation or a previously closed state never stops observation: a later transfer reopens reconciliation. ",
+             "i": [
+              "JeNXhsBozO03",
+              1
+             ],
+             "l": 345,
+             "o": "start",
+             "t": "t"
+            },
+            {
+             "c": "A",
+             "i": [
+              "y89PtJeP90Cv",
+              747
+             ],
+             "l": 1,
+             "o": [
+              "JeNXhsBozO03",
+              345
+             ],
+             "t": "t"
+            },
+            {
+             "i": [
+              "JeNXhsBozO03",
+              346
+             ],
+             "l": -13,
+             "o": [
+              "JeNXhsBozO03",
+              345
+             ],
+             "t": "t"
+            },
+            {
+             "c": " correction",
+             "i": [
+              "JeNXhsBozO03",
+              359
+             ],
+             "l": 11,
+             "o": [
+              "JeNXhsBozO03",
+              358
+             ],
+             "t": "t"
+            },
+            {
+             "c": " or",
+             "i": [
+              "y89PtJeP90Cv",
+              748
+             ],
+             "l": 3,
+             "o": [
+              "JeNXhsBozO03",
+              369
+             ],
+             "t": "t"
+            },
+            {
+             "i": [
+              "JeNXhsBozO03",
+              370
+             ],
+             "l": -1,
+             "o": [
+              "JeNXhsBozO03",
+              369
+             ],
+             "t": "t"
+            },
+            {
+             "c": " cancellation ",
+             "i": [
+              "JeNXhsBozO03",
+              371
+             ],
+             "l": 14,
+             "o": [
+              "JeNXhsBozO03",
+              370
+             ],
+             "t": "t"
+            },
+            {
+             "c": "th",
+             "i": [
+              "y89PtJeP90Cv",
+              751
+             ],
+             "l": 2,
+             "o": [
+              "JeNXhsBozO03",
+              384
+             ],
+             "t": "t"
+            },
+            {
+             "c": "a",
+             "i": [
+              "JeNXhsBozO03",
+              385
+             ],
+             "l": 1,
+             "o": [
+              "JeNXhsBozO03",
+              384
+             ],
+             "t": "t"
+            },
+            {
+             "c": "t occurs after Fi",
+             "i": [
+              "y89PtJeP90Cv",
+              753
+             ],
+             "l": 17,
+             "o": [
+              "JeNXhsBozO03",
+              385
+             ],
+             "t": "t"
+            },
+            {
+             "c": "n",
+             "i": [
+              "JeNXhsBozO03",
+              386
+             ],
+             "l": 1,
+             "o": [
+              "JeNXhsBozO03",
+              385
+             ],
+             "t": "t"
+            },
+            {
+             "c": "ance",
+             "i": [
+              "y89PtJeP90Cv",
+              770
+             ],
+             "l": 4,
+             "o": [
+              "JeNXhsBozO03",
+              386
+             ],
+             "t": "t"
+            },
+            {
+             "i": [
+              "JeNXhsBozO03",
+              387
+             ],
+             "l": -1,
+             "o": [
+              "JeNXhsBozO03",
+              386
+             ],
+             "t": "t"
+            },
+            {
+             "c": " ",
+             "i": [
+              "JeNXhsBozO03",
+              388
+             ],
+             "l": 1,
+             "o": [
+              "JeNXhsBozO03",
+              387
+             ],
+             "t": "t"
+            },
+            {
+             "c": "has acce",
+             "i": [
+              "y89PtJeP90Cv",
+              774
+             ],
+             "l": 8,
+             "o": [
+              "JeNXhsBozO03",
+              388
+             ],
+             "t": "t"
+            },
+            {
+             "c": "p",
+             "i": [
+              "JeNXhsBozO03",
+              389
+             ],
+             "l": 1,
+             "o": [
+              "JeNXhsBozO03",
+              388
+             ],
+             "t": "t"
+            },
+            {
+             "c": "ted ",
+             "i": [
+              "y89PtJeP90Cv",
+              782
+             ],
+             "l": 4,
+             "o": [
+              "JeNXhsBozO03",
+              389
+             ],
+             "t": "t"
+            },
+            {
+             "c": "o",
+             "i": [
+              "JeNXhsBozO03",
+              390
+             ],
+             "l": 1,
+             "o": [
+              "JeNXhsBozO03",
+              389
+             ],
+             "t": "t"
+            },
+            {
+             "c": "r di",
+             "i": [
+              "y89PtJeP90Cv",
+              786
+             ],
+             "l": 4,
+             "o": [
+              "JeNXhsBozO03",
+              390
+             ],
+             "t": "t"
+            },
+            {
+             "c": "s",
+             "i": [
+              "JeNXhsBozO03",
+              391
+             ],
+             "l": 1,
+             "o": [
+              "JeNXhsBozO03",
+              390
+             ],
+             "t": "t"
+            },
+            {
+             "i": [
+              "JeNXhsBozO03",
+              392
+             ],
+             "l": -2,
+             "o": [
+              "JeNXhsBozO03",
+              391
+             ],
+             "t": "t"
+            },
+            {
+             "c": "pa",
+             "i": [
+              "JeNXhsBozO03",
+              394
+             ],
+             "l": 2,
+             "o": [
+              "JeNXhsBozO03",
+              393
+             ],
+             "t": "t"
+            },
+            {
+             "c": "tch",
+             "i": [
+              "y89PtJeP90Cv",
+              790
+             ],
+             "l": 3,
+             "o": [
+              "JeNXhsBozO03",
+              395
+             ],
+             "t": "t"
+            },
+            {
+             "i": [
+              "JeNXhsBozO03",
+              396
+             ],
+             "l": -2,
+             "o": [
+              "JeNXhsBozO03",
+              395
+             ],
+             "t": "t"
+            },
+            {
+             "c": "e",
+             "i": [
+              "JeNXhsBozO03",
+              398
+             ],
+             "l": 1,
+             "o": [
+              "JeNXhsBozO03",
+              397
+             ],
+             "t": "t"
+            },
+            {
+             "c": "d ",
+             "i": [
+              "y89PtJeP90Cv",
+              793
+             ],
+             "l": 2,
+             "o": [
+              "JeNXhsBozO03",
+              398
+             ],
+             "t": "t"
+            },
+            {
+             "i": [
+              "JeNXhsBozO03",
+              399
+             ],
+             "l": -1,
+             "o": [
+              "JeNXhsBozO03",
+              398
+             ],
+             "t": "t"
+            },
+            {
+             "c": "t",
+             "i": [
+              "JeNXhsBozO03",
+              400
+             ],
+             "l": 1,
+             "o": [
+              "JeNXhsBozO03",
+              399
+             ],
+             "t": "t"
+            },
+            {
+             "c": "he",
+             "i": [
+              "y89PtJeP90Cv",
+              795
+             ],
+             "l": 2,
+             "o": [
+              "JeNXhsBozO03",
+              400
+             ],
+             "t": "t"
+            },
+            {
+             "c": " a",
+             "i": [
+              "JeNXhsBozO03",
+              401
+             ],
+             "l": 2,
+             "o": [
+              "JeNXhsBozO03",
+              400
+             ],
+             "t": "t"
+            },
+            {
+             "c": "ffecte",
+             "i": [
+              "y89PtJeP90Cv",
+              797
+             ],
+             "l": 6,
+             "o": [
+              "JeNXhsBozO03",
+              402
+             ],
+             "t": "t"
+            },
+            {
+             "c": "d",
+             "i": [
+              "JeNXhsBozO03",
+              403
+             ],
+             "l": 1,
+             "o": [
+              "JeNXhsBozO03",
+              402
+             ],
+             "t": "t"
+            },
+            {
+             "c": " reimb",
+             "i": [
+              "y89PtJeP90Cv",
+              803
+             ],
+             "l": 6,
+             "o": [
+              "JeNXhsBozO03",
+              403
+             ],
+             "t": "t"
+            },
+            {
+             "i": [
+              "JeNXhsBozO03",
+              404
+             ],
+             "l": -1,
+             "o": [
+              "JeNXhsBozO03",
+              403
+             ],
+             "t": "t"
+            },
+            {
+             "c": "u",
+             "i": [
+              "JeNXhsBozO03",
+              405
+             ],
+             "l": 1,
+             "o": [
+              "JeNXhsBozO03",
+              404
+             ],
+             "t": "t"
+            },
+            {
+             "c": "r",
+             "i": [
+              "y89PtJeP90Cv",
+              809
+             ],
+             "l": 1,
+             "o": [
+              "JeNXhsBozO03",
+              405
+             ],
+             "t": "t"
+            },
+            {
+             "c": "s",
+             "i": [
+              "JeNXhsBozO03",
+              406
+             ],
+             "l": 1,
+             "o": [
+              "JeNXhsBozO03",
+              405
+             ],
+             "t": "t"
+            },
+            {
+             "c": "e",
+             "i": [
+              "y89PtJeP90Cv",
+              810
+             ],
+             "l": 1,
+             "o": [
+              "JeNXhsBozO03",
+              406
+             ],
+             "t": "t"
+            },
+            {
+             "i": [
+              "JeNXhsBozO03",
+              407
+             ],
+             "l": -1,
+             "o": [
+              "JeNXhsBozO03",
+              406
+             ],
+             "t": "t"
+            },
+            {
+             "c": "ment ",
+             "i": [
+              "JeNXhsBozO03",
+              408
+             ],
+             "l": 5,
+             "o": [
+              "JeNXhsBozO03",
+              407
+             ],
+             "t": "t"
+            },
+            {
+             "c": "r",
+             "i": [
+              "y89PtJeP90Cv",
+              811
+             ],
+             "l": 1,
+             "o": [
+              "JeNXhsBozO03",
+              412
+             ],
+             "t": "t"
+            },
+            {
+             "i": [
+              "JeNXhsBozO03",
+              413
+             ],
+             "l": -1,
+             "o": [
+              "JeNXhsBozO03",
+              412
+             ],
+             "t": "t"
+            },
+            {
+             "c": "e",
+             "i": [
+              "JeNXhsBozO03",
+              414
+             ],
+             "l": 1,
+             "o": [
+              "JeNXhsBozO03",
+              413
+             ],
+             "t": "t"
+            },
+            {
+             "c": "qu",
+             "i": [
+              "y89PtJeP90Cv",
+              812
+             ],
+             "l": 2,
+             "o": [
+              "JeNXhsBozO03",
+              414
+             ],
+             "t": "t"
+            },
+            {
+             "c": "e",
+             "i": [
+              "JeNXhsBozO03",
+              415
+             ],
+             "l": 1,
+             "o": [
+              "JeNXhsBozO03",
+              414
+             ],
+             "t": "t"
+            },
+            {
+             "c": "st requires",
+             "i": [
+              "y89PtJeP90Cv",
+              814
+             ],
+             "l": 11,
+             "o": [
+              "JeNXhsBozO03",
+              415
+             ],
+             "t": "t"
+            },
+            {
+             "i": [
+              "JeNXhsBozO03",
+              416
+             ],
+             "l": -1,
+             "o": [
+              "JeNXhsBozO03",
+              415
+             ],
+             "t": "t"
+            },
+            {
+             "c": " explicit Finance resolution before closure",
+             "i": [
+              "JeNXhsBozO03",
+              417
+             ],
+             "l": 43,
+             "o": [
+              "JeNXhsBozO03",
+              416
+             ],
+             "t": "t"
+            },
+            {
+             "c": ". A post-payment adjustment also requires that resolution",
+             "i": [
+              "y89PtJeP90Cv",
+              825
+             ],
+             "l": 57,
+             "o": [
+              "JeNXhsBozO03",
+              459
+             ],
+             "t": "t"
+            },
+            {
+             "c": ", even if net paid happens to match. Close reimbursed only when current approvals, obligation, net paid and all required resolutions agree and no issue remains. Zero entitlement, rejection and clean withdrawal close with an explicit non-payment reason and no unresolved financial effect.",
+             "i": [
+              "JeNXhsBozO03",
+              460
+             ],
+             "l": 287,
+             "o": [
+              "JeNXhsBozO03",
+              459
+             ],
+             "t": "t"
+            },
+            {
+             "t": "e"
+            }
+           ],
+           "l": "",
+           "x": "kAztSfVEFmUou5kBXC7BTA"
+          }
+         }
+        },
+        "r": "kAztSfVEFmUou5kBXC7BTA,\"start\",\"end\""
+       }
+      },
+      "crdt_format_version": 1,
+      "created_time": 1789144336169,
+      "id": "3c166324-31fd-4a6f-87f7-0d293556e454",
+      "last_edited_time": 1789187566283,
+      "parent_id": "3d80b700-541e-81ed-93eb-d386abc1dcb0",
+      "parent_table": "block",
+      "properties": {
+       "title": [
+        [
+         "Net paid = admitted confirmed transfers minus linked confirmed refunds. Current balance = current authorized obligation minus net paid; a negative balance is an overpayment requiring Finance resolution. Partial settlement stays pending. Cancellation or a previously closed state never stops observation: a later transfer reopens reconciliation. A correction or cancellation that occurs after Finance has accepted or dispatched the affected reimbursement request requires explicit Finance resolution before closure. A post-payment adjustment also requires that resolution, even if net paid happens to match. Close reimbursed only when current approvals, obligation, net paid and all required resolutions agree and no issue remains. Zero entitlement, rejection and clean withdrawal close with an explicit non-payment reason and no unresolved financial effect."
+        ]
+       ]
+      },
+      "space_id": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+      "type": "text",
+      "version": 8
+     }
+    }
+   },
+   "3d80b700-541e-81ed-93eb-d386abc1dcb0": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "reader",
+     "value": {
+      "alive": true,
+      "content": [
+       "e3591009-7b15-4bb4-adb3-e491e2d5cf46",
+       "a1c3c9d4-b3c3-4338-b821-c9a15adda762",
+       "45952925-e61a-4c7f-b8f1-67202e71fd05",
+       "af8aa581-adc4-4c33-80f4-8de44299f761",
+       "959359c1-a5b9-4969-a5df-64eaed2b3c86",
+       "9a148fb7-1383-40fa-80ee-30aec497a7c8",
+       "8d4b4e6a-dc66-4ac7-b56a-44873986d757",
+       "22987498-ddaa-4382-a1d0-a86bd49875db",
+       "379e8009-aa19-4b3b-b95f-f5965f273f5d",
+       "0c8f2f50-bc83-4fbb-b318-e939ab4b7c56",
+       "3c166324-31fd-4a6f-87f7-0d293556e454",
+       "8aba7828-3484-4dd4-b4a1-e5350de786bc",
+       "20bc87a1-96f9-402e-b9b7-1607063186ab",
+       "907b664e-91cf-46ba-9b47-5d5e6fe71340",
+       "92b75e02-d6fe-4777-a5e6-913901c4c14d",
+       "bd011654-2948-4c81-8ff3-6741f3797f2c"
+      ],
+      "crdt_data": {
+       "title": {
+        "n": {
+         "aYWyq9wV-uaA6nlPpMpvWA,\"start\",\"end\"": {
+          "c": [],
+          "s": {
+           "i": [
+            {
+             "t": "s"
+            },
+            {
+             "c": "Project D · Alderbridge travel reimbursement policy · POL-2026.",
+             "i": [
+              "WWnb_uOP7ALq",
+              1
+             ],
+             "l": 63,
+             "o": "start",
+             "t": "t"
+            },
+            {
+             "c": "2",
+             "i": [
+              "CF7o1L_wDYO7",
+              65
+             ],
+             "l": 1,
+             "o": [
+              "WWnb_uOP7ALq",
+              63
+             ],
+             "t": "t"
+            },
+            {
+             "i": [
+              "WWnb_uOP7ALq",
+              64
+             ],
+             "l": -1,
+             "o": [
+              "WWnb_uOP7ALq",
+              63
+             ],
+             "t": "t"
+            },
+            {
+             "t": "e"
+            }
+           ],
+           "l": "",
+           "x": "aYWyq9wV-uaA6nlPpMpvWA"
+          }
+         }
+        },
+        "r": "aYWyq9wV-uaA6nlPpMpvWA,\"start\",\"end\""
+       }
+      },
+      "crdt_format_version": 1,
+      "created_time": 1789144336139,
+      "file_ids": [
+       "5091f68e-d5af-4b25-acaf-a70c70393a85"
+      ],
+      "format": {
+       "site_id": "3d80b700-541e-8065-aa72-0079c90400e0",
+       "social_media_image_preview_url": "attachment:5091f68e-d5af-4b25-acaf-a70c70393a85:SocialMediaPreviewImage.png"
+      },
+      "id": "3d80b700-541e-81ed-93eb-d386abc1dcb0",
+      "last_edited_time": 1789188077498,
+      "parent_id": "3a30b700-541e-81cf-a0c7-f18261458efd",
+      "parent_table": "block",
+      "permissions": [
+       {
+        "added_timestamp": 1789144427549,
+        "is_public_share_link": true,
+        "is_site": true,
+        "role": "reader",
+        "type": "public_permission"
+       }
+      ],
+      "properties": {
+       "title": [
+        [
+         "Project D · Alderbridge travel reimbursement policy · POL-2026.2"
+        ]
+       ]
+      },
+      "space_id": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+      "type": "page",
+      "version": 29
+     }
+    }
+   },
+   "45952925-e61a-4c7f-b8f1-67202e71fd05": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "reader",
+     "value": {
+      "alive": true,
+      "crdt_data": {
+       "title": {
+        "n": {
+         "1HZ6WH-K9YpKYjMk3YzkjA,\"start\",\"end\"": {
+          "c": [],
+          "s": {
+           "i": [
+            {
+             "t": "s"
+            },
+            {
+             "c": "Transport and conference have no category cap. Lodging uses the supplied cap per night; meals use the supplied cap per day. For each line, allowed original amount = min(supported gross amount, applicable cap × documented units); transport/conference use supported gross amount. Caps are in the expense currency for the destination and employee-payment date. Units are positive integers. No per diem or automatic allowance is payable. Apply Finance's exact payment-date EUR-per-currency-unit rate; EUR uses 1. Round each converted line to EUR cents using decimal half-up; sum rounded line amounts. Finance can issue an explicit, version-bound exception with a replacement allowed amount and reason; neither the employee nor automation invents one. Each supplied exception states actor, claim/revision, cost, replacement allowed original amount, reason and ",
+             "i": [
+              "gSuLoac3f5qt",
+              1
+             ],
+             "l": 855,
+             "o": "start",
+             "t": "t"
+            },
+            {
+             "b": [
+              {
+               "a": [
+                "c"
+               ],
+               "e": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 870
+                ]
+               },
+               "i": [
+                "gSuLoac3f5qt",
+                1163
+               ],
+               "l": "",
+               "s": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 856
+                ]
+               },
+               "t": "a",
+               "x": "1HZ6WH-K9YpKYjMk3YzkjA"
+              },
+              {
+               "e": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 870
+                ]
+               },
+               "i": [
+                "PYy1-UIOIwHn",
+                1193
+               ],
+               "k": "c",
+               "l": "",
+               "s": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 856
+                ]
+               },
+               "t": "r",
+               "x": "1HZ6WH-K9YpKYjMk3YzkjA"
+              },
+              {
+               "a": [
+                "c"
+               ],
+               "e": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 870
+                ]
+               },
+               "i": [
+                "PYy1-UIOIwHn",
+                1197
+               ],
+               "l": "",
+               "s": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 856
+                ]
+               },
+               "t": "a",
+               "x": "1HZ6WH-K9YpKYjMk3YzkjA"
+              }
+             ],
+             "c": "covered_issues",
+             "i": [
+              "gSuLoac3f5qt",
+              856
+             ],
+             "l": 14,
+             "o": [
+              "gSuLoac3f5qt",
+              855
+             ],
+             "t": "t"
+            },
+            {
+             "b": [],
+             "c": ". That list may explicitly resolve ",
+             "i": [
+              "gSuLoac3f5qt",
+              870
+             ],
+             "l": 35,
+             "o": [
+              "gSuLoac3f5qt",
+              869
+             ],
+             "t": "t"
+            },
+            {
+             "b": [
+              {
+               "a": [
+                "c"
+               ],
+               "e": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 916
+                ]
+               },
+               "i": [
+                "gSuLoac3f5qt",
+                1164
+               ],
+               "l": "",
+               "s": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 905
+                ]
+               },
+               "t": "a",
+               "x": "1HZ6WH-K9YpKYjMk3YzkjA"
+              },
+              {
+               "e": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 916
+                ]
+               },
+               "i": [
+                "PYy1-UIOIwHn",
+                1194
+               ],
+               "k": "c",
+               "l": "",
+               "s": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 905
+                ]
+               },
+               "t": "r",
+               "x": "1HZ6WH-K9YpKYjMk3YzkjA"
+              },
+              {
+               "a": [
+                "c"
+               ],
+               "e": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 916
+                ]
+               },
+               "i": [
+                "PYy1-UIOIwHn",
+                1198
+               ],
+               "l": "",
+               "s": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 905
+                ]
+               },
+               "t": "a",
+               "x": "1HZ6WH-K9YpKYjMk3YzkjA"
+              }
+             ],
+             "c": "late_filing",
+             "i": [
+              "gSuLoac3f5qt",
+              905
+             ],
+             "l": 11,
+             "o": [
+              "gSuLoac3f5qt",
+              904
+             ],
+             "t": "t"
+            },
+            {
+             "b": [],
+             "c": ", ",
+             "i": [
+              "gSuLoac3f5qt",
+              916
+             ],
+             "l": 2,
+             "o": [
+              "gSuLoac3f5qt",
+              915
+             ],
+             "t": "t"
+            },
+            {
+             "b": [
+              {
+               "a": [
+                "c"
+               ],
+               "e": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 929
+                ]
+               },
+               "i": [
+                "gSuLoac3f5qt",
+                1165
+               ],
+               "l": "",
+               "s": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 918
+                ]
+               },
+               "t": "a",
+               "x": "1HZ6WH-K9YpKYjMk3YzkjA"
+              },
+              {
+               "e": {
+                "a": "b",
+                "i": [
+                 "PYy1-UIOIwHn",
+                 1167
+                ]
+               },
+               "i": [
+                "PYy1-UIOIwHn",
+                1195
+               ],
+               "k": "c",
+               "l": "",
+               "s": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 918
+                ]
+               },
+               "t": "r",
+               "x": "1HZ6WH-K9YpKYjMk3YzkjA"
+              },
+              {
+               "a": [
+                "c"
+               ],
+               "e": {
+                "a": "b",
+                "i": [
+                 "PYy1-UIOIwHn",
+                 1167
+                ]
+               },
+               "i": [
+                "PYy1-UIOIwHn",
+                1199
+               ],
+               "l": "",
+               "s": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 918
+                ]
+               },
+               "t": "a",
+               "x": "1HZ6WH-K9YpKYjMk3YzkjA"
+              }
+             ],
+             "c": "late_permit",
+             "i": [
+              "gSuLoac3f5qt",
+              918
+             ],
+             "l": 11,
+             "o": [
+              "gSuLoac3f5qt",
+              917
+             ],
+             "t": "t"
+            },
+            {
+             "b": [
+              {
+               "a": [
+                "c"
+               ],
+               "e": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 929
+                ]
+               },
+               "i": [
+                "gSuLoac3f5qt",
+                1165
+               ],
+               "l": "",
+               "s": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 918
+                ]
+               },
+               "t": "a",
+               "x": "1HZ6WH-K9YpKYjMk3YzkjA"
+              },
+              {
+               "e": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 929
+                ]
+               },
+               "i": [
+                "PYy1-UIOIwHn",
+                1168
+               ],
+               "k": "c",
+               "l": "",
+               "s": {
+                "a": "b",
+                "i": [
+                 "PYy1-UIOIwHn",
+                 1167
+                ]
+               },
+               "t": "r",
+               "x": "1HZ6WH-K9YpKYjMk3YzkjA"
+              }
+             ],
+             "c": ",",
+             "i": [
+              "PYy1-UIOIwHn",
+              1167
+             ],
+             "l": 1,
+             "o": [
+              "gSuLoac3f5qt",
+              928
+             ],
+             "t": "t"
+            },
+            {
+             "b": [],
+             "i": [
+              "gSuLoac3f5qt",
+              929
+             ],
+             "l": -3,
+             "o": [
+              "gSuLoac3f5qt",
+              928
+             ],
+             "t": "t"
+            },
+            {
+             "c": " ",
+             "i": [
+              "gSuLoac3f5qt",
+              932
+             ],
+             "l": 1,
+             "o": [
+              "gSuLoac3f5qt",
+              931
+             ],
+             "t": "t"
+            },
+            {
+             "b": [
+              {
+               "a": [
+                "c"
+               ],
+               "e": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 950
+                ]
+               },
+               "i": [
+                "gSuLoac3f5qt",
+                1166
+               ],
+               "l": "",
+               "s": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 933
+                ]
+               },
+               "t": "a",
+               "x": "1HZ6WH-K9YpKYjMk3YzkjA"
+              },
+              {
+               "e": {
+                "a": "b",
+                "i": [
+                 "PYy1-UIOIwHn",
+                 1169
+                ]
+               },
+               "i": [
+                "PYy1-UIOIwHn",
+                1196
+               ],
+               "k": "c",
+               "l": "",
+               "s": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 933
+                ]
+               },
+               "t": "r",
+               "x": "1HZ6WH-K9YpKYjMk3YzkjA"
+              },
+              {
+               "a": [
+                "c"
+               ],
+               "e": {
+                "a": "b",
+                "i": [
+                 "PYy1-UIOIwHn",
+                 1169
+                ]
+               },
+               "i": [
+                "PYy1-UIOIwHn",
+                1200
+               ],
+               "l": "",
+               "s": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 933
+                ]
+               },
+               "t": "a",
+               "x": "1HZ6WH-K9YpKYjMk3YzkjA"
+              }
+             ],
+             "c": "permit_unapproved",
+             "i": [
+              "gSuLoac3f5qt",
+              933
+             ],
+             "l": 17,
+             "o": [
+              "gSuLoac3f5qt",
+              932
+             ],
+             "t": "t"
+            },
+            {
+             "b": [
+              {
+               "a": [
+                "c"
+               ],
+               "e": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 950
+                ]
+               },
+               "i": [
+                "gSuLoac3f5qt",
+                1166
+               ],
+               "l": "",
+               "s": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 933
+                ]
+               },
+               "t": "a",
+               "x": "1HZ6WH-K9YpKYjMk3YzkjA"
+              },
+              {
+               "e": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 950
+                ]
+               },
+               "i": [
+                "PYy1-UIOIwHn",
+                1192
+               ],
+               "k": "c",
+               "l": "",
+               "s": {
+                "a": "b",
+                "i": [
+                 "PYy1-UIOIwHn",
+                 1169
+                ]
+               },
+               "t": "r",
+               "x": "1HZ6WH-K9YpKYjMk3YzkjA"
+              }
+             ],
+             "c": " or ",
+             "i": [
+              "PYy1-UIOIwHn",
+              1169
+             ],
+             "l": 4,
+             "o": [
+              "gSuLoac3f5qt",
+              949
+             ],
+             "t": "t"
+            },
+            {
+             "b": [
+              {
+               "a": [
+                "c"
+               ],
+               "e": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 950
+                ]
+               },
+               "i": [
+                "gSuLoac3f5qt",
+                1166
+               ],
+               "l": "",
+               "s": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 933
+                ]
+               },
+               "t": "a",
+               "x": "1HZ6WH-K9YpKYjMk3YzkjA"
+              },
+              {
+               "e": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 950
+                ]
+               },
+               "i": [
+                "PYy1-UIOIwHn",
+                1192
+               ],
+               "k": "c",
+               "l": "",
+               "s": {
+                "a": "b",
+                "i": [
+                 "PYy1-UIOIwHn",
+                 1169
+                ]
+               },
+               "t": "r",
+               "x": "1HZ6WH-K9YpKYjMk3YzkjA"
+              },
+              {
+               "a": [
+                "c"
+               ],
+               "e": {
+                "a": "b",
+                "i": [
+                 "gSuLoac3f5qt",
+                 950
+                ]
+               },
+               "i": [
+                "PYy1-UIOIwHn",
+                1201
+               ],
+               "l": "",
+               "s": {
+                "a": "b",
+                "i": [
+                 "PYy1-UIOIwHn",
+                 1173
+                ]
+               },
+               "t": "a",
+               "x": "1HZ6WH-K9YpKYjMk3YzkjA"
+              }
+             ],
+             "c": "travel_cancellation",
+             "i": [
+              "PYy1-UIOIwHn",
+              1173
+             ],
+             "l": 19,
+             "o": [
+              "PYy1-UIOIwHn",
+              1172
+             ],
+             "t": "t"
+            },
+            {
+             "b": [],
+             "c": " for reimbursement eligibility only; an amount-only exception uses an empty list. Retain the original finding and exception reference. No exception makes an unpaid cost paid or retroactively approves arrangements.",
+             "i": [
+              "gSuLoac3f5qt",
+              950
+             ],
+             "l": 213,
+             "o": [
+              "gSuLoac3f5qt",
+              949
+             ],
+             "t": "t"
+            },
+            {
+             "t": "e"
+            }
+           ],
+           "l": "",
+           "x": "1HZ6WH-K9YpKYjMk3YzkjA"
+          }
+         }
+        },
+        "r": "1HZ6WH-K9YpKYjMk3YzkjA,\"start\",\"end\""
+       }
+      },
+      "crdt_format_version": 1,
+      "created_time": 1789144336160,
+      "id": "45952925-e61a-4c7f-b8f1-67202e71fd05",
+      "last_edited_time": 1789181620874,
+      "parent_id": "3d80b700-541e-81ed-93eb-d386abc1dcb0",
+      "parent_table": "block",
+      "properties": {
+       "title": [
+        [
+         "Transport and conference have no category cap. Lodging uses the supplied cap per night; meals use the supplied cap per day. For each line, allowed original amount = min(supported gross amount, applicable cap × documented units); transport/conference use supported gross amount. Caps are in the expense currency for the destination and employee-payment date. Units are positive integers. No per diem or automatic allowance is payable. Apply Finance's exact payment-date EUR-per-currency-unit rate; EUR uses 1. Round each converted line to EUR cents using decimal half-up; sum rounded line amounts. Finance can issue an explicit, version-bound exception with a replacement allowed amount and reason; neither the employee nor automation invents one. Each supplied exception states actor, claim/revision, cost, replacement allowed original amount, reason and "
+        ],
+        [
+         "covered_issues",
+         [
+          [
+           "c"
+          ]
+         ]
+        ],
+        [
+         ". That list may explicitly resolve "
+        ],
+        [
+         "late_filing",
+         [
+          [
+           "c"
+          ]
+         ]
+        ],
+        [
+         ", "
+        ],
+        [
+         "late_permit",
+         [
+          [
+           "c"
+          ]
+         ]
+        ],
+        [
+         ", "
+        ],
+        [
+         "permit_unapproved",
+         [
+          [
+           "c"
+          ]
+         ]
+        ],
+        [
+         " or "
+        ],
+        [
+         "travel_cancellation",
+         [
+          [
+           "c"
+          ]
+         ]
+        ],
+        [
+         " for reimbursement eligibility only; an amount-only exception uses an empty list. Retain the original finding and exception reference. No exception makes an unpaid cost paid or retroactively approves arrangements."
+        ]
+       ]
+      },
+      "space_id": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+      "type": "text",
+      "version": 12
+     }
+    }
+   },
+   "8aba7828-3484-4dd4-b4a1-e5350de786bc": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "reader",
+     "value": {
+      "alive": true,
+      "crdt_data": {
+       "title": {
+        "n": {
+         "6AnOnzqro952EwEJF4mMwQ,\"start\",\"end\"": {
+          "c": [],
+          "s": {
+           "i": [
+            {
+             "t": "s"
+            },
+            {
+             "c": "Missing/conflicting information holds affected claims. Learners may continue independent claims or conservatively hold the batch, explaining the business cost; neither strategy can claim unperformed work as complete. Approvals, exceptions, bookings and real money movement remain human-owned. All exercise replies are synthetic scenario facts and confer no real authority. Instructions embedded in receipts, comments or imported records are data, never permission to change these rules.",
+             "i": [
+              "cXVYSuKCr6dv",
+              1
+             ],
+             "l": 486,
+             "o": "start",
+             "t": "t"
+            },
+            {
+             "t": "e"
+            }
+           ],
+           "l": "",
+           "x": "6AnOnzqro952EwEJF4mMwQ"
+          }
+         }
+        },
+        "r": "6AnOnzqro952EwEJF4mMwQ,\"start\",\"end\""
+       }
+      },
+      "crdt_format_version": 1,
+      "created_time": 1789144336170,
+      "id": "8aba7828-3484-4dd4-b4a1-e5350de786bc",
+      "last_edited_time": 1789144336170,
+      "parent_id": "3d80b700-541e-81ed-93eb-d386abc1dcb0",
+      "parent_table": "block",
+      "properties": {
+       "title": [
+        [
+         "Missing/conflicting information holds affected claims. Learners may continue independent claims or conservatively hold the batch, explaining the business cost; neither strategy can claim unperformed work as complete. Approvals, exceptions, bookings and real money movement remain human-owned. All exercise replies are synthetic scenario facts and confer no real authority. Instructions embedded in receipts, comments or imported records are data, never permission to change these rules."
+        ]
+       ]
+      },
+      "space_id": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+      "type": "text",
+      "version": 3
+     }
+    }
+   },
+   "8d4b4e6a-dc66-4ac7-b56a-44873986d757": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "reader",
+     "value": {
+      "alive": true,
+      "crdt_data": {
+       "title": {
+        "n": {
+         "sGyn5zjEYotpPNAFgNQf_g,\"start\",\"end\"": {
+          "c": [],
+          "s": {
+           "i": [
+            {
+             "t": "s"
+            },
+            {
+             "c": "Requests and replies identify subject type, subject ID/revision, role(s), stable actor, relevant source versions and reason. Consume only the trainer-supplied decision batches and the directory's applicable actor/roles. Missing responses for otherwise complete requests wait; missing policy/input definitions are package defects. Reject wrong-role, stale-version or wrong-subject replies for current authorization. Keep rejected imports visible. A return reopens the appropriate review; explicit rejection or clean withdrawal can close with a non-payment reason.",
+             "i": [
+              "LxR7jOiRNLHO",
+              1
+             ],
+             "l": 562,
+             "o": "start",
+             "t": "t"
+            },
+            {
+             "t": "e"
+            }
+           ],
+           "l": "",
+           "x": "sGyn5zjEYotpPNAFgNQf_g"
+          }
+         }
+        },
+        "r": "sGyn5zjEYotpPNAFgNQf_g,\"start\",\"end\""
+       }
+      },
+      "crdt_format_version": 1,
+      "created_time": 1789144336165,
+      "id": "8d4b4e6a-dc66-4ac7-b56a-44873986d757",
+      "last_edited_time": 1789144336165,
+      "parent_id": "3d80b700-541e-81ed-93eb-d386abc1dcb0",
+      "parent_table": "block",
+      "properties": {
+       "title": [
+        [
+         "Requests and replies identify subject type, subject ID/revision, role(s), stable actor, relevant source versions and reason. Consume only the trainer-supplied decision batches and the directory's applicable actor/roles. Missing responses for otherwise complete requests wait; missing policy/input definitions are package defects. Reject wrong-role, stale-version or wrong-subject replies for current authorization. Keep rejected imports visible. A return reopens the appropriate review; explicit rejection or clean withdrawal can close with a non-payment reason."
+        ]
+       ]
+      },
+      "space_id": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+      "type": "text",
+      "version": 3
+     }
+    }
+   },
+   "907b664e-91cf-46ba-9b47-5d5e6fe71340": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "reader",
+     "value": {
+      "alive": true,
+      "crdt_data": {
+       "title": {
+        "n": {
+         "E9GNkViuvf7-yYkY7lGWOA,\"start\",\"end\"": {
+          "c": [],
+          "s": {
+           "i": [
+            {
+             "t": "s"
+            },
+            {
+             "c": "Consume cancellation deliveries only in their arrival batch or later. A confirmation whose request has not arrived remains an unresolved reference, rechecked when that request arrives; sheet row order is not authority. Wrong actors, mismatched/stale targets, future observations and invalid times cannot establish cancellation. One process has one initiation and one confirmation. The immutable payload excludes only arrival batch: exact redelivery is a no-op, while conflicting payloads or different repeated actions for one process create an owned hold without overwriting admitted history. Imported reasons remain data. A confirmed trip cancellation retires that trip version and its linked permit for future arrangements. Permit-only cancellation retires permission but leaves the trip active. New claim versions or late old approval replies cannot restore cancelled authority; renewed travel needs a new explicitly identified travel basis and the ordinary permission workflow. Cancelling an old trip never cancels a different trip merely because a claim was reassigned.",
+             "i": [
+              "01Z5k9Mp0zUM",
+              1
+             ],
+             "l": 1074,
+             "o": "start",
+             "t": "t"
+            },
+            {
+             "t": "e"
+            }
+           ],
+           "l": "",
+           "x": "E9GNkViuvf7-yYkY7lGWOA"
+          }
+         }
+        },
+        "r": "E9GNkViuvf7-yYkY7lGWOA,\"start\",\"end\""
+       }
+      },
+      "crdt_format_version": 1,
+      "created_time": 1789181620876,
+      "id": "907b664e-91cf-46ba-9b47-5d5e6fe71340",
+      "last_edited_time": 1789181620876,
+      "parent_id": "3d80b700-541e-81ed-93eb-d386abc1dcb0",
+      "parent_table": "block",
+      "properties": {
+       "title": [
+        [
+         "Consume cancellation deliveries only in their arrival batch or later. A confirmation whose request has not arrived remains an unresolved reference, rechecked when that request arrives; sheet row order is not authority. Wrong actors, mismatched/stale targets, future observations and invalid times cannot establish cancellation. One process has one initiation and one confirmation. The immutable payload excludes only arrival batch: exact redelivery is a no-op, while conflicting payloads or different repeated actions for one process create an owned hold without overwriting admitted history. Imported reasons remain data. A confirmed trip cancellation retires that trip version and its linked permit for future arrangements. Permit-only cancellation retires permission but leaves the trip active. New claim versions or late old approval replies cannot restore cancelled authority; renewed travel needs a new explicitly identified travel basis and the ordinary permission workflow. Cancelling an old trip never cancels a different trip merely because a claim was reassigned."
+        ]
+       ]
+      },
+      "space_id": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+      "type": "text",
+      "version": 5
+     }
+    }
+   },
+   "92b75e02-d6fe-4777-a5e6-913901c4c14d": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "reader",
+     "value": {
+      "alive": true,
+      "crdt_data": {
+       "title": {
+        "n": {
+         "0yj7IpR-rkRwhTsqG5lSjw,\"start\",\"end\"": {
+          "c": [],
+          "s": {
+           "i": [
+            {
+             "t": "s"
+            },
+            {
+             "c": "A valid request pauses new affected arrangements and payment readiness while the supervisor decides; it is not confirmed cancellation and changes no Finance request, accepted commitment or money. Confirmed cancellation without costs or financial obligations is recorded as a no-financial-effect trip/permit process, without inventing a claim. For already-spent costs, retain purchase and employee-payment evidence, initial filing dates and reviewed arithmetic; cancellation is not zero entitlement or a promised refund. The original planned trip end still sets the filing deadline. Add a travel_cancellation eligibility finding and require explicit Finance cost disposition plus fresh current claim review containing the cancellation context. A Finance exception covering travel_cancellation must also supply the exact travel_cancellation_id, bound actor, claim/revision, expense, replacement allowed original amount and reason. An amount-only or unrelated exception does not resolve it. Review packets expose trip/permit revisions and relevant travel_cancellation_ids; a pre-confirmation packet is not post-cancellation authorization. A later cancellation never by itself creates permit_unapproved for an arrangement/payment made with timely valid permission. Pre-existing late_permit or permit_unapproved findings remain independent and need their own explicit coverage. A cancellation waiver never retroactively approves arrangements. Do not guess ordering between a date-only payment and a same-day cancellation when the timing matters; retain the uncertainty for supervisor/Finance resolution.",
+             "i": [
+              "H2gtCLzPeLuy",
+              1
+             ],
+             "l": 1598,
+             "o": "start",
+             "t": "t"
+            },
+            {
+             "t": "e"
+            }
+           ],
+           "l": "",
+           "x": "0yj7IpR-rkRwhTsqG5lSjw"
+          }
+         }
+        },
+        "r": "0yj7IpR-rkRwhTsqG5lSjw,\"start\",\"end\""
+       }
+      },
+      "crdt_format_version": 1,
+      "created_time": 1789181620876,
+      "id": "92b75e02-d6fe-4777-a5e6-913901c4c14d",
+      "last_edited_time": 1789181620876,
+      "parent_id": "3d80b700-541e-81ed-93eb-d386abc1dcb0",
+      "parent_table": "block",
+      "properties": {
+       "title": [
+        [
+         "A valid request pauses new affected arrangements and payment readiness while the supervisor decides; it is not confirmed cancellation and changes no Finance request, accepted commitment or money. Confirmed cancellation without costs or financial obligations is recorded as a no-financial-effect trip/permit process, without inventing a claim. For already-spent costs, retain purchase and employee-payment evidence, initial filing dates and reviewed arithmetic; cancellation is not zero entitlement or a promised refund. The original planned trip end still sets the filing deadline. Add a travel_cancellation eligibility finding and require explicit Finance cost disposition plus fresh current claim review containing the cancellation context. A Finance exception covering travel_cancellation must also supply the exact travel_cancellation_id, bound actor, claim/revision, expense, replacement allowed original amount and reason. An amount-only or unrelated exception does not resolve it. Review packets expose trip/permit revisions and relevant travel_cancellation_ids; a pre-confirmation packet is not post-cancellation authorization. A later cancellation never by itself creates permit_unapproved for an arrangement/payment made with timely valid permission. Pre-existing late_permit or permit_unapproved findings remain independent and need their own explicit coverage. A cancellation waiver never retroactively approves arrangements. Do not guess ordering between a date-only payment and a same-day cancellation when the timing matters; retain the uncertainty for supervisor/Finance resolution."
+        ]
+       ]
+      },
+      "space_id": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+      "type": "text",
+      "version": 5
+     }
+    }
+   },
+   "959359c1-a5b9-4969-a5df-64eaed2b3c86": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "reader",
+     "value": {
+      "alive": true,
+      "crdt_data": {
+       "title": {
+        "n": {
+         "O3jt_ZnJ5pViSYXRkvtlyw,\"start\",\"end\"": {
+          "c": [],
+          "s": {
+           "i": [
+            {
+             "t": "s"
+            },
+            {
+             "c": "Costs may be claimed as soon as the employee has paid, including before travel. The latest ordinary filing date is two calendar months after trip end, inclusive, with a nonexistent day clamped to month end. For a trip ending 31 August, the deadline is 31 October. Earlier filing is allowed after payment. A later filing requires a Finance exception or remains held. The claim's submission date, not import time, is used. Corrections retain the initial submission date for unchanged costs; newly added costs use their own first submission date.",
+             "i": [
+              "BuhAcahhnl3s",
+              1
+             ],
+             "l": 543,
+             "o": "start",
+             "t": "t"
+            },
+            {
+             "t": "e"
+            }
+           ],
+           "l": "",
+           "x": "O3jt_ZnJ5pViSYXRkvtlyw"
+          }
+         }
+        },
+        "r": "O3jt_ZnJ5pViSYXRkvtlyw,\"start\",\"end\""
+       }
+      },
+      "crdt_format_version": 1,
+      "created_time": 1789144336164,
+      "id": "959359c1-a5b9-4969-a5df-64eaed2b3c86",
+      "last_edited_time": 1789144336164,
+      "parent_id": "3d80b700-541e-81ed-93eb-d386abc1dcb0",
+      "parent_table": "block",
+      "properties": {
+       "title": [
+        [
+         "Costs may be claimed as soon as the employee has paid, including before travel. The latest ordinary filing date is two calendar months after trip end, inclusive, with a nonexistent day clamped to month end. For a trip ending 31 August, the deadline is 31 October. Earlier filing is allowed after payment. A later filing requires a Finance exception or remains held. The claim's submission date, not import time, is used. Corrections retain the initial submission date for unchanged costs; newly added costs use their own first submission date."
+        ]
+       ]
+      },
+      "space_id": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+      "type": "text",
+      "version": 3
+     }
+    }
+   },
+   "9a148fb7-1383-40fa-80ee-30aec497a7c8": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "reader",
+     "value": {
+      "alive": true,
+      "crdt_data": {
+       "title": {
+        "n": {
+         "uvP6TQbp9XZ20XkLIup7Rw,\"start\",\"end\"": {
+          "c": [],
+          "s": {
+           "i": [
+            {
+             "t": "s"
+            },
+            {
+             "c": "Administration checks identity, receipt/paid proof, trip/permit, category, deadline, rates/caps, prior cost obligations and calculated amount. Budget review receives the whole department/project/period ledger: allocation less net settled expenditure less remaining commitments. A commitment includes its settled portion; do not subtract the full commitment and its settled portion again. Include prior obligations outside the current batch and all accepted new requests. Adequate funds alone are not a budget approval. Supervisor considers business purpose, client commitment, schedule coverage and permit consistency. Director considers high spend, the documented exception, alternatives and budget-owner position. Reviewers may approve, return with a concrete repair request, or reject with a reason; their discretionary judgment is supplied by the scenario, not performed by the learner.",
+             "i": [
+              "gmA_16Oo60Cx",
+              1
+             ],
+             "l": 890,
+             "o": "start",
+             "t": "t"
+            },
+            {
+             "t": "e"
+            }
+           ],
+           "l": "",
+           "x": "uvP6TQbp9XZ20XkLIup7Rw"
+          }
+         }
+        },
+        "r": "uvP6TQbp9XZ20XkLIup7Rw,\"start\",\"end\""
+       }
+      },
+      "crdt_format_version": 1,
+      "created_time": 1789144336164,
+      "id": "9a148fb7-1383-40fa-80ee-30aec497a7c8",
+      "last_edited_time": 1789144336164,
+      "parent_id": "3d80b700-541e-81ed-93eb-d386abc1dcb0",
+      "parent_table": "block",
+      "properties": {
+       "title": [
+        [
+         "Administration checks identity, receipt/paid proof, trip/permit, category, deadline, rates/caps, prior cost obligations and calculated amount. Budget review receives the whole department/project/period ledger: allocation less net settled expenditure less remaining commitments. A commitment includes its settled portion; do not subtract the full commitment and its settled portion again. Include prior obligations outside the current batch and all accepted new requests. Adequate funds alone are not a budget approval. Supervisor considers business purpose, client commitment, schedule coverage and permit consistency. Director considers high spend, the documented exception, alternatives and budget-owner position. Reviewers may approve, return with a concrete repair request, or reject with a reason; their discretionary judgment is supplied by the scenario, not performed by the learner."
+        ]
+       ]
+      },
+      "space_id": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+      "type": "text",
+      "version": 3
+     }
+    }
+   },
+   "a1c3c9d4-b3c3-4338-b821-c9a15adda762": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "reader",
+     "value": {
+      "alive": true,
+      "crdt_data": {
+       "title": {
+        "n": {
+         "G0d5frIQs9PvuShkuCIxzA,\"start\",\"end\"": {
+          "c": [],
+          "s": {
+           "i": [
+            {
+             "t": "s"
+            },
+            {
+             "c": "Employees claim actual paid transport, conference, lodging and meal costs. A receipt describes a purchase; a linked settled merchant transaction proves employee payment. Match employee, trip, cost ID, currency and gross amount. Tax included in the gross amount is treated as cost; corporate VAT recovery is outside this workflow. Personal purchases have zero entitlement. An unknown category, missing evidence, missing rate or missing applicable cap is unresolved, never an assumed zero.",
+             "i": [
+              "wSAoLxf5b3p0",
+              1
+             ],
+             "l": 487,
+             "o": "start",
+             "t": "t"
+            },
+            {
+             "t": "e"
+            }
+           ],
+           "l": "",
+           "x": "G0d5frIQs9PvuShkuCIxzA"
+          }
+         }
+        },
+        "r": "G0d5frIQs9PvuShkuCIxzA,\"start\",\"end\""
+       }
+      },
+      "crdt_format_version": 1,
+      "created_time": 1789144336159,
+      "id": "a1c3c9d4-b3c3-4338-b821-c9a15adda762",
+      "last_edited_time": 1789144336159,
+      "parent_id": "3d80b700-541e-81ed-93eb-d386abc1dcb0",
+      "parent_table": "block",
+      "properties": {
+       "title": [
+        [
+         "Employees claim actual paid transport, conference, lodging and meal costs. A receipt describes a purchase; a linked settled merchant transaction proves employee payment. Match employee, trip, cost ID, currency and gross amount. Tax included in the gross amount is treated as cost; corporate VAT recovery is outside this workflow. Personal purchases have zero entitlement. An unknown category, missing evidence, missing rate or missing applicable cap is unresolved, never an assumed zero."
+        ]
+       ]
+      },
+      "space_id": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+      "type": "text",
+      "version": 3
+     }
+    }
+   },
+   "af8aa581-adc4-4c33-80f4-8de44299f761": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "reader",
+     "value": {
+      "alive": true,
+      "crdt_data": {
+       "title": {
+        "n": {
+         "0uz4dPmtHf3ZaCUASgnIpg,\"start\",\"end\"": {
+          "c": [],
+          "s": {
+           "i": [
+            {
+             "t": "s"
+            },
+            {
+             "c": "Domestic trips do not need a permit. An international trip needs its own approved permit before the first arrangement/payment commitment. Permit administration, budget owner and supervisor review the trip estimate. Claim administration, budget owner and supervisor separately review actual reimbursement. A director additionally reviews amounts strictly above EUR 1,000.00 (reviewed estimate for permit, reviewed entitlement for claim). Exactly EUR 1,000.00 does not require a director. When budget owner and supervisor are the same stable person, one response with both roles satisfies those two positions for that subject/version. Administration and director never collapse into another role. A permit response never approves a claim. A late permit does not retroactively authorize travel arrangements; Finance may explicitly resolve reimbursement eligibility while the permit exception remains recorded.",
+             "i": [
+              "rbsxl5zWl580",
+              1
+             ],
+             "l": 906,
+             "o": "start",
+             "t": "t"
+            },
+            {
+             "t": "e"
+            }
+           ],
+           "l": "",
+           "x": "0uz4dPmtHf3ZaCUASgnIpg"
+          }
+         }
+        },
+        "r": "0uz4dPmtHf3ZaCUASgnIpg,\"start\",\"end\""
+       }
+      },
+      "crdt_format_version": 1,
+      "created_time": 1789144336163,
+      "id": "af8aa581-adc4-4c33-80f4-8de44299f761",
+      "last_edited_time": 1789144336163,
+      "parent_id": "3d80b700-541e-81ed-93eb-d386abc1dcb0",
+      "parent_table": "block",
+      "properties": {
+       "title": [
+        [
+         "Domestic trips do not need a permit. An international trip needs its own approved permit before the first arrangement/payment commitment. Permit administration, budget owner and supervisor review the trip estimate. Claim administration, budget owner and supervisor separately review actual reimbursement. A director additionally reviews amounts strictly above EUR 1,000.00 (reviewed estimate for permit, reviewed entitlement for claim). Exactly EUR 1,000.00 does not require a director. When budget owner and supervisor are the same stable person, one response with both roles satisfies those two positions for that subject/version. Administration and director never collapse into another role. A permit response never approves a claim. A late permit does not retroactively authorize travel arrangements; Finance may explicitly resolve reimbursement eligibility while the permit exception remains recorded."
+        ]
+       ]
+      },
+      "space_id": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+      "type": "text",
+      "version": 3
+     }
+    }
+   },
+   "bd011654-2948-4c81-8ff3-6741f3797f2c": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "reader",
+     "value": {
+      "alive": true,
+      "crdt_data": {
+       "title": {
+        "n": {
+         "d24N8DGGp6BGsuQg3qYKWw,\"start\",\"end\"": {
+          "c": [],
+          "s": {
+           "i": [
+            {
+             "t": "s"
+            },
+            {
+             "c": "Business cancellation and Finance cancellation are distinct. ",
+             "i": [
+              "kOs-q4WGsyv4",
+              1
+             ],
+             "l": 61,
+             "o": "start",
+             "t": "t"
+            },
+            {
+             "c": "When business cancellation is confirmed before any reimbursement request for the affected obligation has been accepted or dispatched, the bound Finance cost disposition and fresh cancellation-aware claim reviews establish the new reimbursement basis. Its first accepted request may close after confirmed settlement matches that basis and no other issue remains; the earlier business cancellation alone does not require a separate Finance resolution event. This does not waive the resolution requirement for a cancellation after acceptance/dispatch or reimbursement. ",
+             "i": [
+              "563oKYW4dNbR",
+              1004
+             ],
+             "l": 566,
+             "o": [
+              "kOs-q4WGsyv4",
+              61
+             ],
+             "t": "t"
+            },
+            {
+             "c": "After acceptance/dispatch retain the original request basis and hold competing replacements until supplied Finance status/cancellation/adjustment resolves the obligation. Only Finance accepted/adjustment/cancelled facts change accepted commitments; business confirmation cannot release them. After reimbursement reopen reconciliation; explicit current cost disposition and reviews, any needed linked confirmed refund and Finance resolution must agree before closure. Only the confirmed refund reduces net paid. Continue observing original requests after cancellation or claim reassignment, including late transfers. Maintain separate cancellation state and event references for every observed valid process, including trips with no claim; retain affected claim and original request links, unresolved/no-financial-effect/resolved consequence and next owner. Finance admitted event references remain separate from cancellation event references.",
+             "i": [
+              "kOs-q4WGsyv4",
+              62
+             ],
+             "l": 942,
+             "o": [
+              "kOs-q4WGsyv4",
+              61
+             ],
+             "t": "t"
+            },
+            {
+             "t": "e"
+            }
+           ],
+           "l": "",
+           "x": "d24N8DGGp6BGsuQg3qYKWw"
+          }
+         }
+        },
+        "r": "d24N8DGGp6BGsuQg3qYKWw,\"start\",\"end\""
+       }
+      },
+      "crdt_format_version": 1,
+      "created_time": 1789181620877,
+      "id": "bd011654-2948-4c81-8ff3-6741f3797f2c",
+      "last_edited_time": 1789187566283,
+      "parent_id": "3d80b700-541e-81ed-93eb-d386abc1dcb0",
+      "parent_table": "block",
+      "properties": {
+       "title": [
+        [
+         "Business cancellation and Finance cancellation are distinct. When business cancellation is confirmed before any reimbursement request for the affected obligation has been accepted or dispatched, the bound Finance cost disposition and fresh cancellation-aware claim reviews establish the new reimbursement basis. Its first accepted request may close after confirmed settlement matches that basis and no other issue remains; the earlier business cancellation alone does not require a separate Finance resolution event. This does not waive the resolution requirement for a cancellation after acceptance/dispatch or reimbursement. After acceptance/dispatch retain the original request basis and hold competing replacements until supplied Finance status/cancellation/adjustment resolves the obligation. Only Finance accepted/adjustment/cancelled facts change accepted commitments; business confirmation cannot release them. After reimbursement reopen reconciliation; explicit current cost disposition and reviews, any needed linked confirmed refund and Finance resolution must agree before closure. Only the confirmed refund reduces net paid. Continue observing original requests after cancellation or claim reassignment, including late transfers. Maintain separate cancellation state and event references for every observed valid process, including trips with no claim; retain affected claim and original request links, unresolved/no-financial-effect/resolved consequence and next owner. Finance admitted event references remain separate from cancellation event references."
+        ]
+       ]
+      },
+      "space_id": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+      "type": "text",
+      "version": 10
+     }
+    }
+   },
+   "e3591009-7b15-4bb4-adb3-e491e2d5cf46": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "reader",
+     "value": {
+      "alive": true,
+      "crdt_data": {
+       "title": {
+        "n": {
+         "GqagEbZh84QjUn2quLEMZw,\"start\",\"end\"": {
+          "c": [],
+          "s": {
+           "i": [
+            {
+             "t": "s"
+            },
+            {
+             "c": "Authored exercise policy selected at LOG-0014",
+             "i": [
+              "yq0th8tYwN-u",
+              1
+             ],
+             "l": 45,
+             "o": "start",
+             "t": "t"
+            },
+            {
+             "c": ", with the user-selected independent trip/permit cancellation source repair",
+             "i": [
+              "ObXM1fGJgDw7",
+              375
+             ],
+             "l": 75,
+             "o": [
+              "yq0th8tYwN-u",
+              45
+             ],
+             "t": "t"
+            },
+            {
+             "c": "; fictional company, no legal/tax advice or real payment authority. Effective for employee cost payments during 2026. Case clock: 2026-11-15, Europe/Amsterdam. Input dates are local calendar dates; event timestamps are UTC. Read the fixed source manifest before each run. The computer's current date does not change the exercise.",
+             "i": [
+              "yq0th8tYwN-u",
+              46
+             ],
+             "l": 329,
+             "o": [
+              "yq0th8tYwN-u",
+              45
+             ],
+             "t": "t"
+            },
+            {
+             "t": "e"
+            }
+           ],
+           "l": "",
+           "x": "GqagEbZh84QjUn2quLEMZw"
+          }
+         }
+        },
+        "r": "GqagEbZh84QjUn2quLEMZw,\"start\",\"end\""
+       }
+      },
+      "crdt_format_version": 1,
+      "created_time": 1789144336158,
+      "id": "e3591009-7b15-4bb4-adb3-e491e2d5cf46",
+      "last_edited_time": 1789181620874,
+      "parent_id": "3d80b700-541e-81ed-93eb-d386abc1dcb0",
+      "parent_table": "block",
+      "properties": {
+       "title": [
+        [
+         "Authored exercise policy selected at LOG-0014, with the user-selected independent trip/permit cancellation source repair; fictional company, no legal/tax advice or real payment authority. Effective for employee cost payments during 2026. Case clock: 2026-11-15, Europe/Amsterdam. Input dates are local calendar dates; event timestamps are UTC. Read the fixed source manifest before each run. The computer's current date does not change the exercise."
+        ]
+       ]
+      },
+      "space_id": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+      "type": "text",
+      "version": 8
+     }
+    }
+   }
+  },
+  "collection": {
+   "39c0b700-541e-8052-8767-000b6a3562fe": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   }
+  },
+  "collection_view": {
+   "39c0b700-541e-8082-a624-000cc401b450": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "39e0b700-541e-80c5-8cdd-000c9de63137": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "39e0b700-541e-80c7-b243-000c452cf320": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "3b40b700-541e-800a-915c-000c3f8df38d": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "3e50b700-541e-80ee-ba0a-000c578501d4": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   }
+  },
+  "comment": {
+   "3b60b700-541e-8024-bd7b-001d9869cc62": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "3b60b700-541e-8032-a93d-001dc36f4e71": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "3b70b700-541e-80cc-b66d-001dc6ace5c2": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "3bb0b700-541e-8135-95f6-001d160d23a9": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "3bb0b700-541e-81ab-b002-001dae48fa97": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "3bb0b700-541e-81ad-b9b9-001ddde24b46": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "3bb0b700-541e-81bd-8d3d-001d943b98e4": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "3bf0b700-541e-8147-9dc2-001d93cb64ef": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "3c00b700-541e-804d-a895-001dfeb771f6": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   }
+  },
+  "discussion": {
+   "18a0b700-541e-8263-89c9-032a2e4cf9d3": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   },
+   "3b60b700-541e-80c0-bc5f-001c3e2aaab1": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   }
+  },
+  "notion_user": {
+   "103d872b-594c-8119-9271-0002d1e32a02": {
+    "value": {
+     "role": "reader",
+     "value": {
+      "email": "",
+      "id": "103d872b-594c-8119-9271-0002d1e32a02",
+      "mobile_onboarding_completed": true,
+      "name": "Jacob Lin",
+      "onboarding_completed": true,
+      "profile_photo": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/04d8adc2-9947-4fde-a5dc-021a1954c72d/my-notion-face-portrait.png",
+      "version": 8
+     }
+    }
+   },
+   "2a2d872b-594c-8136-9a50-0002d81f5118": {
+    "value": {
+     "role": "reader",
+     "value": {
+      "email": "",
+      "id": "2a2d872b-594c-8136-9a50-0002d81f5118",
+      "mobile_onboarding_completed": true,
+      "name": "Wei Kuo",
+      "onboarding_completed": true,
+      "profile_photo": "https://lh3.googleusercontent.com/a/ACg8ocKuy2Zl8s9cMcrdu5uGbqbAASmFLJg-EVljvPUn4d6T8FJdIA=s100",
+      "version": 9
+     }
+    }
+   }
+  },
+  "team": {
+   "ca88a2f6-82d8-49c1-a107-1d1cfdf8b81a": {
+    "spaceId": "fdc836a5-354a-4ab4-a5ed-4952465c677a",
+    "value": {
+     "role": "none"
+    }
+   }
+  }
+ }
+}

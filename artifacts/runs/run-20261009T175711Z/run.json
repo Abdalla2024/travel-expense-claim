@@ -1,0 +1,38 @@
+{
+  "batches": [
+    {
+      "batch_id": "batch-1",
+      "path": "batches/batch-1.json",
+      "sha256": "c09a41a639fadec39a79b80a812f54940c7f05a91e1cf6fc443d74aba4d88e59"
+    },
+    {
+      "batch_id": "batch-2",
+      "path": "batches/batch-2.json",
+      "sha256": "c1d63e28c39c269704dcfb00c6156c4e0cddd386721c6ebe70718d54b8451957"
+    },
+    {
+      "batch_id": "batch-3",
+      "path": "batches/batch-3.json",
+      "sha256": "75eac61bd2da6dca4e7df35f5eb57fcf19bb65e4acef665e8c10cd61a9918af9"
+    },
+    {
+      "batch_id": "batch-4",
+      "path": "batches/batch-4.json",
+      "sha256": "990c5432f115323fd678be3a7128cab0f39eddddaccc2f7b9b29bc3ceeb1676e"
+    }
+  ],
+  "code_revision": "c1411c5322bd5c7b15383d7a7b2919254bc24956",
+  "finished_at": "2026-10-09T17:57:20Z",
+  "mode": "fresh",
+  "outcome": "success",
+  "replay_of": null,
+  "routing": "returned-work routing by request (interview 4)",
+  "run_id": "run-20261009T175711Z",
+  "started_at": "2026-10-09T17:57:11Z",
+  "supersedes": {
+    "path": "../run-20261009T173123Z/run.json",
+    "reason": "Code c1411c5 applies interview 5: return requests now state subject type, revision, the returning role, source versions reviewed and affected fields, and say the returning reviewer evaluates the repair; a return naming one owner in its repair text goes to that owner; a second request for the same fact updates the original queue item instead of being suppressed. No claim status, amount or owner changes.",
+    "run_id": "run-20261009T173123Z",
+    "sha256": "fc827ea8249b69fa17217c22055d9d970d9bce5331521548955bb3477bb08119"
+  }
+}
