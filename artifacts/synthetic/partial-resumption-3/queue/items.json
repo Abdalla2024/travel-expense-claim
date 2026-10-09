@@ -1,0 +1,156 @@
+[
+  {
+    "cost_id": "SYN-COST-1",
+    "decision_authority": "SYN-E1",
+    "fact_code": "missing_payment_proof",
+    "follow_up": "SYN-ADM",
+    "hold_impact": "Held, but no line is supported yet (SYN-COST-1 claimed 60.00 EUR, SYN-COST-2 claimed 50.00 GBP, SYN-COST-3 claimed 40.00 EUR open), so holding withholds nothing that could proceed. Already paid: EUR 0.00.",
+    "issue_record_id": "ISS-SYN-C1-r1-missing_payment_proof-SYN-COST-1",
+    "item_id": "RQ-SYN-C1-r1-missing_payment_proof-SYN-COST-1",
+    "last_changed": {
+      "batch_id": "batch-2",
+      "run_id": "synthetic-partial-resumption"
+    },
+    "missing_fact": "no settled merchant transaction for SYN-COST-1",
+    "next_action": "Employee supplies the settled merchant transaction for SYN-COST-1",
+    "opened": {
+      "batch_id": "batch-1",
+      "run_id": "synthetic-partial-resumption"
+    },
+    "owner": "SYN-E1",
+    "permit_id": null,
+    "permit_revision": null,
+    "resolved_by": [
+      "synthetic#merchant:SYN-M1"
+    ],
+    "revision": 1,
+    "route_basis": null,
+    "source_ids": [
+      "synthetic#claim SYN-C1 r1",
+      "receipts#receipt:SYN-R1"
+    ],
+    "status": "satisfied",
+    "subject_id": "SYN-C1",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "SYN-T1",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": "SYN-COST-3",
+    "decision_authority": "SYN-E1",
+    "fact_code": "missing_payment_proof",
+    "follow_up": "SYN-ADM",
+    "hold_impact": "Held in full. Withheld: SYN-COST-1 EUR 60.00, SYN-COST-2 EUR 58.50, total EUR 118.50; already paid EUR 0.00. Why: SYN-COST-3 (claimed 40.00 EUR) is unresolved, and reviews cover the whole claim revision (interview 1, 06:33), so revision 1's entitlement is unknown. Proceeding on the independent lines instead (also permitted, interview 6, 02:08) would mean reviewing and paying EUR 118.50 on revision 1 while SYN-COST-3 (claimed 40.00 EUR) stays open. When it resolves, the changed facts make the dependent review repeat (interview 6, 02:09), the remainder needs a second payment on the same revision, and any change to what was already paid needs a Finance adjustment and resolution before closure (policy \u00b611).",
+    "issue_record_id": "ISS-SYN-C1-r1-missing_payment_proof-SYN-COST-3",
+    "item_id": "RQ-SYN-C1-r1-missing_payment_proof-SYN-COST-3",
+    "last_changed": {
+      "batch_id": "batch-3",
+      "run_id": "synthetic-partial-resumption"
+    },
+    "missing_fact": "no settled merchant transaction for SYN-COST-3",
+    "next_action": "Employee supplies the settled merchant transaction for SYN-COST-3",
+    "opened": {
+      "batch_id": "batch-1",
+      "run_id": "synthetic-partial-resumption"
+    },
+    "owner": "SYN-E1",
+    "permit_id": null,
+    "permit_revision": null,
+    "resolved_by": [
+      "synthetic#merchant:SYN-M3"
+    ],
+    "revision": 1,
+    "route_basis": null,
+    "source_ids": [
+      "synthetic#claim SYN-C1 r1",
+      "receipts#receipt:SYN-R3"
+    ],
+    "status": "satisfied",
+    "subject_id": "SYN-C1",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "SYN-T1",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": "SYN-COST-2",
+    "decision_authority": "SYN-FIN",
+    "fact_code": "missing_rate",
+    "follow_up": "SYN-ADM",
+    "hold_impact": "Held, but no line is supported yet (SYN-COST-1 claimed 60.00 EUR, SYN-COST-2 claimed 50.00 GBP, SYN-COST-3 claimed 40.00 EUR open), so holding withholds nothing that could proceed. Already paid: EUR 0.00.",
+    "issue_record_id": "ISS-SYN-C1-r1-missing_rate-SYN-COST-2",
+    "item_id": "RQ-SYN-C1-r1-missing_rate-SYN-COST-2",
+    "last_changed": {
+      "batch_id": "batch-2",
+      "run_id": "synthetic-partial-resumption"
+    },
+    "missing_fact": "no Finance GBP rate for payment date 2026-09-01",
+    "next_action": "Finance supplies or confirms the GBP rate for 2026-09-01",
+    "opened": {
+      "batch_id": "batch-1",
+      "run_id": "synthetic-partial-resumption"
+    },
+    "owner": "SYN-FIN",
+    "permit_id": null,
+    "permit_revision": null,
+    "resolved_by": [
+      "synthetic#fx:SYN-FX-GBP"
+    ],
+    "revision": 1,
+    "route_basis": null,
+    "source_ids": [
+      "synthetic#claim SYN-C1 r1",
+      "receipts#receipt:SYN-R2",
+      "synthetic#merchant:SYN-M2"
+    ],
+    "status": "satisfied",
+    "subject_id": "SYN-C1",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "SYN-T1",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": null,
+    "decision_authority": "SYN-BO",
+    "fact_code": "funding_decision:budget_owner",
+    "follow_up": "SYN-ADM",
+    "hold_impact": "Held for a claim-level reason (funding_decision), so the whole revision waits whichever approach is used; proceeding with independent lines does not apply. Supported lines: SYN-COST-4 EUR 120.00 (total EUR 120.00). Already paid: EUR 0.00.",
+    "issue_record_id": "ISS-SYN-C2-r1-funding_decision:budget_owner",
+    "item_id": "RQ-SYN-C2-r1-funding_decision:budget_owner",
+    "last_changed": {
+      "batch_id": "batch-2",
+      "run_id": "synthetic-partial-resumption"
+    },
+    "missing_fact": "The budget owner (SYN-BO) returned claim SYN-C2 revision 1 on 2026-09-03: Budget owner requests a funding review before committing. Repair requested: Obtain funding decision. Affected fields: trip, amount, evidence. Source versions reviewed: not stated",
+    "next_action": "The budget owner (SYN-BO) makes the funding decision for claim SYN-C2 revision 1 and replies on that revision; the process then continues from there",
+    "opened": {
+      "batch_id": "batch-1",
+      "run_id": "synthetic-partial-resumption"
+    },
+    "owner": "SYN-BO",
+    "permit_id": null,
+    "permit_revision": null,
+    "resolved_by": [
+      "synthetic#finance:SYN-F-C2-acc@batch-2",
+      "synthetic#review:SYN-D-C2-BO-2"
+    ],
+    "revision": 1,
+    "route_basis": "INT3 10:48 (the budget owner decides funding)",
+    "source_ids": [
+      "synthetic#claim SYN-C2 r1",
+      "synthetic#review:SYN-D-C2-BO-1"
+    ],
+    "status": "satisfied",
+    "subject_id": "SYN-C2",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "SYN-T2",
+    "trip_revision": 1
+  }
+]
