@@ -1,0 +1,71 @@
+<pasted_content id="13d2">
+Perform a final Project D submission-readiness review of the current repository at `3d0a55f`.
+
+Do not modify code, create commits, or write to any existing or new run. Do not change interviews, snapshots, source captures, or sealed artifacts.
+
+Review the README and submission deliverables against the original Project D assignment. Verify that:
+
+1. The reusable Skill, supporting code, requirements, tests, and complete interview exports are present.
+2. The documented setup, fresh-run, offline-replay, and verification commands are accurate and sufficient.
+3. The report, claims.csv, snapshots, repair queue, source bindings, and hash chains are consistent.
+4. The four required implementation choices from the assignment are explicitly explained and grounded in the stakeholder interviews, source records, code, and actual run evidence.
+5. Ordinary processing, corrections, cancellations, partial payments, overpayments, late submissions, missing evidence, unresolved policy rules, and no-claim cancellations are addressed, with untested or synthetic-only coverage clearly disclosed.
+6. Human approval, Finance authority, read-only source handling, and the prohibition on sending real requests or moving money are documented and enforced.
+7. Entire capture checkpoints correspond to the submitted commits and contain the actual coding-session transcripts.
+8. Remaining business blockers and limitations are clearly identified without inventing resolutions.
+
+Report only concrete submission blockers, missing deliverables, inaccurate instructions, or material gaps. For each finding, give the exact file or evidence reference and explain why it matters. Separate required fixes from optional polish. If nothing material is missing, say so. Make no changes.
+</pasted_content id="13d2">
+
+---
+
+<pasted_content id="13d2">
+Make a narrowly scoped final documentation and accuracy-fix commit for Project D based on the submission-readiness audit.
+
+Current baseline: `3d0a55f` on `main`, matching `origin/main`.
+
+Before editing, inspect the current README, Skill, dataset.py, original template README, Entire checkpoint refs, and existing run metadata.
+
+### 1. README required fixes
+
+* Restore the original template links to “Project D in Work Sim” and the “Setting Up entire.io for a Project” lesson. Preserve their correct original URLs.
+* Add an Entire session-capture section explaining how the facilitator can locate the checkpoints. Include `entire checkpoint list`, the relevant `refs/entire/checkpoints/*` refs, and a mapping from each checkpoint to its associated commit.
+* Expand “Not run or not covered” to distinguish real-source coverage from synthetic-only tests. Explicitly disclose:
+
+  * Finance definitions, eligibility instructions, and reclassification for undefined categories. These are synthetic-only; the supplied sources contain no such Finance decision, and reclassification has no native source format.
+  * Wrong-role and stale-revision review replies.
+  * Conflicting Finance redelivery.
+  * A refund larger than the remaining unrecovered amount.
+  * An orphan cancellation confirmation.
+  * Network outage and partial employee-evidence scenarios not exercised against live sources, where applicable.
+* Correct the test instructions so readers understand that `tests.test_primary_run` encodes the current primary-run expectations. It should not be presented as a generic test for every historical run. Older runs should be checked using the documented `verify` command.
+* Keep the README concise and preserve the existing report/run references.
+
+### 2. Correct the dataset.py wording
+
+At `skills/travel-expense-claim/scripts/tec/dataset.py:137`, correct the inaccurate statement that later batches are “not processed” when the claim-updates binder is unavailable.
+
+The batch list is also derived from review records, Finance activity, and cancellations. Describe the actual limitation precisely: later batches may still be processed, while Finance events that depend on unavailable update records may remain unmatched.
+
+Do not alter batch selection, processing logic, state transitions, or any other runtime behavior.
+
+### 3. Correct the Skill interview reference
+
+In `skills/travel-expense-claim/SKILL.md`, update “the two interviews” to reflect all three interviews and preserve the distinction that the third interview clarifies undefined-category handling and the difference between Finance's decision authority and the Travel Administration Lead's follow-up responsibility.
+
+### 4. Preservation and verification
+
+* Do not edit or regenerate any existing run, replay, snapshot, source capture, claims.csv, or interview export.
+* Do not alter financial results, ownership, state transitions, or business rules.
+* Run the relevant unit tests and documentation checks. Use `verify` for historical runs rather than applying current primary-run tests to older snapshots.
+* Confirm the working tree is clean after committing and that `main` matches `origin/main`.
+* Confirm all original interview exports remain byte-for-byte unchanged.
+* Verify all README links and the checkpoint-to-commit mapping.
+* Push the changes and ensure the new commit has a real Entire checkpoint associated with the session.
+
+### 5. Final response
+
+Report the commit hash, files changed, tests run, link/checkpoint verification, and confirmation that all sealed runs and interview exports remain unchanged. If any original template URL or checkpoint mapping cannot be verified, report that limitation instead of guessing.
+
+Make no unrelated refactors or optional polish changes.
+</pasted_content id="13d2">
