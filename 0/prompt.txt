@@ -1,0 +1,30 @@
+<pasted_content id="13d2">
+I added interview 6 at interviews/project-d-travel-expense-claim-20261009-1810.md. It is untracked. Commit it first, exactly as exported, in its own commit. Then read it with interviews 1-5, README.md, SKILL.md and references/requirements.md. The questions are speech-recognised, so rely on the lead's answers only.
+
+Apply these, citing interview 6 by timestamp in new requirements.md rows:
+
+1. Hold vs. proceed (02:08-02:09). The lead said holding the whole claim and continuing independent lines are BOTH permitted, provided the business cost of the choice is clearly explained. This revises the earlier reading of interview 3 (10:49), which held the whole claim. Do not change how claims are held without checking consequences. First work out whether adopting independent-line processing would change any status, money or paid amount, or any other part of the Skill's contract. Our current design holds the whole claim, and that remains permitted. So:
+   - Keep the hold behavior unless you find a concrete reason to change it.
+   - Add the missing business-cost explanation: for each held claim, state in report.md and in the queue item what is being withheld (the supported lines and their amounts, and any amount already paid), why, and what it would cost or risk to proceed on the independent lines instead.
+   - Record the revised understanding in requirements.md, and explain in the Design notes why we chose to hold.
+   - Do not invent costs. Use only figures from the sources.
+
+2. Re-review after a Finance rate or cap arrives (02:09). The lead said only the specific review that depends on that cost repeats. Check how the engine treats a late rate or cap. Re-request only what depends on the changed cost, if that is not already so. If it already works this way, add a test and a requirements row proving it. Do not weaken the rule that a new revision needs approvals for that exact revision.
+
+3. Wrong-role replies (02:09). Replies from someone who is not the named reviewer or lacks the right role are not authorization. They wait or are rejected, and the record is kept as history without advancing the case. Confirm the engine does exactly this. Make sure the history is visible in report.md. If it is only covered synthetically, say so.
+
+4. Who the lead is (02:07). The lead pointed to the People tab and gave no name. Check the People tab data in the retained workbook, confirm whether ADMIN-01 is the administration reviewer or the correct person to follow up, and update requirements.md row 27 to say what the tab actually shows. If it is ambiguous, leave it as an open point.
+
+5. Source manifest (02:10). The lead confirmed there is no manifest and that the five native links are the sources. Update the limitation wording. Nothing else changes.
+
+Then:
+- Run the full test suite and fix failures.
+- Do a fresh run with --supersedes run-20261009T175711Z and a --reason, then a labelled replay, then verify with --compare.
+- Keep every earlier run and interview unmodified.
+- Update SKILL.md, README (Design notes and coverage lists), requirements.md and the checkpoint table. Say what is still synthetic-only.
+- Commit in logical steps so Entire records a checkpoint for each, and push main and refs/entire/checkpoints/*.
+
+Hard rules: do not edit interviews/, do not fabricate replies or decisions, no hard-coded claim IDs, money stays integer EUR cents or null, and use the case clock.
+
+When finished, report: the final commit, new run ID, replay ID, report path and checkpoint refs; whether any claim status, money or owner changed from run-20261009T175711Z and why; test and verify counts; what is still synthetic-only; and any open points.
+</pasted_content id="13d2">
