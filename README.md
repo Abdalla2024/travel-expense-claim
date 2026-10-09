@@ -164,8 +164,14 @@ git ls-remote origin 'refs/entire/checkpoints/*'                   # checkpoint 
 | `557b1a2` Retain a labelled synthetic partial-resumption scenario | `01M4GVG3F4B6B7NTRYHQX5FWJ6` | `refs/entire/checkpoints/J6/01M4GVG3F4B6B7NTRYHQX5FWJ6` |
 | `3f270f7` Retain the interview-4 run and replay | `01M4GVJBHER3RKPK9HJ7F2XSTM` | `refs/entire/checkpoints/TM/01M4GVJBHER3RKPK9HJ7F2XSTM` |
 | `6c5c85d` Document interview 4, synthetic-only coverage and design notes | `01M4GVNRY7R0PMV03CKQ80WDFV` | `refs/entire/checkpoints/FV/01M4GVNRY7R0PMV03CKQ80WDFV` |
+| `6c669b7` List all verified commit-to-checkpoint pairs in the README | `01M4GVPSCQHWZYWETRA7HDE257` | `refs/entire/checkpoints/57/01M4GVPSCQHWZYWETRA7HDE257` |
+| `d99df28` Add the fifth Work Sim interview export | `01M4GWZ3CAW7YBDPVRVPP5Y1XH` | `refs/entire/checkpoints/XH/01M4GWZ3CAW7YBDPVRVPP5Y1XH` |
+| `8df26cc` Apply interview 5 to returned work, resumption and duplicate requests | `01M4GWZ5APFGGH4MFX887MQ77V` | `refs/entire/checkpoints/7V/01M4GWZ5APFGGH4MFX887MQ77V` |
+| `c1411c5` Retain the synthetic partial-resumption scenario with interview-5 wording | `01M4GWZC7YA6SEXTA87JT7GP7Z` | `refs/entire/checkpoints/7Z/01M4GWZC7YA6SEXTA87JT7GP7Z` |
+| `e682d98` Retain the interview-5 run and replay | `01M4GX0YYFDY14XNK8JQFQD39P` | `refs/entire/checkpoints/9P/01M4GX0YYFDY14XNK8JQFQD39P` |
+| `492ef36` Document interview 5: return content, owners, re-review, grouping | `01M4GX3A25NCDD9TC65GSH31B4` | `refs/entire/checkpoints/B4/01M4GX3A25NCDD9TC65GSH31B4` |
 
-All twelve belong to Claude Code session `96590d86-1b96-4de5-9951-fef2a17d395f`. Each pair was checked against the commit trailer and the ref on origin. The commit that updated this table carries its own `Entire-Checkpoint:` trailer, shown by `git log`.
+All eighteen belong to Claude Code session `96590d86-1b96-4de5-9951-fef2a17d395f`. Each pair was checked against the commit trailer and the ref on origin. The commit that updated this table carries its own `Entire-Checkpoint:` trailer, shown by `git log`.
 
 ## Support and handoff
 
