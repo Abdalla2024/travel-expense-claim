@@ -1,0 +1,37 @@
+{
+  "batches": [
+    {
+      "batch_id": "batch-1",
+      "path": "batches/batch-1.json",
+      "sha256": "4b0520239ab6897f5d61e7649b3043f82efbea55f4a019c39e0b2f5efd7cdee3"
+    },
+    {
+      "batch_id": "batch-2",
+      "path": "batches/batch-2.json",
+      "sha256": "e938fd872ce60d2930d7e7b377909039ed54cf3a9b3ff532013010d5642c9ef7"
+    },
+    {
+      "batch_id": "batch-3",
+      "path": "batches/batch-3.json",
+      "sha256": "38c06fc8dc7e1a835c0dc26a7d4656448d3c5bdcd186fb0a35918878448a26c8"
+    },
+    {
+      "batch_id": "batch-4",
+      "path": "batches/batch-4.json",
+      "sha256": "fe1f05650cad7ec4bcb005c13e1e359b49550f5e3832728f21f2eade62259bd9"
+    }
+  ],
+  "code_revision": "0ebcd295e3db2f1f93b49401f62f7d4c287e70d7",
+  "finished_at": "2026-10-09T02:59:58Z",
+  "mode": "fresh",
+  "outcome": "success",
+  "replay_of": null,
+  "run_id": "run-20261009T025952Z",
+  "started_at": "2026-10-09T02:59:52Z",
+  "supersedes": {
+    "path": "../run-20261009T023446Z/run.json",
+    "reason": "Code 0ebcd29 applies interview 3: undefined categories held with Finance as decision authority and the Travel Administration Lead following up (C117 owner ADMIN-01 -> FIN-01); issues and queue items gain decision_authority/follow_up; report shows claimed amounts.",
+    "run_id": "run-20261009T023446Z",
+    "sha256": "b41633e286e59c8adfdd77962470e70ea6347bc2fd31e07819d30c37ee3757c6"
+  }
+}

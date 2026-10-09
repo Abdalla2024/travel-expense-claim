@@ -39,6 +39,7 @@ python3 -m venv .venv
 # Fresh run: reads all five native sources now, then processes batches 1-4.
 .venv/bin/python skills/travel-expense-claim/scripts/tec_cli.py run                      # run-id defaults to run-<UTC timestamp>
 .venv/bin/python skills/travel-expense-claim/scripts/tec_cli.py run --run-id my-run
+.venv/bin/python skills/travel-expense-claim/scripts/tec_cli.py run --supersedes <run-id> --reason "why"   # link to the run it replaces
 
 # Labelled offline replay of an earlier run's retained inputs (no fresh access claimed).
 .venv/bin/python skills/travel-expense-claim/scripts/tec_cli.py replay --from <run-id>
@@ -56,7 +57,7 @@ The results are success (exit 0), partial (exit 1: some source portion unusable,
 
 ## Submitted run results
 
-Primary run **[`run-20261009T023446Z`](artifacts/runs/run-20261009T023446Z/report.md)**: a fresh read of all five sources at code revision `93b2b5b`, outcome `SUCCESS`.
+Primary run **[`run-20261009T025952Z`](artifacts/runs/run-20261009T025952Z/report.md)**: a fresh read of all five sources at code revision `0ebcd29`, outcome `SUCCESS`. It supersedes `run-20261009T023446Z` (linked by its `run.json` sha256) to apply interview 3. The only business difference is that C117's undefined-category issue is now owned by Finance (FIN-01) as decision authority, with the Travel Administration Lead (ADMIN-01) following up. Statuses, money, requests, Finance events and cancellations are identical in every batch.
 
 | Batch | Claims | closed-reimbursed | pending | held | rejected / withdrawn | Finance events admitted | Open issues | Net paid | Cancellations (status / financial) |
 |---|---|---|---|---|---|---|---|---|---|
@@ -67,17 +68,17 @@ Primary run **[`run-20261009T023446Z`](artifacts/runs/run-20261009T023446Z/repor
 
 Still open after batch-4:
 - **Held, employee:** C08 and C21 (EMP-01), C114 (EMP-03).
-- **Held, FIN-01:** C10, C22, C23, C25, C112, C116, C18.
-- **Held, ADMIN-01:** C117.
+- **Held, Finance decision (FIN-01, follow-up ADMIN-01):** C10, C22, C23, C25, C112, C116, C18, and C117 (undefined category "entertainment"; no Finance decision exists).
 - **Pending review:** C15, C118, C26, C113 (ADMIN-01) and C119 (DIR-01).
 
 Reasons and next actions are in report §2. The drafts are in `queue/drafts/`.
 
-Other retained runs:
-- [`replay-20261009T023452Z`](artifacts/runs/replay-20261009T023452Z/report.md): a labelled offline replay of the primary run. Its snapshots are equivalent (`verify replay-20261009T023452Z --compare run-20261009T023446Z`: 77 checks, 0 failed).
-- [`run-20261009T023340Z`](artifacts/runs/run-20261009T023340Z/report.md) and [`replay-20261009T023346Z`](artifacts/runs/replay-20261009T023346Z/report.md): an earlier fresh run and its replay at revision `698a6b0`. They are kept unmodified rather than overwritten. They were superseded only because `93b2b5b` added per-tab `content_sha256` to `sources.json`. Their snapshots are business-equivalent to the primary run (`verify run-20261009T023446Z --compare run-20261009T023340Z`: 76 checks, 0 failed).
+Run history (every run is retained unmodified):
+- [`replay-20261009T025958Z`](artifacts/runs/replay-20261009T025958Z/report.md): labelled offline replay of the primary run, equivalent (`verify replay-20261009T025958Z --compare run-20261009T025952Z`: 77 checks, 0 failed).
+- [`run-20261009T023446Z`](artifacts/runs/run-20261009T023446Z/report.md) with [`replay-20261009T023452Z`](artifacts/runs/replay-20261009T023452Z/report.md): the previous primary run at `93b2b5b`, before interview 3.
+- [`run-20261009T023340Z`](artifacts/runs/run-20261009T023340Z/report.md) with [`replay-20261009T023346Z`](artifacts/runs/replay-20261009T023346Z/report.md): the first run at `698a6b0`, superseded only by the per-tab `content_sha256` addition.
 
-Verification of the primary run: `verify run-20261009T023446Z` reports 75 checks, 0 failed. `python -m unittest discover -s tests` reports 32 tests OK, with the rule, synthetic-branch, primary-run, replay and failure-path suites.
+Verification of the primary run: `verify run-20261009T025952Z` reports 76 checks, 0 failed (including that the superseded run is retained unchanged). `python -m unittest discover -s tests` reports 41 tests OK, with the rule, synthetic-branch, undefined-category, primary-run, replay and failure-path suites.
 
 Not run or not covered:
 - A fresh run during a real network outage. The `FAILURE` and `PARTIAL` paths are tested offline instead, by replaying a temporary copy of the retained inputs with the policy or receipt binder corrupted (`tests/test_failure_paths.py`). Nothing from those tests is retained as a run.
@@ -92,5 +93,5 @@ Not run or not covered:
   - §8 records source access and limitations.
 - Request drafts are in `queue/drafts/<owner>.md`. They are local and unsent; a person reviews and sends them.
 - Finance or reviewer answers arrive only as new source records in a later batch. The Skill never records an answer itself.
-- A missing company rule (for example the undefined "entertainment" category on C117) goes to the operations lead. Do not guess it in code.
+- An undefined expense category (for example "entertainment" on C117) stays unresolved and holds its claim until Finance supplies a definition or a cost-specific eligibility instruction (interview 3). The Travel Administration Lead follows up. Never assume eligibility or ineligibility in code.
 - If a run reports `PARTIAL` or `FAILURE`, read `sources.json` (`error`, `missing_scope`) and rerun when the native location is reachable. Use `replay` only for offline reprocessing, and it is labelled as such.
