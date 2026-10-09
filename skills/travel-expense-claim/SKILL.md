@@ -19,7 +19,7 @@ There are five native sources, all read fresh on every `run`. URLs and routes ar
 | `claim-updates` | Drive "Claim updates binder" PDF | Drive download |
 | `receipts` | Drive "Receipt binder" PDF | Drive download |
 
-Business rules come from the policy and the two interviews (`interviews/`). They are summarized with citations in [references/requirements.md](references/requirements.md). Don't add rules that appear in neither. If a company rule is missing, raise it with the operations lead or facilitator.
+Business rules come from the policy and the three interviews (`interviews/`). Interview 3 settles how undefined expense categories are handled, and separates Finance's decision authority from the Travel Administration Lead's follow-up responsibility. The rules are summarized with citations in [references/requirements.md](references/requirements.md). Don't add rules that appear in none of these. If a company rule is missing, raise it with the operations lead or facilitator.
 
 ## Invocation
 

@@ -9,6 +9,8 @@ Build a reusable Agent Skill for Alderbridge Consulting's travel reimbursement w
 
 The [snapshot schema](snapshot.schema.json) defines the required retained batch-state format.
 
+Follow the shared [Setting Up entire.io for a Project](https://classroom.google.com/c/ODcyMjA4NTkwNDk2/m/ODc0NzI2NzQzMzQ2/details) lesson and verify actual session capture before assessed work. Use [Project D in Work Sim](https://work-sim.catalyte.ai/s/project-d-travel-expense-claim) for your stakeholder interview and obtain relevant business source links and context there.
+
 **Interview rule.** You conduct the stakeholder interview yourself, and the questions are yours. Do not connect a coding agent or any other AI to the interview to run, script, or automate it. The interview transcript is assessed together with the code; a project whose interview was run by an agent is not scored.
 
 - Export your interview as the original Work Sim Markdown, save one final complete file per session under `interviews/`, and commit and push it with your code. Do not rewrite the export. If the export is unavailable, contact the facilitator.
@@ -48,10 +50,11 @@ python3 -m venv .venv
 # batch availability, ID separation, queue history, and optional replay equivalence.
 .venv/bin/python skills/travel-expense-claim/scripts/tec_cli.py verify <run-id> [--compare <run-id>]
 
-# Tests: rules, synthetic branches, and the newest primary run plus its replay.
+# Tests: rules, synthetic branches, and the current primary run plus its replay.
 .venv/bin/python -m unittest discover -s tests -v
-TEC_RUN=<run-id> .venv/bin/python -m unittest tests.test_primary_run    # pin a specific run
 ```
+
+`tests/test_primary_run.py` encodes the expected results of the current primary run under the current rules. By default it checks the newest fresh run; `TEC_RUN=<run-id>` selects another run that should meet the same expectations. It is not a test for historical runs. For example, `run-20261009T023446Z` predates interview 3, so its C117 ownership correctly differs. Check older runs with `verify <run-id>` (and `--compare` for replays).
 
 The results are success (exit 0), partial (exit 1: some source portion unusable, affected scope reported, affected claims held), or failure (exit 2: a required source unusable, no snapshots, attempt and error recorded). A run ID that already exists is refused (exit 4); sealed outputs are never overwritten. The full table is in [SKILL.md](skills/travel-expense-claim/SKILL.md#errors-and-retry).
 
@@ -80,9 +83,36 @@ Run history (every run is retained unmodified):
 
 Verification of the primary run: `verify run-20261009T025952Z` reports 76 checks, 0 failed (including that the superseded run is retained unchanged). `python -m unittest discover -s tests` reports 41 tests OK, with the rule, synthetic-branch, undefined-category, primary-run, replay and failure-path suites.
 
-Not run or not covered:
-- A fresh run during a real network outage. The `FAILURE` and `PARTIAL` paths are tested offline instead, by replaying a temporary copy of the retained inputs with the policy or receipt binder corrupted (`tests/test_failure_paths.py`). Nothing from those tests is retained as a run.
-- Partial employee evidence. It does not occur in the supplied batches and is tested only with the labelled synthetic fixture.
+Not run or not covered. The supplied sources exercise every branch in the requirements matrix §3, and `tests/test_primary_run.py` checks them against the real run. The following are covered only by synthetic tests (all identifiers `SYN-*`) or not at all:
+- **Undefined categories:** a Finance definition, an eligibility instruction (including an ineligible zero), or a reclassification. These are synthetic only (`tests/test_undefined_category.py`). The supplied sources contain no such Finance decision, and reclassification has no native source format. For C117, only "stays unresolved" is checked against real data.
+- **Invalid review replies:** wrong-role and stale-revision replies, synthetic only (`tests/test_engine_synthetic.py`). No supplied reply is rejected.
+- **Finance redelivery conflict:** a redelivery whose payload conflicts, synthetic only. The supplied data contains only an exact replay (F-C01-1).
+- **Over-refund:** a refund larger than the remaining unrecovered amount, synthetic only.
+- **Orphan confirmation:** a cancellation confirmation that arrives before its request, and one by the wrong confirmer, synthetic only.
+- **Partial employee evidence:** synthetic only (`tests/fixtures/synthetic_partial_response.json`). The only real partial response is Finance's on C20.
+- **Network outage:** not exercised against live sources. The `FAILURE` and `PARTIAL` paths are tested offline by replaying a temporary copy of the retained inputs with the policy or receipt binder corrupted (`tests/test_failure_paths.py`). Nothing from those tests is retained as a run.
+
+## Coding-session capture (Entire)
+
+Entire session capture is enabled for this repository with Claude Code as the agent (`.entire/settings.json`). Each commit made during the coding session carries an `Entire-Checkpoint:` trailer. The checkpoint itself is stored under `refs/entire/checkpoints/<xx>/<id>`, pushed to origin, and holds that session's `transcript.jsonl` and metadata.
+
+```bash
+entire checkpoint list                                             # checkpoints on main with their commits
+entire checkpoint explain <checkpoint-id>                          # session, commit and files for one checkpoint
+git log --format='%h %(trailers:key=Entire-Checkpoint,valueonly)'  # commit -> checkpoint
+git ls-remote origin 'refs/entire/checkpoints/*'                   # checkpoint refs on origin
+```
+
+| Commit | Checkpoint | Ref |
+|---|---|---|
+| `3c3b11d` Conducted first interview | `01M4F4ZYG5P8001XZPAAXEZW7S` | `refs/entire/checkpoints/7S/01M4F4ZYG5P8001XZPAAXEZW7S` |
+| `698a6b0` Implement the Skill and add interview 2 | `01M4F8457CN8F0E1BK2MK5EFGB` | `refs/entire/checkpoints/GB/01M4F8457CN8F0E1BK2MK5EFGB` |
+| `93b2b5b` Record a content hash for each workbook tab | `01M4F86M9TBJT5A5VX620Q4866` | `refs/entire/checkpoints/66/01M4F86M9TBJT5A5VX620Q4866` |
+| `d08c9dd` Retain the primary run, its replay, and failure-path tests | `01M4F88R8CRY3AEAFDBESDF7J6` | `refs/entire/checkpoints/J6/01M4F88R8CRY3AEAFDBESDF7J6` |
+| `0ebcd29` Apply interview 3 | `01M4F9MCXWGX0GKTVEQMEFKHXR` | `refs/entire/checkpoints/XR/01M4F9MCXWGX0GKTVEQMEFKHXR` |
+| `3d0a55f` Retain the interview-3 run and its replay | `01M4F9NY3FAVCDDJ58E425WNYQ` | `refs/entire/checkpoints/YQ/01M4F9NY3FAVCDDJ58E425WNYQ` |
+
+All six belong to Claude Code session `96590d86-1b96-4de5-9951-fef2a17d395f`. A commit made after this table (such as the one that added it) is listed by `git log` with its own `Entire-Checkpoint:` trailer.
 
 ## Support and handoff
 

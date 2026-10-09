@@ -133,8 +133,10 @@ def load(run_dir, files):
     if upd:
         claims += parse.parse_claim_pages(os.path.join(run_dir, upd["path"]), "claim-updates")
     else:
-        ds["limits"].append("claim-updates binder unusable: claim revisions it carries cannot be observed; "
-                            "batches after the last batch fully covered by the initial binder are not processed")
+        ds["limits"].append("claim-updates binder unusable: claim revisions it carries cannot be observed. Later "
+                            "batches are still processed (batches also come from reviews, Finance activity and "
+                            "cancellations), but claims stay at their last observed revision, and Finance events or "
+                            "reviews that depend on the unavailable revisions remain unmatched or rejected")
     ds["claims"] = claims
 
     rc = need("receipts")
