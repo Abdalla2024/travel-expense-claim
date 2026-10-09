@@ -2,7 +2,7 @@
 
 Sources of each rule are marked:
 
-- **S1/S2/S3**: stakeholder instruction from interview 1, 2 or 3. Times refer to `interviews/*.md`.
+- **S1/S2/S3/S4**: stakeholder instruction from interview 1, 2, 3 or 4. Interview 4 is short and its transcript has speech-recognition errors in the questions; only the lead's answers are relied on. Times refer to `interviews/*.md`.
 - **P ¶n**: policy POL-2026.2, paragraph n in page order.
 - **W**: workbook tab note or record.
 - **I**: our implementation choice.
@@ -43,6 +43,12 @@ Policy paragraphs, counted in page order: ¶1 scope and clock · ¶2 evidence ·
 | 27 | Who resolves | S3 10:48, 10:49, 10:51 | Finance is the authority for policy definitions, tables and eligibility instructions. The budget owner decides funding only. The employee may be asked to clarify the specific cost item, but is not the policy authority. The Travel Administration Lead follows up on missing replies. | High. **I:** the lead is identified with the directory's administration reviewer (ADMIN-01), because the lead performs the administration check (S1 06:18) | Issue `owner` = `decision_authority` = Finance officer; `follow_up` = administration reviewer; drafts addressed to Finance with the follow-up named | — |
 | 28 | Finance resolution of a category | S3 10:51–10:52, P ¶3 | Resolved only by a valid Finance instruction bound to the claim, revision and cost (directory Finance officer): a replacement allowed amount, or a reclassification recorded on the updated revision with the original kept as history. Allowed 0 means ineligible: zero entitlement with the claimed amount and evidence kept. | High for the rule. **L:** the supplied binders have no reclassification field, so reclassification is supported in the engine (`exception.category`) and tested synthetically, but no parser populates it | Line `excluded` with "claimed … retained with evidence"; reclassification noted in the line reason | — |
 | 29 | Revalidation and closure after resolution | S3 10:50, 10:52, P ¶8 | Changed evidence, categories or amounts invalidate earlier approvals. The updated revision needs every required approval, Finance processing and reconciliation before closure. | High | Same full-recheck path as row 18 | — |
+| 30 | Returned-work content | S4 01:20, S1 06:30 | A return carries a concrete repair request naming the affected fields and the exact missing or incorrect evidence. When the employee or the owner supplies the correction, the subject resumes review. | High | Return issues quote the reviewer's reason, repair request and affected fields; drafts use plain labels, never raw decision IDs | — |
+| 31 | Who owns a returned request | S3 10:48, S1 06:30, S4 01:20 | Routed by what the reviewer asked for: a funding decision goes to the budget owner (S3 10:48), and an evidence or claim correction goes to the employee (S1 06:30, S4 01:20). The ledger's "Affected fields" is `trip/amount/evidence` on every supplied row, so the repair text decides. | High for funding and evidence. **Open point:** no interview says who owns any other kind of return, or one matching both routes. Those go to the Travel Administration Lead to clarify with the reviewer, without guessing (`routing.py`). Not exercised by supplied data | `tec/routing.py`; C21 → LEAD-01 (budget owner), C09 → EMP-01 | Ask the lead who owns returns that are neither funding nor evidence |
+| 32 | Resuming after a return | S4 01:20 | The returning role's later reply on the same revision resumes the review. Other roles' replies stand. An explicit rejection still closes, and a later reply does not undo it. | Medium. **I:** "latest reply per role" is our reading of "the subject resumes its review". Not exercised by supplied data (C21 never receives a later reply) | `evaluate_claim` latest reply per role; synthetic SYN-C2 | — |
+| 33 | Partial replies and independent tasks | S4 01:20, S1 06:28, S3 10:49 | Missing evidence, a decision or a Finance resolution resumes its own task as soon as it arrives, without affecting fully reviewed or unrelated tasks. The claim stays held while any line is unresolved (S3 10:49). Requests are grouped by the responsible person (S1 06:28). | High | Items close individually; `partial-response` events; drafts per owner | — |
+| 34 | Evidence arriving after a reply | S3 10:50, S4 01:20 | Changed evidence invalidates replies given before it arrived; the review resumes on the current facts. | High for the rule. **L:** the supplied evidence tabs carry no arrival batch (all count from batch 1), so this applies only to the synthetic scenario | Rows may carry `batch`; replies admitted earlier than the newest evidence stop counting | — |
+| 35 | Duplicate and misplaced requests | S4 01:20, S3 10:48 | Each claim's and obligation's history is checked so nothing is committed or paid twice. A misplaced request or missing evidence holds the claim until the right person supplies it. | High | Stable request IDs and event replay (rows 6, 19); the queue suppresses a second open request for the same fact and person; `verify` checks for misplaced and duplicate requests on runs with this routing | — |
 
 ## 2. Implementation choices (adopted in the coding session)
 
@@ -57,11 +63,13 @@ Policy paragraphs, counted in page order: ¶1 scope and clock · ¶2 evidence ·
    - `balance_cents = allowed_cents − paid_cents`, or null when the entitlement is unknown.
    - Rejection, withdrawal, no-payment closure, reimbursement closure and cancellation processes are kept apart.
    - The scope was checked against the actual run. C18 stays held with FIN-01. C19 closes at €80.00 only in batch 4. C16 and C120 close in batch 3. C15 and C118 stay pending with ADMIN-01.
-4. **Repair queue and partial responses.**
+4. **Repair queue and partial responses** (extended after interview 4).
    - Grouped by owner, one item per fact or return reason.
    - The history is append-only, with supersede and replacement links.
    - A batch that closes only some of an owner's items on a subject logs `partial-response`, and the rest stay open. In the supplied data, C20's refund closes the overpayment but the resolution item stays open in batch 3.
-   - Partial employee evidence is not present in the supplied data. It is tested with the labelled fixture `tests/fixtures/synthetic_partial_response.json`.
+   - Each request names the exact missing fact or decision and its owner in plain language (rows 30–31). In the supplied data this moved C21's funding return from the employee to the budget owner (LEAD-01), first in `run-20261009T173123Z`.
+   - A second open request for the same fact and person is suppressed and recorded (`duplicate-suppressed`).
+   - Partial employee evidence is not present in the supplied data. It is shown in the retained, labelled synthetic scenario `artifacts/synthetic/partial-resumption/` and tested in `tests/test_partial_resumption.py` and `tests/test_rules.py`.
 
 ## 3. Material scenarios (expected results checked in `tests/test_primary_run.py`)
 
@@ -78,7 +86,7 @@ Policy paragraphs, counted in page order: ¶1 scope and clock · ¶2 evidence ·
 | Deadline | C11, C110–C112, C12 r1→r2 |
 | Pay after submission | C113 |
 | Permits | P02 ok, P10 late, P25 unapproved |
-| Return / reject / withdraw | C09 r1→r2 (new trip T09B), C21, C14, C13 |
+| Return / reject / withdraw | C09 r1→r2 (evidence return to the employee, new trip T09B), C21 (funding return to the budget owner), C14, C13 |
 | Prepaid link | C03 + C24 |
 | Partial payment | C16, C120 |
 | Failed → retry | C17 |
@@ -96,4 +104,6 @@ Policy paragraphs, counted in page order: ¶1 scope and clock · ¶2 evidence ·
 - The PDFs are parsed from their text layer. A layout change would make parsing fail loudly (the run becomes partial or failed), never silently.
 - The category "entertainment" (C117) is not defined by the policy, and Finance has supplied no definition or instruction. C117 stays held with FIN-01 as the decision authority and ADMIN-01 following up (S3). No eligibility decision is made by the Skill.
 - The binders have no field for a Finance reclassification. The engine accepts one on a bound exception, but no supplied source carries it.
+- Returned-work routing reads the reviewer's free-text repair request with keyword patterns (`routing.py`). Wording outside those patterns, or matching both, goes to the lead rather than being guessed.
+- No supplied evidence row has an arrival batch, so stale-reply invalidation and evidence-driven resumption are demonstrated only synthetically.
 - The Notion route is the public page-chunk endpoint the published page itself uses. If Notion changes it, the read is recorded as unavailable.

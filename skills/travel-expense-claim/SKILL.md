@@ -19,7 +19,7 @@ There are five native sources, all read fresh on every `run`. URLs and routes ar
 | `claim-updates` | Drive "Claim updates binder" PDF | Drive download |
 | `receipts` | Drive "Receipt binder" PDF | Drive download |
 
-Business rules come from the policy and the three interviews (`interviews/`). Interview 3 settles how undefined expense categories are handled, and separates Finance's decision authority from the Travel Administration Lead's follow-up responsibility. The rules are summarized with citations in [references/requirements.md](references/requirements.md). Don't add rules that appear in none of these. If a company rule is missing, raise it with the operations lead or facilitator.
+Business rules come from the policy and the four interviews (`interviews/`). Interview 3 settles how undefined expense categories are handled, and separates Finance's decision authority from the Travel Administration Lead's follow-up responsibility. Interview 4 settles what a returned-work request must contain and how partial replies resume only the work they support. The rules are summarized with citations in [references/requirements.md](references/requirements.md). Don't add rules that appear in none of these. If a company rule is missing, raise it with the operations lead or facilitator.
 
 ## Invocation
 
@@ -28,6 +28,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt          # on
 .venv/bin/python skills/travel-expense-claim/scripts/tec_cli.py run           # fresh read of all five sources
 .venv/bin/python skills/travel-expense-claim/scripts/tec_cli.py replay --from <run-id>   # labelled offline replay
 .venv/bin/python skills/travel-expense-claim/scripts/tec_cli.py verify <run-id> [--compare <run-id>]
+.venv/bin/python skills/travel-expense-claim/scripts/tec_cli.py synthetic-demo        # labelled SYN-* scenario, written outside artifacts/runs
 ```
 
 ## Outputs (`artifacts/runs/<run-id>/`)
@@ -49,6 +50,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt          # on
 6. **Duplicates.** An exact redelivery has no effect. A conflicting redelivery holds the case and keeps the money already admitted.
 7. **Undefined categories.** A category the policy does not define stays `unresolved` on every claim and holds the claim. It is never treated as eligible or as zero, never mapped to another category, and never waived. Only a valid Finance instruction bound to that claim, revision and cost resolves it: a replacement amount (0 means ineligible, with the claimed amount and evidence kept) or a reclassification recorded on the updated revision. The updated revision then needs all approvals and Finance reconciliation before it can close.
 8. **Who acts.** Each issue's `owner` is the party who supplies the fact or decision. For definitions, tables and eligibility instructions that is Finance; the budget owner decides funding only, and the employee is asked only about their own cost item. Its `follow_up` is the Travel Administration Lead (the administration reviewer), who chases missing replies.
+9. **Returned work and partial replies.** A return is routed by what the reviewer asked for: a funding decision to the budget owner, an evidence or claim correction to the employee, anything else to the Travel Administration Lead to clarify (`scripts/tec/routing.py`). The returning role's later reply resumes the review. Each fact resumes its own task when it arrives. Replies given before newer evidence arrived stop counting. The same fact is never requested twice from the same person.
 
 ## Errors and retry
 
