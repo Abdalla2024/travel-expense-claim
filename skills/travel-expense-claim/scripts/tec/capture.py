@@ -126,9 +126,12 @@ def _check(key, path):
             if t not in tabs or not tabs[t]["header"]:
                 missing.append(t)
                 continue
+            canon = json.dumps({"notes": tabs[t]["notes"], "header": tabs[t]["header"], "rows": tabs[t]["rows"]},
+                               ensure_ascii=False, sort_keys=True).encode()
             pieces.append({"suffix": ":" + parse.slug(t),
                            "locator": "tab '%s', header row 5, data rows 6-%d (%d rows)" % (
-                               t, 5 + len(tabs[t]["rows"]), len(tabs[t]["rows"]))})
+                               t, 5 + len(tabs[t]["rows"]), len(tabs[t]["rows"])),
+                           "content_sha256": sha256_bytes(canon)})
         return ("partial" if missing else "complete",
                 ("missing tabs: " + ", ".join(missing)) if missing else None, None, pieces)
     pages, declared = parse.pdf_pages(path)
@@ -203,6 +206,10 @@ def _entry(s, rel, dest, base, validators):
                         error=None, url=base["native_url"], locator=p["locator"],
                         observed_at=base["observed_at"], version=version, completeness=completeness,
                         missing_scope=missing, route=base["route"], http_validators=validators))
+        if "content_sha256" in p:
+            # Sheets rebuilds the xlsx on every export, so byte hashes differ for identical cells;
+            # this hash over the tab's canonical cell text identifies the content itself.
+            out[-1]["content_sha256"] = p["content_sha256"]
     if s["key"] == "registers" and missing:
         for t in missing.replace("missing tabs: ", "").split(", "):
             out.append(dict(source_id="registers:" + parse.slug(t), path=None, sha256=None,

@@ -39,6 +39,17 @@ def verify(run_dir, schema_path, compare_dir=None):
     check("read pieces bound to retained bytes (sha256)", not bad, bad)
     bad = [f["source_id"] for f in files if f["status"] == "unavailable" and (f["path"] or f["sha256"] or f["version"] or not f["error"])]
     check("unavailable pieces carry error and null path/hash/version", not bad, bad)
+    from . import parse as _p
+    tab_bad = []
+    for f in files:
+        if f["status"] == "read" and f["source_id"].startswith("registers:") and f.get("content_sha256"):
+            tabs = _p.read_xlsx(os.path.join(run_dir, f["path"]))
+            name = next(t for t in _p.REQUIRED_TABS if "registers:" + _p.slug(t) == f["source_id"])
+            canon = json.dumps({"notes": tabs[name]["notes"], "header": tabs[name]["header"], "rows": tabs[name]["rows"]},
+                               ensure_ascii=False, sort_keys=True).encode()
+            if hashlib.sha256(canon).hexdigest() != f["content_sha256"]:
+                tab_bad.append(f["source_id"])
+    check("workbook tab content_sha256 matches retained cells", not tab_bad, tab_bad)
     check("every piece has url, locator and UTC observed_at",
           all(f["url"] and f["locator"] and f["observed_at"].endswith("Z") for f in files))
     if sources["mode"] == "offline-replay":

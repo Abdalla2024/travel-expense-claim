@@ -183,6 +183,9 @@ def _limitations(files, ds):
         "native sources (10:12). The reference stays recorded here as unresolved.",
         "The workbook and the PDFs expose no native revision identifier (interview 2, 10:09). Their `version` is the HTTP "
         "validator the server returned, or null; identity is the retained bytes' sha256 plus retrieval time and locator.",
+        "Google Sheets regenerates the xlsx on every export, so the workbook's byte sha256 differs between fresh runs "
+        "even when no cell changed. Each workbook tab therefore also records `content_sha256`, a hash over its "
+        "canonical cell text (notes, header, rows), to compare content across runs.",
         "DW-D-2 (cited by every review) is the business workflow contract whose rules are contained in the policy "
         "(interview 2, 10:08); it is not a separate fetchable source.",
     ]
