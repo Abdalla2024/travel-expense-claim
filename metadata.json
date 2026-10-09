@@ -1,0 +1,27 @@
+{
+  "cli_version": "0.11.3",
+  "checkpoint_id": "01M4GVBGEZK7GAG2SHZD297H02",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "skills/travel-expense-claim/scripts/tec/routing.py",
+    "tests/test_return_routing.py"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": ""
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 14,
+    "cache_creation_tokens": 18933,
+    "cache_read_tokens": 3078613,
+    "output_tokens": 17378,
+    "api_call_count": 7
+  }
+}
