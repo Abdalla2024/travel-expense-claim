@@ -197,7 +197,7 @@ EMPLOYEE_FACTS = {"missing_payment_proof", "payment_proof_mismatch", "missing_re
 
 
 def _routing_checks(run_dir, ds, final, items):
-    """Misplaced and duplicate requests (interview 3 10:48, interview 4 01:20)."""
+    """Misplaced and duplicate requests (interview 3 10:48, interview 4 01:20, interview 5 01:50-01:51)."""
     from . import routing
     res = []
     cur = {}
@@ -216,7 +216,7 @@ def _routing_checks(run_dir, ds, final, items):
             want = emp
         elif base in FINANCE_FACTS:
             want = d["Finance officer"]
-        elif base in ("funding_decision", "employee_correction", "return_unclassified"):
+        elif base in ("funding_decision", "employee_correction", "return_unclassified", "named_owner_repair"):
             dec = next((reviews[s.rsplit(":", 1)[-1]] for s in it["source_ids"] if s.rsplit(":", 1)[-1] in reviews), None)
             kind, src, _, _ = routing.classify(dec["repair"], dec["reason"])
             want = routing.owner_for(src, emp, d) if kind == base else "<route %s>" % kind

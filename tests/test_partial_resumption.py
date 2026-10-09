@@ -19,7 +19,9 @@ from tec import synthetic  # noqa: E402
 from tec.repair_queue import RepairQueue  # noqa: E402
 
 FIXTURE = os.path.join(ROOT, "tests", "fixtures", "synthetic_partial_resumption.json")
-RETAINED = os.path.join(ROOT, "artifacts", "synthetic", "partial-resumption")
+# The current retained copy (interview 5 wording). artifacts/synthetic/partial-resumption/ is the earlier copy from
+# 557b1a2, kept unmodified.
+RETAINED = os.path.join(ROOT, "artifacts", "synthetic", "partial-resumption-2")
 
 
 class PartialResumption(unittest.TestCase):
@@ -56,6 +58,8 @@ class PartialResumption(unittest.TestCase):
         self.assertEqual(self.rq.items["RQ-SYN-C1-r1-missing_rate-SYN-COST-2"]["last_changed"]["batch_id"], "batch-2")
         self.assertEqual(self.rq.items["RQ-SYN-C1-r1-missing_payment_proof-SYN-COST-3"]["status"], "satisfied")
         self.assertEqual(self.rq.items["RQ-SYN-C1-r1-missing_payment_proof-SYN-COST-3"]["last_changed"]["batch_id"], "batch-3")
+        # INT5 01:51: the item itself records the source that closed it.
+        self.assertEqual(self.rq.items["RQ-SYN-C1-r1-missing_payment_proof-SYN-COST-1"]["resolved_by"], ["synthetic#merchant:SYN-M1"])
 
     def test_unrelated_claim_resumes_independently(self):
         self.assertEqual((self.claim(1, "SYN-C2")["status"], self.claim(1, "SYN-C2")["next_owner"]), ("held", "SYN-BO"))
@@ -84,7 +88,8 @@ class PartialResumption(unittest.TestCase):
         self.assertEqual((ev["event"], ev["owner"]), ("satisfied", "SYN-BO"))
         self.assertIn("synthetic#review:SYN-D-C2-BO-2", ev["evidence"])
 
-    def test_duplicate_request_for_same_fact_and_person_is_suppressed(self):
+    def test_second_request_for_same_fact_updates_the_original_item(self):
+        # INT5 01:51: keep the original finding and owner; update the item's source and next action, no new request.
         base = {"subject_type": "claim", "subject_id": "SYN-C9", "revision": 1, "trip_id": "SYN-T9", "trip_revision": 1,
                 "permit_id": None, "permit_revision": None, "cost_id": None, "owner": "SYN-BO",
                 "reason": "returned for funding", "resolution_needed": "decide funding", "source_ids": ["synthetic"]}
@@ -92,8 +97,11 @@ class PartialResumption(unittest.TestCase):
         evs = q.update(1, [dict(base, record_id="ISS-SYN-C9-r1-funding_decision:budget_owner", fact_code="funding_decision:budget_owner"),
                            dict(base, record_id="ISS-SYN-C9-r1-funding_decision:supervisor", fact_code="funding_decision:supervisor")],
                        {("claim", "SYN-C9"): 1}, {})
-        self.assertEqual([e["event"] for e in evs], ["opened", "duplicate-suppressed"])
+        self.assertEqual([e["event"] for e in evs], ["opened", "merged-into-existing"])
         self.assertEqual(len(q.open_items()), 1)
+        item = q.open_items()[0]
+        self.assertEqual((item["item_id"], item["owner"]), ("RQ-SYN-C9-r1-funding_decision:budget_owner", "SYN-BO"))
+        self.assertEqual(item["also_covers"], ["ISS-SYN-C9-r1-funding_decision:supervisor"])
         self.assertEqual(q.drafts()["SYN-BO"].count("Funding decision needed"), 1)
 
     def test_output_is_labelled_and_retained_copy_matches(self):

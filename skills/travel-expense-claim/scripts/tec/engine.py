@@ -601,18 +601,24 @@ class Engine:
             roles = " and ".join(r.replace("_", " ") for r in x["roles"])
             asked = routing.sentence(x["repair"]) or routing.sentence(x["reason"])
             fields = ", ".join(x.get("affected_fields") or []) or "not stated"
-            why = "The %s (%s) returned revision %d on %s: %s. Repair requested: %s. Affected fields: %s" % (
-                roles, x["reviewer"], rev, local_date(x["time"]), routing.sentence(x["reason"]),
-                routing.sentence(x["repair"]) or "none stated", fields)
+            # A return request states subject type, revision, the actor's role, the source version and the repair
+            # naming the affected fields (INT5 01:53).
+            why = ("The %s (%s) returned claim %s revision %d on %s: %s. Repair requested: %s. Affected fields: %s. "
+                   "Source versions reviewed: %s") % (
+                roles, x["reviewer"], cid, rev, local_date(x["time"]), routing.sentence(x["reason"]),
+                routing.sentence(x["repair"]) or "none stated", fields, ", ".join(x.get("source_revisions") or []) or "not stated")
             if kind == "funding_decision":
                 action = ("The budget owner (%s) makes the funding decision for claim %s revision %d and replies on that "
-                          "revision; the review then resumes" % (who, cid, rev))
+                          "revision; the process then continues from there" % (who, cid, rev))
             elif kind == "employee_correction":
                 action = ("The employee (%s) supplies the correction asked for (%s) as an updated claim revision; the "
-                          "review then resumes on that revision" % (who, asked))
+                          "%s (%s) then evaluates the repair and the process continues from there" % (who, asked, roles, x["reviewer"]))
+            elif kind == "named_owner_repair":
+                action = ("%s supplies the repair the %s named (%s); the %s (%s) then evaluates it on claim %s and the "
+                          "process continues from there" % (who, roles, asked, roles, x["reviewer"], cid))
             else:
-                action = ("The Travel Administration Lead (%s) asks the %s (%s) what exactly is needed (%s) and who "
-                          "should supply it" % (who, roles, x["reviewer"], asked))
+                action = ("The Travel Administration Lead (%s) identifies with the %s (%s) who owns the repair (%s) and "
+                          "passes it to them" % (who, roles, x["reviewer"], asked))
             issue("%s:%s" % (kind, "+".join(x["roles"])), who, why, action, refs=[x["ref"]],
                   extra={"route_basis": basis})
         decision_ids = sorted(x["decision_id"] for x in counted)

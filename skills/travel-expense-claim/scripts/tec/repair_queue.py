@@ -51,11 +51,15 @@ class RepairQueue:
                          and (v["subject_id"], v["revision"], v["cost_id"], routing.label(v["fact_code"]), v["owner"]) ==
                          (i["subject_id"], i["revision"], i["cost_id"], routing.label(i["fact_code"]), i["owner"])), None)
             if cur is None and twin:
-                # The same fact is already being requested from the same person: do not send it twice (INT4 01:20).
+                # A second request for the same fact keeps the original finding and owner; the original item is
+                # updated with the new source and next action instead of creating a new request (INT5 01:51).
                 if i["record_id"] not in twin.setdefault("also_covers", []):
                     twin["also_covers"].append(i["record_id"])
-                    self._event(batch, "duplicate-suppressed", twin, subject=i["subject_id"], fact=i["fact_code"],
-                                suppressed_record=i["record_id"])
+                    twin["source_ids"] = sorted(set(twin["source_ids"]) | set(i["source_ids"]))
+                    twin["next_action"] = i["resolution_needed"]
+                    twin["last_changed"] = dict(ref)
+                    self._event(batch, "merged-into-existing", twin, subject=i["subject_id"], fact=i["fact_code"],
+                                merged_record=i["record_id"], source_ids=i["source_ids"], next_action=twin["next_action"])
                 continue
             if cur is None:
                 prior = self._replaced(i)
@@ -86,10 +90,11 @@ class RepairQueue:
                 kind = "superseded"
             else:
                 kind = "satisfied"
-            item.update(status=kind, last_changed=dict(ref))
             # Prefer evidence for this exact cost; fall back to the subject's inputs this batch.
             evidence = inputs_by_subject.get((item["subject_id"], item["cost_id"])) or \
                 inputs_by_subject.get(item["subject_id"], [])
+            # The item itself records its new status and the source that closed it (INT5 01:51).
+            item.update(status=kind, last_changed=dict(ref), resolved_by=sorted(set(evidence)))
             self._event(batch, kind, item, owner=item["owner"], subject=item["subject_id"], fact=item["fact_code"],
                         evidence=evidence, superseded_by=item.get("superseded_by"))
             closed_by_group.setdefault((item["owner"], item["subject_id"], item["revision"]), []).append(iid)

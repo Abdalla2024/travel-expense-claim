@@ -57,7 +57,7 @@ class ReturnRouting(unittest.TestCase):
         eng, st = run(returned("Call me about this.", "See note."))
         i = next(i for i in st[1]["claims"]["SYN-C1"]["issues"] if i["fact_code"].startswith("return_unclassified"))
         self.assertEqual(i["owner"], "SYN-ADM")
-        self.assertIn("No interview settles", i["route_basis"])
+        self.assertIn("open point", i["route_basis"])   # INT5 01:50 does not say who, when the record names no owner
 
     def test_later_reply_from_same_role_resumes_review(self):
         later = review("SYN-B2", "budget_owner", batch=2)
@@ -74,6 +74,28 @@ class ReturnRouting(unittest.TestCase):
                                        review("SYN-S9", "supervisor", batch=2)]
         eng, st = run(ds)
         self.assertEqual(st[2]["claims"]["SYN-C1"]["status"], "rejected")
+
+    def test_owner_named_in_repair_text_decides(self):
+        # INT5 01:50: a returned request names an affected owner for a concrete repair.
+        eng, st = run(returned("Supervisor to confirm schedule coverage.", "Coverage unclear."))
+        i = next(i for i in st[1]["claims"]["SYN-C1"]["issues"] if i["fact_code"].startswith("named_owner_repair"))
+        self.assertEqual(i["owner"], "SYN-SUP")
+        self.assertIn("(INT5 01:50)", i["route_basis"])
+        eng, st = run(returned("Finance or the employee should confirm the amount.", "Unclear."))   # two owners named
+        i = next(i for i in st[1]["claims"]["SYN-C1"]["issues"] if i["record_id"].startswith("ISS-SYN-C1-r1-"))
+        self.assertNotEqual(i["fact_code"].split(":")[0], "named_owner_repair")
+
+    def test_return_request_content(self):
+        # INT5 01:53: subject type, revision, actor's role, source version, repair naming the affected fields.
+        ds = returned("Provide revised trip evidence.", "Please supply the revised trip evidence.")
+        ds["reviews"][1]["source_revisions"] = ["DW-D-2", "POL-2026.2", "SRC-D-3"]
+        eng, st = run(ds)
+        i = next(i for i in st[1]["claims"]["SYN-C1"]["issues"] if i["fact_code"].startswith("employee_correction"))
+        for part in ("budget owner (SYN-BO) returned claim SYN-C1 revision 1", "Repair requested: Provide revised trip evidence",
+                     "Affected fields: trip, amount, evidence", "Source versions reviewed: DW-D-2, POL-2026.2, SRC-D-3"):
+            self.assertIn(part, i["reason"])
+        # INT5 01:52: the reviewer who returned the work evaluates the repair.
+        self.assertIn("the budget owner (SYN-BO) then evaluates the repair", i["resolution_needed"])
 
     def test_draft_is_plain_language(self):
         eng, st = run(returned("Obtain funding decision.", "Budget owner requests a funding review before committing."))

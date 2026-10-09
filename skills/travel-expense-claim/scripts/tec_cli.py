@@ -33,7 +33,7 @@ def main(argv=None):
     p.add_argument("--run-id")
     syn = sub.add_parser("synthetic-demo", help="run a labelled SYN-* fixture through the engine (never a source run)")
     syn.add_argument("--fixture", default=os.path.join(REPO, "tests", "fixtures", "synthetic_partial_resumption.json"))
-    syn.add_argument("--out", default=os.path.join(REPO, "artifacts", "synthetic", "partial-resumption"))
+    syn.add_argument("--out", default=os.path.join(REPO, "artifacts", "synthetic", "partial-resumption-2"))
     v = sub.add_parser("verify")
     v.add_argument("run_id")
     v.add_argument("--compare")
