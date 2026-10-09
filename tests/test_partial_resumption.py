@@ -19,9 +19,9 @@ from tec import synthetic  # noqa: E402
 from tec.repair_queue import RepairQueue  # noqa: E402
 
 FIXTURE = os.path.join(ROOT, "tests", "fixtures", "synthetic_partial_resumption.json")
-# The current retained copy (interview 5 wording). artifacts/synthetic/partial-resumption/ is the earlier copy from
-# 557b1a2, kept unmodified.
-RETAINED = os.path.join(ROOT, "artifacts", "synthetic", "partial-resumption-2")
+# The current retained copy (interview 6: hold impact, wrong-role reply). Earlier copies are kept unmodified:
+# partial-resumption/ (557b1a2) and partial-resumption-2/ (c1411c5).
+RETAINED = os.path.join(ROOT, "artifacts", "synthetic", "partial-resumption-3")
 
 
 class PartialResumption(unittest.TestCase):
@@ -116,6 +116,23 @@ class PartialResumption(unittest.TestCase):
             with open(os.path.join(self.out, rel), encoding="utf-8") as a, open(os.path.join(RETAINED, rel), encoding="utf-8") as b:
                 self.assertEqual(a.read().replace("synthetic-partial-resumption", ""),
                                  b.read().replace("synthetic-partial-resumption", ""), rel)
+
+    def test_wrong_role_reply_kept_as_history_without_advancing(self):
+        # INT6 02:09: not current authorization; it waits or is rejected and stays as history.
+        rej = [x for x in self.eng.rejected_imports if x["decision"]["decision_id"] == "SYN-D-C2-SUP-X"]
+        self.assertEqual(len(rej), 1)
+        self.assertIn("SYN-BO is not the directory supervisor", rej[0]["reason"])
+        for b in (1, 2, 3, 4):
+            self.assertNotIn("SYN-D-C2-SUP-X", self.claim(b, "SYN-C2")["decision_ids"])
+        with open(os.path.join(self.out, "report.md"), encoding="utf-8") as f:
+            self.assertIn("`SYN-D-C2-SUP-X` (batch-1): SYN-BO claimed supervisor", f.read())
+
+    def test_hold_impact_states_what_is_withheld(self):
+        # INT6 02:08-02:09: holding is permitted when its business cost is explained.
+        item = self.rq.items["RQ-SYN-C1-r1-missing_payment_proof-SYN-COST-3"]
+        self.assertIn("Withheld: SYN-COST-1 EUR 60.00, SYN-COST-2 EUR 58.50, total EUR 118.50; already paid EUR 0.00",
+                      item["hold_impact"])
+        self.assertIn("SYN-COST-3 (claimed 40.00 EUR) is unresolved", item["hold_impact"])
 
     def test_synthetic_never_in_source_runs(self):
         runs = os.path.join(ROOT, "artifacts", "runs")

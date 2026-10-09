@@ -185,9 +185,11 @@ def _source_version(files):
 
 def _limitations(files, ds):
     out = [
-        "Policy paragraph 1 says 'Read the fixed source manifest before each run' and cites LOG-0014. The operations lead "
-        "confirmed in interview 2 (10:03, 10:11) that no such document exists and instructed us to proceed with the five "
-        "native sources (10:12). The reference stays recorded here as unresolved.",
+        "Policy paragraph 1 says 'Read the fixed source manifest before each run' and cites LOG-0014. There is no separate "
+        "source manifest. The operations lead confirmed this in interview 2 (10:03, 10:11) and again in interview 6 "
+        "(02:10), and said to use the native links for the policy, claims, receipts and travel registers workbook "
+        "(interview 2, 10:12; interview 6, 02:10). Each run reads those five native sources directly. The policy's "
+        "LOG-0014 reference is recorded here as a reference that points to nothing.",
         "The workbook and the PDFs expose no native revision identifier (interview 2, 10:09). Their `version` is the HTTP "
         "validator the server returned, or null; identity is the retained bytes' sha256 plus retrieval time and locator.",
         "Google Sheets regenerates the xlsx on every export, so the workbook's byte sha256 differs between fresh runs "

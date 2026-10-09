@@ -106,6 +106,23 @@ def build(meta, sources, snaps, eng, rq, ds):
     w("")
 
     # ---------------------------------------------------------------- cancellations
+    w("### What each hold withholds")
+    w("")
+    w("Holding the whole claim and proceeding with its independent lines are both permitted, provided the business cost "
+      "is explained (interview 6, 02:08-02:09). This workflow holds the whole claim; the reasons are in the README design "
+      "notes. For each held claim, the table states what the hold withholds and what proceeding would risk. Amounts come "
+      "from the sources only.")
+    w("")
+    w("| Claim | Rev | What the hold withholds and why |")
+    w("|---|---|---|")
+    impact = {}
+    for it in rq.items.values():
+        if it["status"] == "open" and it.get("hold_impact"):
+            impact.setdefault(it["subject_id"], it["hold_impact"])
+    for c in sorted([c for c in claims if c["status"] == "held"], key=lambda c: _natural(c["claim_id"])):
+        w("| %s | %d | %s |" % (c["claim_id"], c["revision"], impact.get(c["claim_id"], "—").replace("|", "/")))
+    w("")
+
     w("## 3. Trip and permit cancellation processes")
     w("")
     w("Cancellation processes are tracked separately from claims. A process with no claim is reported here and never turned into a claim row.")
@@ -222,8 +239,23 @@ def build(meta, sources, snaps, eng, rq, ds):
             w("- Exact redelivery of %s `%s` in batch-%d: no effect. Event identity and money were preserved." % (kind, ident, b))
     else:
         w("- No redeliveries observed.")
-    for x in eng.rejected_imports:
-        w("- Review reply `%s` (batch-%d) not admitted: %s" % (x["decision"]["decision_id"], x["batch"], x["reason"]))
+    w("")
+    w("Review replies not admitted as authorization. A reply from someone who is not the named reviewer, or who lacks the "
+      "role, is not current authorization. It is kept here as history and does not advance the case (interview 6, 02:09; "
+      "policy ¶7).")
+    w("")
+    if eng.rejected_imports:
+        w("| Reply | Batch | Subject | Rev | Roles claimed | Reviewer | Outcome | Why not admitted | Effect |")
+        w("|---|---|---|---|---|---|---|---|---|")
+        for x in eng.rejected_imports:
+            r = x["decision"]
+            w("| `%s` | %d | %s %s | %s | %s | %s | %s | %s | kept as history; case not advanced |" % (
+                r["decision_id"], x["batch"], r["subject_type"], r["subject_id"], r["revision"], "+".join(r["roles"]),
+                r["reviewer"], r["outcome"], x["reason"].replace("|", "/")))
+    else:
+        w("- None in this run: every supplied review reply came from the named reviewer in the right role, for the "
+          "current subject and revision. This branch is covered only synthetically.")
+    w("")
     for x in eng.fin_rejected:
         w("- Finance event `%s` (batch-%d) not admitted: %s" % (x["event"]["event_id"], x["batch"], x["reason"]))
     for x in eng.fin_waiting:

@@ -173,6 +173,19 @@ def _report(name, fixture, per_batch, rq, eng):
                     e["event"], e["item_id"], routing.label(it["fact_code"]), it["cost_id"] or it["subject_id"], it["owner"],
                     ("; evidence: " + ", ".join(sorted(set(e["evidence"])))) if e.get("evidence") else ""))
         w.append("")
+    w.append("## Review replies not admitted")
+    w.append("")
+    w.append("A reply from someone who is not the named reviewer, or who lacks the role, is not authorization. It is kept "
+             "as history and does not advance the case (interview 6, 02:09).")
+    w.append("")
+    for x in eng.rejected_imports:
+        r = x["decision"]
+        w.append("- `%s` (batch-%d): %s claimed %s on %s r%s (%s). Not admitted: %s. Kept as history; case not advanced." % (
+            r["decision_id"], x["batch"], r["reviewer"], "+".join(r["roles"]), r["subject_id"], r["revision"],
+            r["outcome"], x["reason"]))
+    if not eng.rejected_imports:
+        w.append("- None.")
+    w.append("")
     w.append("## Redeliveries")
     w.append("")
     for kind, ident, b in eng.replays:

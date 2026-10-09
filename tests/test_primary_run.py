@@ -169,6 +169,27 @@ class PrimaryRun(unittest.TestCase):
             self.assertNotIn("returned:", text)
             self.assertNotIn("..", text)
 
+    def test_hold_impact_explained_for_each_held_claim(self):
+        # New for interview 6 (02:08-02:09): holding is permitted when its business cost is explained.
+        with open(os.path.join(self.dir, "queue", "items.json"), encoding="utf-8") as f:
+            items = [i for i in json.load(f) if i["status"] == "open"]
+        impact = {}
+        for i in items:
+            if i.get("hold_impact"):
+                impact.setdefault(i["subject_id"], i["hold_impact"])
+        held = [c["claim_id"] for c in self.snap[4]["claims"] if c["status"] == "held"]
+        self.assertEqual(sorted(impact), sorted(held))
+        self.assertIn("Withheld: COST-117-2 EUR 40.00, total EUR 40.00; already paid EUR 0.00", impact["C117"])
+        self.assertIn("COST-117-1 (claimed 10.00 EUR) is unresolved", impact["C117"])
+        self.assertIn("Withheld: COST-114-1 EUR 20.00, total EUR 20.00", impact["C114"])
+        self.assertIn("holding withholds nothing that could proceed", impact["C22"])
+        self.assertIn("claim-level reason (funding_decision)", impact["C21"])
+        self.assertIn("Already paid: EUR 100.00", impact["C18"])
+        with open(os.path.join(self.dir, "report.md"), encoding="utf-8") as f:
+            report = f.read()
+        self.assertIn("### What each hold withholds", report)
+        self.assertIn("covered only synthetically", report)            # no supplied reply was rejected
+
     def test_correction_after_return(self):
         self.expect(1, "C09", "held", 8000, 0, rev=1, owner="EMP-01")
         self.expect(3, "C09", "pending", 8000, 0, rev=2)

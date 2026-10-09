@@ -44,7 +44,7 @@ class RepairQueue:
                       "permit_revision": i["permit_revision"], "cost_id": i["cost_id"], "fact_code": i["fact_code"],
                       "missing_fact": i["reason"], "owner": i["owner"], "next_action": i["resolution_needed"],
                       "decision_authority": i.get("decision_authority", i["owner"]), "follow_up": i.get("follow_up"),
-                      "route_basis": i.get("route_basis"),
+                      "route_basis": i.get("route_basis"), "hold_impact": i.get("hold_impact"),
                       "source_ids": i["source_ids"], "issue_record_id": i["record_id"]}
             cur = self.items.get(iid)
             twin = next((v for k, v in self.items.items() if k != iid and v["status"] == "open"
@@ -76,7 +76,8 @@ class RepairQueue:
                 self._event(batch, "reopened", cur, owner=cur["owner"], subject=i["subject_id"], fact=i["fact_code"],
                             reason=i["reason"])
             else:
-                changed = {k: fields[k] for k in ("owner", "next_action", "missing_fact", "follow_up") if cur.get(k) != fields[k]}
+                changed = {k: fields[k] for k in ("owner", "next_action", "missing_fact", "follow_up", "hold_impact")
+                           if cur.get(k) != fields[k]}
                 if changed:
                     cur.update(fields, last_changed=dict(ref))
                     self._event(batch, "updated", cur, changes=changed)
@@ -147,6 +148,8 @@ class RepairQueue:
                     routing.label(it["fact_code"]), " (cost %s)" % it["cost_id"] if it["cost_id"] else "",
                     _cap(routing.sentence(it["missing_fact"])), routing.sentence(it["next_action"]),
                     ", ".join(it["source_ids"]), it["item_id"], it["opened"]["run_id"], it["opened"]["batch_id"]))
+                if it.get("hold_impact"):
+                    lines.append("  While this is open: %s" % it["hold_impact"])
             out[owner] = "\n".join(lines) + "\n"
         return out
 

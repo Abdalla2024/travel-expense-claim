@@ -21,6 +21,9 @@ DIRECTORY_COL = {"administration": "Administration reviewer", "budget_owner": "B
                  "supervisor": "Supervisor", "director": "Director"}
 UNCAPPED = {"transport", "conference"}
 CAPPED = {"lodging": "night", "meals": "day"}
+# Reviews that depend on the calculated amount (POL ¶6: administration checks rates/caps and the calculated amount;
+# budget review is of the money; the director considers high spend). The supervisor's review does not.
+AMOUNT_ROLES = {"administration", "budget_owner", "director"}
 DIRECTOR_THRESHOLD_CENTS = 100000  # strictly above EUR 1,000.00 (POL ¶4, INT1 06:19)
 LOCAL = ZoneInfo("Europe/Amsterdam")
 
@@ -53,8 +56,13 @@ class Engine:
         clock_day = dt.date.fromisoformat(pol["case_clock_date"])
         # Business timestamps may not exceed the end of the case-clock date (INT2 10:05).
         self.clock_end = dt.datetime.combine(clock_day + dt.timedelta(days=1), dt.time(), LOCAL)
+        # Evidence rows with an arrival batch also open that batch, so a fact arriving on its own is processed
+        # (INT4 01:20). Supplied register rows carry no batch and add nothing here.
+        evidence_batches = {r["batch"] for rows in list(ds["merchant"].values()) + list(ds["receipts"].values())
+                            for r in rows if r.get("batch")} | {r["batch"] for r in ds["fx"] + ds["caps"] if r.get("batch")}
         self.batches = sorted({c["arrival_batch"] for c in ds["claims"]} | {r["batch"] for r in ds["reviews"]}
-                              | {f["batch"] for f in ds["finance"]} | {c["batch"] for c in ds["cancellations"]})
+                              | {f["batch"] for f in ds["finance"]} | {c["batch"] for c in ds["cancellations"]}
+                              | evidence_batches)
         self.revs = defaultdict(list)          # claim_id -> revisions in arrival order
         self.current = {}                      # claim_id -> current revision record
         self.claim_arrival = {}                # (claim_id, revision) -> batch
@@ -387,7 +395,11 @@ class Engine:
             permit_status, permit_done, permit_dids = self.permit_state(trip)
 
         lines, allowed_total, unresolved = [], 0, False
-        evidence_batch = 1  # latest arrival batch of any evidence row this revision's lines rely on
+        # Latest arrival batch of the evidence this revision relies on, split by what it changes:
+        # receipts and payment proof (all replies depend on them, INT3 10:50, INT5 01:52) versus Finance rates and caps,
+        # which change the amount, so only the amount-dependent reviews repeat (INT6 02:09; POL ¶6 role scopes).
+        evidence_batch = 1
+        amount_batch = 1
         exc = c.get("exception")
         for ln in c["lines"]:
             cost = ln["cost_id"]
@@ -471,7 +483,7 @@ class Engine:
                 if fx:
                     rate = fx["rate"]
                     refs.append(fx["ref"])
-                    evidence_batch = max(evidence_batch, fx.get("batch") or 1)
+                    amount_batch = max(amount_batch, fx.get("batch") or 1)
                 else:
                     findings.append(("missing_rate", fin, "no Finance %s rate for payment date %s" % (ln["currency"], paid_date),
                                      "Finance supplies or confirms the %s rate for %s" % (ln["currency"], paid_date), False))
@@ -485,7 +497,7 @@ class Engine:
                     findings.append(("invalid_units", emp, "documented units %r" % units, "Employee documents positive units", False))
                 elif cap:
                     refs.append(cap["ref"])
-                    evidence_batch = max(evidence_batch, cap.get("batch") or 1)
+                    amount_batch = max(amount_batch, cap.get("batch") or 1)
                     cap_total = cap["amount"] * int(units)
                 else:
                     findings.append(("missing_cap", fin, "no %s cap for %s in %s on %s" % (category, trip["destination"], ln["currency"], paid_date),
@@ -579,6 +591,10 @@ class Engine:
             elif x["admitted_batch"] < evidence_batch:
                 # Evidence for this revision arrived after the reply; changed evidence invalidates it (INT3 10:50).
                 stale.append(x)
+            elif x["admitted_batch"] < amount_batch and set(x["roles"]) & AMOUNT_ROLES:
+                # A Finance rate or cap arrived after this reply: only the review that depends on the amount repeats
+                # (INT6 02:09). The supervisor's review does not depend on the amount (POL ¶6), so it stands.
+                stale.append(x)
             else:
                 counted.append(x)
         roles_needed = ["administration", "budget_owner", "supervisor"]
@@ -661,6 +677,13 @@ class Engine:
             state.update(status=status, next_owner=owner, reason=reason)
             if status in ("held",) and not state["issues"]:
                 raise AssertionError("held without an issue: " + cid)
+            if status == "held":
+                # Holding the whole claim and proceeding with independent lines are both permitted if the business cost
+                # is explained (INT6 02:08-02:09). We hold; say what that withholds and what proceeding would risk.
+                state["hold_impact"] = self.hold_impact(c, lines, [i for i in state["issues"] if i["blocking"]], state["paid_cents"])
+                for i in state["issues"]:
+                    if i["blocking"]:
+                        i["hold_impact"] = state["hold_impact"]
             return state
 
         blocking = [i for i in issues if i["blocking"]]
@@ -716,9 +739,11 @@ class Engine:
         if missing_roles:
             if not_aware and not counted:
                 why = "approvals predate cancellation %s; cancellation-aware review needed" % ",".join(need_aware)
-            elif stale and not counted:
-                why = "replies from batch %s predate evidence that arrived in batch %d; review of r%d resumes" % (
-                    ",".join(sorted({str(x["admitted_batch"]) for x in stale})), evidence_batch, rev)
+            elif stale:
+                why = "%s from batch %s predate evidence that arrived later (batch %d; Finance rate/cap batch %d); %s review of r%d repeats" % (
+                    ", ".join(sorted({x["decision_id"] for x in stale})),
+                    ",".join(sorted({str(x["admitted_batch"]) for x in stale})), evidence_batch, amount_batch,
+                    "/".join(missing_roles), rev)
             else:
                 why = "awaiting %s review of r%d" % ("/".join(missing_roles), rev)
             role = missing_roles[0]
@@ -744,6 +769,31 @@ class Engine:
             return done("pending", state["issues"][0]["owner"], state["issues"][0]["reason"])
         return done("closed-reimbursed", None, "r%d approved; net paid %s equals entitlement%s" % (
             rev, _eur(paid), "; " + "; ".join(self._resolutions(cid)) if self._resolutions(cid) else ""))
+
+    def hold_impact(self, c, lines, blocking, paid):
+        """Plain statement of what a whole-claim hold withholds, using only amounts from the sources."""
+        claimed = {l["cost_id"]: "%s %s" % (l["amount"], l["currency"]) for l in c["lines"]}
+        supported = [l for l in lines if l["status"] == "supported"]
+        open_lines = [l for l in lines if l["status"] == "unresolved"]
+        total = sum(l["allowed_cents"] for l in supported)
+        sup_txt = ", ".join("%s %s" % (l["cost_id"], _eur(l["allowed_cents"])) for l in supported) or "none"
+        claim_level = sorted({i["fact_code"].split(":")[0] for i in blocking if not i["cost_id"]})
+        if claim_level:
+            return ("Held for a claim-level reason (%s), so the whole revision waits whichever approach is used; "
+                    "proceeding with independent lines does not apply. Supported lines: %s (total %s). Already paid: %s."
+                    % (", ".join(claim_level), sup_txt, _eur(total), _eur(paid)))
+        if not supported:
+            return ("Held, but no line is supported yet (%s open), so holding withholds nothing that could proceed. "
+                    "Already paid: %s." % (", ".join("%s claimed %s" % (l["cost_id"], claimed[l["cost_id"]]) for l in open_lines),
+                                           _eur(paid)))
+        open_txt = ", ".join("%s (claimed %s)" % (l["cost_id"], claimed[l["cost_id"]]) for l in open_lines)
+        return ("Held in full. Withheld: %s, total %s; already paid %s. Why: %s is unresolved, and reviews cover the whole "
+                "claim revision (interview 1, 06:33), so revision %d's entitlement is unknown. Proceeding on the "
+                "independent lines instead (also permitted, interview 6, 02:08) would mean reviewing and paying %s on revision %d "
+                "while %s stays open. When it resolves, the changed facts make the dependent review repeat (interview 6, "
+                "02:09), the remainder needs a second payment on the same revision, and any change to what was already "
+                "paid needs a Finance adjustment and resolution before closure (policy ¶11)."
+                % (sup_txt, _eur(total), _eur(paid), open_txt, c["revision"], _eur(total), c["revision"], open_txt))
 
     def _resolutions(self, cid):
         return ["Finance resolution %s" % e["event_id"] for e in self.fin_admitted
