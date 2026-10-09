@@ -335,12 +335,17 @@ class Engine:
         issues = []
         claim_ref = "%s#%s" % (c["source_id"], c["locator"])
 
+        lead = d and d["Administration reviewer"]
+
         def issue(code, owner, reason, action, cost=None, refs=(), blocking=True, extra=None):
+            # owner = the party who must supply the missing fact or decision (its authority);
+            # follow_up = the Travel Administration Lead, who chases missing replies (INT3 10:51).
             rid = "ISS-%s-r%d-%s%s" % (cid, rev, code, ("-" + cost) if cost else "")
             issues.append(dict(record_id=rid, subject_type="claim", subject_id=cid, revision=rev,
                                trip_id=c["trip_id"], trip_revision=c["trip_revision"],
                                permit_id=trip and trip["permit_id"], permit_revision=trip and trip["permit_revision"],
                                fact_code=code, cost_id=cost, reason=reason, owner=owner, resolution_needed=action,
+                               decision_authority=owner, follow_up=lead,
                                source_ids=[claim_ref] + list(refs), blocking=blocking, **(extra or {})))
 
         if not trip:
@@ -406,6 +411,22 @@ class Engine:
             paid_date = tx and tx["paid"]
             category = rc and rc["category"]
 
+            # Version-bound Finance exception (POL ¶3, ¶15): only the directory Finance officer, for this
+            # claim, revision and cost. Bound before category rules so a Finance reclassification applies.
+            line_exc = None
+            if exc and exc["cost_id"] == cost:
+                ok = exc["claim_id"] == cid and exc["revision"] == rev and exc["actor"] == fin
+                if ok:
+                    line_exc = exc
+                    refs.append("%s#%s" % (c["source_id"], exc["locator"]))
+                else:
+                    reason_bits.append("exception not bound to %s r%d by %s; ignored" % (cid, rev, fin))
+            if line_exc and line_exc.get("category") and line_exc["category"] != category:
+                # Reclassification is recorded on this revision; the receipt keeps the original category (INT3 10:51).
+                reason_bits.append("reclassified by Finance exception from receipt category '%s' to '%s' (%s)" % (
+                    category, line_exc["category"], line_exc["reason"]))
+                category = line_exc["category"]
+
             # Prepaid cost already carried by another claim's accepted obligation (POL ¶9).
             prior = [r for r in self.requests.values() if r["claim_id"] != cid and cost in r["cost_ids"]
                      and r["status"] in ("accepted", "dispatched", "settled", "cancel-pending")]
@@ -414,11 +435,16 @@ class Engine:
                     prior[0]["claim_id"], prior[0]["request_id"], prior[0]["status"])
                 refs.append("request:" + prior[0]["request_id"])
             elif category == "personal":
-                excluded = "personal purchase: zero entitlement"
+                excluded = "personal purchase: zero entitlement (claimed %s %s retained with evidence)" % (ln["amount"], ln["currency"])
             elif category is not None and category not in UNCAPPED and category not in CAPPED:
-                findings.append(("unknown_category", d and d["Administration reviewer"],
-                                 "category '%s' is not defined by policy" % category,
-                                 "Administration obtains a policy classification for '%s' (raise with operations lead)" % category, False))
+                # Undefined categories stay unresolved for every claim until Finance supplies a definition or a
+                # specific eligibility instruction; never assumed eligible or ineligible (INT3 10:48, 10:50, 10:52).
+                findings.append(("unknown_category", fin,
+                                 "receipt category '%s' is not defined by policy %s; eligibility unknown" % (category, self.policy_revision),
+                                 "Finance (%s) supplies an authoritative definition of '%s' or a specific eligibility instruction "
+                                 "for %s %s r%d (claimed %s %s); the employee (%s) may only be asked to clarify the purchase; "
+                                 "the Travel Administration Lead (%s) follows up" % (
+                                     fin, category, cost, cid, rev, ln["amount"], ln["currency"], emp, lead), "instruction"))
 
             rate = None
             if ln["currency"] == "EUR":
@@ -474,25 +500,23 @@ class Engine:
                     findings.append(("cancellation_timing_ambiguous:" + k, fin, "payment date equals cancellation date",
                                      "Supervisor/Finance resolve whether payment preceded cancellation", False))
 
-            # Version-bound Finance exception (POL ¶3, ¶15).
-            line_exc = None
-            if exc and exc["cost_id"] == cost:
-                ok = exc["claim_id"] == cid and exc["revision"] == rev and exc["actor"] == fin
-                if ok:
-                    line_exc = exc
-                    refs.append("%s#%s" % (c["source_id"], exc["locator"]))
-                else:
-                    reason_bits.append("exception not bound to %s r%d by %s; ignored" % (cid, rev, fin))
             open_findings = []
             for code, owner, why, action, coverable in findings:
                 base = code.split(":")[0]
-                covered = bool(line_exc and coverable and base in line_exc["covered_issues"] and
-                               (base != "travel_cancellation" or line_exc["travel_cancellation_id"] == code.split(":")[1]))
+                if coverable == "instruction":
+                    # A cost-specific Finance amount is an explicit eligibility instruction for that cost.
+                    covered = bool(line_exc and line_exc["allowed_original"] is not None)
+                else:
+                    covered = bool(line_exc and coverable and base in line_exc["covered_issues"] and
+                                   (base != "travel_cancellation" or line_exc["travel_cancellation_id"] == code.split(":")[1]))
                 if covered:
                     reason_bits.append("%s covered by Finance exception (%s)" % (code, line_exc["reason"]))
                 else:
                     open_findings.append((code, owner, why, action))
 
+            if not excluded and line_exc and line_exc["allowed_original"] == 0 and not open_findings:
+                excluded = "Finance instruction: zero entitlement (%s); claimed %s %s retained with evidence" % (
+                    line_exc["reason"], ln["amount"], ln["currency"])
             if excluded:
                 status, allowed_cents, reason_bits = "excluded", 0, [excluded] + reason_bits
             else:
@@ -867,6 +891,11 @@ class Engine:
                                permit_revision=r["permit_revision"], fact_code="cancellation_decision_pending", cost_id=None,
                                reason="cancellation requested %s by %s" % (iso(r["time"]), r["actor"]), owner=sup,
                                resolution_needed="Supervisor confirms or declines %s" % k, source_ids=[r["ref"]], blocking=True))
+        lead = self.directory(trip["employee"])["Administration reviewer"]
+        for i in issues:
+            if i["subject_type"] == "cancellation":
+                i.setdefault("decision_authority", i["owner"])
+                i.setdefault("follow_up", lead)
         return {"cancellation_id": k, "target_type": r["target_type"], "trip_id": r["trip_id"],
                 "trip_revision": r["trip_revision"], "permit_id": r["permit_id"] or None,
                 "permit_revision": r["permit_revision"] if r["permit_id"] else None, "status": status,

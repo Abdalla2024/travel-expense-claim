@@ -9,6 +9,9 @@ from collections import defaultdict
 from . import parse
 
 
+CATEGORY_POLICY = "POL-2026.2"  # policy revision the defined expense categories were read from
+
+
 class SourceUnavailable(Exception):
     pass
 
@@ -37,6 +40,12 @@ def load(run_dir, files):
         raise SourceUnavailable("required source(s) unusable: " + ", ".join(ds["unavailable"]))
 
     ds["policy"] = parse.parse_policy(os.path.join(run_dir, pol["path"]))
+    if ds["policy"]["policy_revision"] != CATEGORY_POLICY:
+        # Category definitions in engine.UNCAPPED/CAPPED were taken from this policy revision; a newer policy
+        # may define further categories (INT3 10:48), so the run is reported partial until they are re-read.
+        ds["limits"].append("policy revision %s differs from %s, from which the defined expense categories were taken; "
+                            "review category definitions before relying on unknown_category findings"
+                            % (ds["policy"]["policy_revision"], CATEGORY_POLICY))
     tabs = parse.read_xlsx(os.path.join(run_dir, reg[0]["path"]))
     T = {name: tabs[name]["rows"] for name in parse.REQUIRED_TABS}
     ds["tab_notes"] = {name: tabs[name]["notes"] for name in parse.REQUIRED_TABS}

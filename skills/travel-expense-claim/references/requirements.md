@@ -2,7 +2,7 @@
 
 Sources of each rule are marked:
 
-- **S1/S2**: stakeholder instruction from interview 1 or 2. Times refer to `interviews/*.md`.
+- **S1/S2/S3**: stakeholder instruction from interview 1, 2 or 3. Times refer to `interviews/*.md`.
 - **P ¶n**: policy POL-2026.2, paragraph n in page order.
 - **W**: workbook tab note or record.
 - **I**: our implementation choice.
@@ -25,7 +25,7 @@ Policy paragraphs, counted in page order: ¶1 scope and clock · ¶2 evidence ·
 | 9 | Reply validity | S2 10:09, P ¶7 | Must match subject type, ID and exact revision. The actor must be the directory actor. The packet must describe that revision. | High | Invalid replies are kept in `rejected_imports` and shown in the report | — |
 | 10 | Evidence | S1 06:32, P ¶2 | A matching receipt plus a separate settled merchant transaction. Employee, trip, cost, currency and gross must match. | High | Line findings `missing_receipt`, `missing_payment_proof`, … (owner employee) | — |
 | 11 | Pay after submit | S2 10:06–10:07 | A cost may be submitted before it is paid. It is held until settled proof exists, then proceeds. The payment date sets the FX rate and the caps. | High (C113 proceeds) | `paid_date` from the settled merchant transaction | — |
-| 12 | Caps | S1 06:31, P ¶3, W Caps | Lodging per night, meals per day, in the expense currency, effective on the payment date. Transport and conference are uncapped. Personal is 0. An unknown category is unresolved. | High | `CAPPED` / `UNCAPPED`; `unknown_category` (owner ADMIN-01) | Raise the "entertainment" category (C117) with the lead |
+| 12 | Caps | S1 06:31, P ¶3, W Caps | Lodging per night, meals per day, in the expense currency, effective on the payment date. Transport and conference are uncapped. Personal is 0. | High | `CAPPED` / `UNCAPPED` (taken from POL-2026.2; a different policy revision makes the run partial until they are re-read) | — |
 | 13 | FX and rounding | S1 06:32, P ¶3, W FX | Finance's exact rate for the payment date; EUR is 1. Each line is rounded half-up to cents before summing. | High | `cents()`; decimals are read as exact text | — |
 | 14 | Missing rate or cap | S2 10:10–10:11 | Finance supplies or confirms it. The claim stays held until then. | High | `missing_rate` / `missing_cap` (owner FIN-01) | — |
 | 15 | Deadline | S1 06:32, P ¶5 | Trip end plus two calendar months, inclusive, clamped to month end. The first submission date of each cost counts. | High | `add_months_clamped`; `late_filing` (owner Finance) | — |
@@ -38,6 +38,11 @@ Policy paragraphs, counted in page order: ¶1 scope and clock · ¶2 evidence ·
 | 22 | Cancellations | P ¶13–¶16 | Employee requests, supervisor confirms. Confirmation must come strictly later. A request alone pauses readiness. A process with no claim has no financial effect. | High | Separate state; IDs kept apart from Finance event IDs | — |
 | 23 | Repair routing | S1 06:28, S2 10:10 | Evidence goes to the employee; rate and cap gaps go to Finance; the claim is held meanwhile. | High | See choice 4 | — |
 | 24 | Human authority | P ¶12, task | Never fabricate replies, approve, send, book or pay. | High | Drafts only, never sent | — |
+| 25 | Undefined categories | P ¶2, S3 10:48, 10:50, 10:52 | Any category the policy does not define is unresolved, on every claim. It is never assumed eligible or ineligible, never mapped to another category, and never waived by the Skill. | High | `unknown_category` finding; line `unresolved`, allowed blank | Finance decision for C117 "entertainment" (none exists yet) |
+| 26 | Whole-claim hold | S3 10:49 | While any line is unresolved, the claim is held. Supported lines are still calculated but the claim is not completed on them. | High | Claim allowed blank; no request proposed | — |
+| 27 | Who resolves | S3 10:48, 10:49, 10:51 | Finance is the authority for policy definitions, tables and eligibility instructions. The budget owner decides funding only. The employee may be asked to clarify the specific cost item, but is not the policy authority. The Travel Administration Lead follows up on missing replies. | High. **I:** the lead is identified with the directory's administration reviewer (ADMIN-01), because the lead performs the administration check (S1 06:18) | Issue `owner` = `decision_authority` = Finance officer; `follow_up` = administration reviewer; drafts addressed to Finance with the follow-up named | — |
+| 28 | Finance resolution of a category | S3 10:51–10:52, P ¶3 | Resolved only by a valid Finance instruction bound to the claim, revision and cost (directory Finance officer): a replacement allowed amount, or a reclassification recorded on the updated revision with the original kept as history. Allowed 0 means ineligible: zero entitlement with the claimed amount and evidence kept. | High for the rule. **L:** the supplied binders have no reclassification field, so reclassification is supported in the engine (`exception.category`) and tested synthetically, but no parser populates it | Line `excluded` with "claimed … retained with evidence"; reclassification noted in the line reason | — |
+| 29 | Revalidation and closure after resolution | S3 10:50, 10:52, P ¶8 | Changed evidence, categories or amounts invalidate earlier approvals. The updated revision needs every required approval, Finance processing and reconciliation before closure. | High | Same full-recheck path as row 18 | — |
 
 ## 2. Implementation choices (adopted in the coding session)
 
@@ -89,5 +94,6 @@ Policy paragraphs, counted in page order: ¶1 scope and clock · ¶2 evidence ·
 - LOG-0014 is referenced by the policy but does not exist (stakeholder-confirmed).
 - No native revision IDs exist for the workbook or PDFs.
 - The PDFs are parsed from their text layer. A layout change would make parsing fail loudly (the run becomes partial or failed), never silently.
-- The category "entertainment" (C117) is not defined by the policy. It is routed to administration and needs the lead's ruling.
+- The category "entertainment" (C117) is not defined by the policy, and Finance has supplied no definition or instruction. C117 stays held with FIN-01 as the decision authority and ADMIN-01 following up (S3). No eligibility decision is made by the Skill.
+- The binders have no field for a Finance reclassification. The engine accepts one on a bound exception, but no supplied source carries it.
 - The Notion route is the public page-chunk endpoint the published page itself uses. If Notion changes it, the read is recorded as unavailable.

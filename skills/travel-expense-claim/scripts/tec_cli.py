@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """travel-expense-claim Skill entry point.
 
-  tec_cli.py run     [--run-id ID] [--runs-dir DIR]        fresh read of all five native sources
+  tec_cli.py run     [--run-id ID] [--supersedes RUN_ID --reason TEXT]   fresh read of all five native sources
   tec_cli.py replay  --from RUN_ID [--run-id ID]           labelled offline replay of RUN_ID's retained inputs
   tec_cli.py verify  RUN_ID [--compare RUN_ID]             integrity and consistency checks
 
@@ -25,6 +25,8 @@ def main(argv=None):
     sub = ap.add_subparsers(dest="cmd", required=True)
     r = sub.add_parser("run")
     r.add_argument("--run-id")
+    r.add_argument("--supersedes", help="earlier run this run replaces (recorded by hash; never modified)")
+    r.add_argument("--reason", help="why the earlier run is superseded")
     p = sub.add_parser("replay")
     p.add_argument("--from", dest="src", required=True)
     p.add_argument("--run-id")
@@ -40,8 +42,13 @@ def main(argv=None):
             return 4
         run_id = a.run_id or runmod.new_run_id("run" if a.cmd == "run" else "replay")
         try:
+            sup = getattr(a, "supersedes", None)
+            if sup and not os.path.exists(os.path.join(a.runs_dir, sup, "run.json")):
+                print("superseded run %s has no run.json (missing or corrupt prior state)" % sup, file=sys.stderr)
+                return 4
             run_dir, meta = runmod.execute(a.runs_dir, run_id, "fresh" if a.cmd == "run" else "replay",
-                                           replay_of=getattr(a, "src", None), repo=REPO)
+                                           replay_of=getattr(a, "src", None), repo=REPO,
+                                           supersedes=sup, reason=getattr(a, "reason", None))
         except FileExistsError as e:
             print(str(e), file=sys.stderr)
             return 4

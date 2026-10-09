@@ -55,6 +55,11 @@ def verify(run_dir, schema_path, compare_dir=None):
     if sources["mode"] == "offline-replay":
         check("replay labelled and linked to its source run", sources["replay_of"] and all(f.get("replayed_from_run") for f in files))
 
+    if meta.get("supersedes"):
+        sp = meta["supersedes"]
+        prior = os.path.normpath(os.path.join(run_dir, sp["path"]))
+        check("superseded run %s is retained and unchanged (run.json sha256)" % sp["run_id"],
+              os.path.exists(prior) and _sha(prior) == sp["sha256"])
     if meta["outcome"] == "failure":
         check("failed run produced no snapshots", not os.listdir(os.path.join(run_dir, "batches")))
         return res

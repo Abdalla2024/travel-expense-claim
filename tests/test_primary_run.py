@@ -94,7 +94,7 @@ class PrimaryRun(unittest.TestCase):
         self.expect(4, "C119", "pending", 100001, 0, owner="DIR-01")  # EUR 1,000.01 without director reply
 
     def test_incomplete_claims_hold_only_themselves(self):
-        held = {"C08": "EMP-01", "C114": "EMP-03", "C22": "FIN-01", "C23": "FIN-01", "C116": "FIN-01", "C117": "ADMIN-01"}
+        held = {"C08": "EMP-01", "C114": "EMP-03", "C22": "FIN-01", "C23": "FIN-01", "C116": "FIN-01", "C117": "FIN-01"}
         for cid, owner in held.items():
             for b in (1, 4):
                 self.expect(b, cid, "held", None, 0, owner=owner)
@@ -102,6 +102,27 @@ class PrimaryRun(unittest.TestCase):
         self.assertEqual(c116, {"ISS-C116-r1-missing_cap-COST-116-1", "ISS-C116-r1-missing_rate-COST-116-2"})
         # Independent work in the same batch still completes.
         self.expect(2, "C27", "closed-reimbursed", 3500, 3500)
+
+    def test_c117_undefined_category_stays_unresolved(self):
+        # Interview 3 (10:48-10:52): undefined category is unresolved until Finance defines it or instructs on
+        # eligibility; whole claim held; Finance is the authority; the Travel Administration Lead follows up.
+        for b in (1, 2, 3, 4):
+            c = self.c(b, "C117")
+            self.assertEqual((c["status"], c["allowed_cents"], c["balance_cents"], c["next_owner"]), ("held", None, None, "FIN-01"))
+            ent = next(l for l in c["lines"] if l["cost_id"] == "COST-117-1")
+            self.assertEqual((ent["status"], ent["allowed_cents"]), ("unresolved", None))   # not silently zero
+            meals = next(l for l in c["lines"] if l["cost_id"] == "COST-117-2")
+            self.assertEqual((meals["status"], meals["allowed_cents"]), ("supported", 4000))
+        self.assertFalse([r for r in self.snap[4]["requests"] if r["claim_id"] == "C117"])
+        iss = next(i for i in self.snap[4]["issues"] if i["record_id"] == "ISS-C117-r1-unknown_category-COST-117-1")
+        self.assertEqual(iss["owner"], "FIN-01")
+        self.assertIn("'entertainment'", iss["reason"])
+        self.assertIn("Travel Administration Lead (ADMIN-01) follows up", iss["resolution_needed"])
+        with open(os.path.join(self.dir, "queue", "items.json"), encoding="utf-8") as f:
+            item = next(i for i in json.load(f) if i["item_id"] == "RQ-C117-r1-unknown_category-COST-117-1")
+        self.assertEqual((item["owner"], item["decision_authority"], item["follow_up"], item["status"]),
+                         ("FIN-01", "FIN-01", "ADMIN-01", "open"))
+        self.assertNotIn(item["owner"], ("EMP-03", "LEAD-01"))   # not the employee, not the budget owner
 
     def test_late_filing_and_permits(self):
         self.expect(1, "C11", "pending", 6000, 0)                      # submitted on the deadline day

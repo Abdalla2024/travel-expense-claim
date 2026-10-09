@@ -36,6 +36,7 @@ class RepairQueue:
                       "trip_id": i["trip_id"], "trip_revision": i["trip_revision"], "permit_id": i["permit_id"],
                       "permit_revision": i["permit_revision"], "cost_id": i["cost_id"], "fact_code": i["fact_code"],
                       "missing_fact": i["reason"], "owner": i["owner"], "next_action": i["resolution_needed"],
+                      "decision_authority": i.get("decision_authority", i["owner"]), "follow_up": i.get("follow_up"),
                       "source_ids": i["source_ids"], "issue_record_id": i["record_id"]}
             cur = self.items.get(iid)
             if cur is None:
@@ -53,7 +54,7 @@ class RepairQueue:
                 self._event(batch, "reopened", cur, owner=cur["owner"], subject=i["subject_id"], fact=i["fact_code"],
                             reason=i["reason"])
             else:
-                changed = {k: fields[k] for k in ("owner", "next_action", "missing_fact") if cur[k] != fields[k]}
+                changed = {k: fields[k] for k in ("owner", "next_action", "missing_fact", "follow_up") if cur.get(k) != fields[k]}
                 if changed:
                     cur.update(fields, last_changed=dict(ref))
                     self._event(batch, "updated", cur, changes=changed)
@@ -101,9 +102,12 @@ class RepairQueue:
             by.setdefault(it["owner"], []).append(it)
         out = {}
         for owner, items in by.items():
+            follow = sorted({it["follow_up"] for it in items if it.get("follow_up")})
             lines = ["# DRAFT request to %s — not sent" % owner, "",
                      "Prepared locally by the travel-expense-claim Skill (run `%s`). A person must review and send it; "
-                     "the Skill never sends requests." % self.run_id, ""]
+                     "the Skill never sends requests." % self.run_id, "",
+                     "%s is asked as the party who supplies each fact or decision below. Follow-up on missing replies: "
+                     "%s (Travel Administration Lead)." % (owner, ", ".join(follow) or "Travel Administration Lead"), ""]
             subj = None
             for it in items:
                 key = (it["subject_type"], it["subject_id"], it["revision"])

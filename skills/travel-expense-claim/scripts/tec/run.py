@@ -45,7 +45,7 @@ def new_run_id(prefix):
     return "%s-%s" % (prefix, dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
 
 
-def execute(runs_dir, run_id, mode, replay_of=None, repo=None):
+def execute(runs_dir, run_id, mode, replay_of=None, repo=None, supersedes=None, reason=None):
     run_dir = os.path.join(runs_dir, run_id)
     if os.path.exists(run_dir):
         raise FileExistsError("run %s already exists; runs are never overwritten" % run_id)
@@ -61,6 +61,12 @@ def execute(runs_dir, run_id, mode, replay_of=None, repo=None):
 
     meta = {"run_id": run_id, "mode": mode, "replay_of": replay_of, "started_at": started,
             "code_revision": git_revision(repo or "."), "outcome": None}
+    if supersedes:
+        # Link to the earlier retained run this one replaces; the earlier run is left untouched.
+        prior_meta = os.path.join(runs_dir, supersedes, "run.json")
+        with open(prior_meta, "rb") as f:
+            meta["supersedes"] = {"run_id": supersedes, "path": "../%s/run.json" % supersedes,
+                                  "sha256": hashlib.sha256(f.read()).hexdigest(), "reason": reason}
     try:
         ds = dataset.load(run_dir, files)
         clock = "%s %s" % (ds["policy"]["case_clock_date"], ds["policy"]["case_clock_tz"])

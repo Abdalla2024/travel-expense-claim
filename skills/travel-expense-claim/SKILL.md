@@ -47,6 +47,8 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt          # on
 4. **Closure.** See requirements §2.3. `balance_cents = allowed_cents − paid_cents`.
 5. **Repair queue.** Grouped by owner, one item per fact. Append-only events. A partial response satisfies only what it supports.
 6. **Duplicates.** An exact redelivery has no effect. A conflicting redelivery holds the case and keeps the money already admitted.
+7. **Undefined categories.** A category the policy does not define stays `unresolved` on every claim and holds the claim. It is never treated as eligible or as zero, never mapped to another category, and never waived. Only a valid Finance instruction bound to that claim, revision and cost resolves it: a replacement amount (0 means ineligible, with the claimed amount and evidence kept) or a reclassification recorded on the updated revision. The updated revision then needs all approvals and Finance reconciliation before it can close.
+8. **Who acts.** Each issue's `owner` is the party who supplies the fact or decision. For definitions, tables and eligibility instructions that is Finance; the budget owner decides funding only, and the employee is asked only about their own cost item. Its `follow_up` is the Travel Administration Lead (the administration reviewer), who chases missing replies.
 
 ## Errors and retry
 

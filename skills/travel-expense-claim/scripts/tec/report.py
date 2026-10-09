@@ -43,6 +43,10 @@ def build(meta, sources, snaps, eng, rq, ds):
     w("- **Outcome:** %s · **Case clock:** %s (frozen; arrival batch decides availability)" % (meta["outcome"], sources["case_clock"]))
     w("- **Code revision:** `%s` · **Policy:** %s (Notion block version %s)" % (
         meta["code_revision"], ds["policy"]["policy_revision"], ds["policy"]["version"]))
+    if meta.get("supersedes"):
+        sp = meta["supersedes"]
+        w("- **Supersedes:** [`%s`](%s) (run.json sha256 `%s…`, left unmodified): %s" % (
+            sp["run_id"], "../%s/report.md" % sp["run_id"], sp["sha256"][:16], sp["reason"] or "no reason given"))
     w("- **Sealed snapshots:** " + ", ".join("[%s](%s) `%s…`" % (s["path"].split("/")[-1], s["path"], s["sha256"][:12]) for s in snaps))
     w("- **Outputs:** [claims.csv](claims.csv) · [sources.json](sources.json) · [queue/items.json](queue/items.json) · "
       "[queue/events.jsonl](queue/events.jsonl) · [queue/drafts/](queue/drafts/)")
@@ -77,15 +81,27 @@ def build(meta, sources, snaps, eng, rq, ds):
     w("## 2. Unresolved work (owner, reason, evidence or action needed)")
     w("")
     issues = {i["record_id"]: i for i in final["issues"]}
-    w("| Claim | Rev | Trip | Status | Allowed | Paid | Balance | Next owner | Reason | Next action |")
-    w("|---|---|---|---|---|---|---|---|---|---|")
+    issues_full = {it["issue_record_id"]: it for it in rq.items.values()}
+    w("Claimed = the employee's submitted amounts for the current revision (original currency). Allowed = the currently "
+      "supported entitlement in EUR (— when unknown). Paid = Finance-confirmed net payment.")
+    w("")
+    w("| Claim | Rev | Trip | Status | Claimed | Allowed | Paid | Balance | Next owner | Follow-up | Reason | Next action |")
+    w("|---|---|---|---|---|---|---|---|---|---|---|---|")
     for c in sorted(open_claims, key=lambda c: (c["status"], _natural(c["claim_id"]))):
         acts = sorted({i["resolution_needed"] for k, i in issues.items() if k.startswith("ISS-%s-r%d-" % (c["claim_id"], c["revision"]))})
         if not acts and c["status"] == "pending":
             acts = ["%s responds (review or Finance outcome)" % c["next_owner"]]
-        w("| %s | %d | %s | %s | %s | %s | %s | %s | %s | %s |" % (
-            c["claim_id"], c["revision"], c["trip_id"], c["status"], _m(c["allowed_cents"]), _eur(c["paid_cents"]),
-            _m(c["balance_cents"]), c["next_owner"] or "—", c["reason"].replace("|", "/"), "; ".join(acts).replace("|", "/")))
+        cur = eng.current[c["claim_id"]]
+        claimed = defaultdict(lambda: 0)
+        for ln in cur["lines"]:
+            claimed[ln["currency"]] += ln["amount"]
+        follow = sorted({i.get("follow_up") for k, i in issues_full.items()
+                         if k.startswith("ISS-%s-r%d-" % (c["claim_id"], c["revision"])) and i.get("follow_up")})
+        w("| %s | %d | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |" % (
+            c["claim_id"], c["revision"], c["trip_id"], c["status"],
+            " + ".join("%s %s" % (v, k) for k, v in sorted(claimed.items())), _m(c["allowed_cents"]), _eur(c["paid_cents"]),
+            _m(c["balance_cents"]), c["next_owner"] or "—", ", ".join(follow) or "—",
+            c["reason"].replace("|", "/"), "; ".join(acts).replace("|", "/")))
     w("")
 
     # ---------------------------------------------------------------- cancellations
@@ -118,12 +134,15 @@ def build(meta, sources, snaps, eng, rq, ds):
         by_owner[it["owner"]].append(it)
     w("### Open items after %s" % final["batch_id"])
     w("")
-    w("| Owner | Item | Subject | Rev | Trip/permit rev | Missing fact or return reason | Next action | Opened | Last changed |")
-    w("|---|---|---|---|---|---|---|---|---|")
+    w("Owner is the party who supplies the fact or decision (for policy definitions, tables and eligibility instructions, Finance). "
+      "Follow-up is the Travel Administration Lead, who chases missing replies (interview 3, 10:48 and 10:51).")
+    w("")
+    w("| Owner | Follow-up | Item | Subject | Rev | Trip/permit rev | Missing fact or return reason | Next action | Opened | Last changed |")
+    w("|---|---|---|---|---|---|---|---|---|---|")
     for owner in sorted(by_owner):
         for it in by_owner[owner]:
-            w("| %s | `%s` | %s %s%s | %s | %s r%s%s | %s | %s | %s | %s |" % (
-                owner, it["item_id"], it["subject_type"], it["subject_id"], (" " + it["cost_id"]) if it["cost_id"] else "",
+            w("| %s | %s | `%s` | %s %s%s | %s | %s r%s%s | %s | %s | %s | %s |" % (
+                owner, it.get("follow_up") or "—", it["item_id"], it["subject_type"], it["subject_id"], (" " + it["cost_id"]) if it["cost_id"] else "",
                 it["revision"] if it["revision"] is not None else "—", it["trip_id"], it["trip_revision"],
                 (" / %s r%s" % (it["permit_id"], it["permit_revision"])) if it["permit_id"] else "",
                 it["missing_fact"].replace("|", "/"), it["next_action"].replace("|", "/"),
