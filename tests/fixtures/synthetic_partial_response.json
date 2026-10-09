@@ -1,0 +1,19 @@
+{
+  "_label": "SYNTHETIC TEST FIXTURE. Not a historical business event and not part of the Alderbridge scenario sources. It exists only to exercise partial-response handling, because the supplied batches contain no partial employee-evidence response.",
+  "subject": {"subject_type": "claim", "subject_id": "SYN-C1", "trip_id": "SYN-T1", "trip_revision": 1, "permit_id": null, "permit_revision": null},
+  "owner": "SYN-EMP",
+  "batches": [
+    {"batch": 1, "revision": 1, "open_facts": [
+      {"fact_code": "missing_receipt", "cost_id": "SYN-COST-1", "reason": "no receipt for SYN-COST-1", "action": "Employee supplies the receipt for SYN-COST-1"},
+      {"fact_code": "missing_payment_proof", "cost_id": "SYN-COST-2", "reason": "no settled merchant transaction for SYN-COST-2", "action": "Employee supplies the settled merchant transaction for SYN-COST-2"},
+      {"fact_code": "missing_payment_proof", "cost_id": "SYN-COST-3", "reason": "no settled merchant transaction for SYN-COST-3", "action": "Employee supplies the settled merchant transaction for SYN-COST-3"}
+    ], "inputs": []},
+    {"batch": 2, "revision": 1, "open_facts": [
+      {"fact_code": "missing_payment_proof", "cost_id": "SYN-COST-2", "reason": "no settled merchant transaction for SYN-COST-2", "action": "Employee supplies the settled merchant transaction for SYN-COST-2"},
+      {"fact_code": "missing_payment_proof", "cost_id": "SYN-COST-3", "reason": "no settled merchant transaction for SYN-COST-3", "action": "Employee supplies the settled merchant transaction for SYN-COST-3"}
+    ], "inputs": ["synthetic-fixture#batch 2:SYN-R-COST-1"]},
+    {"batch": 3, "revision": 2, "open_facts": [
+      {"fact_code": "missing_payment_proof", "cost_id": "SYN-COST-3", "reason": "no settled merchant transaction for SYN-COST-3", "action": "Employee supplies the settled merchant transaction for SYN-COST-3"}
+    ], "inputs": ["synthetic-fixture#batch 3:SYN-C1 r2 (SYN-COST-2 proof supplied)"]}
+  ]
+}
