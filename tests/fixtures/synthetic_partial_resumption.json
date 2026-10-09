@@ -1,0 +1,56 @@
+{
+  "_label": "SYNTHETIC SCENARIO. Every identifier is SYN-*. None of these records exists in the Alderbridge sources; they are invented test inputs that show how a partial reply resumes only the work it supports (interview 4, 01:20). Never present this as source data, a real approval, a real reply or a real Finance decision.",
+  "policy_revision": "POL-2026.2",
+  "case_clock_date": "2026-11-15",
+  "people": [
+    {"Employee ID": "SYN-E1", "Payee ID": "SYN-E1", "Administration reviewer": "SYN-ADM", "Budget owner": "SYN-BO", "Supervisor": "SYN-SUP", "Director": "SYN-DIR", "Finance officer": "SYN-FIN"},
+    {"Employee ID": "SYN-E2", "Payee ID": "SYN-E2", "Administration reviewer": "SYN-ADM", "Budget owner": "SYN-BO", "Supervisor": "SYN-SUP", "Director": "SYN-DIR", "Finance officer": "SYN-FIN"}
+  ],
+  "trips": [
+    {"trip_id": "SYN-T1", "employee": "SYN-E1", "destination": "NL", "international": false, "start": "2026-09-02", "end": "2026-09-05", "commitment": "2026-09-01", "estimate": "200.00", "permit_id": null, "trip_revision": 1, "permit_revision": null},
+    {"trip_id": "SYN-T2", "employee": "SYN-E2", "destination": "NL", "international": false, "start": "2026-09-02", "end": "2026-09-05", "commitment": "2026-09-01", "estimate": "150.00", "permit_id": null, "trip_revision": 1, "permit_revision": null}
+  ],
+  "claims": [
+    {"claim_id": "SYN-C1", "revision": 1, "arrival_batch": 1, "employee": "SYN-E1", "trip_id": "SYN-T1", "trip_revision": 1, "submitted": "2026-09-01", "binder_status": "submitted", "claim_reason": "synthetic claim with three missing facts", "exception": null,
+     "lines": [
+       {"line": 1, "cost_id": "SYN-COST-1", "receipt_ref": "SYN-R1", "first_submitted": "2026-09-01", "amount": "60.00", "currency": "EUR"},
+       {"line": 2, "cost_id": "SYN-COST-2", "receipt_ref": "SYN-R2", "first_submitted": "2026-09-01", "amount": "50.00", "currency": "GBP"},
+       {"line": 3, "cost_id": "SYN-COST-3", "receipt_ref": "SYN-R3", "first_submitted": "2026-09-01", "amount": "40.00", "currency": "EUR"}]},
+    {"claim_id": "SYN-C2", "revision": 1, "arrival_batch": 1, "employee": "SYN-E2", "trip_id": "SYN-T2", "trip_revision": 1, "submitted": "2026-09-01", "binder_status": "submitted", "claim_reason": "synthetic complete claim returned for funding", "exception": null,
+     "lines": [
+       {"line": 1, "cost_id": "SYN-COST-4", "receipt_ref": "SYN-R4", "first_submitted": "2026-09-01", "amount": "120.00", "currency": "EUR"}]}
+  ],
+  "receipts": [
+    {"receipt_ref": "SYN-R1", "cost_id": "SYN-COST-1", "employee": "SYN-E1", "trip_id": "SYN-T1", "category": "transport", "currency": "EUR", "gross": "60.00", "units": "1", "issued": "2026-09-01"},
+    {"receipt_ref": "SYN-R2", "cost_id": "SYN-COST-2", "employee": "SYN-E1", "trip_id": "SYN-T1", "category": "transport", "currency": "GBP", "gross": "50.00", "units": "1", "issued": "2026-09-01"},
+    {"receipt_ref": "SYN-R3", "cost_id": "SYN-COST-3", "employee": "SYN-E1", "trip_id": "SYN-T1", "category": "transport", "currency": "EUR", "gross": "40.00", "units": "1", "issued": "2026-09-01"},
+    {"receipt_ref": "SYN-R4", "cost_id": "SYN-COST-4", "employee": "SYN-E2", "trip_id": "SYN-T2", "category": "transport", "currency": "EUR", "gross": "120.00", "units": "1", "issued": "2026-09-01"}
+  ],
+  "merchant": [
+    {"txn": "SYN-M1", "cost_id": "SYN-COST-1", "employee": "SYN-E1", "trip_id": "SYN-T1", "currency": "EUR", "gross": "60.00", "paid": "2026-09-01", "status": "settled", "receipt_ref": "SYN-R1", "batch": 2},
+    {"txn": "SYN-M2", "cost_id": "SYN-COST-2", "employee": "SYN-E1", "trip_id": "SYN-T1", "currency": "GBP", "gross": "50.00", "paid": "2026-09-01", "status": "settled", "receipt_ref": "SYN-R2", "batch": 1},
+    {"txn": "SYN-M3", "cost_id": "SYN-COST-3", "employee": "SYN-E1", "trip_id": "SYN-T1", "currency": "EUR", "gross": "40.00", "paid": "2026-09-01", "status": "settled", "receipt_ref": "SYN-R3", "batch": 3},
+    {"txn": "SYN-M4", "cost_id": "SYN-COST-4", "employee": "SYN-E2", "trip_id": "SYN-T2", "currency": "EUR", "gross": "120.00", "paid": "2026-09-01", "status": "settled", "receipt_ref": "SYN-R4", "batch": 1}
+  ],
+  "fx": [
+    {"currency": "GBP", "date": "2026-09-01", "rate": "1.17", "ref": "SYN-FX-GBP", "batch": 2}
+  ],
+  "caps": [],
+  "reviews": [
+    {"decision_id": "SYN-D-C1-ADM-1", "batch": 1, "subject_id": "SYN-C1", "revision": 1, "roles": ["administration"], "reviewer": "SYN-ADM", "outcome": "approve", "reason": "Administration check of the packet as it stood", "repair": null, "time": "2026-09-03T12:00:00"},
+    {"decision_id": "SYN-D-C2-ADM-1", "batch": 1, "subject_id": "SYN-C2", "revision": 1, "roles": ["administration"], "reviewer": "SYN-ADM", "outcome": "approve", "reason": "Packet accepted", "repair": null, "time": "2026-09-03T12:00:00"},
+    {"decision_id": "SYN-D-C2-BO-1", "batch": 1, "subject_id": "SYN-C2", "revision": 1, "roles": ["budget_owner"], "reviewer": "SYN-BO", "outcome": "return", "reason": "Budget owner requests a funding review before committing.", "repair": "Obtain funding decision.", "time": "2026-09-03T12:00:00"},
+    {"decision_id": "SYN-D-C2-SUP-1", "batch": 1, "subject_id": "SYN-C2", "revision": 1, "roles": ["supervisor"], "reviewer": "SYN-SUP", "outcome": "approve", "reason": "Business purpose accepted", "repair": null, "time": "2026-09-03T12:00:00"},
+    {"decision_id": "SYN-D-C2-BO-2", "batch": 2, "subject_id": "SYN-C2", "revision": 1, "roles": ["budget_owner"], "reviewer": "SYN-BO", "outcome": "approve", "reason": "Funding confirmed", "repair": null, "time": "2026-09-10T12:00:00"},
+    {"decision_id": "SYN-D-C1-ADM-3", "batch": 3, "subject_id": "SYN-C1", "revision": 1, "roles": ["administration"], "reviewer": "SYN-ADM", "outcome": "approve", "reason": "Administration check with all evidence", "repair": null, "time": "2026-09-13T12:00:00"},
+    {"decision_id": "SYN-D-C1-BO-3", "batch": 3, "subject_id": "SYN-C1", "revision": 1, "roles": ["budget_owner"], "reviewer": "SYN-BO", "outcome": "approve", "reason": "Funds available", "repair": null, "time": "2026-09-13T12:00:00"},
+    {"decision_id": "SYN-D-C1-SUP-3", "batch": 3, "subject_id": "SYN-C1", "revision": 1, "roles": ["supervisor"], "reviewer": "SYN-SUP", "outcome": "approve", "reason": "Business purpose accepted", "repair": null, "time": "2026-09-13T12:00:00"}
+  ],
+  "finance": [
+    {"event_id": "SYN-F-C2-acc", "batch": 2, "type": "accepted", "request_id": "REQ-SYN-C2", "claim_id": "SYN-C2", "actor": "SYN-FIN", "payee": "SYN-E2", "currency": "EUR", "amount": null, "original_event_id": null, "obligation": "120.00", "reason": "synthetic", "time": "2026-09-11T12:00:00"},
+    {"event_id": "SYN-F-C2-1", "batch": 3, "type": "settled", "request_id": "REQ-SYN-C2", "claim_id": "SYN-C2", "actor": "SYN-FIN", "payee": "SYN-E2", "currency": "EUR", "amount": "120.00", "original_event_id": null, "obligation": null, "reason": "synthetic", "time": "2026-09-12T12:00:00"},
+    {"event_id": "SYN-F-C2-1", "batch": 4, "type": "settled", "request_id": "REQ-SYN-C2", "claim_id": "SYN-C2", "actor": "SYN-FIN", "payee": "SYN-E2", "currency": "EUR", "amount": "120.00", "original_event_id": null, "obligation": null, "reason": "synthetic", "time": "2026-09-12T12:00:00"},
+    {"event_id": "SYN-F-C1-acc", "batch": 4, "type": "accepted", "request_id": "REQ-SYN-C1", "claim_id": "SYN-C1", "actor": "SYN-FIN", "payee": "SYN-E1", "currency": "EUR", "amount": null, "original_event_id": null, "obligation": "158.50", "reason": "synthetic", "time": "2026-09-14T12:00:00"},
+    {"event_id": "SYN-F-C1-1", "batch": 4, "type": "settled", "request_id": "REQ-SYN-C1", "claim_id": "SYN-C1", "actor": "SYN-FIN", "payee": "SYN-E1", "currency": "EUR", "amount": "158.50", "original_event_id": null, "obligation": null, "reason": "synthetic", "time": "2026-09-14T13:00:00"}
+  ]
+}

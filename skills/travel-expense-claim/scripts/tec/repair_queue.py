@@ -87,7 +87,9 @@ class RepairQueue:
             else:
                 kind = "satisfied"
             item.update(status=kind, last_changed=dict(ref))
-            evidence = inputs_by_subject.get(item["subject_id"], [])
+            # Prefer evidence for this exact cost; fall back to the subject's inputs this batch.
+            evidence = inputs_by_subject.get((item["subject_id"], item["cost_id"])) or \
+                inputs_by_subject.get(item["subject_id"], [])
             self._event(batch, kind, item, owner=item["owner"], subject=item["subject_id"], fact=item["fact_code"],
                         evidence=evidence, superseded_by=item.get("superseded_by"))
             closed_by_group.setdefault((item["owner"], item["subject_id"], item["revision"]), []).append(iid)

@@ -233,7 +233,13 @@ class Engine:
                 self.rejected_imports.append({"decision": r, "reason": "; ".join(errs), "batch": b})
                 self.log("review-rejected", r["subject_id"], "%s rejected: %s" % (r["decision_id"], "; ".join(errs)), [r["ref"]])
             else:
+                prior = [x for x in self.decisions if (x["subject_type"], x["subject_id"], x["revision"]) ==
+                         (r["subject_type"], r["subject_id"], r["revision"]) and set(x["roles"]) & set(r["roles"])
+                         and x["outcome"] == "return"]
                 self.decisions.append(dict(r, admitted_batch=b))
+                if prior and r["outcome"] == "approve":
+                    self.log("review-resumed", r["subject_id"], "%s %s r%d after return %s" % (
+                        "+".join(r["roles"]), r["outcome"], r["revision"], prior[-1]["decision_id"]), [r["ref"]])
                 if r["outcome"] != "approve":
                     self.log("review", r["subject_id"], "%s %s r%d: %s" % (
                         "+".join(r["roles"]), r["outcome"], r["revision"], r["reason"]), [r["ref"]])
