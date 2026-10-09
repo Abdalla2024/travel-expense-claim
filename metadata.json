@@ -1,0 +1,28 @@
+{
+  "cli_version": "0.11.3",
+  "checkpoint_id": "01M4F86M9TBJT5A5VX620Q4866",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "skills/travel-expense-claim/scripts/tec/capture.py",
+    "skills/travel-expense-claim/scripts/tec/run.py",
+    "skills/travel-expense-claim/scripts/tec/verify.py"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": ""
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 18,
+    "cache_creation_tokens": 10185,
+    "cache_read_tokens": 2723065,
+    "output_tokens": 5846,
+    "api_call_count": 9
+  }
+}
