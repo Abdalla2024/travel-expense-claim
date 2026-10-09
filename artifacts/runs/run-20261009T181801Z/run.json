@@ -1,0 +1,38 @@
+{
+  "batches": [
+    {
+      "batch_id": "batch-1",
+      "path": "batches/batch-1.json",
+      "sha256": "2f81bd51bcf6a37a02480e77ea01842b4f0266daa96070359b42c5ca6949ef72"
+    },
+    {
+      "batch_id": "batch-2",
+      "path": "batches/batch-2.json",
+      "sha256": "d24f84490cfe12f05da471638fd3331009e07c6340b8ecb75cfd7a72bb354a80"
+    },
+    {
+      "batch_id": "batch-3",
+      "path": "batches/batch-3.json",
+      "sha256": "3bc19e494a31740942ddb12964f8f67311865351e081c47b93044eb31a5d29b8"
+    },
+    {
+      "batch_id": "batch-4",
+      "path": "batches/batch-4.json",
+      "sha256": "a25c6c2e2ae82e8339b535da92e1fe28d0c3ced6c73f54f7740be59730caeccb"
+    }
+  ],
+  "code_revision": "089356ec03e06c5d17a16c42df75e4d5d3996523",
+  "finished_at": "2026-10-09T18:18:10Z",
+  "mode": "fresh",
+  "outcome": "success",
+  "replay_of": null,
+  "routing": "returned-work routing by request (interview 4)",
+  "run_id": "run-20261009T181801Z",
+  "started_at": "2026-10-09T18:18:01Z",
+  "supersedes": {
+    "path": "../run-20261009T175711Z/run.json",
+    "reason": "Code 089356e applies interview 6: each held claim now states what the whole-claim hold withholds, why, and what proceeding on independent lines would risk; a late Finance rate or cap repeats only the amount-dependent reviews; report section 6 tabulates review replies not admitted; the source-manifest limitation cites interview 6. No claim status, amount or owner changes.",
+    "run_id": "run-20261009T175711Z",
+    "sha256": "08729c749d6d039f0e6b87c118faa030d5c8786034b1e2b544f64536d0d78d35"
+  }
+}

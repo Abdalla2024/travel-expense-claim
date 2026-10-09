@@ -1,0 +1,32 @@
+{
+  "batches": [
+    {
+      "batch_id": "batch-1",
+      "path": "batches/batch-1.json",
+      "sha256": "c79ef75bfaf2471c04c15ec24f6c9ac7d0cfaa5a506f420fc494521a60bbd345"
+    },
+    {
+      "batch_id": "batch-2",
+      "path": "batches/batch-2.json",
+      "sha256": "1931d8446903a714b577ecf52ea2a319e0b9d6e16b1435e805721849736b36f6"
+    },
+    {
+      "batch_id": "batch-3",
+      "path": "batches/batch-3.json",
+      "sha256": "81bb4f8431faef429d6b8c8e43ccc85e7d95f0a181b0a78932800c719a145164"
+    },
+    {
+      "batch_id": "batch-4",
+      "path": "batches/batch-4.json",
+      "sha256": "be841587508b96838a61bac054959a3c931b05e018d41c10b13414e41a490146"
+    }
+  ],
+  "code_revision": "089356ec03e06c5d17a16c42df75e4d5d3996523",
+  "finished_at": "2026-10-09T18:18:10Z",
+  "mode": "replay",
+  "outcome": "success",
+  "replay_of": "run-20261009T181801Z",
+  "routing": "returned-work routing by request (interview 4)",
+  "run_id": "replay-20261009T181810Z",
+  "started_at": "2026-10-09T18:18:10Z"
+}

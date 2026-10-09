@@ -1,0 +1,890 @@
+[
+  {
+    "cost_id": "COST-08",
+    "decision_authority": "EMP-01",
+    "fact_code": "missing_payment_proof",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held, but no line is supported yet (COST-08 claimed 120.00 EUR open), so holding withholds nothing that could proceed. Already paid: EUR 0.00.",
+    "issue_record_id": "ISS-C08-r1-missing_payment_proof-COST-08",
+    "item_id": "RQ-C08-r1-missing_payment_proof-COST-08",
+    "last_changed": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "no settled merchant transaction for COST-08",
+    "next_action": "Employee supplies the settled merchant transaction for COST-08",
+    "opened": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "EMP-01",
+    "permit_id": null,
+    "permit_revision": null,
+    "revision": 1,
+    "route_basis": null,
+    "source_ids": [
+      "initial-claims#page 8",
+      "receipts#page 4:R-COST-08"
+    ],
+    "status": "open",
+    "subject_id": "C08",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T08",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": null,
+    "decision_authority": "EMP-01",
+    "fact_code": "employee_correction:budget_owner",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held for a claim-level reason (employee_correction), so the whole revision waits whichever approach is used; proceeding with independent lines does not apply. Supported lines: COST-09 EUR 80.00 (total EUR 80.00). Already paid: EUR 0.00.",
+    "issue_record_id": "ISS-C09-r1-employee_correction:budget_owner",
+    "item_id": "RQ-C09-r1-employee_correction:budget_owner",
+    "last_changed": {
+      "batch_id": "batch-3",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "The budget owner (LEAD-01) returned claim C09 revision 1 on 2026-09-03: Please supply the revised trip evidence. Repair requested: Provide revised trip evidence. Affected fields: trip, amount, evidence. Source versions reviewed: DW-D-2, POL-2026.2, SRC-D-3",
+    "next_action": "The employee (EMP-01) supplies the correction asked for (Provide revised trip evidence) as an updated claim revision; the budget owner (LEAD-01) then evaluates the repair and the process continues from there",
+    "opened": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "EMP-01",
+    "permit_id": null,
+    "permit_revision": null,
+    "resolved_by": [
+      "claim-updates#page 1",
+      "registers:finance-activity#row 46:F-C09-accepted"
+    ],
+    "revision": 1,
+    "route_basis": "INT1 06:30 (a return goes back to the employee with concrete repair instructions); INT4 01:20 (the employee supplies the corrected receipt, transaction or evidence)",
+    "source_ids": [
+      "initial-claims#page 9",
+      "registers:review-ledger#row 32:D-C09-1-claim-budget_owner-1"
+    ],
+    "status": "superseded",
+    "subject_id": "C09",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T09",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": "COST-10",
+    "decision_authority": "FIN-01",
+    "fact_code": "late_permit",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held, but no line is supported yet (COST-10 claimed 90.00 EUR open), so holding withholds nothing that could proceed. Already paid: EUR 0.00.",
+    "issue_record_id": "ISS-C10-r1-late_permit-COST-10",
+    "item_id": "RQ-C10-r1-late_permit-COST-10",
+    "last_changed": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "permit P10 approved 2026-09-02 after first commitment 2026-09-01",
+    "next_action": "Finance decides a late_permit exception for COST-10",
+    "opened": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "FIN-01",
+    "permit_id": "P10",
+    "permit_revision": 1,
+    "revision": 1,
+    "route_basis": null,
+    "source_ids": [
+      "initial-claims#page 10",
+      "receipts#page 5:R-COST-10",
+      "registers:merchant-payments#row 14:M-COST-10"
+    ],
+    "status": "open",
+    "subject_id": "C10",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T10",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": "COST-112-1",
+    "decision_authority": "FIN-01",
+    "fact_code": "late_filing",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held, but no line is supported yet (COST-112-1 claimed 25.00 EUR open), so holding withholds nothing that could proceed. Already paid: EUR 0.00.",
+    "issue_record_id": "ISS-C112-r1-late_filing-COST-112-1",
+    "item_id": "RQ-C112-r1-late_filing-COST-112-1",
+    "last_changed": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "first submitted 2026-09-02 after deadline 2026-09-01",
+    "next_action": "Finance grants or refuses a late-filing exception for C112 r1 COST-112-1",
+    "opened": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "FIN-01",
+    "permit_id": null,
+    "permit_revision": null,
+    "revision": 1,
+    "route_basis": null,
+    "source_ids": [
+      "initial-claims#page 111",
+      "receipts#page 94:R-COST-112-1",
+      "registers:merchant-payments#row 192:M-COST-112-1"
+    ],
+    "status": "open",
+    "subject_id": "C112",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T112",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": "COST-114-2",
+    "decision_authority": "EMP-03",
+    "fact_code": "missing_payment_proof",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held in full. Withheld: COST-114-1 EUR 20.00, total EUR 20.00; already paid EUR 0.00. Why: COST-114-2 (claimed 15.00 EUR) is unresolved, and reviews cover the whole claim revision (interview 1, 06:33), so revision 1's entitlement is unknown. Proceeding on the independent lines instead (also permitted, interview 6, 02:08) would mean reviewing and paying EUR 20.00 on revision 1 while COST-114-2 (claimed 15.00 EUR) stays open. When it resolves, the changed facts make the dependent review repeat (interview 6, 02:09), the remainder needs a second payment on the same revision, and any change to what was already paid needs a Finance adjustment and resolution before closure (policy ¶11).",
+    "issue_record_id": "ISS-C114-r1-missing_payment_proof-COST-114-2",
+    "item_id": "RQ-C114-r1-missing_payment_proof-COST-114-2",
+    "last_changed": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "no settled merchant transaction for COST-114-2",
+    "next_action": "Employee supplies the settled merchant transaction for COST-114-2",
+    "opened": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "EMP-03",
+    "permit_id": null,
+    "permit_revision": null,
+    "revision": 1,
+    "route_basis": null,
+    "source_ids": [
+      "initial-claims#page 113",
+      "receipts#page 96:R-COST-114-2"
+    ],
+    "status": "open",
+    "subject_id": "C114",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T114",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": "COST-116-1",
+    "decision_authority": "FIN-01",
+    "fact_code": "missing_cap",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held, but no line is supported yet (COST-116-1 claimed 50.00 USD, COST-116-2 claimed 10.00 GBP open), so holding withholds nothing that could proceed. Already paid: EUR 0.00.",
+    "issue_record_id": "ISS-C116-r1-missing_cap-COST-116-1",
+    "item_id": "RQ-C116-r1-missing_cap-COST-116-1",
+    "last_changed": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "no lodging cap for NL in USD on 2026-09-01",
+    "next_action": "Finance supplies or confirms the NL lodging cap in USD for 2026-09-01",
+    "opened": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "FIN-01",
+    "permit_id": null,
+    "permit_revision": null,
+    "revision": 1,
+    "route_basis": null,
+    "source_ids": [
+      "initial-claims#page 115",
+      "receipts#page 97:R-COST-116-1",
+      "registers:merchant-payments#row 197:M-COST-116-1",
+      "registers:fx#row 7:FX-USD"
+    ],
+    "status": "open",
+    "subject_id": "C116",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T116",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": "COST-116-2",
+    "decision_authority": "FIN-01",
+    "fact_code": "missing_rate",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held, but no line is supported yet (COST-116-1 claimed 50.00 USD, COST-116-2 claimed 10.00 GBP open), so holding withholds nothing that could proceed. Already paid: EUR 0.00.",
+    "issue_record_id": "ISS-C116-r1-missing_rate-COST-116-2",
+    "item_id": "RQ-C116-r1-missing_rate-COST-116-2",
+    "last_changed": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "no Finance GBP rate for payment date 2026-09-01",
+    "next_action": "Finance supplies or confirms the GBP rate for 2026-09-01",
+    "opened": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "FIN-01",
+    "permit_id": null,
+    "permit_revision": null,
+    "revision": 1,
+    "route_basis": null,
+    "source_ids": [
+      "initial-claims#page 115",
+      "receipts#page 98:R-COST-116-2",
+      "registers:merchant-payments#row 198:M-COST-116-2"
+    ],
+    "status": "open",
+    "subject_id": "C116",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T116",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": "COST-117-1",
+    "decision_authority": "FIN-01",
+    "fact_code": "unknown_category",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held in full. Withheld: COST-117-2 EUR 40.00, total EUR 40.00; already paid EUR 0.00. Why: COST-117-1 (claimed 10.00 EUR) is unresolved, and reviews cover the whole claim revision (interview 1, 06:33), so revision 1's entitlement is unknown. Proceeding on the independent lines instead (also permitted, interview 6, 02:08) would mean reviewing and paying EUR 40.00 on revision 1 while COST-117-1 (claimed 10.00 EUR) stays open. When it resolves, the changed facts make the dependent review repeat (interview 6, 02:09), the remainder needs a second payment on the same revision, and any change to what was already paid needs a Finance adjustment and resolution before closure (policy ¶11).",
+    "issue_record_id": "ISS-C117-r1-unknown_category-COST-117-1",
+    "item_id": "RQ-C117-r1-unknown_category-COST-117-1",
+    "last_changed": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "receipt category 'entertainment' is not defined by policy POL-2026.2; eligibility unknown",
+    "next_action": "Finance (FIN-01) supplies an authoritative definition of 'entertainment' or a specific eligibility instruction for COST-117-1 C117 r1 (claimed 10.00 EUR); the employee (EMP-03) may only be asked to clarify the purchase; the Travel Administration Lead (ADMIN-01) follows up",
+    "opened": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "FIN-01",
+    "permit_id": null,
+    "permit_revision": null,
+    "revision": 1,
+    "route_basis": null,
+    "source_ids": [
+      "initial-claims#page 116",
+      "receipts#page 98:R-COST-117-1",
+      "registers:merchant-payments#row 199:M-COST-117-1"
+    ],
+    "status": "open",
+    "subject_id": "C117",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T117",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": "COST-12",
+    "decision_authority": "FIN-01",
+    "fact_code": "late_filing",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held, but no line is supported yet (COST-12 claimed 70.00 EUR open), so holding withholds nothing that could proceed. Already paid: EUR 0.00.",
+    "issue_record_id": "ISS-C12-r1-late_filing-COST-12",
+    "item_id": "RQ-C12-r1-late_filing-COST-12",
+    "last_changed": {
+      "batch_id": "batch-3",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "first submitted 2026-09-02 after deadline 2026-09-01",
+    "next_action": "Finance grants or refuses a late-filing exception for C12 r1 COST-12",
+    "opened": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "FIN-01",
+    "permit_id": null,
+    "permit_revision": null,
+    "resolved_by": [
+      "claim-updates#page 5",
+      "registers:finance-activity#row 47:F-C12-accepted"
+    ],
+    "revision": 1,
+    "route_basis": null,
+    "source_ids": [
+      "initial-claims#page 12",
+      "receipts#page 6:R-COST-12",
+      "registers:merchant-payments#row 16:M-COST-12"
+    ],
+    "status": "superseded",
+    "subject_id": "C12",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T12",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": null,
+    "decision_authority": "SUP-01",
+    "fact_code": "cancellation_pending:TC121",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held for a claim-level reason (cancellation_pending), so the whole revision waits whichever approach is used; proceeding with independent lines does not apply. Supported lines: COST-121 EUR 30.00 (total EUR 30.00). Already paid: EUR 0.00.",
+    "issue_record_id": "ISS-C121-r1-cancellation_pending:TC121",
+    "item_id": "RQ-C121-r1-cancellation_pending:TC121",
+    "last_changed": {
+      "batch_id": "batch-2",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "permit cancellation TC121 requested 2026-09-10T10:00:00Z; payment readiness paused",
+    "next_action": "Supervisor confirms or declines cancellation TC121",
+    "opened": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "SUP-01",
+    "permit_id": "P121",
+    "permit_revision": 1,
+    "resolved_by": [
+      "registers:travel-cancellations#row 9:TC121-confirmed"
+    ],
+    "revision": 1,
+    "route_basis": null,
+    "source_ids": [
+      "initial-claims#page 120",
+      "registers:travel-cancellations#row 8:TC121-requested"
+    ],
+    "status": "satisfied",
+    "subject_id": "C121",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T121",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": "COST-121",
+    "decision_authority": "FIN-01",
+    "fact_code": "travel_cancellation:TC121",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held, but no line is supported yet (COST-121 claimed 30.00 EUR open), so holding withholds nothing that could proceed. Already paid: EUR 0.00.",
+    "issue_record_id": "ISS-C121-r1-travel_cancellation:TC121-COST-121",
+    "item_id": "RQ-C121-r1-travel_cancellation:TC121-COST-121",
+    "last_changed": {
+      "batch_id": "batch-3",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "permit cancellation TC121 confirmed 2026-09-12T10:00:00Z",
+    "next_action": "Finance supplies an explicit cost disposition for COST-121 naming TC121",
+    "opened": {
+      "batch_id": "batch-2",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "FIN-01",
+    "permit_id": "P121",
+    "permit_revision": 1,
+    "resolved_by": [
+      "claim-updates#page 6",
+      "registers:finance-activity#row 224:F-C121-accepted"
+    ],
+    "revision": 1,
+    "route_basis": null,
+    "source_ids": [
+      "initial-claims#page 120",
+      "receipts#page 102:R-COST-121",
+      "registers:merchant-payments#row 206:M-COST-121"
+    ],
+    "status": "superseded",
+    "subject_id": "C121",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T121",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": null,
+    "decision_authority": "FIN-01",
+    "fact_code": "payment_failed",
+    "follow_up": "ADMIN-01",
+    "hold_impact": null,
+    "issue_record_id": "ISS-C17-r1-payment_failed",
+    "item_id": "RQ-C17-r1-payment_failed",
+    "last_changed": {
+      "batch_id": "batch-3",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "REQ-C17 failed (F-C17-1); paid amount unchanged",
+    "next_action": "Finance authorizes and executes a new attempt",
+    "opened": {
+      "batch_id": "batch-2",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "FIN-01",
+    "permit_id": null,
+    "permit_revision": null,
+    "resolved_by": [
+      "registers:finance-activity#row 17:F-C17-2"
+    ],
+    "revision": 1,
+    "route_basis": null,
+    "source_ids": [
+      "initial-claims#page 17",
+      "registers:finance-activity#row 16:F-C17-1"
+    ],
+    "status": "satisfied",
+    "subject_id": "C17",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T17",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": "COST-18",
+    "decision_authority": "FIN-01",
+    "fact_code": "travel_cancellation:TC018",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held, but no line is supported yet (COST-18 claimed 100.00 EUR open), so holding withholds nothing that could proceed. Already paid: EUR 0.00.",
+    "issue_record_id": "ISS-C18-r1-travel_cancellation:TC018-COST-18",
+    "item_id": "RQ-C18-r1-travel_cancellation:TC018-COST-18",
+    "last_changed": {
+      "batch_id": "batch-3",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "trip cancellation TC018 confirmed 2026-09-12T10:00:00Z",
+    "next_action": "Finance supplies an explicit cost disposition for COST-18 naming TC018",
+    "opened": {
+      "batch_id": "batch-2",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "FIN-01",
+    "permit_id": null,
+    "permit_revision": null,
+    "resolved_by": [
+      "claim-updates#page 4",
+      "registers:finance-activity#row 20:F-C18-2"
+    ],
+    "revision": 1,
+    "route_basis": null,
+    "source_ids": [
+      "initial-claims#page 18",
+      "receipts#page 9:R-COST-18",
+      "registers:merchant-payments#row 22:M-COST-18"
+    ],
+    "status": "superseded",
+    "subject_id": "C18",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T18",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": null,
+    "decision_authority": "FIN-01",
+    "fact_code": "finance_resolution_required",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held for a claim-level reason (finance_resolution_required, transfer_after_cancellation), so the whole revision waits whichever approach is used; proceeding with independent lines does not apply. Supported lines: COST-18B EUR 100.00 (total EUR 100.00). Already paid: EUR 100.00.",
+    "issue_record_id": "ISS-C18-r2-finance_resolution_required",
+    "item_id": "RQ-C18-r2-finance_resolution_required",
+    "last_changed": {
+      "batch_id": "batch-4",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "cancellation-after-acceptance TC018 awaits Finance resolution; correction-after-acceptance C18 r2 awaits Finance resolution; transfer-after-cancellation F-C18-3 awaits Finance resolution",
+    "next_action": "Finance records an explicit resolution for C18 at EUR 100.00",
+    "opened": {
+      "batch_id": "batch-4",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "FIN-01",
+    "permit_id": null,
+    "permit_revision": null,
+    "revision": 2,
+    "route_basis": null,
+    "source_ids": [
+      "claim-updates#page 4"
+    ],
+    "status": "open",
+    "subject_id": "C18",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T18B",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": null,
+    "decision_authority": "FIN-01",
+    "fact_code": "transfer_after_cancellation",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held for a claim-level reason (finance_resolution_required, transfer_after_cancellation), so the whole revision waits whichever approach is used; proceeding with independent lines does not apply. Supported lines: COST-18B EUR 100.00 (total EUR 100.00). Already paid: EUR 100.00.",
+    "issue_record_id": "ISS-C18-r2-transfer_after_cancellation",
+    "item_id": "RQ-C18-r2-transfer_after_cancellation",
+    "last_changed": {
+      "batch_id": "batch-4",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "F-C18-3 settled EUR 100.00 after Finance cancelled REQ-C18",
+    "next_action": "Finance resolves the late transfer on REQ-C18 (apply to a current revision or recover it)",
+    "opened": {
+      "batch_id": "batch-4",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "FIN-01",
+    "permit_id": null,
+    "permit_revision": null,
+    "revision": 2,
+    "route_basis": null,
+    "source_ids": [
+      "claim-updates#page 4",
+      "registers:finance-activity#row 21:F-C18-3"
+    ],
+    "status": "open",
+    "subject_id": "C18",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T18B",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": "COST-19",
+    "decision_authority": "FIN-01",
+    "fact_code": "travel_cancellation:TC019",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held, but no line is supported yet (COST-19 claimed 100.00 EUR open), so holding withholds nothing that could proceed. Already paid: EUR 100.00.",
+    "issue_record_id": "ISS-C19-r2-travel_cancellation:TC019-COST-19",
+    "item_id": "RQ-C19-r2-travel_cancellation:TC019-COST-19",
+    "last_changed": {
+      "batch_id": "batch-4",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "trip cancellation TC019 confirmed 2026-09-13T09:00:00Z",
+    "next_action": "Finance supplies an explicit cost disposition for COST-19 naming TC019",
+    "opened": {
+      "batch_id": "batch-3",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "FIN-01",
+    "permit_id": null,
+    "permit_revision": null,
+    "resolved_by": [
+      "claim-updates#page 7",
+      "registers:finance-activity#row 24:F-C19-3",
+      "registers:finance-activity#row 25:F-C19-4"
+    ],
+    "revision": 2,
+    "route_basis": null,
+    "source_ids": [
+      "claim-updates#page 2",
+      "receipts#page 10:R-COST-19",
+      "registers:merchant-payments#row 23:M-COST-19",
+      "claim-updates#page 2, Finance exception"
+    ],
+    "status": "superseded",
+    "subject_id": "C19",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T19",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": null,
+    "decision_authority": "FIN-01",
+    "fact_code": "finance_resolution_required",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held for a claim-level reason (finance_resolution_required), so the whole revision waits whichever approach is used; proceeding with independent lines does not apply. Supported lines: COST-20 EUR 100.00 (total EUR 100.00). Already paid: EUR 100.00.",
+    "issue_record_id": "ISS-C20-r1-finance_resolution_required",
+    "item_id": "RQ-C20-r1-finance_resolution_required",
+    "last_changed": {
+      "batch_id": "batch-4",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "refund F-C20-2 awaits Finance resolution",
+    "next_action": "Finance records an explicit resolution for C20 at EUR 100.00",
+    "opened": {
+      "batch_id": "batch-3",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "FIN-01",
+    "permit_id": null,
+    "permit_revision": null,
+    "resolved_by": [
+      "registers:finance-activity#row 28:F-C20-3"
+    ],
+    "revision": 1,
+    "route_basis": null,
+    "source_ids": [
+      "initial-claims#page 20"
+    ],
+    "status": "satisfied",
+    "subject_id": "C20",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T20",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": null,
+    "decision_authority": "FIN-01",
+    "fact_code": "overpayment",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held for a claim-level reason (overpayment), so the whole revision waits whichever approach is used; proceeding with independent lines does not apply. Supported lines: COST-20 EUR 100.00 (total EUR 100.00). Already paid: EUR 110.00.",
+    "issue_record_id": "ISS-C20-r1-overpayment",
+    "item_id": "RQ-C20-r1-overpayment",
+    "last_changed": {
+      "batch_id": "batch-3",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "net paid EUR 110.00 exceeds entitlement EUR 100.00",
+    "next_action": "Finance investigates and resolves the EUR 10.00 overpayment",
+    "opened": {
+      "batch_id": "batch-2",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "FIN-01",
+    "permit_id": null,
+    "permit_revision": null,
+    "resolved_by": [
+      "registers:finance-activity#row 27:F-C20-2"
+    ],
+    "revision": 1,
+    "route_basis": null,
+    "source_ids": [
+      "initial-claims#page 20"
+    ],
+    "status": "satisfied",
+    "subject_id": "C20",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T20",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": null,
+    "decision_authority": "LEAD-01",
+    "fact_code": "funding_decision:budget_owner",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held for a claim-level reason (funding_decision), so the whole revision waits whichever approach is used; proceeding with independent lines does not apply. Supported lines: COST-21 EUR 80.00 (total EUR 80.00). Already paid: EUR 0.00.",
+    "issue_record_id": "ISS-C21-r1-funding_decision:budget_owner",
+    "item_id": "RQ-C21-r1-funding_decision:budget_owner",
+    "last_changed": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "The budget owner (LEAD-01) returned claim C21 revision 1 on 2026-09-03: Budget owner requests a funding review before committing. Repair requested: Obtain funding decision. Affected fields: trip, amount, evidence. Source versions reviewed: DW-D-2, POL-2026.2, SRC-D-3",
+    "next_action": "The budget owner (LEAD-01) makes the funding decision for claim C21 revision 1 and replies on that revision; the process then continues from there",
+    "opened": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "LEAD-01",
+    "permit_id": null,
+    "permit_revision": null,
+    "revision": 1,
+    "route_basis": "INT3 10:48 (the budget owner decides funding)",
+    "source_ids": [
+      "initial-claims#page 21",
+      "registers:review-ledger#row 57:D-C21-1-claim-budget_owner-1"
+    ],
+    "status": "open",
+    "subject_id": "C21",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T21",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": "COST-22",
+    "decision_authority": "FIN-01",
+    "fact_code": "missing_rate",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held, but no line is supported yet (COST-22 claimed 45.00 GBP open), so holding withholds nothing that could proceed. Already paid: EUR 0.00.",
+    "issue_record_id": "ISS-C22-r1-missing_rate-COST-22",
+    "item_id": "RQ-C22-r1-missing_rate-COST-22",
+    "last_changed": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "no Finance GBP rate for payment date 2026-09-01",
+    "next_action": "Finance supplies or confirms the GBP rate for 2026-09-01",
+    "opened": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "FIN-01",
+    "permit_id": null,
+    "permit_revision": null,
+    "revision": 1,
+    "route_basis": null,
+    "source_ids": [
+      "initial-claims#page 22",
+      "receipts#page 11:R-COST-22",
+      "registers:merchant-payments#row 26:M-COST-22"
+    ],
+    "status": "open",
+    "subject_id": "C22",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T22",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": "COST-23",
+    "decision_authority": "FIN-01",
+    "fact_code": "missing_cap",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held, but no line is supported yet (COST-23 claimed 170.00 EUR open), so holding withholds nothing that could proceed. Already paid: EUR 0.00.",
+    "issue_record_id": "ISS-C23-r1-missing_cap-COST-23",
+    "item_id": "RQ-C23-r1-missing_cap-COST-23",
+    "last_changed": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "no lodging cap for BE in EUR on 2026-09-01",
+    "next_action": "Finance supplies or confirms the BE lodging cap in EUR for 2026-09-01",
+    "opened": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "FIN-01",
+    "permit_id": null,
+    "permit_revision": null,
+    "revision": 1,
+    "route_basis": null,
+    "source_ids": [
+      "initial-claims#page 23",
+      "receipts#page 12:R-COST-23",
+      "registers:merchant-payments#row 27:M-COST-23"
+    ],
+    "status": "open",
+    "subject_id": "C23",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T23",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": "COST-25",
+    "decision_authority": "FIN-01",
+    "fact_code": "permit_unapproved",
+    "follow_up": "ADMIN-01",
+    "hold_impact": "Held, but no line is supported yet (COST-25 claimed 100.00 EUR open), so holding withholds nothing that could proceed. Already paid: EUR 0.00.",
+    "issue_record_id": "ISS-C25-r1-permit_unapproved-COST-25",
+    "item_id": "RQ-C25-r1-permit_unapproved-COST-25",
+    "last_changed": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "permit P25 incomplete before commitment 2026-09-01",
+    "next_action": "Finance decides a permit_unapproved exception for COST-25",
+    "opened": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "FIN-01",
+    "permit_id": "P25",
+    "permit_revision": 1,
+    "revision": 1,
+    "route_basis": null,
+    "source_ids": [
+      "initial-claims#page 24",
+      "receipts#page 14:R-COST-25",
+      "registers:merchant-payments#row 31:M-COST-25"
+    ],
+    "status": "open",
+    "subject_id": "C25",
+    "subject_type": "claim",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T25",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": null,
+    "decision_authority": "SUP-01",
+    "fact_code": "cancellation_decision_pending",
+    "follow_up": "ADMIN-01",
+    "hold_impact": null,
+    "issue_record_id": "ISS-TC121-decision-pending",
+    "item_id": "RQ-TC121-decision-pending",
+    "last_changed": {
+      "batch_id": "batch-2",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "cancellation requested 2026-09-10T10:00:00Z by EMP-01",
+    "next_action": "Supervisor confirms or declines TC121",
+    "opened": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "SUP-01",
+    "permit_id": "P121",
+    "permit_revision": 1,
+    "resolved_by": [
+      "registers:travel-cancellations#row 9:TC121-confirmed"
+    ],
+    "revision": null,
+    "route_basis": null,
+    "source_ids": [
+      "registers:travel-cancellations#row 8:TC121-requested"
+    ],
+    "status": "satisfied",
+    "subject_id": "TC121",
+    "subject_type": "cancellation",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T121",
+    "trip_revision": 1
+  },
+  {
+    "cost_id": null,
+    "decision_authority": "SUP-01",
+    "fact_code": "cancellation_decision_pending",
+    "follow_up": "ADMIN-01",
+    "hold_impact": null,
+    "issue_record_id": "ISS-TC122-decision-pending",
+    "item_id": "RQ-TC122-decision-pending",
+    "last_changed": {
+      "batch_id": "batch-2",
+      "run_id": "run-20261009T181801Z"
+    },
+    "missing_fact": "cancellation requested 2026-09-10T09:00:00Z by EMP-01",
+    "next_action": "Supervisor confirms or declines TC122",
+    "opened": {
+      "batch_id": "batch-1",
+      "run_id": "run-20261009T181801Z"
+    },
+    "owner": "SUP-01",
+    "permit_id": "P122",
+    "permit_revision": 1,
+    "resolved_by": [
+      "registers:travel-cancellations#row 7:TC122-confirmed"
+    ],
+    "revision": null,
+    "route_basis": null,
+    "source_ids": [
+      "registers:travel-cancellations#row 6:TC122-requested"
+    ],
+    "status": "satisfied",
+    "subject_id": "TC122",
+    "subject_type": "cancellation",
+    "superseded_by": null,
+    "supersedes": null,
+    "trip_id": "T122",
+    "trip_revision": 1
+  }
+]
