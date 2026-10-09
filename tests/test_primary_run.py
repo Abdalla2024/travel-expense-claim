@@ -139,12 +139,35 @@ class PrimaryRun(unittest.TestCase):
     def test_review_outcomes_and_zero_entitlement(self):
         self.expect(4, "C13", "withdrawn", 0, 0)
         self.expect(4, "C14", "rejected", 0, 0)
-        self.expect(4, "C21", "held", 8000, 0, owner="EMP-01")         # returned, never resubmitted
+        # Changed for interview 4 routing: the budget owner returned C21 for a funding decision, which the budget
+        # owner makes (INT3 10:48), so the request goes to LEAD-01, not the employee as in earlier runs.
+        self.expect(4, "C21", "held", 8000, 0, owner="LEAD-01")
         for cid in ("C15", "C118"):                                    # INT2 10:07: full review still required
             for b in (1, 2, 3, 4):
                 self.expect(b, cid, "pending", 0, 0, owner="ADMIN-01")
         self.expect(4, "C113", "pending", 2500, 0, owner="ADMIN-01")   # paid after submission; proof now present
         self.expect(4, "C26", "pending", 10000, 0, owner="ADMIN-01")
+
+    def test_returned_work_routed_by_request(self):
+        # New for interview 4 (01:20) with interview 3 (10:48): each return names the exact need and its owner.
+        with open(os.path.join(self.dir, "queue", "items.json"), encoding="utf-8") as f:
+            items = {i["item_id"]: i for i in json.load(f)}
+        c21 = items["RQ-C21-r1-funding_decision:budget_owner"]
+        self.assertEqual((c21["owner"], c21["follow_up"], c21["status"]), ("LEAD-01", "ADMIN-01", "open"))
+        self.assertIn("funding decision for claim C21 revision 1", c21["next_action"])
+        c09 = items["RQ-C09-r1-employee_correction:budget_owner"]
+        self.assertEqual((c09["owner"], c09["status"]), ("EMP-01", "superseded"))
+        self.assertIn("Provide revised trip evidence", c09["next_action"])
+        with open(os.path.join(self.dir, "queue", "drafts", "LEAD-01.md"), encoding="utf-8") as f:
+            draft = f.read()
+        self.assertIn("**Funding decision needed**", draft)
+        with open(os.path.join(self.dir, "queue", "drafts", "EMP-01.md"), encoding="utf-8") as f:
+            self.assertNotIn("C21", f.read())                       # no longer misplaced with the employee
+        for name in os.listdir(os.path.join(self.dir, "queue", "drafts")):
+            with open(os.path.join(self.dir, "queue", "drafts", name), encoding="utf-8") as f:
+                text = f.read()
+            self.assertNotIn("returned:", text)
+            self.assertNotIn("..", text)
 
     def test_correction_after_return(self):
         self.expect(1, "C09", "held", 8000, 0, rev=1, owner="EMP-01")
@@ -224,7 +247,8 @@ class PrimaryRun(unittest.TestCase):
             events = [json.loads(l) for l in f]
         partial = [e for e in events if e["event"] == "partial-response"]
         self.assertTrue(any(e["subject"] == "C20" and e["batch_id"] == "batch-3" for e in partial))
-        sup = [e for e in events if e["event"] == "superseded" and e["item_id"].startswith("RQ-C09-r1-returned")]
+        # Changed for interview 4: return items are named by what is needed, not by the reviewer's decision ID.
+        sup = [e for e in events if e["event"] == "superseded" and e["item_id"] == "RQ-C09-r1-employee_correction:budget_owner"]
         self.assertEqual(sup[0]["batch_id"], "batch-3")
 
 

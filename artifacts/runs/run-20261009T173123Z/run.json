@@ -1,0 +1,38 @@
+{
+  "batches": [
+    {
+      "batch_id": "batch-1",
+      "path": "batches/batch-1.json",
+      "sha256": "c4afb62acb6f75db60b30d1f6e27923757c848033d90f8700f8aa735c6bc78c4"
+    },
+    {
+      "batch_id": "batch-2",
+      "path": "batches/batch-2.json",
+      "sha256": "9aeeaa4624d4b08e0753947f96273dcc4e2c5e1029d25b80418c11906a5aa7f9"
+    },
+    {
+      "batch_id": "batch-3",
+      "path": "batches/batch-3.json",
+      "sha256": "ef00625144a3e851aac9ef3903abcb7ce95bb0eaed8ae594e102183d3cd192cd"
+    },
+    {
+      "batch_id": "batch-4",
+      "path": "batches/batch-4.json",
+      "sha256": "4c74adb7e512295344a5e9ede81cd699c3793dc5a0d7b0829c346fff6fe40fc9"
+    }
+  ],
+  "code_revision": "557b1a20a3a3fba97587d1e4767ba3f516d7da2d",
+  "finished_at": "2026-10-09T17:31:31Z",
+  "mode": "fresh",
+  "outcome": "success",
+  "replay_of": null,
+  "routing": "returned-work routing by request (interview 4)",
+  "run_id": "run-20261009T173123Z",
+  "started_at": "2026-10-09T17:31:23Z",
+  "supersedes": {
+    "path": "../run-20261009T025952Z/run.json",
+    "reason": "Code 557b1a2 applies interview 4: returned work is routed by what the reviewer asked for (C21's funding return now goes to the budget owner LEAD-01 instead of the employee), drafts use plain language, replies superseded by a later reply from the same role resume review, late evidence makes earlier replies stale, and duplicate requests are suppressed.",
+    "run_id": "run-20261009T025952Z",
+    "sha256": "38b813f22331dd0acfe079fe0e64c6cc09592b8891a4a44def928bccc451226f"
+  }
+}

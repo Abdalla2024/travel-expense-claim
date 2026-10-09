@@ -1,0 +1,6096 @@
+{
+  "admitted_event_ids": [
+    "F-C01-accepted",
+    "F-C02-accepted",
+    "F-C03-accepted",
+    "F-C04-accepted",
+    "F-C05-accepted",
+    "F-C06-accepted",
+    "F-C07-accepted",
+    "F-C100-accepted",
+    "F-C101-accepted",
+    "F-C102-accepted",
+    "F-C103-accepted",
+    "F-C104-accepted",
+    "F-C105-accepted",
+    "F-C106-accepted",
+    "F-C107-accepted",
+    "F-C108-accepted",
+    "F-C109-accepted",
+    "F-C11-accepted",
+    "F-C110-accepted",
+    "F-C111-accepted",
+    "F-C115-accepted",
+    "F-C120-accepted",
+    "F-C16-accepted",
+    "F-C17-accepted",
+    "F-C18-accepted",
+    "F-C19-accepted",
+    "F-C20-accepted",
+    "F-C27-accepted",
+    "F-C28-accepted",
+    "F-C29-accepted",
+    "F-C30-accepted",
+    "F-C31-accepted",
+    "F-C32-accepted",
+    "F-C33-accepted",
+    "F-C34-accepted",
+    "F-C35-accepted",
+    "F-C36-accepted",
+    "F-C37-accepted",
+    "F-C38-accepted",
+    "F-C39-accepted",
+    "F-C40-accepted",
+    "F-C41-accepted",
+    "F-C42-accepted",
+    "F-C43-accepted",
+    "F-C44-accepted",
+    "F-C45-accepted",
+    "F-C46-accepted",
+    "F-C47-accepted",
+    "F-C48-accepted",
+    "F-C49-accepted",
+    "F-C50-accepted",
+    "F-C51-accepted",
+    "F-C52-accepted",
+    "F-C53-accepted",
+    "F-C54-accepted",
+    "F-C55-accepted",
+    "F-C56-accepted",
+    "F-C57-accepted",
+    "F-C58-accepted",
+    "F-C59-accepted",
+    "F-C60-accepted",
+    "F-C61-accepted",
+    "F-C62-accepted",
+    "F-C63-accepted",
+    "F-C64-accepted",
+    "F-C65-accepted",
+    "F-C66-accepted",
+    "F-C67-accepted",
+    "F-C68-accepted",
+    "F-C69-accepted",
+    "F-C70-accepted",
+    "F-C71-accepted",
+    "F-C72-accepted",
+    "F-C73-accepted",
+    "F-C74-accepted",
+    "F-C75-accepted",
+    "F-C76-accepted",
+    "F-C77-accepted",
+    "F-C78-accepted",
+    "F-C79-accepted",
+    "F-C80-accepted",
+    "F-C81-accepted",
+    "F-C82-accepted",
+    "F-C83-accepted",
+    "F-C84-accepted",
+    "F-C85-accepted",
+    "F-C86-accepted",
+    "F-C87-accepted",
+    "F-C88-accepted",
+    "F-C89-accepted",
+    "F-C90-accepted",
+    "F-C91-accepted",
+    "F-C92-accepted",
+    "F-C93-accepted",
+    "F-C94-accepted",
+    "F-C95-accepted",
+    "F-C96-accepted",
+    "F-C97-accepted",
+    "F-C98-accepted",
+    "F-C99-accepted"
+  ],
+  "batch_id": "batch-1",
+  "claims": [
+    {
+      "allowed_cents": 10000,
+      "balance_cents": 10000,
+      "claim_id": "C01",
+      "decision_ids": [
+        "D-C01-1-claim-administration-1",
+        "D-C01-1-claim-budget_owner-1",
+        "D-C01-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 10000,
+          "cost_id": "COST-01",
+          "reason": "transport 100.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 1",
+            "receipts#page 1:R-COST-01",
+            "registers:merchant-payments#row 6:M-COST-01"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 100.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T01",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 54000,
+      "balance_cents": 54000,
+      "claim_id": "C02",
+      "decision_ids": [
+        "D-C02-1-claim-administration-1",
+        "D-C02-1-claim-budget_owner-1",
+        "D-C02-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 54000,
+          "cost_id": "COST-02",
+          "reason": "transport 600.00 USD x 0.9",
+          "source_ids": [
+            "initial-claims#page 2",
+            "receipts#page 1:R-COST-02",
+            "registers:fx#row 7:FX-USD",
+            "registers:merchant-payments#row 7:M-COST-02"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 540.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T02",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 20000,
+      "balance_cents": 20000,
+      "claim_id": "C03",
+      "decision_ids": [
+        "D-C03-1-claim-administration-1",
+        "D-C03-1-claim-budget_owner-1",
+        "D-C03-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 20000,
+          "cost_id": "COST-03",
+          "reason": "conference 200.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 3",
+            "receipts#page 2:R-COST-03",
+            "registers:merchant-payments#row 8:M-COST-03"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 200.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T03",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 10000,
+      "balance_cents": 10000,
+      "claim_id": "C04",
+      "decision_ids": [
+        "D-C04-1-claim-administration-1",
+        "D-C04-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 10000,
+          "cost_id": "COST-04",
+          "reason": "transport 100.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 4",
+            "receipts#page 2:R-COST-04",
+            "registers:merchant-payments#row 9:M-COST-04"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 100.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T04",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 100000,
+      "balance_cents": 100000,
+      "claim_id": "C05",
+      "decision_ids": [
+        "D-C05-1-claim-administration-1",
+        "D-C05-1-claim-budget_owner-1",
+        "D-C05-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 100000,
+          "cost_id": "COST-05",
+          "reason": "conference 1000.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 5",
+            "receipts#page 3:R-COST-05",
+            "registers:merchant-payments#row 10:M-COST-05"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 1000.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T05",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 100001,
+      "balance_cents": 100001,
+      "claim_id": "C06",
+      "decision_ids": [
+        "D-C06-1-claim-administration-1",
+        "D-C06-1-claim-budget_owner-1",
+        "D-C06-1-claim-director-1",
+        "D-C06-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 100001,
+          "cost_id": "COST-06",
+          "reason": "conference 1000.01 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 6",
+            "receipts#page 3:R-COST-06",
+            "registers:merchant-payments#row 11:M-COST-06"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 1000.01 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T06",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 30000,
+      "balance_cents": 30000,
+      "claim_id": "C07",
+      "decision_ids": [
+        "D-C07-1-claim-administration-1",
+        "D-C07-1-claim-budget_owner-1",
+        "D-C07-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 30000,
+          "cost_id": "COST-07",
+          "reason": "lodging 360.00 EUR x 1; capped at 300.0",
+          "source_ids": [
+            "initial-claims#page 7",
+            "receipts#page 4:R-COST-07",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 12:M-COST-07"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 300.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T07",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": null,
+      "balance_cents": null,
+      "claim_id": "C08",
+      "decision_ids": [],
+      "lines": [
+        {
+          "allowed_cents": 12000,
+          "cost_id": "COST-08",
+          "reason": "missing_payment_proof: no settled merchant transaction for COST-08",
+          "source_ids": [
+            "initial-claims#page 8",
+            "receipts#page 4:R-COST-08"
+          ],
+          "status": "unresolved"
+        }
+      ],
+      "next_owner": "EMP-01",
+      "paid_cents": 0,
+      "reason": "missing_payment_proof — no settled merchant transaction for COST-08",
+      "revision": 1,
+      "status": "held",
+      "trip_id": "T08",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 8000,
+      "balance_cents": 8000,
+      "claim_id": "C09",
+      "decision_ids": [
+        "D-C09-1-claim-administration-1",
+        "D-C09-1-claim-budget_owner-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 8000,
+          "cost_id": "COST-09",
+          "reason": "transport 80.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 9",
+            "receipts#page 5:R-COST-09",
+            "registers:merchant-payments#row 13:M-COST-09"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "EMP-01",
+      "paid_cents": 0,
+      "reason": "employee_correction — The budget owner (LEAD-01) returned revision 1 on 2026-09-03: Please supply the revised trip evidence. Repair requested: Provide revised trip evidence. Affected fields: trip, amount, evidence",
+      "revision": 1,
+      "status": "held",
+      "trip_id": "T09",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": null,
+      "balance_cents": null,
+      "claim_id": "C10",
+      "decision_ids": [],
+      "lines": [
+        {
+          "allowed_cents": 9000,
+          "cost_id": "COST-10",
+          "reason": "late_permit: permit P10 approved 2026-09-02 after first commitment 2026-09-01",
+          "source_ids": [
+            "initial-claims#page 10",
+            "receipts#page 5:R-COST-10",
+            "registers:merchant-payments#row 14:M-COST-10"
+          ],
+          "status": "unresolved"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "late_permit — permit P10 approved 2026-09-02 after first commitment 2026-09-01",
+      "revision": 1,
+      "status": "held",
+      "trip_id": "T10",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 6000,
+      "balance_cents": 6000,
+      "claim_id": "C11",
+      "decision_ids": [
+        "D-C11-1-claim-administration-1",
+        "D-C11-1-claim-budget_owner-1",
+        "D-C11-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 6000,
+          "cost_id": "COST-11",
+          "reason": "transport 60.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 11",
+            "receipts#page 6:R-COST-11",
+            "registers:merchant-payments#row 15:M-COST-11"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 60.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T11",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": null,
+      "balance_cents": null,
+      "claim_id": "C12",
+      "decision_ids": [],
+      "lines": [
+        {
+          "allowed_cents": 7000,
+          "cost_id": "COST-12",
+          "reason": "late_filing: first submitted 2026-09-02 after deadline 2026-09-01",
+          "source_ids": [
+            "initial-claims#page 12",
+            "receipts#page 6:R-COST-12",
+            "registers:merchant-payments#row 16:M-COST-12"
+          ],
+          "status": "unresolved"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "late_filing — first submitted 2026-09-02 after deadline 2026-09-01",
+      "revision": 1,
+      "status": "held",
+      "trip_id": "T12",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 0,
+      "balance_cents": 0,
+      "claim_id": "C13",
+      "decision_ids": [],
+      "lines": [
+        {
+          "allowed_cents": 5000,
+          "cost_id": "COST-13",
+          "reason": "transport 50.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 13",
+            "receipts#page 7:R-COST-13",
+            "registers:merchant-payments#row 17:M-COST-13"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": null,
+      "paid_cents": 0,
+      "reason": "employee withdrew r1 before review (Employee withdrew before review.)",
+      "revision": 1,
+      "status": "withdrawn",
+      "trip_id": "T13",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 0,
+      "balance_cents": 0,
+      "claim_id": "C14",
+      "decision_ids": [
+        "D-C14-1-claim-administration-1",
+        "D-C14-1-claim-budget_owner-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 4000,
+          "cost_id": "COST-14",
+          "reason": "transport 40.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 14",
+            "receipts#page 7:R-COST-14",
+            "registers:merchant-payments#row 18:M-COST-14"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": null,
+      "paid_cents": 0,
+      "reason": "rejected by budget_owner LEAD-01: Client work was cancelled.",
+      "revision": 1,
+      "status": "rejected",
+      "trip_id": "T14",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 0,
+      "balance_cents": 0,
+      "claim_id": "C15",
+      "decision_ids": [],
+      "lines": [
+        {
+          "allowed_cents": 0,
+          "cost_id": "COST-15",
+          "reason": "personal purchase: zero entitlement (claimed 30.00 EUR retained with evidence)",
+          "source_ids": [
+            "initial-claims#page 15",
+            "receipts#page 8:R-COST-15",
+            "registers:merchant-payments#row 19:M-COST-15"
+          ],
+          "status": "excluded"
+        }
+      ],
+      "next_owner": "ADMIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting administration/budget_owner/supervisor review of r1",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T15",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 10000,
+      "balance_cents": 10000,
+      "claim_id": "C16",
+      "decision_ids": [
+        "D-C16-1-claim-administration-1",
+        "D-C16-1-claim-budget_owner-1",
+        "D-C16-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 10000,
+          "cost_id": "COST-16",
+          "reason": "transport 100.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 16",
+            "receipts#page 8:R-COST-16",
+            "registers:merchant-payments#row 20:M-COST-16"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 100.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T16",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 10000,
+      "balance_cents": 10000,
+      "claim_id": "C17",
+      "decision_ids": [
+        "D-C17-1-claim-administration-1",
+        "D-C17-1-claim-budget_owner-1",
+        "D-C17-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 10000,
+          "cost_id": "COST-17",
+          "reason": "transport 100.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 17",
+            "receipts#page 9:R-COST-17",
+            "registers:merchant-payments#row 21:M-COST-17"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 100.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T17",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 10000,
+      "balance_cents": 10000,
+      "claim_id": "C18",
+      "decision_ids": [
+        "D-C18-1-claim-administration-1",
+        "D-C18-1-claim-budget_owner-1",
+        "D-C18-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 10000,
+          "cost_id": "COST-18",
+          "reason": "transport 100.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 18",
+            "receipts#page 9:R-COST-18",
+            "registers:merchant-payments#row 22:M-COST-18"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 100.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T18",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 10000,
+      "balance_cents": 10000,
+      "claim_id": "C19",
+      "decision_ids": [
+        "D-C19-1-claim-administration-1",
+        "D-C19-1-claim-budget_owner-1",
+        "D-C19-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 10000,
+          "cost_id": "COST-19",
+          "reason": "transport 100.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 19",
+            "receipts#page 10:R-COST-19",
+            "registers:merchant-payments#row 23:M-COST-19"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 100.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T19",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 10000,
+      "balance_cents": 10000,
+      "claim_id": "C20",
+      "decision_ids": [
+        "D-C20-1-claim-administration-1",
+        "D-C20-1-claim-budget_owner-1",
+        "D-C20-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 10000,
+          "cost_id": "COST-20",
+          "reason": "transport 100.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 20",
+            "receipts#page 10:R-COST-20",
+            "registers:merchant-payments#row 24:M-COST-20"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 100.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T20",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 8000,
+      "balance_cents": 8000,
+      "claim_id": "C21",
+      "decision_ids": [
+        "D-C21-1-claim-administration-1",
+        "D-C21-1-claim-budget_owner-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 8000,
+          "cost_id": "COST-21",
+          "reason": "transport 80.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 21",
+            "receipts#page 11:R-COST-21",
+            "registers:merchant-payments#row 25:M-COST-21"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "LEAD-01",
+      "paid_cents": 0,
+      "reason": "funding_decision — The budget owner (LEAD-01) returned revision 1 on 2026-09-03: Budget owner requests a funding review before committing. Repair requested: Obtain funding decision. Affected fields: trip, amount, evidence",
+      "revision": 1,
+      "status": "held",
+      "trip_id": "T21",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": null,
+      "balance_cents": null,
+      "claim_id": "C22",
+      "decision_ids": [],
+      "lines": [
+        {
+          "allowed_cents": null,
+          "cost_id": "COST-22",
+          "reason": "missing_rate: no Finance GBP rate for payment date 2026-09-01",
+          "source_ids": [
+            "initial-claims#page 22",
+            "receipts#page 11:R-COST-22",
+            "registers:merchant-payments#row 26:M-COST-22"
+          ],
+          "status": "unresolved"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "missing_rate — no Finance GBP rate for payment date 2026-09-01",
+      "revision": 1,
+      "status": "held",
+      "trip_id": "T22",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": null,
+      "balance_cents": null,
+      "claim_id": "C23",
+      "decision_ids": [],
+      "lines": [
+        {
+          "allowed_cents": null,
+          "cost_id": "COST-23",
+          "reason": "missing_cap: no lodging cap for BE in EUR on 2026-09-01",
+          "source_ids": [
+            "initial-claims#page 23",
+            "receipts#page 12:R-COST-23",
+            "registers:merchant-payments#row 27:M-COST-23"
+          ],
+          "status": "unresolved"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "missing_cap — no lodging cap for BE in EUR on 2026-09-01",
+      "revision": 1,
+      "status": "held",
+      "trip_id": "T23",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": null,
+      "balance_cents": null,
+      "claim_id": "C25",
+      "decision_ids": [],
+      "lines": [
+        {
+          "allowed_cents": 10000,
+          "cost_id": "COST-25",
+          "reason": "permit_unapproved: permit P25 incomplete before commitment 2026-09-01",
+          "source_ids": [
+            "initial-claims#page 24",
+            "receipts#page 14:R-COST-25",
+            "registers:merchant-payments#row 31:M-COST-25"
+          ],
+          "status": "unresolved"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "permit_unapproved — permit P25 incomplete before commitment 2026-09-01",
+      "revision": 1,
+      "status": "held",
+      "trip_id": "T25",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 10000,
+      "balance_cents": 10000,
+      "claim_id": "C26",
+      "decision_ids": [],
+      "lines": [
+        {
+          "allowed_cents": 10000,
+          "cost_id": "COST-26",
+          "reason": "transport 100.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 25",
+            "receipts#page 14:R-COST-26",
+            "registers:merchant-payments#row 32:M-COST-26"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "ADMIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting administration/budget_owner/supervisor review of r1",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T26",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 3500,
+      "balance_cents": 3500,
+      "claim_id": "C27",
+      "decision_ids": [
+        "D-C27-1-claim-administration-1",
+        "D-C27-1-claim-budget_owner-1",
+        "D-C27-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-27-1",
+          "reason": "transport 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 26",
+            "receipts#page 15:R-COST-27-1",
+            "registers:merchant-payments#row 33:M-COST-27-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-27-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 26",
+            "receipts#page 15:R-COST-27-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 34:M-COST-27-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 35.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T27",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 4500,
+      "balance_cents": 4500,
+      "claim_id": "C28",
+      "decision_ids": [
+        "D-C28-1-claim-administration-1",
+        "D-C28-1-claim-budget_owner-1",
+        "D-C28-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2500,
+          "cost_id": "COST-28-1",
+          "reason": "transport 25.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 27",
+            "receipts#page 16:R-COST-28-1",
+            "registers:merchant-payments#row 35:M-COST-28-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-28-2",
+          "reason": "conference 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 27",
+            "receipts#page 16:R-COST-28-2",
+            "registers:merchant-payments#row 36:M-COST-28-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 45.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T28",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 5500,
+      "balance_cents": 5500,
+      "claim_id": "C29",
+      "decision_ids": [
+        "D-C29-1-claim-administration-1",
+        "D-C29-1-claim-budget_owner-1",
+        "D-C29-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 4000,
+          "cost_id": "COST-29-1",
+          "reason": "lodging 40.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 28",
+            "receipts#page 17:R-COST-29-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 37:M-COST-29-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-29-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 28",
+            "receipts#page 17:R-COST-29-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 38:M-COST-29-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 55.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T29",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 6500,
+      "balance_cents": 6500,
+      "claim_id": "C30",
+      "decision_ids": [
+        "D-C30-1-claim-administration-1",
+        "D-C30-1-claim-budget_owner-1",
+        "D-C30-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-30-1",
+          "reason": "transport 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 29",
+            "receipts#page 18:R-COST-30-1",
+            "registers:merchant-payments#row 39:M-COST-30-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3000,
+          "cost_id": "COST-30-2",
+          "reason": "conference 30.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 29",
+            "receipts#page 18:R-COST-30-2",
+            "registers:merchant-payments#row 40:M-COST-30-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 65.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T30",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 7500,
+      "balance_cents": 7500,
+      "claim_id": "C31",
+      "decision_ids": [
+        "D-C31-1-claim-administration-1",
+        "D-C31-1-claim-budget_owner-1",
+        "D-C31-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 6000,
+          "cost_id": "COST-31-1",
+          "reason": "lodging 60.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 30",
+            "receipts#page 19:R-COST-31-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 41:M-COST-31-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-31-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 30",
+            "receipts#page 19:R-COST-31-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 42:M-COST-31-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 75.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T31",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 8500,
+      "balance_cents": 8500,
+      "claim_id": "C32",
+      "decision_ids": [
+        "D-C32-1-claim-administration-1",
+        "D-C32-1-claim-budget_owner-1",
+        "D-C32-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 5000,
+          "cost_id": "COST-32-1",
+          "reason": "transport 50.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 31",
+            "receipts#page 20:R-COST-32-1",
+            "registers:merchant-payments#row 43:M-COST-32-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-32-2",
+          "reason": "meals 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 31",
+            "receipts#page 20:R-COST-32-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 44:M-COST-32-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 85.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T32",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 3500,
+      "balance_cents": 3500,
+      "claim_id": "C33",
+      "decision_ids": [
+        "D-C33-1-claim-administration-1",
+        "D-C33-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-33-1",
+          "reason": "transport 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 32",
+            "receipts#page 21:R-COST-33-1",
+            "registers:merchant-payments#row 45:M-COST-33-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-33-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 32",
+            "receipts#page 21:R-COST-33-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 46:M-COST-33-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 35.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T33",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 4500,
+      "balance_cents": 4500,
+      "claim_id": "C34",
+      "decision_ids": [
+        "D-C34-1-claim-administration-1",
+        "D-C34-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2500,
+          "cost_id": "COST-34-1",
+          "reason": "transport 25.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 33",
+            "receipts#page 22:R-COST-34-1",
+            "registers:merchant-payments#row 47:M-COST-34-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-34-2",
+          "reason": "conference 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 33",
+            "receipts#page 22:R-COST-34-2",
+            "registers:merchant-payments#row 48:M-COST-34-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 45.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T34",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 5500,
+      "balance_cents": 5500,
+      "claim_id": "C35",
+      "decision_ids": [
+        "D-C35-1-claim-administration-1",
+        "D-C35-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 4000,
+          "cost_id": "COST-35-1",
+          "reason": "lodging 40.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 34",
+            "receipts#page 23:R-COST-35-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 49:M-COST-35-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-35-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 34",
+            "receipts#page 23:R-COST-35-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 50:M-COST-35-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 55.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T35",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 6500,
+      "balance_cents": 6500,
+      "claim_id": "C36",
+      "decision_ids": [
+        "D-C36-1-claim-administration-1",
+        "D-C36-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-36-1",
+          "reason": "transport 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 35",
+            "receipts#page 24:R-COST-36-1",
+            "registers:merchant-payments#row 51:M-COST-36-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3000,
+          "cost_id": "COST-36-2",
+          "reason": "conference 30.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 35",
+            "receipts#page 24:R-COST-36-2",
+            "registers:merchant-payments#row 52:M-COST-36-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 65.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T36",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 7500,
+      "balance_cents": 7500,
+      "claim_id": "C37",
+      "decision_ids": [
+        "D-C37-1-claim-administration-1",
+        "D-C37-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 6000,
+          "cost_id": "COST-37-1",
+          "reason": "lodging 60.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 36",
+            "receipts#page 25:R-COST-37-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 53:M-COST-37-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-37-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 36",
+            "receipts#page 25:R-COST-37-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 54:M-COST-37-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 75.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T37",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 8500,
+      "balance_cents": 8500,
+      "claim_id": "C38",
+      "decision_ids": [
+        "D-C38-1-claim-administration-1",
+        "D-C38-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 5000,
+          "cost_id": "COST-38-1",
+          "reason": "transport 50.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 37",
+            "receipts#page 26:R-COST-38-1",
+            "registers:merchant-payments#row 55:M-COST-38-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-38-2",
+          "reason": "meals 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 37",
+            "receipts#page 26:R-COST-38-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 56:M-COST-38-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 85.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T38",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 3500,
+      "balance_cents": 3500,
+      "claim_id": "C39",
+      "decision_ids": [
+        "D-C39-1-claim-administration-1",
+        "D-C39-1-claim-budget_owner-1",
+        "D-C39-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-39-1",
+          "reason": "transport 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 38",
+            "receipts#page 27:R-COST-39-1",
+            "registers:merchant-payments#row 57:M-COST-39-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-39-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 38",
+            "receipts#page 27:R-COST-39-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 58:M-COST-39-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 35.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T39",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 4500,
+      "balance_cents": 4500,
+      "claim_id": "C40",
+      "decision_ids": [
+        "D-C40-1-claim-administration-1",
+        "D-C40-1-claim-budget_owner-1",
+        "D-C40-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2500,
+          "cost_id": "COST-40-1",
+          "reason": "transport 25.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 39",
+            "receipts#page 28:R-COST-40-1",
+            "registers:merchant-payments#row 59:M-COST-40-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-40-2",
+          "reason": "conference 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 39",
+            "receipts#page 28:R-COST-40-2",
+            "registers:merchant-payments#row 60:M-COST-40-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 45.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T40",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 5500,
+      "balance_cents": 5500,
+      "claim_id": "C41",
+      "decision_ids": [
+        "D-C41-1-claim-administration-1",
+        "D-C41-1-claim-budget_owner-1",
+        "D-C41-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 4000,
+          "cost_id": "COST-41-1",
+          "reason": "lodging 40.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 40",
+            "receipts#page 29:R-COST-41-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 61:M-COST-41-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-41-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 40",
+            "receipts#page 29:R-COST-41-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 62:M-COST-41-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 55.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T41",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 6500,
+      "balance_cents": 6500,
+      "claim_id": "C42",
+      "decision_ids": [
+        "D-C42-1-claim-administration-1",
+        "D-C42-1-claim-budget_owner-1",
+        "D-C42-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-42-1",
+          "reason": "transport 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 41",
+            "receipts#page 30:R-COST-42-1",
+            "registers:merchant-payments#row 63:M-COST-42-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3000,
+          "cost_id": "COST-42-2",
+          "reason": "conference 30.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 41",
+            "receipts#page 30:R-COST-42-2",
+            "registers:merchant-payments#row 64:M-COST-42-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 65.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T42",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 7500,
+      "balance_cents": 7500,
+      "claim_id": "C43",
+      "decision_ids": [
+        "D-C43-1-claim-administration-1",
+        "D-C43-1-claim-budget_owner-1",
+        "D-C43-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 6000,
+          "cost_id": "COST-43-1",
+          "reason": "lodging 60.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 42",
+            "receipts#page 31:R-COST-43-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 65:M-COST-43-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-43-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 42",
+            "receipts#page 31:R-COST-43-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 66:M-COST-43-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 75.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T43",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 8500,
+      "balance_cents": 8500,
+      "claim_id": "C44",
+      "decision_ids": [
+        "D-C44-1-claim-administration-1",
+        "D-C44-1-claim-budget_owner-1",
+        "D-C44-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 5000,
+          "cost_id": "COST-44-1",
+          "reason": "transport 50.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 43",
+            "receipts#page 32:R-COST-44-1",
+            "registers:merchant-payments#row 67:M-COST-44-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-44-2",
+          "reason": "meals 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 43",
+            "receipts#page 32:R-COST-44-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 68:M-COST-44-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 85.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T44",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 3500,
+      "balance_cents": 3500,
+      "claim_id": "C45",
+      "decision_ids": [
+        "D-C45-1-claim-administration-1",
+        "D-C45-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-45-1",
+          "reason": "transport 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 44",
+            "receipts#page 33:R-COST-45-1",
+            "registers:merchant-payments#row 69:M-COST-45-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-45-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 44",
+            "receipts#page 33:R-COST-45-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 70:M-COST-45-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 35.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T45",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 4500,
+      "balance_cents": 4500,
+      "claim_id": "C46",
+      "decision_ids": [
+        "D-C46-1-claim-administration-1",
+        "D-C46-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2500,
+          "cost_id": "COST-46-1",
+          "reason": "transport 25.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 45",
+            "receipts#page 34:R-COST-46-1",
+            "registers:merchant-payments#row 71:M-COST-46-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-46-2",
+          "reason": "conference 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 45",
+            "receipts#page 34:R-COST-46-2",
+            "registers:merchant-payments#row 72:M-COST-46-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 45.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T46",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 5500,
+      "balance_cents": 5500,
+      "claim_id": "C47",
+      "decision_ids": [
+        "D-C47-1-claim-administration-1",
+        "D-C47-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 4000,
+          "cost_id": "COST-47-1",
+          "reason": "lodging 40.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 46",
+            "receipts#page 35:R-COST-47-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 73:M-COST-47-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-47-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 46",
+            "receipts#page 35:R-COST-47-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 74:M-COST-47-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 55.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T47",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 6500,
+      "balance_cents": 6500,
+      "claim_id": "C48",
+      "decision_ids": [
+        "D-C48-1-claim-administration-1",
+        "D-C48-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-48-1",
+          "reason": "transport 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 47",
+            "receipts#page 36:R-COST-48-1",
+            "registers:merchant-payments#row 75:M-COST-48-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3000,
+          "cost_id": "COST-48-2",
+          "reason": "conference 30.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 47",
+            "receipts#page 36:R-COST-48-2",
+            "registers:merchant-payments#row 76:M-COST-48-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 65.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T48",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 7500,
+      "balance_cents": 7500,
+      "claim_id": "C49",
+      "decision_ids": [
+        "D-C49-1-claim-administration-1",
+        "D-C49-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 6000,
+          "cost_id": "COST-49-1",
+          "reason": "lodging 60.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 48",
+            "receipts#page 37:R-COST-49-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 77:M-COST-49-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-49-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 48",
+            "receipts#page 37:R-COST-49-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 78:M-COST-49-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 75.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T49",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 8500,
+      "balance_cents": 8500,
+      "claim_id": "C50",
+      "decision_ids": [
+        "D-C50-1-claim-administration-1",
+        "D-C50-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 5000,
+          "cost_id": "COST-50-1",
+          "reason": "transport 50.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 49",
+            "receipts#page 38:R-COST-50-1",
+            "registers:merchant-payments#row 79:M-COST-50-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-50-2",
+          "reason": "meals 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 49",
+            "receipts#page 38:R-COST-50-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 80:M-COST-50-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 85.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T50",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 3500,
+      "balance_cents": 3500,
+      "claim_id": "C51",
+      "decision_ids": [
+        "D-C51-1-claim-administration-1",
+        "D-C51-1-claim-budget_owner-1",
+        "D-C51-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-51-1",
+          "reason": "transport 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 50",
+            "receipts#page 39:R-COST-51-1",
+            "registers:merchant-payments#row 81:M-COST-51-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-51-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 50",
+            "receipts#page 39:R-COST-51-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 82:M-COST-51-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 35.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T51",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 4500,
+      "balance_cents": 4500,
+      "claim_id": "C52",
+      "decision_ids": [
+        "D-C52-1-claim-administration-1",
+        "D-C52-1-claim-budget_owner-1",
+        "D-C52-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2500,
+          "cost_id": "COST-52-1",
+          "reason": "transport 25.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 51",
+            "receipts#page 40:R-COST-52-1",
+            "registers:merchant-payments#row 83:M-COST-52-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-52-2",
+          "reason": "conference 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 51",
+            "receipts#page 40:R-COST-52-2",
+            "registers:merchant-payments#row 84:M-COST-52-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 45.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T52",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 5500,
+      "balance_cents": 5500,
+      "claim_id": "C53",
+      "decision_ids": [
+        "D-C53-1-claim-administration-1",
+        "D-C53-1-claim-budget_owner-1",
+        "D-C53-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 4000,
+          "cost_id": "COST-53-1",
+          "reason": "lodging 40.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 52",
+            "receipts#page 41:R-COST-53-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 85:M-COST-53-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-53-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 52",
+            "receipts#page 41:R-COST-53-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 86:M-COST-53-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 55.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T53",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 6500,
+      "balance_cents": 6500,
+      "claim_id": "C54",
+      "decision_ids": [
+        "D-C54-1-claim-administration-1",
+        "D-C54-1-claim-budget_owner-1",
+        "D-C54-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-54-1",
+          "reason": "transport 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 53",
+            "receipts#page 42:R-COST-54-1",
+            "registers:merchant-payments#row 87:M-COST-54-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3000,
+          "cost_id": "COST-54-2",
+          "reason": "conference 30.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 53",
+            "receipts#page 42:R-COST-54-2",
+            "registers:merchant-payments#row 88:M-COST-54-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 65.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T54",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 7500,
+      "balance_cents": 7500,
+      "claim_id": "C55",
+      "decision_ids": [
+        "D-C55-1-claim-administration-1",
+        "D-C55-1-claim-budget_owner-1",
+        "D-C55-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 6000,
+          "cost_id": "COST-55-1",
+          "reason": "lodging 60.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 54",
+            "receipts#page 43:R-COST-55-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 89:M-COST-55-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-55-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 54",
+            "receipts#page 43:R-COST-55-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 90:M-COST-55-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 75.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T55",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 8500,
+      "balance_cents": 8500,
+      "claim_id": "C56",
+      "decision_ids": [
+        "D-C56-1-claim-administration-1",
+        "D-C56-1-claim-budget_owner-1",
+        "D-C56-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 5000,
+          "cost_id": "COST-56-1",
+          "reason": "transport 50.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 55",
+            "receipts#page 44:R-COST-56-1",
+            "registers:merchant-payments#row 91:M-COST-56-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-56-2",
+          "reason": "meals 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 55",
+            "receipts#page 44:R-COST-56-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 92:M-COST-56-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 85.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T56",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 3500,
+      "balance_cents": 3500,
+      "claim_id": "C57",
+      "decision_ids": [
+        "D-C57-1-claim-administration-1",
+        "D-C57-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-57-1",
+          "reason": "transport 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 56",
+            "receipts#page 45:R-COST-57-1",
+            "registers:merchant-payments#row 93:M-COST-57-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-57-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 56",
+            "receipts#page 45:R-COST-57-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 94:M-COST-57-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 35.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T57",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 4500,
+      "balance_cents": 4500,
+      "claim_id": "C58",
+      "decision_ids": [
+        "D-C58-1-claim-administration-1",
+        "D-C58-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2500,
+          "cost_id": "COST-58-1",
+          "reason": "transport 25.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 57",
+            "receipts#page 46:R-COST-58-1",
+            "registers:merchant-payments#row 95:M-COST-58-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-58-2",
+          "reason": "conference 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 57",
+            "receipts#page 46:R-COST-58-2",
+            "registers:merchant-payments#row 96:M-COST-58-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 45.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T58",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 5500,
+      "balance_cents": 5500,
+      "claim_id": "C59",
+      "decision_ids": [
+        "D-C59-1-claim-administration-1",
+        "D-C59-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 4000,
+          "cost_id": "COST-59-1",
+          "reason": "lodging 40.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 58",
+            "receipts#page 47:R-COST-59-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 97:M-COST-59-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-59-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 58",
+            "receipts#page 47:R-COST-59-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 98:M-COST-59-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 55.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T59",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 6500,
+      "balance_cents": 6500,
+      "claim_id": "C60",
+      "decision_ids": [
+        "D-C60-1-claim-administration-1",
+        "D-C60-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-60-1",
+          "reason": "transport 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 59",
+            "receipts#page 48:R-COST-60-1",
+            "registers:merchant-payments#row 99:M-COST-60-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3000,
+          "cost_id": "COST-60-2",
+          "reason": "conference 30.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 59",
+            "receipts#page 48:R-COST-60-2",
+            "registers:merchant-payments#row 100:M-COST-60-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 65.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T60",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 7500,
+      "balance_cents": 7500,
+      "claim_id": "C61",
+      "decision_ids": [
+        "D-C61-1-claim-administration-1",
+        "D-C61-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 6000,
+          "cost_id": "COST-61-1",
+          "reason": "lodging 60.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 60",
+            "receipts#page 49:R-COST-61-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 101:M-COST-61-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-61-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 60",
+            "receipts#page 49:R-COST-61-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 102:M-COST-61-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 75.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T61",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 8500,
+      "balance_cents": 8500,
+      "claim_id": "C62",
+      "decision_ids": [
+        "D-C62-1-claim-administration-1",
+        "D-C62-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 5000,
+          "cost_id": "COST-62-1",
+          "reason": "transport 50.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 61",
+            "receipts#page 50:R-COST-62-1",
+            "registers:merchant-payments#row 103:M-COST-62-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-62-2",
+          "reason": "meals 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 61",
+            "receipts#page 50:R-COST-62-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 104:M-COST-62-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 85.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T62",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 3500,
+      "balance_cents": 3500,
+      "claim_id": "C63",
+      "decision_ids": [
+        "D-C63-1-claim-administration-1",
+        "D-C63-1-claim-budget_owner-1",
+        "D-C63-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-63-1",
+          "reason": "transport 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 62",
+            "receipts#page 51:R-COST-63-1",
+            "registers:merchant-payments#row 105:M-COST-63-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-63-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 62",
+            "receipts#page 51:R-COST-63-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 106:M-COST-63-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 35.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T63",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 4500,
+      "balance_cents": 4500,
+      "claim_id": "C64",
+      "decision_ids": [
+        "D-C64-1-claim-administration-1",
+        "D-C64-1-claim-budget_owner-1",
+        "D-C64-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2500,
+          "cost_id": "COST-64-1",
+          "reason": "transport 25.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 63",
+            "receipts#page 52:R-COST-64-1",
+            "registers:merchant-payments#row 107:M-COST-64-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-64-2",
+          "reason": "conference 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 63",
+            "receipts#page 52:R-COST-64-2",
+            "registers:merchant-payments#row 108:M-COST-64-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 45.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T64",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 5500,
+      "balance_cents": 5500,
+      "claim_id": "C65",
+      "decision_ids": [
+        "D-C65-1-claim-administration-1",
+        "D-C65-1-claim-budget_owner-1",
+        "D-C65-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 4000,
+          "cost_id": "COST-65-1",
+          "reason": "lodging 40.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 64",
+            "receipts#page 53:R-COST-65-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 109:M-COST-65-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-65-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 64",
+            "receipts#page 53:R-COST-65-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 110:M-COST-65-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 55.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T65",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 6500,
+      "balance_cents": 6500,
+      "claim_id": "C66",
+      "decision_ids": [
+        "D-C66-1-claim-administration-1",
+        "D-C66-1-claim-budget_owner-1",
+        "D-C66-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-66-1",
+          "reason": "transport 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 65",
+            "receipts#page 54:R-COST-66-1",
+            "registers:merchant-payments#row 111:M-COST-66-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3000,
+          "cost_id": "COST-66-2",
+          "reason": "conference 30.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 65",
+            "receipts#page 54:R-COST-66-2",
+            "registers:merchant-payments#row 112:M-COST-66-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 65.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T66",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 7500,
+      "balance_cents": 7500,
+      "claim_id": "C67",
+      "decision_ids": [
+        "D-C67-1-claim-administration-1",
+        "D-C67-1-claim-budget_owner-1",
+        "D-C67-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 6000,
+          "cost_id": "COST-67-1",
+          "reason": "lodging 60.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 66",
+            "receipts#page 55:R-COST-67-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 113:M-COST-67-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-67-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 66",
+            "receipts#page 55:R-COST-67-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 114:M-COST-67-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 75.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T67",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 8500,
+      "balance_cents": 8500,
+      "claim_id": "C68",
+      "decision_ids": [
+        "D-C68-1-claim-administration-1",
+        "D-C68-1-claim-budget_owner-1",
+        "D-C68-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 5000,
+          "cost_id": "COST-68-1",
+          "reason": "transport 50.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 67",
+            "receipts#page 56:R-COST-68-1",
+            "registers:merchant-payments#row 115:M-COST-68-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-68-2",
+          "reason": "meals 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 67",
+            "receipts#page 56:R-COST-68-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 116:M-COST-68-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 85.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T68",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 3500,
+      "balance_cents": 3500,
+      "claim_id": "C69",
+      "decision_ids": [
+        "D-C69-1-claim-administration-1",
+        "D-C69-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-69-1",
+          "reason": "transport 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 68",
+            "receipts#page 57:R-COST-69-1",
+            "registers:merchant-payments#row 117:M-COST-69-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-69-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 68",
+            "receipts#page 57:R-COST-69-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 118:M-COST-69-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 35.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T69",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 4500,
+      "balance_cents": 4500,
+      "claim_id": "C70",
+      "decision_ids": [
+        "D-C70-1-claim-administration-1",
+        "D-C70-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2500,
+          "cost_id": "COST-70-1",
+          "reason": "transport 25.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 69",
+            "receipts#page 58:R-COST-70-1",
+            "registers:merchant-payments#row 119:M-COST-70-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-70-2",
+          "reason": "conference 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 69",
+            "receipts#page 58:R-COST-70-2",
+            "registers:merchant-payments#row 120:M-COST-70-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 45.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T70",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 5500,
+      "balance_cents": 5500,
+      "claim_id": "C71",
+      "decision_ids": [
+        "D-C71-1-claim-administration-1",
+        "D-C71-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 4000,
+          "cost_id": "COST-71-1",
+          "reason": "lodging 40.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 70",
+            "receipts#page 59:R-COST-71-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 121:M-COST-71-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-71-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 70",
+            "receipts#page 59:R-COST-71-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 122:M-COST-71-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 55.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T71",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 6500,
+      "balance_cents": 6500,
+      "claim_id": "C72",
+      "decision_ids": [
+        "D-C72-1-claim-administration-1",
+        "D-C72-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-72-1",
+          "reason": "transport 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 71",
+            "receipts#page 60:R-COST-72-1",
+            "registers:merchant-payments#row 123:M-COST-72-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3000,
+          "cost_id": "COST-72-2",
+          "reason": "conference 30.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 71",
+            "receipts#page 60:R-COST-72-2",
+            "registers:merchant-payments#row 124:M-COST-72-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 65.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T72",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 7500,
+      "balance_cents": 7500,
+      "claim_id": "C73",
+      "decision_ids": [
+        "D-C73-1-claim-administration-1",
+        "D-C73-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 6000,
+          "cost_id": "COST-73-1",
+          "reason": "lodging 60.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 72",
+            "receipts#page 61:R-COST-73-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 125:M-COST-73-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-73-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 72",
+            "receipts#page 61:R-COST-73-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 126:M-COST-73-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 75.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T73",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 8500,
+      "balance_cents": 8500,
+      "claim_id": "C74",
+      "decision_ids": [
+        "D-C74-1-claim-administration-1",
+        "D-C74-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 5000,
+          "cost_id": "COST-74-1",
+          "reason": "transport 50.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 73",
+            "receipts#page 62:R-COST-74-1",
+            "registers:merchant-payments#row 127:M-COST-74-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-74-2",
+          "reason": "meals 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 73",
+            "receipts#page 62:R-COST-74-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 128:M-COST-74-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 85.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T74",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 3500,
+      "balance_cents": 3500,
+      "claim_id": "C75",
+      "decision_ids": [
+        "D-C75-1-claim-administration-1",
+        "D-C75-1-claim-budget_owner-1",
+        "D-C75-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-75-1",
+          "reason": "transport 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 74",
+            "receipts#page 63:R-COST-75-1",
+            "registers:merchant-payments#row 129:M-COST-75-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-75-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 74",
+            "receipts#page 63:R-COST-75-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 130:M-COST-75-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 35.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T75",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 4500,
+      "balance_cents": 4500,
+      "claim_id": "C76",
+      "decision_ids": [
+        "D-C76-1-claim-administration-1",
+        "D-C76-1-claim-budget_owner-1",
+        "D-C76-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2500,
+          "cost_id": "COST-76-1",
+          "reason": "transport 25.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 75",
+            "receipts#page 64:R-COST-76-1",
+            "registers:merchant-payments#row 131:M-COST-76-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-76-2",
+          "reason": "conference 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 75",
+            "receipts#page 64:R-COST-76-2",
+            "registers:merchant-payments#row 132:M-COST-76-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 45.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T76",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 5500,
+      "balance_cents": 5500,
+      "claim_id": "C77",
+      "decision_ids": [
+        "D-C77-1-claim-administration-1",
+        "D-C77-1-claim-budget_owner-1",
+        "D-C77-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 4000,
+          "cost_id": "COST-77-1",
+          "reason": "lodging 40.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 76",
+            "receipts#page 65:R-COST-77-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 133:M-COST-77-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-77-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 76",
+            "receipts#page 65:R-COST-77-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 134:M-COST-77-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 55.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T77",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 6500,
+      "balance_cents": 6500,
+      "claim_id": "C78",
+      "decision_ids": [
+        "D-C78-1-claim-administration-1",
+        "D-C78-1-claim-budget_owner-1",
+        "D-C78-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-78-1",
+          "reason": "transport 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 77",
+            "receipts#page 66:R-COST-78-1",
+            "registers:merchant-payments#row 135:M-COST-78-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3000,
+          "cost_id": "COST-78-2",
+          "reason": "conference 30.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 77",
+            "receipts#page 66:R-COST-78-2",
+            "registers:merchant-payments#row 136:M-COST-78-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 65.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T78",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 7500,
+      "balance_cents": 7500,
+      "claim_id": "C79",
+      "decision_ids": [
+        "D-C79-1-claim-administration-1",
+        "D-C79-1-claim-budget_owner-1",
+        "D-C79-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 6000,
+          "cost_id": "COST-79-1",
+          "reason": "lodging 60.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 78",
+            "receipts#page 67:R-COST-79-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 137:M-COST-79-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-79-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 78",
+            "receipts#page 67:R-COST-79-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 138:M-COST-79-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 75.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T79",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 8500,
+      "balance_cents": 8500,
+      "claim_id": "C80",
+      "decision_ids": [
+        "D-C80-1-claim-administration-1",
+        "D-C80-1-claim-budget_owner-1",
+        "D-C80-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 5000,
+          "cost_id": "COST-80-1",
+          "reason": "transport 50.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 79",
+            "receipts#page 68:R-COST-80-1",
+            "registers:merchant-payments#row 139:M-COST-80-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-80-2",
+          "reason": "meals 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 79",
+            "receipts#page 68:R-COST-80-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 140:M-COST-80-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 85.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T80",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 3500,
+      "balance_cents": 3500,
+      "claim_id": "C81",
+      "decision_ids": [
+        "D-C81-1-claim-administration-1",
+        "D-C81-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-81-1",
+          "reason": "transport 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 80",
+            "receipts#page 69:R-COST-81-1",
+            "registers:merchant-payments#row 141:M-COST-81-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-81-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 80",
+            "receipts#page 69:R-COST-81-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 142:M-COST-81-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 35.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T81",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 4500,
+      "balance_cents": 4500,
+      "claim_id": "C82",
+      "decision_ids": [
+        "D-C82-1-claim-administration-1",
+        "D-C82-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2500,
+          "cost_id": "COST-82-1",
+          "reason": "transport 25.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 81",
+            "receipts#page 70:R-COST-82-1",
+            "registers:merchant-payments#row 143:M-COST-82-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-82-2",
+          "reason": "conference 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 81",
+            "receipts#page 70:R-COST-82-2",
+            "registers:merchant-payments#row 144:M-COST-82-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 45.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T82",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 5500,
+      "balance_cents": 5500,
+      "claim_id": "C83",
+      "decision_ids": [
+        "D-C83-1-claim-administration-1",
+        "D-C83-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 4000,
+          "cost_id": "COST-83-1",
+          "reason": "lodging 40.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 82",
+            "receipts#page 71:R-COST-83-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 145:M-COST-83-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-83-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 82",
+            "receipts#page 71:R-COST-83-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 146:M-COST-83-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 55.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T83",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 6500,
+      "balance_cents": 6500,
+      "claim_id": "C84",
+      "decision_ids": [
+        "D-C84-1-claim-administration-1",
+        "D-C84-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-84-1",
+          "reason": "transport 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 83",
+            "receipts#page 72:R-COST-84-1",
+            "registers:merchant-payments#row 147:M-COST-84-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3000,
+          "cost_id": "COST-84-2",
+          "reason": "conference 30.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 83",
+            "receipts#page 72:R-COST-84-2",
+            "registers:merchant-payments#row 148:M-COST-84-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 65.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T84",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 7500,
+      "balance_cents": 7500,
+      "claim_id": "C85",
+      "decision_ids": [
+        "D-C85-1-claim-administration-1",
+        "D-C85-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 6000,
+          "cost_id": "COST-85-1",
+          "reason": "lodging 60.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 84",
+            "receipts#page 73:R-COST-85-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 149:M-COST-85-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-85-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 84",
+            "receipts#page 73:R-COST-85-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 150:M-COST-85-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 75.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T85",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 8500,
+      "balance_cents": 8500,
+      "claim_id": "C86",
+      "decision_ids": [
+        "D-C86-1-claim-administration-1",
+        "D-C86-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 5000,
+          "cost_id": "COST-86-1",
+          "reason": "transport 50.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 85",
+            "receipts#page 74:R-COST-86-1",
+            "registers:merchant-payments#row 151:M-COST-86-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-86-2",
+          "reason": "meals 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 85",
+            "receipts#page 74:R-COST-86-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 152:M-COST-86-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 85.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T86",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 3500,
+      "balance_cents": 3500,
+      "claim_id": "C87",
+      "decision_ids": [
+        "D-C87-1-claim-administration-1",
+        "D-C87-1-claim-budget_owner-1",
+        "D-C87-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-87-1",
+          "reason": "transport 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 86",
+            "receipts#page 75:R-COST-87-1",
+            "registers:merchant-payments#row 153:M-COST-87-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-87-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 86",
+            "receipts#page 75:R-COST-87-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 154:M-COST-87-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 35.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T87",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 4500,
+      "balance_cents": 4500,
+      "claim_id": "C88",
+      "decision_ids": [
+        "D-C88-1-claim-administration-1",
+        "D-C88-1-claim-budget_owner-1",
+        "D-C88-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2500,
+          "cost_id": "COST-88-1",
+          "reason": "transport 25.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 87",
+            "receipts#page 76:R-COST-88-1",
+            "registers:merchant-payments#row 155:M-COST-88-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-88-2",
+          "reason": "conference 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 87",
+            "receipts#page 76:R-COST-88-2",
+            "registers:merchant-payments#row 156:M-COST-88-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 45.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T88",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 5500,
+      "balance_cents": 5500,
+      "claim_id": "C89",
+      "decision_ids": [
+        "D-C89-1-claim-administration-1",
+        "D-C89-1-claim-budget_owner-1",
+        "D-C89-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 4000,
+          "cost_id": "COST-89-1",
+          "reason": "lodging 40.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 88",
+            "receipts#page 77:R-COST-89-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 157:M-COST-89-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-89-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 88",
+            "receipts#page 77:R-COST-89-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 158:M-COST-89-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 55.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T89",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 6500,
+      "balance_cents": 6500,
+      "claim_id": "C90",
+      "decision_ids": [
+        "D-C90-1-claim-administration-1",
+        "D-C90-1-claim-budget_owner-1",
+        "D-C90-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-90-1",
+          "reason": "transport 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 89",
+            "receipts#page 78:R-COST-90-1",
+            "registers:merchant-payments#row 159:M-COST-90-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3000,
+          "cost_id": "COST-90-2",
+          "reason": "conference 30.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 89",
+            "receipts#page 78:R-COST-90-2",
+            "registers:merchant-payments#row 160:M-COST-90-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 65.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T90",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 7500,
+      "balance_cents": 7500,
+      "claim_id": "C91",
+      "decision_ids": [
+        "D-C91-1-claim-administration-1",
+        "D-C91-1-claim-budget_owner-1",
+        "D-C91-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 6000,
+          "cost_id": "COST-91-1",
+          "reason": "lodging 60.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 90",
+            "receipts#page 79:R-COST-91-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 161:M-COST-91-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-91-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 90",
+            "receipts#page 79:R-COST-91-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 162:M-COST-91-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 75.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T91",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 8500,
+      "balance_cents": 8500,
+      "claim_id": "C92",
+      "decision_ids": [
+        "D-C92-1-claim-administration-1",
+        "D-C92-1-claim-budget_owner-1",
+        "D-C92-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 5000,
+          "cost_id": "COST-92-1",
+          "reason": "transport 50.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 91",
+            "receipts#page 80:R-COST-92-1",
+            "registers:merchant-payments#row 163:M-COST-92-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-92-2",
+          "reason": "meals 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 91",
+            "receipts#page 80:R-COST-92-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 164:M-COST-92-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 85.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T92",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 3500,
+      "balance_cents": 3500,
+      "claim_id": "C93",
+      "decision_ids": [
+        "D-C93-1-claim-administration-1",
+        "D-C93-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-93-1",
+          "reason": "transport 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 92",
+            "receipts#page 81:R-COST-93-1",
+            "registers:merchant-payments#row 165:M-COST-93-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-93-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 92",
+            "receipts#page 81:R-COST-93-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 166:M-COST-93-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 35.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T93",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 4500,
+      "balance_cents": 4500,
+      "claim_id": "C94",
+      "decision_ids": [
+        "D-C94-1-claim-administration-1",
+        "D-C94-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2500,
+          "cost_id": "COST-94-1",
+          "reason": "transport 25.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 93",
+            "receipts#page 82:R-COST-94-1",
+            "registers:merchant-payments#row 167:M-COST-94-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-94-2",
+          "reason": "conference 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 93",
+            "receipts#page 82:R-COST-94-2",
+            "registers:merchant-payments#row 168:M-COST-94-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 45.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T94",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 5500,
+      "balance_cents": 5500,
+      "claim_id": "C95",
+      "decision_ids": [
+        "D-C95-1-claim-administration-1",
+        "D-C95-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 4000,
+          "cost_id": "COST-95-1",
+          "reason": "lodging 40.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 94",
+            "receipts#page 83:R-COST-95-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 169:M-COST-95-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-95-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 94",
+            "receipts#page 83:R-COST-95-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 170:M-COST-95-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 55.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T95",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 6500,
+      "balance_cents": 6500,
+      "claim_id": "C96",
+      "decision_ids": [
+        "D-C96-1-claim-administration-1",
+        "D-C96-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-96-1",
+          "reason": "transport 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 95",
+            "receipts#page 84:R-COST-96-1",
+            "registers:merchant-payments#row 171:M-COST-96-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3000,
+          "cost_id": "COST-96-2",
+          "reason": "conference 30.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 95",
+            "receipts#page 84:R-COST-96-2",
+            "registers:merchant-payments#row 172:M-COST-96-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 65.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T96",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 7500,
+      "balance_cents": 7500,
+      "claim_id": "C97",
+      "decision_ids": [
+        "D-C97-1-claim-administration-1",
+        "D-C97-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 6000,
+          "cost_id": "COST-97-1",
+          "reason": "lodging 60.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 96",
+            "receipts#page 85:R-COST-97-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 173:M-COST-97-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-97-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 96",
+            "receipts#page 85:R-COST-97-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 174:M-COST-97-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 75.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T97",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 8500,
+      "balance_cents": 8500,
+      "claim_id": "C98",
+      "decision_ids": [
+        "D-C98-1-claim-administration-1",
+        "D-C98-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 5000,
+          "cost_id": "COST-98-1",
+          "reason": "transport 50.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 97",
+            "receipts#page 86:R-COST-98-1",
+            "registers:merchant-payments#row 175:M-COST-98-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 3500,
+          "cost_id": "COST-98-2",
+          "reason": "meals 35.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 97",
+            "receipts#page 86:R-COST-98-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 176:M-COST-98-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 85.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T98",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 99999,
+      "balance_cents": 99999,
+      "claim_id": "C99",
+      "decision_ids": [
+        "D-C99-1-claim-administration-1",
+        "D-C99-1-claim-budget_owner-1",
+        "D-C99-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 99999,
+          "cost_id": "COST-99-1",
+          "reason": "conference 999.99 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 98",
+            "receipts#page 87:R-COST-99-1",
+            "registers:merchant-payments#row 177:M-COST-99-1"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 999.99 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T99",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 100000,
+      "balance_cents": 100000,
+      "claim_id": "C100",
+      "decision_ids": [
+        "D-C100-1-claim-administration-1",
+        "D-C100-1-claim-budget_owner-1",
+        "D-C100-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 100000,
+          "cost_id": "COST-100-1",
+          "reason": "conference 1000.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 99",
+            "receipts#page 87:R-COST-100-1",
+            "registers:merchant-payments#row 178:M-COST-100-1"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 1000.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T100",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 100001,
+      "balance_cents": 100001,
+      "claim_id": "C101",
+      "decision_ids": [
+        "D-C101-1-claim-administration-1",
+        "D-C101-1-claim-budget_owner-1",
+        "D-C101-1-claim-director-1",
+        "D-C101-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 100001,
+          "cost_id": "COST-101-1",
+          "reason": "conference 1000.01 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 100",
+            "receipts#page 88:R-COST-101-1",
+            "registers:merchant-payments#row 179:M-COST-101-1"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 1000.01 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T101",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 14999,
+      "balance_cents": 14999,
+      "claim_id": "C102",
+      "decision_ids": [
+        "D-C102-1-claim-administration-1",
+        "D-C102-1-claim-budget_owner-1",
+        "D-C102-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 14999,
+          "cost_id": "COST-102-1",
+          "reason": "lodging 149.99 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 101",
+            "receipts#page 88:R-COST-102-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 180:M-COST-102-1"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 149.99 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T102",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 15000,
+      "balance_cents": 15000,
+      "claim_id": "C103",
+      "decision_ids": [
+        "D-C103-1-claim-administration-1",
+        "D-C103-1-claim-budget_owner-1",
+        "D-C103-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 15000,
+          "cost_id": "COST-103-1",
+          "reason": "lodging 150.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 102",
+            "receipts#page 89:R-COST-103-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 181:M-COST-103-1"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 150.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T103",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 15000,
+      "balance_cents": 15000,
+      "claim_id": "C104",
+      "decision_ids": [
+        "D-C104-1-claim-administration-1",
+        "D-C104-1-claim-budget_owner-1",
+        "D-C104-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 15000,
+          "cost_id": "COST-104-1",
+          "reason": "lodging 150.01 EUR x 1; capped at 150.0",
+          "source_ids": [
+            "initial-claims#page 103",
+            "receipts#page 89:R-COST-104-1",
+            "registers:caps#row 6:CAP-lodging",
+            "registers:merchant-payments#row 182:M-COST-104-1"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 150.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T104",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 3999,
+      "balance_cents": 3999,
+      "claim_id": "C105",
+      "decision_ids": [
+        "D-C105-1-claim-administration-1",
+        "D-C105-1-claim-budget_owner-1",
+        "D-C105-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 3999,
+          "cost_id": "COST-105-1",
+          "reason": "meals 39.99 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 104",
+            "receipts#page 90:R-COST-105-1",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 183:M-COST-105-1"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 39.99 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T105",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 4000,
+      "balance_cents": 4000,
+      "claim_id": "C106",
+      "decision_ids": [
+        "D-C106-1-claim-administration-1",
+        "D-C106-1-claim-budget_owner-1",
+        "D-C106-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 4000,
+          "cost_id": "COST-106-1",
+          "reason": "meals 40.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 105",
+            "receipts#page 90:R-COST-106-1",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 184:M-COST-106-1"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 40.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T106",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 4000,
+      "balance_cents": 4000,
+      "claim_id": "C107",
+      "decision_ids": [
+        "D-C107-1-claim-administration-1",
+        "D-C107-1-claim-budget_owner-1",
+        "D-C107-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 4000,
+          "cost_id": "COST-107-1",
+          "reason": "meals 40.01 EUR x 1; capped at 40.0",
+          "source_ids": [
+            "initial-claims#page 106",
+            "receipts#page 91:R-COST-107-1",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 185:M-COST-107-1"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 40.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T107",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 208,
+      "balance_cents": 208,
+      "claim_id": "C108",
+      "decision_ids": [
+        "D-C108-1-claim-administration-1",
+        "D-C108-1-claim-budget_owner-1",
+        "D-C108-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 104,
+          "cost_id": "COST-108-1",
+          "reason": "transport 1.15 USD x 0.9",
+          "source_ids": [
+            "initial-claims#page 107",
+            "receipts#page 91:R-COST-108-1",
+            "registers:fx#row 7:FX-USD",
+            "registers:merchant-payments#row 186:M-COST-108-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 104,
+          "cost_id": "COST-108-2",
+          "reason": "conference 1.15 USD x 0.9",
+          "source_ids": [
+            "initial-claims#page 107",
+            "receipts#page 92:R-COST-108-2",
+            "registers:fx#row 7:FX-USD",
+            "registers:merchant-payments#row 187:M-COST-108-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 2.08 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T108",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 208,
+      "balance_cents": 208,
+      "claim_id": "C109",
+      "decision_ids": [
+        "D-C109-1-claim-administration-1",
+        "D-C109-1-claim-budget_owner-1",
+        "D-C109-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 104,
+          "cost_id": "COST-109-1",
+          "reason": "transport 1.16 USD x 0.9",
+          "source_ids": [
+            "initial-claims#page 108",
+            "receipts#page 92:R-COST-109-1",
+            "registers:fx#row 7:FX-USD",
+            "registers:merchant-payments#row 188:M-COST-109-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 104,
+          "cost_id": "COST-109-2",
+          "reason": "conference 1.16 USD x 0.9",
+          "source_ids": [
+            "initial-claims#page 108",
+            "receipts#page 93:R-COST-109-2",
+            "registers:fx#row 7:FX-USD",
+            "registers:merchant-payments#row 189:M-COST-109-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 2.08 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T109",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 2500,
+      "balance_cents": 2500,
+      "claim_id": "C110",
+      "decision_ids": [
+        "D-C110-1-claim-administration-1",
+        "D-C110-1-claim-budget_owner-1",
+        "D-C110-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2500,
+          "cost_id": "COST-110-1",
+          "reason": "transport 25.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 109",
+            "receipts#page 93:R-COST-110-1",
+            "registers:merchant-payments#row 190:M-COST-110-1"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 25.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T110",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 2500,
+      "balance_cents": 2500,
+      "claim_id": "C111",
+      "decision_ids": [
+        "D-C111-1-claim-administration-1",
+        "D-C111-1-claim-budget_owner-1",
+        "D-C111-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 2500,
+          "cost_id": "COST-111-1",
+          "reason": "transport 25.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 110",
+            "receipts#page 94:R-COST-111-1",
+            "registers:merchant-payments#row 191:M-COST-111-1"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 25.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T111",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": null,
+      "balance_cents": null,
+      "claim_id": "C112",
+      "decision_ids": [],
+      "lines": [
+        {
+          "allowed_cents": 2500,
+          "cost_id": "COST-112-1",
+          "reason": "late_filing: first submitted 2026-09-02 after deadline 2026-09-01",
+          "source_ids": [
+            "initial-claims#page 111",
+            "receipts#page 94:R-COST-112-1",
+            "registers:merchant-payments#row 192:M-COST-112-1"
+          ],
+          "status": "unresolved"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "late_filing — first submitted 2026-09-02 after deadline 2026-09-01",
+      "revision": 1,
+      "status": "held",
+      "trip_id": "T112",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 2500,
+      "balance_cents": 2500,
+      "claim_id": "C113",
+      "decision_ids": [],
+      "lines": [
+        {
+          "allowed_cents": 2500,
+          "cost_id": "COST-113-1",
+          "reason": "transport 25.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 112",
+            "receipts#page 95:R-COST-113-1",
+            "registers:merchant-payments#row 193:M-COST-113-1"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "ADMIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting administration/budget_owner/supervisor review of r1",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T113",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": null,
+      "balance_cents": null,
+      "claim_id": "C114",
+      "decision_ids": [],
+      "lines": [
+        {
+          "allowed_cents": 2000,
+          "cost_id": "COST-114-1",
+          "reason": "transport 20.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 113",
+            "receipts#page 95:R-COST-114-1",
+            "registers:merchant-payments#row 194:M-COST-114-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": null,
+          "cost_id": "COST-114-2",
+          "reason": "missing_payment_proof: no settled merchant transaction for COST-114-2",
+          "source_ids": [
+            "initial-claims#page 113",
+            "receipts#page 96:R-COST-114-2"
+          ],
+          "status": "unresolved"
+        }
+      ],
+      "next_owner": "EMP-03",
+      "paid_cents": 0,
+      "reason": "missing_payment_proof — no settled merchant transaction for COST-114-2",
+      "revision": 1,
+      "status": "held",
+      "trip_id": "T114",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 1500,
+      "balance_cents": 1500,
+      "claim_id": "C115",
+      "decision_ids": [
+        "D-C115-1-claim-administration-1",
+        "D-C115-1-claim-budget_owner-1",
+        "D-C115-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 0,
+          "cost_id": "COST-115-1",
+          "reason": "personal purchase: zero entitlement (claimed 10.00 EUR retained with evidence)",
+          "source_ids": [
+            "initial-claims#page 114",
+            "receipts#page 96:R-COST-115-1",
+            "registers:merchant-payments#row 195:M-COST-115-1"
+          ],
+          "status": "excluded"
+        },
+        {
+          "allowed_cents": 1500,
+          "cost_id": "COST-115-2",
+          "reason": "meals 15.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 114",
+            "receipts#page 97:R-COST-115-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 196:M-COST-115-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 15.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T115",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": null,
+      "balance_cents": null,
+      "claim_id": "C116",
+      "decision_ids": [],
+      "lines": [
+        {
+          "allowed_cents": null,
+          "cost_id": "COST-116-1",
+          "reason": "missing_cap: no lodging cap for NL in USD on 2026-09-01",
+          "source_ids": [
+            "initial-claims#page 115",
+            "receipts#page 97:R-COST-116-1",
+            "registers:fx#row 7:FX-USD",
+            "registers:merchant-payments#row 197:M-COST-116-1"
+          ],
+          "status": "unresolved"
+        },
+        {
+          "allowed_cents": null,
+          "cost_id": "COST-116-2",
+          "reason": "missing_rate: no Finance GBP rate for payment date 2026-09-01",
+          "source_ids": [
+            "initial-claims#page 115",
+            "receipts#page 98:R-COST-116-2",
+            "registers:merchant-payments#row 198:M-COST-116-2"
+          ],
+          "status": "unresolved"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "missing_cap; missing_rate — no lodging cap for NL in USD on 2026-09-01",
+      "revision": 1,
+      "status": "held",
+      "trip_id": "T116",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": null,
+      "balance_cents": null,
+      "claim_id": "C117",
+      "decision_ids": [],
+      "lines": [
+        {
+          "allowed_cents": null,
+          "cost_id": "COST-117-1",
+          "reason": "unknown_category: receipt category 'entertainment' is not defined by policy POL-2026.2; eligibility unknown",
+          "source_ids": [
+            "initial-claims#page 116",
+            "receipts#page 98:R-COST-117-1",
+            "registers:merchant-payments#row 199:M-COST-117-1"
+          ],
+          "status": "unresolved"
+        },
+        {
+          "allowed_cents": 4000,
+          "cost_id": "COST-117-2",
+          "reason": "meals 40.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 116",
+            "receipts#page 99:R-COST-117-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 200:M-COST-117-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "unknown_category — receipt category 'entertainment' is not defined by policy POL-2026.2; eligibility unknown",
+      "revision": 1,
+      "status": "held",
+      "trip_id": "T117",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 0,
+      "balance_cents": 0,
+      "claim_id": "C118",
+      "decision_ids": [],
+      "lines": [
+        {
+          "allowed_cents": 0,
+          "cost_id": "COST-118-1",
+          "reason": "personal purchase: zero entitlement (claimed 10.00 EUR retained with evidence)",
+          "source_ids": [
+            "initial-claims#page 117",
+            "receipts#page 99:R-COST-118-1",
+            "registers:merchant-payments#row 201:M-COST-118-1"
+          ],
+          "status": "excluded"
+        },
+        {
+          "allowed_cents": 0,
+          "cost_id": "COST-118-2",
+          "reason": "personal purchase: zero entitlement (claimed 15.00 EUR retained with evidence)",
+          "source_ids": [
+            "initial-claims#page 117",
+            "receipts#page 100:R-COST-118-2",
+            "registers:merchant-payments#row 202:M-COST-118-2"
+          ],
+          "status": "excluded"
+        }
+      ],
+      "next_owner": "ADMIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting administration/budget_owner/supervisor review of r1",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T118",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 100001,
+      "balance_cents": 100001,
+      "claim_id": "C119",
+      "decision_ids": [
+        "D-C119-1-claim-administration-1",
+        "D-C119-1-claim-budget_owner-1",
+        "D-C119-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 100001,
+          "cost_id": "COST-119-1",
+          "reason": "conference 1000.01 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 118",
+            "receipts#page 100:R-COST-119-1",
+            "registers:merchant-payments#row 203:M-COST-119-1"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "DIR-01",
+      "paid_cents": 0,
+      "reason": "awaiting director review of r1",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T119",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 7500,
+      "balance_cents": 7500,
+      "claim_id": "C120",
+      "decision_ids": [
+        "D-C120-1-claim-administration-1",
+        "D-C120-1-claim-budget_owner-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 5000,
+          "cost_id": "COST-120-1",
+          "reason": "transport 50.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 119",
+            "receipts#page 101:R-COST-120-1",
+            "registers:merchant-payments#row 204:M-COST-120-1"
+          ],
+          "status": "supported"
+        },
+        {
+          "allowed_cents": 2500,
+          "cost_id": "COST-120-2",
+          "reason": "meals 25.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 119",
+            "receipts#page 101:R-COST-120-2",
+            "registers:caps#row 7:CAP-meals",
+            "registers:merchant-payments#row 205:M-COST-120-2"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "FIN-01",
+      "paid_cents": 0,
+      "reason": "awaiting Finance settlement: EUR 0.00 of EUR 75.00 paid",
+      "revision": 1,
+      "status": "pending",
+      "trip_id": "T120",
+      "trip_revision": 1
+    },
+    {
+      "allowed_cents": 3000,
+      "balance_cents": 3000,
+      "claim_id": "C121",
+      "decision_ids": [
+        "D-C121-1-claim-administration-1",
+        "D-C121-1-claim-budget_owner-1",
+        "D-C121-1-claim-supervisor-1"
+      ],
+      "lines": [
+        {
+          "allowed_cents": 3000,
+          "cost_id": "COST-121",
+          "reason": "transport 30.00 EUR x 1",
+          "source_ids": [
+            "initial-claims#page 120",
+            "receipts#page 102:R-COST-121",
+            "registers:merchant-payments#row 206:M-COST-121"
+          ],
+          "status": "supported"
+        }
+      ],
+      "next_owner": "SUP-01",
+      "paid_cents": 0,
+      "reason": "cancellation_pending — permit cancellation TC121 requested 2026-09-10T10:00:00Z; payment readiness paused",
+      "revision": 1,
+      "status": "held",
+      "trip_id": "T121",
+      "trip_revision": 1
+    }
+  ],
+  "issues": [
+    {
+      "owner": "EMP-01",
+      "reason": "no settled merchant transaction for COST-08",
+      "record_id": "ISS-C08-r1-missing_payment_proof-COST-08",
+      "resolution_needed": "Employee supplies the settled merchant transaction for COST-08"
+    },
+    {
+      "owner": "EMP-01",
+      "reason": "The budget owner (LEAD-01) returned revision 1 on 2026-09-03: Please supply the revised trip evidence. Repair requested: Provide revised trip evidence. Affected fields: trip, amount, evidence",
+      "record_id": "ISS-C09-r1-employee_correction:budget_owner",
+      "resolution_needed": "The employee (EMP-01) supplies the correction asked for (Provide revised trip evidence) as an updated claim revision; the review then resumes on that revision"
+    },
+    {
+      "owner": "FIN-01",
+      "reason": "permit P10 approved 2026-09-02 after first commitment 2026-09-01",
+      "record_id": "ISS-C10-r1-late_permit-COST-10",
+      "resolution_needed": "Finance decides a late_permit exception for COST-10"
+    },
+    {
+      "owner": "FIN-01",
+      "reason": "first submitted 2026-09-02 after deadline 2026-09-01",
+      "record_id": "ISS-C112-r1-late_filing-COST-112-1",
+      "resolution_needed": "Finance grants or refuses a late-filing exception for C112 r1 COST-112-1"
+    },
+    {
+      "owner": "EMP-03",
+      "reason": "no settled merchant transaction for COST-114-2",
+      "record_id": "ISS-C114-r1-missing_payment_proof-COST-114-2",
+      "resolution_needed": "Employee supplies the settled merchant transaction for COST-114-2"
+    },
+    {
+      "owner": "FIN-01",
+      "reason": "no lodging cap for NL in USD on 2026-09-01",
+      "record_id": "ISS-C116-r1-missing_cap-COST-116-1",
+      "resolution_needed": "Finance supplies or confirms the NL lodging cap in USD for 2026-09-01"
+    },
+    {
+      "owner": "FIN-01",
+      "reason": "no Finance GBP rate for payment date 2026-09-01",
+      "record_id": "ISS-C116-r1-missing_rate-COST-116-2",
+      "resolution_needed": "Finance supplies or confirms the GBP rate for 2026-09-01"
+    },
+    {
+      "owner": "FIN-01",
+      "reason": "receipt category 'entertainment' is not defined by policy POL-2026.2; eligibility unknown",
+      "record_id": "ISS-C117-r1-unknown_category-COST-117-1",
+      "resolution_needed": "Finance (FIN-01) supplies an authoritative definition of 'entertainment' or a specific eligibility instruction for COST-117-1 C117 r1 (claimed 10.00 EUR); the employee (EMP-03) may only be asked to clarify the purchase; the Travel Administration Lead (ADMIN-01) follows up"
+    },
+    {
+      "owner": "FIN-01",
+      "reason": "first submitted 2026-09-02 after deadline 2026-09-01",
+      "record_id": "ISS-C12-r1-late_filing-COST-12",
+      "resolution_needed": "Finance grants or refuses a late-filing exception for C12 r1 COST-12"
+    },
+    {
+      "owner": "SUP-01",
+      "reason": "permit cancellation TC121 requested 2026-09-10T10:00:00Z; payment readiness paused",
+      "record_id": "ISS-C121-r1-cancellation_pending:TC121",
+      "resolution_needed": "Supervisor confirms or declines cancellation TC121"
+    },
+    {
+      "owner": "LEAD-01",
+      "reason": "The budget owner (LEAD-01) returned revision 1 on 2026-09-03: Budget owner requests a funding review before committing. Repair requested: Obtain funding decision. Affected fields: trip, amount, evidence",
+      "record_id": "ISS-C21-r1-funding_decision:budget_owner",
+      "resolution_needed": "The budget owner (LEAD-01) makes the funding decision for claim C21 revision 1 and replies on that revision; the review then resumes"
+    },
+    {
+      "owner": "FIN-01",
+      "reason": "no Finance GBP rate for payment date 2026-09-01",
+      "record_id": "ISS-C22-r1-missing_rate-COST-22",
+      "resolution_needed": "Finance supplies or confirms the GBP rate for 2026-09-01"
+    },
+    {
+      "owner": "FIN-01",
+      "reason": "no lodging cap for BE in EUR on 2026-09-01",
+      "record_id": "ISS-C23-r1-missing_cap-COST-23",
+      "resolution_needed": "Finance supplies or confirms the BE lodging cap in EUR for 2026-09-01"
+    },
+    {
+      "owner": "FIN-01",
+      "reason": "permit P25 incomplete before commitment 2026-09-01",
+      "record_id": "ISS-C25-r1-permit_unapproved-COST-25",
+      "resolution_needed": "Finance decides a permit_unapproved exception for COST-25"
+    },
+    {
+      "owner": "SUP-01",
+      "reason": "cancellation requested 2026-09-10T10:00:00Z by EMP-01",
+      "record_id": "ISS-TC121-decision-pending",
+      "resolution_needed": "Supervisor confirms or declines TC121"
+    },
+    {
+      "owner": "SUP-01",
+      "reason": "cancellation requested 2026-09-10T09:00:00Z by EMP-01",
+      "record_id": "ISS-TC122-decision-pending",
+      "resolution_needed": "Supervisor confirms or declines TC122"
+    }
+  ],
+  "predecessor": null,
+  "requests": [
+    {
+      "amount_cents": 10000,
+      "claim_id": "C01",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C01-1-claim-administration-1",
+        "D-C01-1-claim-budget_owner-1",
+        "D-C01-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-01",
+      "request_id": "REQ-C01",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 54000,
+      "claim_id": "C02",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C02-1-claim-administration-1",
+        "D-C02-1-claim-budget_owner-1",
+        "D-C02-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-01",
+      "request_id": "REQ-C02",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 20000,
+      "claim_id": "C03",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C03-1-claim-administration-1",
+        "D-C03-1-claim-budget_owner-1",
+        "D-C03-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-01",
+      "request_id": "REQ-C03",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 10000,
+      "claim_id": "C04",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C04-1-claim-administration-1",
+        "D-C04-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-02",
+      "request_id": "REQ-C04",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 100000,
+      "claim_id": "C05",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C05-1-claim-administration-1",
+        "D-C05-1-claim-budget_owner-1",
+        "D-C05-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-01",
+      "request_id": "REQ-C05",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 100001,
+      "claim_id": "C06",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C06-1-claim-administration-1",
+        "D-C06-1-claim-budget_owner-1",
+        "D-C06-1-claim-director-1",
+        "D-C06-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-01",
+      "request_id": "REQ-C06",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 30000,
+      "claim_id": "C07",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C07-1-claim-administration-1",
+        "D-C07-1-claim-budget_owner-1",
+        "D-C07-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-01",
+      "request_id": "REQ-C07",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 6000,
+      "claim_id": "C11",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C11-1-claim-administration-1",
+        "D-C11-1-claim-budget_owner-1",
+        "D-C11-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-01",
+      "request_id": "REQ-C11",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 10000,
+      "claim_id": "C16",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C16-1-claim-administration-1",
+        "D-C16-1-claim-budget_owner-1",
+        "D-C16-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-01",
+      "request_id": "REQ-C16",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 10000,
+      "claim_id": "C17",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C17-1-claim-administration-1",
+        "D-C17-1-claim-budget_owner-1",
+        "D-C17-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-01",
+      "request_id": "REQ-C17",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 10000,
+      "claim_id": "C18",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C18-1-claim-administration-1",
+        "D-C18-1-claim-budget_owner-1",
+        "D-C18-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-01",
+      "request_id": "REQ-C18",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 10000,
+      "claim_id": "C19",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C19-1-claim-administration-1",
+        "D-C19-1-claim-budget_owner-1",
+        "D-C19-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-01",
+      "request_id": "REQ-C19",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 10000,
+      "claim_id": "C20",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C20-1-claim-administration-1",
+        "D-C20-1-claim-budget_owner-1",
+        "D-C20-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-01",
+      "request_id": "REQ-C20",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 3500,
+      "claim_id": "C27",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C27-1-claim-administration-1",
+        "D-C27-1-claim-budget_owner-1",
+        "D-C27-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-03",
+      "request_id": "REQ-C27",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 4500,
+      "claim_id": "C28",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C28-1-claim-administration-1",
+        "D-C28-1-claim-budget_owner-1",
+        "D-C28-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-03",
+      "request_id": "REQ-C28",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 5500,
+      "claim_id": "C29",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C29-1-claim-administration-1",
+        "D-C29-1-claim-budget_owner-1",
+        "D-C29-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-03",
+      "request_id": "REQ-C29",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 6500,
+      "claim_id": "C30",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C30-1-claim-administration-1",
+        "D-C30-1-claim-budget_owner-1",
+        "D-C30-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-03",
+      "request_id": "REQ-C30",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 7500,
+      "claim_id": "C31",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C31-1-claim-administration-1",
+        "D-C31-1-claim-budget_owner-1",
+        "D-C31-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-03",
+      "request_id": "REQ-C31",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 8500,
+      "claim_id": "C32",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C32-1-claim-administration-1",
+        "D-C32-1-claim-budget_owner-1",
+        "D-C32-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-03",
+      "request_id": "REQ-C32",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 3500,
+      "claim_id": "C33",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C33-1-claim-administration-1",
+        "D-C33-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-04",
+      "request_id": "REQ-C33",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 4500,
+      "claim_id": "C34",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C34-1-claim-administration-1",
+        "D-C34-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-04",
+      "request_id": "REQ-C34",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 5500,
+      "claim_id": "C35",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C35-1-claim-administration-1",
+        "D-C35-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-04",
+      "request_id": "REQ-C35",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 6500,
+      "claim_id": "C36",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C36-1-claim-administration-1",
+        "D-C36-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-04",
+      "request_id": "REQ-C36",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 7500,
+      "claim_id": "C37",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C37-1-claim-administration-1",
+        "D-C37-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-04",
+      "request_id": "REQ-C37",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 8500,
+      "claim_id": "C38",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C38-1-claim-administration-1",
+        "D-C38-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-04",
+      "request_id": "REQ-C38",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 3500,
+      "claim_id": "C39",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C39-1-claim-administration-1",
+        "D-C39-1-claim-budget_owner-1",
+        "D-C39-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-05",
+      "request_id": "REQ-C39",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 4500,
+      "claim_id": "C40",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C40-1-claim-administration-1",
+        "D-C40-1-claim-budget_owner-1",
+        "D-C40-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-05",
+      "request_id": "REQ-C40",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 5500,
+      "claim_id": "C41",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C41-1-claim-administration-1",
+        "D-C41-1-claim-budget_owner-1",
+        "D-C41-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-05",
+      "request_id": "REQ-C41",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 6500,
+      "claim_id": "C42",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C42-1-claim-administration-1",
+        "D-C42-1-claim-budget_owner-1",
+        "D-C42-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-05",
+      "request_id": "REQ-C42",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 7500,
+      "claim_id": "C43",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C43-1-claim-administration-1",
+        "D-C43-1-claim-budget_owner-1",
+        "D-C43-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-05",
+      "request_id": "REQ-C43",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 8500,
+      "claim_id": "C44",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C44-1-claim-administration-1",
+        "D-C44-1-claim-budget_owner-1",
+        "D-C44-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-05",
+      "request_id": "REQ-C44",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 3500,
+      "claim_id": "C45",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C45-1-claim-administration-1",
+        "D-C45-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-06",
+      "request_id": "REQ-C45",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 4500,
+      "claim_id": "C46",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C46-1-claim-administration-1",
+        "D-C46-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-06",
+      "request_id": "REQ-C46",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 5500,
+      "claim_id": "C47",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C47-1-claim-administration-1",
+        "D-C47-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-06",
+      "request_id": "REQ-C47",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 6500,
+      "claim_id": "C48",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C48-1-claim-administration-1",
+        "D-C48-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-06",
+      "request_id": "REQ-C48",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 7500,
+      "claim_id": "C49",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C49-1-claim-administration-1",
+        "D-C49-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-06",
+      "request_id": "REQ-C49",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 8500,
+      "claim_id": "C50",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C50-1-claim-administration-1",
+        "D-C50-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-06",
+      "request_id": "REQ-C50",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 3500,
+      "claim_id": "C51",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C51-1-claim-administration-1",
+        "D-C51-1-claim-budget_owner-1",
+        "D-C51-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-07",
+      "request_id": "REQ-C51",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 4500,
+      "claim_id": "C52",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C52-1-claim-administration-1",
+        "D-C52-1-claim-budget_owner-1",
+        "D-C52-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-07",
+      "request_id": "REQ-C52",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 5500,
+      "claim_id": "C53",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C53-1-claim-administration-1",
+        "D-C53-1-claim-budget_owner-1",
+        "D-C53-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-07",
+      "request_id": "REQ-C53",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 6500,
+      "claim_id": "C54",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C54-1-claim-administration-1",
+        "D-C54-1-claim-budget_owner-1",
+        "D-C54-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-07",
+      "request_id": "REQ-C54",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 7500,
+      "claim_id": "C55",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C55-1-claim-administration-1",
+        "D-C55-1-claim-budget_owner-1",
+        "D-C55-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-07",
+      "request_id": "REQ-C55",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 8500,
+      "claim_id": "C56",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C56-1-claim-administration-1",
+        "D-C56-1-claim-budget_owner-1",
+        "D-C56-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-07",
+      "request_id": "REQ-C56",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 3500,
+      "claim_id": "C57",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C57-1-claim-administration-1",
+        "D-C57-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-08",
+      "request_id": "REQ-C57",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 4500,
+      "claim_id": "C58",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C58-1-claim-administration-1",
+        "D-C58-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-08",
+      "request_id": "REQ-C58",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 5500,
+      "claim_id": "C59",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C59-1-claim-administration-1",
+        "D-C59-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-08",
+      "request_id": "REQ-C59",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 6500,
+      "claim_id": "C60",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C60-1-claim-administration-1",
+        "D-C60-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-08",
+      "request_id": "REQ-C60",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 7500,
+      "claim_id": "C61",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C61-1-claim-administration-1",
+        "D-C61-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-08",
+      "request_id": "REQ-C61",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 8500,
+      "claim_id": "C62",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C62-1-claim-administration-1",
+        "D-C62-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-08",
+      "request_id": "REQ-C62",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 3500,
+      "claim_id": "C63",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C63-1-claim-administration-1",
+        "D-C63-1-claim-budget_owner-1",
+        "D-C63-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-09",
+      "request_id": "REQ-C63",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 4500,
+      "claim_id": "C64",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C64-1-claim-administration-1",
+        "D-C64-1-claim-budget_owner-1",
+        "D-C64-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-09",
+      "request_id": "REQ-C64",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 5500,
+      "claim_id": "C65",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C65-1-claim-administration-1",
+        "D-C65-1-claim-budget_owner-1",
+        "D-C65-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-09",
+      "request_id": "REQ-C65",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 6500,
+      "claim_id": "C66",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C66-1-claim-administration-1",
+        "D-C66-1-claim-budget_owner-1",
+        "D-C66-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-09",
+      "request_id": "REQ-C66",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 7500,
+      "claim_id": "C67",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C67-1-claim-administration-1",
+        "D-C67-1-claim-budget_owner-1",
+        "D-C67-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-09",
+      "request_id": "REQ-C67",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 8500,
+      "claim_id": "C68",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C68-1-claim-administration-1",
+        "D-C68-1-claim-budget_owner-1",
+        "D-C68-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-09",
+      "request_id": "REQ-C68",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 3500,
+      "claim_id": "C69",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C69-1-claim-administration-1",
+        "D-C69-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-10",
+      "request_id": "REQ-C69",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 4500,
+      "claim_id": "C70",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C70-1-claim-administration-1",
+        "D-C70-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-10",
+      "request_id": "REQ-C70",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 5500,
+      "claim_id": "C71",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C71-1-claim-administration-1",
+        "D-C71-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-10",
+      "request_id": "REQ-C71",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 6500,
+      "claim_id": "C72",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C72-1-claim-administration-1",
+        "D-C72-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-10",
+      "request_id": "REQ-C72",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 7500,
+      "claim_id": "C73",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C73-1-claim-administration-1",
+        "D-C73-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-10",
+      "request_id": "REQ-C73",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 8500,
+      "claim_id": "C74",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C74-1-claim-administration-1",
+        "D-C74-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-10",
+      "request_id": "REQ-C74",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 3500,
+      "claim_id": "C75",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C75-1-claim-administration-1",
+        "D-C75-1-claim-budget_owner-1",
+        "D-C75-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-11",
+      "request_id": "REQ-C75",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 4500,
+      "claim_id": "C76",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C76-1-claim-administration-1",
+        "D-C76-1-claim-budget_owner-1",
+        "D-C76-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-11",
+      "request_id": "REQ-C76",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 5500,
+      "claim_id": "C77",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C77-1-claim-administration-1",
+        "D-C77-1-claim-budget_owner-1",
+        "D-C77-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-11",
+      "request_id": "REQ-C77",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 6500,
+      "claim_id": "C78",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C78-1-claim-administration-1",
+        "D-C78-1-claim-budget_owner-1",
+        "D-C78-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-11",
+      "request_id": "REQ-C78",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 7500,
+      "claim_id": "C79",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C79-1-claim-administration-1",
+        "D-C79-1-claim-budget_owner-1",
+        "D-C79-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-11",
+      "request_id": "REQ-C79",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 8500,
+      "claim_id": "C80",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C80-1-claim-administration-1",
+        "D-C80-1-claim-budget_owner-1",
+        "D-C80-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-11",
+      "request_id": "REQ-C80",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 3500,
+      "claim_id": "C81",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C81-1-claim-administration-1",
+        "D-C81-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-12",
+      "request_id": "REQ-C81",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 4500,
+      "claim_id": "C82",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C82-1-claim-administration-1",
+        "D-C82-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-12",
+      "request_id": "REQ-C82",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 5500,
+      "claim_id": "C83",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C83-1-claim-administration-1",
+        "D-C83-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-12",
+      "request_id": "REQ-C83",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 6500,
+      "claim_id": "C84",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C84-1-claim-administration-1",
+        "D-C84-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-12",
+      "request_id": "REQ-C84",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 7500,
+      "claim_id": "C85",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C85-1-claim-administration-1",
+        "D-C85-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-12",
+      "request_id": "REQ-C85",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 8500,
+      "claim_id": "C86",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C86-1-claim-administration-1",
+        "D-C86-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-12",
+      "request_id": "REQ-C86",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 3500,
+      "claim_id": "C87",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C87-1-claim-administration-1",
+        "D-C87-1-claim-budget_owner-1",
+        "D-C87-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-13",
+      "request_id": "REQ-C87",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 4500,
+      "claim_id": "C88",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C88-1-claim-administration-1",
+        "D-C88-1-claim-budget_owner-1",
+        "D-C88-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-13",
+      "request_id": "REQ-C88",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 5500,
+      "claim_id": "C89",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C89-1-claim-administration-1",
+        "D-C89-1-claim-budget_owner-1",
+        "D-C89-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-13",
+      "request_id": "REQ-C89",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 6500,
+      "claim_id": "C90",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C90-1-claim-administration-1",
+        "D-C90-1-claim-budget_owner-1",
+        "D-C90-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-13",
+      "request_id": "REQ-C90",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 7500,
+      "claim_id": "C91",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C91-1-claim-administration-1",
+        "D-C91-1-claim-budget_owner-1",
+        "D-C91-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-13",
+      "request_id": "REQ-C91",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 8500,
+      "claim_id": "C92",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C92-1-claim-administration-1",
+        "D-C92-1-claim-budget_owner-1",
+        "D-C92-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-13",
+      "request_id": "REQ-C92",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 3500,
+      "claim_id": "C93",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C93-1-claim-administration-1",
+        "D-C93-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-14",
+      "request_id": "REQ-C93",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 4500,
+      "claim_id": "C94",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C94-1-claim-administration-1",
+        "D-C94-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-14",
+      "request_id": "REQ-C94",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 5500,
+      "claim_id": "C95",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C95-1-claim-administration-1",
+        "D-C95-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-14",
+      "request_id": "REQ-C95",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 6500,
+      "claim_id": "C96",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C96-1-claim-administration-1",
+        "D-C96-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-14",
+      "request_id": "REQ-C96",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 7500,
+      "claim_id": "C97",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C97-1-claim-administration-1",
+        "D-C97-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-14",
+      "request_id": "REQ-C97",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 8500,
+      "claim_id": "C98",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C98-1-claim-administration-1",
+        "D-C98-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-14",
+      "request_id": "REQ-C98",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 99999,
+      "claim_id": "C99",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C99-1-claim-administration-1",
+        "D-C99-1-claim-budget_owner-1",
+        "D-C99-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-03",
+      "request_id": "REQ-C99",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 100000,
+      "claim_id": "C100",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C100-1-claim-administration-1",
+        "D-C100-1-claim-budget_owner-1",
+        "D-C100-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-03",
+      "request_id": "REQ-C100",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 100001,
+      "claim_id": "C101",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C101-1-claim-administration-1",
+        "D-C101-1-claim-budget_owner-1",
+        "D-C101-1-claim-director-1",
+        "D-C101-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-03",
+      "request_id": "REQ-C101",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 14999,
+      "claim_id": "C102",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C102-1-claim-administration-1",
+        "D-C102-1-claim-budget_owner-1",
+        "D-C102-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-03",
+      "request_id": "REQ-C102",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 15000,
+      "claim_id": "C103",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C103-1-claim-administration-1",
+        "D-C103-1-claim-budget_owner-1",
+        "D-C103-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-03",
+      "request_id": "REQ-C103",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 15000,
+      "claim_id": "C104",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C104-1-claim-administration-1",
+        "D-C104-1-claim-budget_owner-1",
+        "D-C104-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-03",
+      "request_id": "REQ-C104",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 3999,
+      "claim_id": "C105",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C105-1-claim-administration-1",
+        "D-C105-1-claim-budget_owner-1",
+        "D-C105-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-03",
+      "request_id": "REQ-C105",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 4000,
+      "claim_id": "C106",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C106-1-claim-administration-1",
+        "D-C106-1-claim-budget_owner-1",
+        "D-C106-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-03",
+      "request_id": "REQ-C106",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 4000,
+      "claim_id": "C107",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C107-1-claim-administration-1",
+        "D-C107-1-claim-budget_owner-1",
+        "D-C107-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-03",
+      "request_id": "REQ-C107",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 208,
+      "claim_id": "C108",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C108-1-claim-administration-1",
+        "D-C108-1-claim-budget_owner-1",
+        "D-C108-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-03",
+      "request_id": "REQ-C108",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 208,
+      "claim_id": "C109",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C109-1-claim-administration-1",
+        "D-C109-1-claim-budget_owner-1",
+        "D-C109-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-03",
+      "request_id": "REQ-C109",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 2500,
+      "claim_id": "C110",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C110-1-claim-administration-1",
+        "D-C110-1-claim-budget_owner-1",
+        "D-C110-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-03",
+      "request_id": "REQ-C110",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 2500,
+      "claim_id": "C111",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C111-1-claim-administration-1",
+        "D-C111-1-claim-budget_owner-1",
+        "D-C111-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-03",
+      "request_id": "REQ-C111",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 1500,
+      "claim_id": "C115",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C115-1-claim-administration-1",
+        "D-C115-1-claim-budget_owner-1",
+        "D-C115-1-claim-supervisor-1"
+      ],
+      "payee": "EMP-03",
+      "request_id": "REQ-C115",
+      "revision": 1,
+      "status": "accepted"
+    },
+    {
+      "amount_cents": 7500,
+      "claim_id": "C120",
+      "currency": "EUR",
+      "decision_ids": [
+        "D-C120-1-claim-administration-1",
+        "D-C120-1-claim-budget_owner-supervisor-1"
+      ],
+      "payee": "EMP-04",
+      "request_id": "REQ-C120",
+      "revision": 1,
+      "status": "accepted"
+    }
+  ],
+  "run_id": "replay-20261009T173131Z",
+  "schema_version": "travel-claim-snapshot/2",
+  "source_binding": {
+    "path": "sources.json",
+    "sha256": "c033e177311db94109655c25185e3724f935b0b6e3b230c9fc4ff67737d3633a"
+  },
+  "travel_cancellations": [
+    {
+      "admitted_cancellation_event_ids": [
+        "TC121-requested"
+      ],
+      "affected_claim_ids": [
+        "C121"
+      ],
+      "cancellation_id": "TC121",
+      "confirmed_at": null,
+      "effective_at": null,
+      "financial_status": "unresolved",
+      "issue_record_ids": [
+        "ISS-C121-r1-cancellation_pending:TC121",
+        "ISS-TC121-decision-pending"
+      ],
+      "next_owner": "SUP-01",
+      "original_request_ids": [],
+      "permit_id": "P121",
+      "permit_revision": 1,
+      "reason": "awaiting supervisor decision; affected arrangements and payment readiness paused",
+      "requested_at": "2026-09-10T10:00:00Z",
+      "status": "requested",
+      "target_type": "permit",
+      "trip_id": "T121",
+      "trip_revision": 1
+    },
+    {
+      "admitted_cancellation_event_ids": [
+        "TC122-requested"
+      ],
+      "affected_claim_ids": [],
+      "cancellation_id": "TC122",
+      "confirmed_at": null,
+      "effective_at": null,
+      "financial_status": "no-financial-effect",
+      "issue_record_ids": [
+        "ISS-TC122-decision-pending"
+      ],
+      "next_owner": "SUP-01",
+      "original_request_ids": [],
+      "permit_id": "P122",
+      "permit_revision": 1,
+      "reason": "awaiting supervisor decision; affected arrangements and payment readiness paused",
+      "requested_at": "2026-09-10T09:00:00Z",
+      "status": "requested",
+      "target_type": "trip",
+      "trip_id": "T122",
+      "trip_revision": 1
+    }
+  ]
+}
