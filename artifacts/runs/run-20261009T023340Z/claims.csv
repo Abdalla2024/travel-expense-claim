@@ -1,0 +1,122 @@
+claim_id,revision,trip_id,status,allowed_cents,paid_cents,balance_cents,next_owner,reason
+C01,1,T01,closed-reimbursed,10000,10000,0,,r1 approved; net paid EUR 100.00 equals entitlement
+C02,1,T02,closed-reimbursed,54000,54000,0,,r1 approved; net paid EUR 540.00 equals entitlement
+C03,1,T03,closed-reimbursed,20000,20000,0,,r1 approved; net paid EUR 200.00 equals entitlement
+C04,1,T04,closed-reimbursed,10000,10000,0,,r1 approved; net paid EUR 100.00 equals entitlement
+C05,1,T05,closed-reimbursed,100000,100000,0,,r1 approved; net paid EUR 1000.00 equals entitlement
+C06,1,T06,closed-reimbursed,100001,100001,0,,r1 approved; net paid EUR 1000.01 equals entitlement
+C07,1,T07,closed-reimbursed,30000,30000,0,,r1 approved; net paid EUR 300.00 equals entitlement
+C08,1,T08,held,,0,,EMP-01,missing_payment_proof — no settled merchant transaction for COST-08
+C09,2,T09B,closed-reimbursed,8000,8000,0,,r2 approved; net paid EUR 80.00 equals entitlement
+C10,1,T10,held,,0,,FIN-01,late_permit — permit P10 approved 2026-09-02 after first commitment 2026-09-01
+C11,1,T11,closed-reimbursed,6000,6000,0,,r1 approved; net paid EUR 60.00 equals entitlement
+C12,2,T12,closed-reimbursed,7000,7000,0,,r2 approved; net paid EUR 70.00 equals entitlement
+C13,1,T13,withdrawn,0,0,0,,employee withdrew r1 before review (Employee withdrew before review.)
+C14,1,T14,rejected,0,0,0,,rejected by budget_owner LEAD-01: Client work was cancelled.
+C15,1,T15,pending,0,0,0,ADMIN-01,awaiting administration/budget_owner/supervisor review of r1
+C16,1,T16,closed-reimbursed,10000,10000,0,,r1 approved; net paid EUR 100.00 equals entitlement
+C17,1,T17,closed-reimbursed,10000,10000,0,,r1 approved; net paid EUR 100.00 equals entitlement
+C18,2,T18B,held,10000,10000,0,FIN-01,finance_resolution_required; transfer_after_cancellation — F-C18-3 settled EUR 100.00 after Finance cancelled REQ-C18
+C19,3,T19,closed-reimbursed,8000,8000,0,,r3 approved; net paid EUR 80.00 equals entitlement; Finance resolution F-C19-4
+C20,1,T20,closed-reimbursed,10000,10000,0,,r1 approved; net paid EUR 100.00 equals entitlement; Finance resolution F-C20-3
+C21,1,T21,held,8000,0,8000,EMP-01,returned — budget_owner returned r1: Budget owner requests a funding review before committing.
+C22,1,T22,held,,0,,FIN-01,missing_rate — no Finance GBP rate for payment date 2026-09-01
+C23,1,T23,held,,0,,FIN-01,missing_cap — no lodging cap for BE in EUR on 2026-09-01
+C24,1,T03,closed-reimbursed,5000,5000,0,,r1 approved; net paid EUR 50.00 equals entitlement
+C25,1,T25,held,,0,,FIN-01,permit_unapproved — permit P25 incomplete before commitment 2026-09-01
+C26,1,T26,pending,10000,0,10000,ADMIN-01,awaiting administration/budget_owner/supervisor review of r1
+C27,1,T27,closed-reimbursed,3500,3500,0,,r1 approved; net paid EUR 35.00 equals entitlement
+C28,1,T28,closed-reimbursed,4500,4500,0,,r1 approved; net paid EUR 45.00 equals entitlement
+C29,1,T29,closed-reimbursed,5500,5500,0,,r1 approved; net paid EUR 55.00 equals entitlement
+C30,1,T30,closed-reimbursed,6500,6500,0,,r1 approved; net paid EUR 65.00 equals entitlement
+C31,1,T31,closed-reimbursed,7500,7500,0,,r1 approved; net paid EUR 75.00 equals entitlement
+C32,1,T32,closed-reimbursed,8500,8500,0,,r1 approved; net paid EUR 85.00 equals entitlement
+C33,1,T33,closed-reimbursed,3500,3500,0,,r1 approved; net paid EUR 35.00 equals entitlement
+C34,1,T34,closed-reimbursed,4500,4500,0,,r1 approved; net paid EUR 45.00 equals entitlement
+C35,1,T35,closed-reimbursed,5500,5500,0,,r1 approved; net paid EUR 55.00 equals entitlement
+C36,1,T36,closed-reimbursed,6500,6500,0,,r1 approved; net paid EUR 65.00 equals entitlement
+C37,1,T37,closed-reimbursed,7500,7500,0,,r1 approved; net paid EUR 75.00 equals entitlement
+C38,1,T38,closed-reimbursed,8500,8500,0,,r1 approved; net paid EUR 85.00 equals entitlement
+C39,1,T39,closed-reimbursed,3500,3500,0,,r1 approved; net paid EUR 35.00 equals entitlement
+C40,1,T40,closed-reimbursed,4500,4500,0,,r1 approved; net paid EUR 45.00 equals entitlement
+C41,1,T41,closed-reimbursed,5500,5500,0,,r1 approved; net paid EUR 55.00 equals entitlement
+C42,1,T42,closed-reimbursed,6500,6500,0,,r1 approved; net paid EUR 65.00 equals entitlement
+C43,1,T43,closed-reimbursed,7500,7500,0,,r1 approved; net paid EUR 75.00 equals entitlement
+C44,1,T44,closed-reimbursed,8500,8500,0,,r1 approved; net paid EUR 85.00 equals entitlement
+C45,1,T45,closed-reimbursed,3500,3500,0,,r1 approved; net paid EUR 35.00 equals entitlement
+C46,1,T46,closed-reimbursed,4500,4500,0,,r1 approved; net paid EUR 45.00 equals entitlement
+C47,1,T47,closed-reimbursed,5500,5500,0,,r1 approved; net paid EUR 55.00 equals entitlement
+C48,1,T48,closed-reimbursed,6500,6500,0,,r1 approved; net paid EUR 65.00 equals entitlement
+C49,1,T49,closed-reimbursed,7500,7500,0,,r1 approved; net paid EUR 75.00 equals entitlement
+C50,1,T50,closed-reimbursed,8500,8500,0,,r1 approved; net paid EUR 85.00 equals entitlement
+C51,1,T51,closed-reimbursed,3500,3500,0,,r1 approved; net paid EUR 35.00 equals entitlement
+C52,1,T52,closed-reimbursed,4500,4500,0,,r1 approved; net paid EUR 45.00 equals entitlement
+C53,1,T53,closed-reimbursed,5500,5500,0,,r1 approved; net paid EUR 55.00 equals entitlement
+C54,1,T54,closed-reimbursed,6500,6500,0,,r1 approved; net paid EUR 65.00 equals entitlement
+C55,1,T55,closed-reimbursed,7500,7500,0,,r1 approved; net paid EUR 75.00 equals entitlement
+C56,1,T56,closed-reimbursed,8500,8500,0,,r1 approved; net paid EUR 85.00 equals entitlement
+C57,1,T57,closed-reimbursed,3500,3500,0,,r1 approved; net paid EUR 35.00 equals entitlement
+C58,1,T58,closed-reimbursed,4500,4500,0,,r1 approved; net paid EUR 45.00 equals entitlement
+C59,1,T59,closed-reimbursed,5500,5500,0,,r1 approved; net paid EUR 55.00 equals entitlement
+C60,1,T60,closed-reimbursed,6500,6500,0,,r1 approved; net paid EUR 65.00 equals entitlement
+C61,1,T61,closed-reimbursed,7500,7500,0,,r1 approved; net paid EUR 75.00 equals entitlement
+C62,1,T62,closed-reimbursed,8500,8500,0,,r1 approved; net paid EUR 85.00 equals entitlement
+C63,1,T63,closed-reimbursed,3500,3500,0,,r1 approved; net paid EUR 35.00 equals entitlement
+C64,1,T64,closed-reimbursed,4500,4500,0,,r1 approved; net paid EUR 45.00 equals entitlement
+C65,1,T65,closed-reimbursed,5500,5500,0,,r1 approved; net paid EUR 55.00 equals entitlement
+C66,1,T66,closed-reimbursed,6500,6500,0,,r1 approved; net paid EUR 65.00 equals entitlement
+C67,1,T67,closed-reimbursed,7500,7500,0,,r1 approved; net paid EUR 75.00 equals entitlement
+C68,1,T68,closed-reimbursed,8500,8500,0,,r1 approved; net paid EUR 85.00 equals entitlement
+C69,1,T69,closed-reimbursed,3500,3500,0,,r1 approved; net paid EUR 35.00 equals entitlement
+C70,1,T70,closed-reimbursed,4500,4500,0,,r1 approved; net paid EUR 45.00 equals entitlement
+C71,1,T71,closed-reimbursed,5500,5500,0,,r1 approved; net paid EUR 55.00 equals entitlement
+C72,1,T72,closed-reimbursed,6500,6500,0,,r1 approved; net paid EUR 65.00 equals entitlement
+C73,1,T73,closed-reimbursed,7500,7500,0,,r1 approved; net paid EUR 75.00 equals entitlement
+C74,1,T74,closed-reimbursed,8500,8500,0,,r1 approved; net paid EUR 85.00 equals entitlement
+C75,1,T75,closed-reimbursed,3500,3500,0,,r1 approved; net paid EUR 35.00 equals entitlement
+C76,1,T76,closed-reimbursed,4500,4500,0,,r1 approved; net paid EUR 45.00 equals entitlement
+C77,1,T77,closed-reimbursed,5500,5500,0,,r1 approved; net paid EUR 55.00 equals entitlement
+C78,1,T78,closed-reimbursed,6500,6500,0,,r1 approved; net paid EUR 65.00 equals entitlement
+C79,1,T79,closed-reimbursed,7500,7500,0,,r1 approved; net paid EUR 75.00 equals entitlement
+C80,1,T80,closed-reimbursed,8500,8500,0,,r1 approved; net paid EUR 85.00 equals entitlement
+C81,1,T81,closed-reimbursed,3500,3500,0,,r1 approved; net paid EUR 35.00 equals entitlement
+C82,1,T82,closed-reimbursed,4500,4500,0,,r1 approved; net paid EUR 45.00 equals entitlement
+C83,1,T83,closed-reimbursed,5500,5500,0,,r1 approved; net paid EUR 55.00 equals entitlement
+C84,1,T84,closed-reimbursed,6500,6500,0,,r1 approved; net paid EUR 65.00 equals entitlement
+C85,1,T85,closed-reimbursed,7500,7500,0,,r1 approved; net paid EUR 75.00 equals entitlement
+C86,1,T86,closed-reimbursed,8500,8500,0,,r1 approved; net paid EUR 85.00 equals entitlement
+C87,1,T87,closed-reimbursed,3500,3500,0,,r1 approved; net paid EUR 35.00 equals entitlement
+C88,1,T88,closed-reimbursed,4500,4500,0,,r1 approved; net paid EUR 45.00 equals entitlement
+C89,1,T89,closed-reimbursed,5500,5500,0,,r1 approved; net paid EUR 55.00 equals entitlement
+C90,1,T90,closed-reimbursed,6500,6500,0,,r1 approved; net paid EUR 65.00 equals entitlement
+C91,1,T91,closed-reimbursed,7500,7500,0,,r1 approved; net paid EUR 75.00 equals entitlement
+C92,1,T92,closed-reimbursed,8500,8500,0,,r1 approved; net paid EUR 85.00 equals entitlement
+C93,1,T93,closed-reimbursed,3500,3500,0,,r1 approved; net paid EUR 35.00 equals entitlement
+C94,1,T94,closed-reimbursed,4500,4500,0,,r1 approved; net paid EUR 45.00 equals entitlement
+C95,1,T95,closed-reimbursed,5500,5500,0,,r1 approved; net paid EUR 55.00 equals entitlement
+C96,1,T96,closed-reimbursed,6500,6500,0,,r1 approved; net paid EUR 65.00 equals entitlement
+C97,1,T97,closed-reimbursed,7500,7500,0,,r1 approved; net paid EUR 75.00 equals entitlement
+C98,1,T98,closed-reimbursed,8500,8500,0,,r1 approved; net paid EUR 85.00 equals entitlement
+C99,1,T99,closed-reimbursed,99999,99999,0,,r1 approved; net paid EUR 999.99 equals entitlement
+C100,1,T100,closed-reimbursed,100000,100000,0,,r1 approved; net paid EUR 1000.00 equals entitlement
+C101,1,T101,closed-reimbursed,100001,100001,0,,r1 approved; net paid EUR 1000.01 equals entitlement
+C102,1,T102,closed-reimbursed,14999,14999,0,,r1 approved; net paid EUR 149.99 equals entitlement
+C103,1,T103,closed-reimbursed,15000,15000,0,,r1 approved; net paid EUR 150.00 equals entitlement
+C104,1,T104,closed-reimbursed,15000,15000,0,,r1 approved; net paid EUR 150.00 equals entitlement
+C105,1,T105,closed-reimbursed,3999,3999,0,,r1 approved; net paid EUR 39.99 equals entitlement
+C106,1,T106,closed-reimbursed,4000,4000,0,,r1 approved; net paid EUR 40.00 equals entitlement
+C107,1,T107,closed-reimbursed,4000,4000,0,,r1 approved; net paid EUR 40.00 equals entitlement
+C108,1,T108,closed-reimbursed,208,208,0,,r1 approved; net paid EUR 2.08 equals entitlement
+C109,1,T109,closed-reimbursed,208,208,0,,r1 approved; net paid EUR 2.08 equals entitlement
+C110,1,T110,closed-reimbursed,2500,2500,0,,r1 approved; net paid EUR 25.00 equals entitlement
+C111,1,T111,closed-reimbursed,2500,2500,0,,r1 approved; net paid EUR 25.00 equals entitlement
+C112,1,T112,held,,0,,FIN-01,late_filing — first submitted 2026-09-02 after deadline 2026-09-01
+C113,1,T113,pending,2500,0,2500,ADMIN-01,awaiting administration/budget_owner/supervisor review of r1
+C114,1,T114,held,,0,,EMP-03,missing_payment_proof — no settled merchant transaction for COST-114-2
+C115,1,T115,closed-reimbursed,1500,1500,0,,r1 approved; net paid EUR 15.00 equals entitlement
+C116,1,T116,held,,0,,FIN-01,missing_cap; missing_rate — no lodging cap for NL in USD on 2026-09-01
+C117,1,T117,held,,0,,ADMIN-01,unknown_category — category 'entertainment' is not defined by policy
+C118,1,T118,pending,0,0,0,ADMIN-01,awaiting administration/budget_owner/supervisor review of r1
+C119,1,T119,pending,100001,0,100001,DIR-01,awaiting director review of r1
+C120,1,T120,closed-reimbursed,7500,7500,0,,r1 approved; net paid EUR 75.00 equals entitlement
+C121,2,T121,closed-reimbursed,2000,2000,0,,r2 approved; net paid EUR 20.00 equals entitlement

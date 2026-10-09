@@ -54,9 +54,34 @@ TEC_RUN=<run-id> .venv/bin/python -m unittest tests.test_primary_run    # pin a 
 
 The results are success (exit 0), partial (exit 1: some source portion unusable, affected scope reported, affected claims held), or failure (exit 2: a required source unusable, no snapshots, attempt and error recorded). A run ID that already exists is refused (exit 4); sealed outputs are never overwritten. The full table is in [SKILL.md](skills/travel-expense-claim/SKILL.md#errors-and-retry).
 
-## Submitted run
+## Submitted run results
 
-See [SUBMITTED-RUN](#submitted-run-results) below for run IDs, batch results and verification output.
+Primary run **[`run-20261009T023446Z`](artifacts/runs/run-20261009T023446Z/report.md)**: a fresh read of all five sources at code revision `93b2b5b`, outcome `SUCCESS`.
+
+| Batch | Claims | closed-reimbursed | pending | held | rejected / withdrawn | Finance events admitted | Open issues | Net paid | Cancellations (status / financial) |
+|---|---|---|---|---|---|---|---|---|---|
+| batch-1 | 120 | 0 | 105 | 13 | 1 / 1 | 100 | 16 | EUR 0.00 | TC121 requested/unresolved, TC122 requested/no-effect |
+| batch-2 | 120 | 95 | 8 | 15 | 1 / 1 | 200 | 17 | EUR 11539.15 | TC018 confirmed/unresolved, TC121 confirmed/unresolved, TC122 confirmed/no-effect |
+| batch-3 | 121 | 96 | 11 | 12 | 1 / 1 | 210 | 13 | EUR 11634.15 | TC018 resolved, TC019 unresolved, TC121 resolved, TC122 no-effect |
+| batch-4 | 121 | 103 | 5 | 11 | 1 / 1 | 219 | 13 | EUR 12034.15 | TC018 **unresolved** (late transfer), TC019 resolved, TC121 resolved, TC122 no-effect |
+
+Still open after batch-4:
+- **Held, employee:** C08 and C21 (EMP-01), C114 (EMP-03).
+- **Held, FIN-01:** C10, C22, C23, C25, C112, C116, C18.
+- **Held, ADMIN-01:** C117.
+- **Pending review:** C15, C118, C26, C113 (ADMIN-01) and C119 (DIR-01).
+
+Reasons and next actions are in report §2. The drafts are in `queue/drafts/`.
+
+Other retained runs:
+- [`replay-20261009T023452Z`](artifacts/runs/replay-20261009T023452Z/report.md): a labelled offline replay of the primary run. Its snapshots are equivalent (`verify replay-20261009T023452Z --compare run-20261009T023446Z`: 77 checks, 0 failed).
+- [`run-20261009T023340Z`](artifacts/runs/run-20261009T023340Z/report.md) and [`replay-20261009T023346Z`](artifacts/runs/replay-20261009T023346Z/report.md): an earlier fresh run and its replay at revision `698a6b0`. They are kept unmodified rather than overwritten. They were superseded only because `93b2b5b` added per-tab `content_sha256` to `sources.json`. Their snapshots are business-equivalent to the primary run (`verify run-20261009T023446Z --compare run-20261009T023340Z`: 76 checks, 0 failed).
+
+Verification of the primary run: `verify run-20261009T023446Z` reports 75 checks, 0 failed. `python -m unittest discover -s tests` reports 32 tests OK, with the rule, synthetic-branch, primary-run, replay and failure-path suites.
+
+Not run or not covered:
+- A fresh run during a real network outage. The `FAILURE` and `PARTIAL` paths are tested offline instead, by replaying a temporary copy of the retained inputs with the policy or receipt binder corrupted (`tests/test_failure_paths.py`). Nothing from those tests is retained as a run.
+- Partial employee evidence. It does not occur in the supplied batches and is tested only with the labelled synthetic fixture.
 
 ## Support and handoff
 

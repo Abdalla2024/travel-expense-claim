@@ -1,0 +1,31 @@
+{
+  "batches": [
+    {
+      "batch_id": "batch-1",
+      "path": "batches/batch-1.json",
+      "sha256": "f40d88c15fd990a8bd7d066e3d4eb934ed1a59136e13be5a3c90a50afaa88864"
+    },
+    {
+      "batch_id": "batch-2",
+      "path": "batches/batch-2.json",
+      "sha256": "f36a910b20cd5f8fefaa2b3e94e1bc3ad06c56a9083ece13fecaed41dc10e883"
+    },
+    {
+      "batch_id": "batch-3",
+      "path": "batches/batch-3.json",
+      "sha256": "1c99ec31f7db17bde479e3c6511969a078b911226d786e7d9e152f479a896b48"
+    },
+    {
+      "batch_id": "batch-4",
+      "path": "batches/batch-4.json",
+      "sha256": "968c14b4e218f34dc9b163b6be6b7ab36773735b7cc8bfd2f2cd5e3cfbf6e8f3"
+    }
+  ],
+  "code_revision": "698a6b074b77eecf321ca81eb214b0d796360967",
+  "finished_at": "2026-10-09T02:33:46Z",
+  "mode": "fresh",
+  "outcome": "success",
+  "replay_of": null,
+  "run_id": "run-20261009T023340Z",
+  "started_at": "2026-10-09T02:33:40Z"
+}
