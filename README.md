@@ -179,8 +179,14 @@ git ls-remote origin 'refs/entire/checkpoints/*'                   # checkpoint 
 | `c1411c5` Retain the synthetic partial-resumption scenario with interview-5 wording | `01M4GWZC7YA6SEXTA87JT7GP7Z` | `refs/entire/checkpoints/7Z/01M4GWZC7YA6SEXTA87JT7GP7Z` |
 | `e682d98` Retain the interview-5 run and replay | `01M4GX0YYFDY14XNK8JQFQD39P` | `refs/entire/checkpoints/9P/01M4GX0YYFDY14XNK8JQFQD39P` |
 | `492ef36` Document interview 5: return content, owners, re-review, grouping | `01M4GX3A25NCDD9TC65GSH31B4` | `refs/entire/checkpoints/B4/01M4GX3A25NCDD9TC65GSH31B4` |
+| `afd456a` Add the interview-5 commit-to-checkpoint pairs to the README | `01M4GX3Y5ZM6P8Q78AA7T533P7` | `refs/entire/checkpoints/P7/01M4GX3Y5ZM6P8Q78AA7T533P7` |
+| `a4b2684` Add the sixth Work Sim interview export | `01M4GXX2ANE573BD2QTVR5HYCR` | `refs/entire/checkpoints/CR/01M4GXX2ANE573BD2QTVR5HYCR` |
+| `d1f4eab` Apply interview 6: hold impact, dependent re-review, rejected-reply history | `01M4GY51V3NJYMGGY1HRB30B7J` | `refs/entire/checkpoints/7J/01M4GY51V3NJYMGGY1HRB30B7J` |
+| `089356e` Retain the synthetic scenario with interview-6 behaviour | `01M4GY5HCXV8ZZYZ1WXDT5E8K9` | `refs/entire/checkpoints/K9/01M4GY5HCXV8ZZYZ1WXDT5E8K9` |
+| `a3806f8` Retain the interview-6 run and replay | `01M4GY73VP3T6Z1AK542VAXABM` | `refs/entire/checkpoints/BM/01M4GY73VP3T6Z1AK542VAXABM` |
+| `693b170` Document interview 6: hold choice, dependent re-review, reply history | `01M4GYA0GTQQGARYZ5PBYEX92M` | `refs/entire/checkpoints/2M/01M4GYA0GTQQGARYZ5PBYEX92M` |
 
-All eighteen belong to Claude Code session `96590d86-1b96-4de5-9951-fef2a17d395f`. Each pair was checked against the commit trailer and the ref on origin. The commit that updated this table carries its own `Entire-Checkpoint:` trailer, shown by `git log`.
+All twenty-four belong to Claude Code session `96590d86-1b96-4de5-9951-fef2a17d395f`. Each pair was checked against the commit trailer and the ref on origin. The commit that updated this table carries its own `Entire-Checkpoint:` trailer, shown by `git log`.
 
 ## Support and handoff
 
