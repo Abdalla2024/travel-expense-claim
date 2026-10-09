@@ -1,0 +1,96 @@
+<pasted_content id="13d2">
+The implementation and runs appear complete. Before moving on, perform a focused final handoff audit without changing the implementation unless you discover a concrete defect.
+
+1. Verify the final repository state at commit `d08c9dd`, including that the required files and run artifacts are committed and pushed.
+2. Inspect the final `report.md`, `sources.json`, and sealed snapshots for C18, C117, C19, C15, and C118. Explain each claim's final state, financial amounts, outstanding issues, owner, and next action using the actual records.
+3. For C18, verify that the settled €100 Finance event, cancelled request, and unresolved replacement/reconciliation state are represented consistently. Do not erase or ignore a confirmed payment simply because the claim remains held.
+4. For C117, verify that the undefined category remains unresolved rather than being silently treated as eligible or ineligible.
+5. Verify the source-capture design distinguishes downloaded-file hashes, per-tab content hashes, retrieval timestamps, and native source version metadata. Do not call a content hash an official revision ID.
+6. Check that each batch snapshot is linked to the correct predecessor and source manifest, that replay preserves money and event identities, and that the report agrees with the snapshots and `claims.csv`.
+7. Check that the actual interview exports are unchanged and committed, and that the reported Entire checkpoints are associated with the relevant commits.
+8. Report only concrete defects or remaining limitations. Do not refactor working code, optimize arbitrary scoring criteria, or invent additional business rules. If everything checks out, give me a concise final handoff summary and recommend the next stakeholder question.
+
+Do not modify or overwrite sealed runs during this audit.
+</pasted_content id="13d2">
+
+---
+
+<pasted_content id="13d2">
+We have completed the third Project D stakeholder interview. Please incorporate its actual business decisions into the existing implementation of `travel-expense-claim`.
+
+Repository: https://github.com/Abdalla2024/travel-expense-claim
+
+Start by inspecting the current repository, Skill, interview exports, source manifests, repair queue, sealed runs, tests, and README. Use the existing implementation and evidence as the baseline. Do not rewrite working components or optimize for evaluation scores.
+
+## 1. Preserve the interview
+
+Add the complete third Work Sim interview export under `interviews/`, preserving the original participant-visible messages and metadata exactly as exported. Do not paraphrase, reconstruct, or silently edit the transcript.
+
+Commit and push the transcript with the implementation changes. If the actual export file is not available in the repository or workspace, tell me what is missing rather than manufacturing an export from a summary.
+
+## 2. Implement the confirmed business rule for undefined categories
+
+The stakeholder confirmed:
+
+* An expense category not defined by the approved Travel Reimbursement Policy remains unresolved until Finance provides an authoritative definition or specific eligibility instruction.
+* The agent must not assume that an undefined category is eligible or ineligible, invent a category mapping, or grant an exception.
+* This rule applies to all claims containing undefined categories, not only C117 or the entertainment category.
+* An affected claim must remain on hold while any line remains unresolved. Do not mark the claim complete based only on its other supported lines.
+* If Finance establishes that an expense is ineligible, record zero entitlement while preserving the original claimed amount and supporting evidence.
+* If Finance authorizes a reclassification, preserve the original submission as history and record the reclassification on the updated claim revision.
+* Changes to evidence, categories, or amounts invalidate prior readiness checks and approvals affected by those changes. Rebuild readiness for the updated revision and repeat the required reviews.
+* Once the issue is resolved, the current revision must still receive all required approvals, proceed through Finance processing, and be reconciled before closure.
+
+Do not hard-code entertainment as an ineligible category. The interview does not establish that conclusion.
+
+## 3. Correct responsibility and repair-queue behavior
+
+Distinguish between the authority that supplies a decision and the person responsible for following up:
+
+* Finance supplies policy definitions, required tables, or explicit eligibility instructions.
+* The Travel Administration Lead follows up on missing responses.
+* The employee may be asked for missing evidence or clarification about a specific cost item, but must not be treated as the authority on company policy.
+* The budget owner decides funding, not the policy definition.
+
+Review the existing C117 repair item. Ensure it identifies the unresolved category, the missing Finance decision, the correct follow-up responsibility, the evidence or decision needed, and the next action. Avoid assigning the policy-definition task to the employee.
+
+Apply the same logic to other undefined categories and missing policy definitions wherever relevant. Preserve the existing stable queue identifiers and append-only history conventions where possible. Do not send real requests or modify source systems.
+
+## 4. Verify behavior with targeted regression tests
+
+Add or update tests covering at least:
+
+1. C117 remains held while entertainment is undefined; its supported meals line can be calculated without making the whole claim complete.
+2. Another claim with an undefined category receives the same treatment.
+3. An unresolved category is not silently converted into an ineligible zero-entitlement line.
+4. A Finance-provided decision can resolve the category only when the evidence and authority are valid.
+5. A reclassification or material evidence/amount change preserves the previous revision and triggers the required revalidation and affected approvals.
+6. An explicitly ineligible expense records zero entitlement while preserving the original amount and evidence.
+7. The Travel Administration Lead follows up on missing decisions, while Finance remains the authority for policy definitions.
+8. Resolving the category alone does not close the claim; required approvals and financial reconciliation must still be completed.
+
+Use existing source-grounded scenarios and test fixtures where possible. Clearly label any new synthetic fixture. Do not invent a Finance response or a final eligibility decision for C117.
+
+## 5. Preserve auditability and sealed runs
+
+* Do not overwrite or modify any existing sealed run, snapshot, source capture, or historical interview.
+* Do not change original source records or claim evidence.
+* If code or business behavior changes, create a new commit and a new run linked to the prior history, following the repository's established snapshot and hash-chain conventions.
+* Keep the original primary run and offline replay intact.
+* Verify that the new report, `claims.csv`, snapshots, issue records, and repair queue agree.
+* Preserve the distinction between the original submitted amount, the currently supported entitlement, and confirmed net payment.
+* Do not claim a new stakeholder decision exists unless it appears in the actual interview or an authorized source.
+
+## 6. Final handoff
+
+Run the relevant test suite, verifier, and available replay/integrity checks. Commit and push the changes, then report:
+
+* The commit hash and working-tree status.
+* The new run ID and report path.
+* The tests and verification checks that passed or failed.
+* How C117 and other undefined categories are handled.
+* Any remaining unresolved business decisions.
+* Any limitations or checks that could not be performed.
+
+If the current implementation already satisfies a requirement, leave it unchanged and report the evidence. Make only changes justified by the third interview, and do not make a final eligibility decision for entertainment.
+</pasted_content id="13d2">
