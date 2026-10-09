@@ -1,0 +1,46 @@
+<pasted_content id="13d2">
+You're continuing work on the travel-expense-claim Skill in this repo. Project D scored 74.4/100 (pass mark 80): 64 of 86 checkpoints met, 22 with no evidence. I've done a fourth stakeholder interview, saved unmodified under interviews/ (the newest file). Read it first, then read the existing three interviews, README.md, SKILL.md, references/requirements.md, and the final primary run (artifacts/runs/run-20261009T025952Z).
+
+Do these tasks in order:
+
+1. Fix the misplaced-request bug (C21).
+   - In the final run, the budget owner returned C21 r1 asking for a funding review, and the queue sends it to the employee (EMP-01) with the vague action "Obtain funding decision." Interview 3 says the budget owner decides funding, so this request is misplaced.
+   - Make returned-work routing depend on what the reviewer asked for. Each request must name the exact missing fact or decision, name the correct owner, and be written in plain language. Fix the draft wording too: no raw IDs like "returned:D-C21-1-..." in the human text, and no double periods.
+   - Use interview 4 as the authority on who owns each kind of returned request. Do not invent routing rules that appear in none of the four interviews. If the interview doesn't settle something, say so in requirements.md as an open point.
+   - Check every other returned and missing-evidence item in all four batches for the same class of problem, and report what you found.
+
+2. Make partial-response resumption demonstrable.
+   - Use interview 4 to define how a partial reply resumes only the tasks it supports, how duplicate or misplaced requests are avoided, and how requests are grouped.
+   - Implement or adjust that behavior in the engine and queue.
+   - Add a retained, clearly labelled synthetic scenario (identifiers SYN-*) showing a partial reply resuming some tasks while others stay open. Show it in a retained run or in a dedicated report.md section, with tests.
+   - Never present synthetic data as real source data.
+
+3. Rerun and retain.
+   - Run the full test suite and fix any failures.
+   - Do a fresh `run --supersedes run-20261009T025952Z --reason "..."`, then a labelled `replay`, then `verify` with `--compare`.
+   - Keep all earlier runs unmodified. Do not hand-edit anything sealed.
+   - Update tests/test_primary_run.py expectations only where the new interview-4 rules require it, and explain each change.
+
+4. Correct the documentation.
+   - Update requirements.md with new rows citing interview 4 by timestamp.
+   - Fix the README's overclaim that the supplied sources exercise every branch. Keep the existing list of synthetic-only and unexercised coverage and extend it.
+   - Add a short "Design notes" section covering these points:
+     - the main design trade-offs and why they were chosen
+     - how the rules are verified (tests, verify checks, replay)
+     - how an operator would monitor and handle failed or partial runs
+     - privacy and guardrails: drafts are never sent, no credentials, people keep approval, exception and payment authority
+     - what drove cost, and any model or tool choices
+   - State only what is true of this repo.
+
+5. Commit in logical steps, so Entire records a checkpoint for each. Update the README's checkpoint table afterwards with verified commit-to-checkpoint pairs. Push main and refs/entire/checkpoints/*. Then give me the final handoff details: the exact commit ID, the new run ID, the replay ID, the report path, and the checkpoint references.
+
+Hard rules:
+- Do not edit, rewrite, rename or regenerate anything in interviews/.
+- Do not connect to or script the Work Sim interview. I conduct interviews myself.
+- Never fabricate approvals, replies or Finance decisions. Do not alter sources to make a run succeed.
+- Money stays integer EUR cents, or null when unknown.
+- Use the case clock, not today's date.
+- No hard-coded claim IDs or case-specific answers in the engine.
+
+When finished, report: what changed, what tests and verifies passed (with counts), anything you could not resolve, and what is still synthetic-only.
+</pasted_content id="13d2">
