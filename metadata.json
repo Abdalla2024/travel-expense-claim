@@ -1,0 +1,28 @@
+{
+  "cli_version": "0.11.3",
+  "checkpoint_id": "01M4GVG3F4B6B7NTRYHQX5FWJ6",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "skills/travel-expense-claim/scripts/tec/synthetic.py",
+    "tests/fixtures/synthetic_partial_resumption.json",
+    "tests/test_partial_resumption.py"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": ""
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 12,
+    "cache_creation_tokens": 22330,
+    "cache_read_tokens": 2770164,
+    "output_tokens": 17727,
+    "api_call_count": 6
+  }
+}
