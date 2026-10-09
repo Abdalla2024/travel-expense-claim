@@ -1,0 +1,579 @@
+{
+  "_label": "SYNTHETIC SCENARIO \u2014 every identifier is SYN-*. These records are invented test inputs, not Alderbridge source data, approvals, replies or Finance decisions.",
+  "batches": [
+    {
+      "batch": 1,
+      "claims": {
+        "SYN-C1": {
+          "allowed_cents": null,
+          "balance_cents": null,
+          "decision_ids": [
+            "SYN-D-C1-ADM-1"
+          ],
+          "lines": [
+            {
+              "allowed_cents": 6000,
+              "cost_id": "SYN-COST-1",
+              "reason": "missing_payment_proof: no settled merchant transaction for SYN-COST-1",
+              "source_ids": [
+                "receipts#receipt:SYN-R1",
+                "synthetic#claim SYN-C1 r1"
+              ],
+              "status": "unresolved"
+            },
+            {
+              "allowed_cents": null,
+              "cost_id": "SYN-COST-2",
+              "reason": "missing_rate: no Finance GBP rate for payment date 2026-09-01",
+              "source_ids": [
+                "receipts#receipt:SYN-R2",
+                "synthetic#claim SYN-C1 r1",
+                "synthetic#merchant:SYN-M2"
+              ],
+              "status": "unresolved"
+            },
+            {
+              "allowed_cents": 4000,
+              "cost_id": "SYN-COST-3",
+              "reason": "missing_payment_proof: no settled merchant transaction for SYN-COST-3",
+              "source_ids": [
+                "receipts#receipt:SYN-R3",
+                "synthetic#claim SYN-C1 r1"
+              ],
+              "status": "unresolved"
+            }
+          ],
+          "next_owner": "SYN-E1",
+          "paid_cents": 0,
+          "reason": "missing_payment_proof; missing_rate \u2014 no settled merchant transaction for SYN-COST-1",
+          "revision": 1,
+          "status": "held"
+        },
+        "SYN-C2": {
+          "allowed_cents": 12000,
+          "balance_cents": 12000,
+          "decision_ids": [
+            "SYN-D-C2-ADM-1",
+            "SYN-D-C2-BO-1",
+            "SYN-D-C2-SUP-1"
+          ],
+          "lines": [
+            {
+              "allowed_cents": 12000,
+              "cost_id": "SYN-COST-4",
+              "reason": "transport 120.00 EUR x 1",
+              "source_ids": [
+                "receipts#receipt:SYN-R4",
+                "synthetic#claim SYN-C2 r1",
+                "synthetic#merchant:SYN-M4"
+              ],
+              "status": "supported"
+            }
+          ],
+          "next_owner": "SYN-BO",
+          "paid_cents": 0,
+          "reason": "funding_decision \u2014 The budget owner (SYN-BO) returned claim SYN-C2 revision 1 on 2026-09-03: Budget owner requests a funding review before committing. Repair requested: Obtain funding decision. Affected fields: trip, amount, evidence. Source versions reviewed: not stated",
+          "revision": 1,
+          "status": "held"
+        }
+      },
+      "log": [
+        {
+          "kind": "claim",
+          "refs": [
+            "synthetic#claim SYN-C1 r1"
+          ],
+          "subject": "SYN-C1",
+          "text": "r1 received"
+        },
+        {
+          "kind": "claim",
+          "refs": [
+            "synthetic#claim SYN-C2 r1"
+          ],
+          "subject": "SYN-C2",
+          "text": "r1 received"
+        },
+        {
+          "kind": "review",
+          "refs": [
+            "synthetic#review:SYN-D-C2-BO-1"
+          ],
+          "subject": "SYN-C2",
+          "text": "budget_owner return r1: Budget owner requests a funding review before committing."
+        }
+      ],
+      "queue_events": [
+        {
+          "batch_id": "batch-1",
+          "cost_id": "SYN-COST-1",
+          "event": "opened",
+          "fact": "missing_payment_proof",
+          "item_id": "RQ-SYN-C1-r1-missing_payment_proof-SYN-COST-1",
+          "next_action": "Employee supplies the settled merchant transaction for SYN-COST-1",
+          "owner": "SYN-E1",
+          "revision": 1,
+          "run_id": "synthetic-partial-resumption",
+          "seq": 1,
+          "source_ids": [
+            "synthetic#claim SYN-C1 r1",
+            "receipts#receipt:SYN-R1"
+          ],
+          "subject": "SYN-C1",
+          "supersedes": null
+        },
+        {
+          "batch_id": "batch-1",
+          "cost_id": "SYN-COST-3",
+          "event": "opened",
+          "fact": "missing_payment_proof",
+          "item_id": "RQ-SYN-C1-r1-missing_payment_proof-SYN-COST-3",
+          "next_action": "Employee supplies the settled merchant transaction for SYN-COST-3",
+          "owner": "SYN-E1",
+          "revision": 1,
+          "run_id": "synthetic-partial-resumption",
+          "seq": 2,
+          "source_ids": [
+            "synthetic#claim SYN-C1 r1",
+            "receipts#receipt:SYN-R3"
+          ],
+          "subject": "SYN-C1",
+          "supersedes": null
+        },
+        {
+          "batch_id": "batch-1",
+          "cost_id": "SYN-COST-2",
+          "event": "opened",
+          "fact": "missing_rate",
+          "item_id": "RQ-SYN-C1-r1-missing_rate-SYN-COST-2",
+          "next_action": "Finance supplies or confirms the GBP rate for 2026-09-01",
+          "owner": "SYN-FIN",
+          "revision": 1,
+          "run_id": "synthetic-partial-resumption",
+          "seq": 3,
+          "source_ids": [
+            "synthetic#claim SYN-C1 r1",
+            "receipts#receipt:SYN-R2",
+            "synthetic#merchant:SYN-M2"
+          ],
+          "subject": "SYN-C1",
+          "supersedes": null
+        },
+        {
+          "batch_id": "batch-1",
+          "cost_id": null,
+          "event": "opened",
+          "fact": "funding_decision:budget_owner",
+          "item_id": "RQ-SYN-C2-r1-funding_decision:budget_owner",
+          "next_action": "The budget owner (SYN-BO) makes the funding decision for claim SYN-C2 revision 1 and replies on that revision; the process then continues from there",
+          "owner": "SYN-BO",
+          "revision": 1,
+          "run_id": "synthetic-partial-resumption",
+          "seq": 4,
+          "source_ids": [
+            "synthetic#claim SYN-C2 r1",
+            "synthetic#review:SYN-D-C2-BO-1"
+          ],
+          "subject": "SYN-C2",
+          "supersedes": null
+        }
+      ]
+    },
+    {
+      "batch": 2,
+      "claims": {
+        "SYN-C1": {
+          "allowed_cents": null,
+          "balance_cents": null,
+          "decision_ids": [],
+          "lines": [
+            {
+              "allowed_cents": 6000,
+              "cost_id": "SYN-COST-1",
+              "reason": "transport 60.00 EUR x 1",
+              "source_ids": [
+                "receipts#receipt:SYN-R1",
+                "synthetic#claim SYN-C1 r1",
+                "synthetic#merchant:SYN-M1"
+              ],
+              "status": "supported"
+            },
+            {
+              "allowed_cents": 5850,
+              "cost_id": "SYN-COST-2",
+              "reason": "transport 50.00 GBP x 1.17",
+              "source_ids": [
+                "receipts#receipt:SYN-R2",
+                "synthetic#claim SYN-C1 r1",
+                "synthetic#fx:SYN-FX-GBP",
+                "synthetic#merchant:SYN-M2"
+              ],
+              "status": "supported"
+            },
+            {
+              "allowed_cents": 4000,
+              "cost_id": "SYN-COST-3",
+              "reason": "missing_payment_proof: no settled merchant transaction for SYN-COST-3",
+              "source_ids": [
+                "receipts#receipt:SYN-R3",
+                "synthetic#claim SYN-C1 r1"
+              ],
+              "status": "unresolved"
+            }
+          ],
+          "next_owner": "SYN-E1",
+          "paid_cents": 0,
+          "reason": "missing_payment_proof \u2014 no settled merchant transaction for SYN-COST-3",
+          "revision": 1,
+          "status": "held"
+        },
+        "SYN-C2": {
+          "allowed_cents": 12000,
+          "balance_cents": 12000,
+          "decision_ids": [
+            "SYN-D-C2-ADM-1",
+            "SYN-D-C2-BO-1",
+            "SYN-D-C2-BO-2",
+            "SYN-D-C2-SUP-1"
+          ],
+          "lines": [
+            {
+              "allowed_cents": 12000,
+              "cost_id": "SYN-COST-4",
+              "reason": "transport 120.00 EUR x 1",
+              "source_ids": [
+                "receipts#receipt:SYN-R4",
+                "synthetic#claim SYN-C2 r1",
+                "synthetic#merchant:SYN-M4"
+              ],
+              "status": "supported"
+            }
+          ],
+          "next_owner": "SYN-FIN",
+          "paid_cents": 0,
+          "reason": "awaiting Finance settlement: EUR 0.00 of EUR 120.00 paid",
+          "revision": 1,
+          "status": "pending"
+        }
+      },
+      "log": [
+        {
+          "kind": "review-resumed",
+          "refs": [
+            "synthetic#review:SYN-D-C2-BO-2"
+          ],
+          "subject": "SYN-C2",
+          "text": "budget_owner approve r1 after return SYN-D-C2-BO-1"
+        },
+        {
+          "kind": "request",
+          "refs": [],
+          "subject": "SYN-C2",
+          "text": "REQ-SYN-C2 proposed for EUR 120.00 (r1)"
+        },
+        {
+          "kind": "finance",
+          "refs": [
+            "synthetic#finance:SYN-F-C2-acc@batch-2"
+          ],
+          "subject": "SYN-C2",
+          "text": "SYN-F-C2-acc accepted REQ-SYN-C2 EUR 120.00 (proposed -> accepted)"
+        }
+      ],
+      "queue_events": [
+        {
+          "batch_id": "batch-2",
+          "event": "satisfied",
+          "evidence": [
+            "synthetic#merchant:SYN-M1"
+          ],
+          "fact": "missing_payment_proof",
+          "item_id": "RQ-SYN-C1-r1-missing_payment_proof-SYN-COST-1",
+          "owner": "SYN-E1",
+          "run_id": "synthetic-partial-resumption",
+          "seq": 5,
+          "subject": "SYN-C1",
+          "superseded_by": null
+        },
+        {
+          "batch_id": "batch-2",
+          "event": "satisfied",
+          "evidence": [
+            "synthetic#fx:SYN-FX-GBP"
+          ],
+          "fact": "missing_rate",
+          "item_id": "RQ-SYN-C1-r1-missing_rate-SYN-COST-2",
+          "owner": "SYN-FIN",
+          "run_id": "synthetic-partial-resumption",
+          "seq": 6,
+          "subject": "SYN-C1",
+          "superseded_by": null
+        },
+        {
+          "batch_id": "batch-2",
+          "event": "satisfied",
+          "evidence": [
+            "synthetic#review:SYN-D-C2-BO-2",
+            "synthetic#finance:SYN-F-C2-acc@batch-2"
+          ],
+          "fact": "funding_decision:budget_owner",
+          "item_id": "RQ-SYN-C2-r1-funding_decision:budget_owner",
+          "owner": "SYN-BO",
+          "run_id": "synthetic-partial-resumption",
+          "seq": 7,
+          "subject": "SYN-C2",
+          "superseded_by": null
+        },
+        {
+          "batch_id": "batch-2",
+          "event": "partial-response",
+          "item_id": null,
+          "owner": "SYN-E1",
+          "revision": 1,
+          "run_id": "synthetic-partial-resumption",
+          "satisfied": [
+            "RQ-SYN-C1-r1-missing_payment_proof-SYN-COST-1"
+          ],
+          "seq": 8,
+          "still_open": [
+            "RQ-SYN-C1-r1-missing_payment_proof-SYN-COST-3"
+          ],
+          "subject": "SYN-C1"
+        }
+      ]
+    },
+    {
+      "batch": 3,
+      "claims": {
+        "SYN-C1": {
+          "allowed_cents": 15850,
+          "balance_cents": 15850,
+          "decision_ids": [
+            "SYN-D-C1-ADM-3",
+            "SYN-D-C1-BO-3",
+            "SYN-D-C1-SUP-3"
+          ],
+          "lines": [
+            {
+              "allowed_cents": 6000,
+              "cost_id": "SYN-COST-1",
+              "reason": "transport 60.00 EUR x 1",
+              "source_ids": [
+                "receipts#receipt:SYN-R1",
+                "synthetic#claim SYN-C1 r1",
+                "synthetic#merchant:SYN-M1"
+              ],
+              "status": "supported"
+            },
+            {
+              "allowed_cents": 5850,
+              "cost_id": "SYN-COST-2",
+              "reason": "transport 50.00 GBP x 1.17",
+              "source_ids": [
+                "receipts#receipt:SYN-R2",
+                "synthetic#claim SYN-C1 r1",
+                "synthetic#fx:SYN-FX-GBP",
+                "synthetic#merchant:SYN-M2"
+              ],
+              "status": "supported"
+            },
+            {
+              "allowed_cents": 4000,
+              "cost_id": "SYN-COST-3",
+              "reason": "transport 40.00 EUR x 1",
+              "source_ids": [
+                "receipts#receipt:SYN-R3",
+                "synthetic#claim SYN-C1 r1",
+                "synthetic#merchant:SYN-M3"
+              ],
+              "status": "supported"
+            }
+          ],
+          "next_owner": "SYN-FIN",
+          "paid_cents": 0,
+          "reason": "approved r1 for EUR 158.50; request REQ-SYN-C1 proposed to Finance",
+          "revision": 1,
+          "status": "ready"
+        },
+        "SYN-C2": {
+          "allowed_cents": 12000,
+          "balance_cents": 0,
+          "decision_ids": [
+            "SYN-D-C2-ADM-1",
+            "SYN-D-C2-BO-1",
+            "SYN-D-C2-BO-2",
+            "SYN-D-C2-SUP-1"
+          ],
+          "lines": [
+            {
+              "allowed_cents": 12000,
+              "cost_id": "SYN-COST-4",
+              "reason": "transport 120.00 EUR x 1",
+              "source_ids": [
+                "receipts#receipt:SYN-R4",
+                "synthetic#claim SYN-C2 r1",
+                "synthetic#merchant:SYN-M4"
+              ],
+              "status": "supported"
+            }
+          ],
+          "next_owner": null,
+          "paid_cents": 12000,
+          "reason": "r1 approved; net paid EUR 120.00 equals entitlement",
+          "revision": 1,
+          "status": "closed-reimbursed"
+        }
+      },
+      "log": [
+        {
+          "kind": "request",
+          "refs": [],
+          "subject": "SYN-C1",
+          "text": "REQ-SYN-C1 proposed for EUR 158.50 (r1)"
+        },
+        {
+          "kind": "finance",
+          "refs": [
+            "synthetic#finance:SYN-F-C2-1@batch-3"
+          ],
+          "subject": "SYN-C2",
+          "text": "SYN-F-C2-1 settled REQ-SYN-C2 EUR 120.00 (accepted -> settled)"
+        }
+      ],
+      "queue_events": [
+        {
+          "batch_id": "batch-3",
+          "event": "satisfied",
+          "evidence": [
+            "synthetic#merchant:SYN-M3"
+          ],
+          "fact": "missing_payment_proof",
+          "item_id": "RQ-SYN-C1-r1-missing_payment_proof-SYN-COST-3",
+          "owner": "SYN-E1",
+          "run_id": "synthetic-partial-resumption",
+          "seq": 9,
+          "subject": "SYN-C1",
+          "superseded_by": null
+        }
+      ]
+    },
+    {
+      "batch": 4,
+      "claims": {
+        "SYN-C1": {
+          "allowed_cents": 15850,
+          "balance_cents": 0,
+          "decision_ids": [
+            "SYN-D-C1-ADM-3",
+            "SYN-D-C1-BO-3",
+            "SYN-D-C1-SUP-3"
+          ],
+          "lines": [
+            {
+              "allowed_cents": 6000,
+              "cost_id": "SYN-COST-1",
+              "reason": "transport 60.00 EUR x 1",
+              "source_ids": [
+                "receipts#receipt:SYN-R1",
+                "synthetic#claim SYN-C1 r1",
+                "synthetic#merchant:SYN-M1"
+              ],
+              "status": "supported"
+            },
+            {
+              "allowed_cents": 5850,
+              "cost_id": "SYN-COST-2",
+              "reason": "transport 50.00 GBP x 1.17",
+              "source_ids": [
+                "receipts#receipt:SYN-R2",
+                "synthetic#claim SYN-C1 r1",
+                "synthetic#fx:SYN-FX-GBP",
+                "synthetic#merchant:SYN-M2"
+              ],
+              "status": "supported"
+            },
+            {
+              "allowed_cents": 4000,
+              "cost_id": "SYN-COST-3",
+              "reason": "transport 40.00 EUR x 1",
+              "source_ids": [
+                "receipts#receipt:SYN-R3",
+                "synthetic#claim SYN-C1 r1",
+                "synthetic#merchant:SYN-M3"
+              ],
+              "status": "supported"
+            }
+          ],
+          "next_owner": null,
+          "paid_cents": 15850,
+          "reason": "r1 approved; net paid EUR 158.50 equals entitlement",
+          "revision": 1,
+          "status": "closed-reimbursed"
+        },
+        "SYN-C2": {
+          "allowed_cents": 12000,
+          "balance_cents": 0,
+          "decision_ids": [
+            "SYN-D-C2-ADM-1",
+            "SYN-D-C2-BO-1",
+            "SYN-D-C2-BO-2",
+            "SYN-D-C2-SUP-1"
+          ],
+          "lines": [
+            {
+              "allowed_cents": 12000,
+              "cost_id": "SYN-COST-4",
+              "reason": "transport 120.00 EUR x 1",
+              "source_ids": [
+                "receipts#receipt:SYN-R4",
+                "synthetic#claim SYN-C2 r1",
+                "synthetic#merchant:SYN-M4"
+              ],
+              "status": "supported"
+            }
+          ],
+          "next_owner": null,
+          "paid_cents": 12000,
+          "reason": "r1 approved; net paid EUR 120.00 equals entitlement",
+          "revision": 1,
+          "status": "closed-reimbursed"
+        }
+      },
+      "log": [
+        {
+          "kind": "replay",
+          "refs": [
+            "synthetic#finance:SYN-F-C2-1@batch-4"
+          ],
+          "subject": "SYN-C2",
+          "text": "exact redelivery of SYN-F-C2-1 in batch 4: no effect"
+        },
+        {
+          "kind": "finance",
+          "refs": [
+            "synthetic#finance:SYN-F-C1-acc@batch-4"
+          ],
+          "subject": "SYN-C1",
+          "text": "SYN-F-C1-acc accepted REQ-SYN-C1 EUR 158.50 (proposed -> accepted)"
+        },
+        {
+          "kind": "finance",
+          "refs": [
+            "synthetic#finance:SYN-F-C1-1@batch-4"
+          ],
+          "subject": "SYN-C1",
+          "text": "SYN-F-C1-1 settled REQ-SYN-C1 EUR 158.50 (accepted -> settled)"
+        }
+      ],
+      "queue_events": []
+    }
+  ],
+  "fixture": "tests/fixtures/synthetic_partial_resumption.json",
+  "replays": [
+    [
+      "finance",
+      "SYN-F-C2-1",
+      4
+    ]
+  ]
+}
