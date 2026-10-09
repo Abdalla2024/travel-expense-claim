@@ -146,6 +146,7 @@ def verify(run_dir, schema_path, compare_dir=None):
           all(e["run_id"] == meta["run_id"] and e["batch_id"].startswith("batch-") for e in events))
     items = {i["item_id"]: i for i in _jload(os.path.join(run_dir, "queue", "items.json"))}
     open_items = {i["issue_record_id"] for i in items.values() if i["status"] == "open"}
+    open_items |= {r for i in items.values() if i["status"] == "open" for r in i.get("also_covers", [])}
     final_issues = {i["record_id"] for i in snaps[-1]["issues"]}
     check("open queue items == open issues in the final snapshot", open_items == final_issues,
           sorted(open_items ^ final_issues)[:5])
@@ -155,6 +156,11 @@ def verify(run_dir, schema_path, compare_dir=None):
           all(all(k in i for k in req_fields) and i["owner"] and i["source_ids"] for i in items.values()))
     link_bad = [k for k, i in items.items() if i.get("supersedes") and items[i["supersedes"]]["superseded_by"] != k]
     check("superseded/replacement links are symmetric", not link_bad, link_bad)
+
+    if meta.get("routing"):
+        res.extend(_routing_checks(run_dir, ds, snaps[-1], items))
+    else:
+        check("routing checks not applicable: run predates returned-work routing (interview 4)", True)
 
     with open(os.path.join(run_dir, "report.md"), encoding="utf-8") as f:
         report = f.read()
@@ -181,3 +187,62 @@ def _strip(snap):
     for k in ("run_id", "source_binding", "predecessor"):
         s.pop(k)
     return s
+
+
+FINANCE_FACTS = {"missing_rate", "missing_cap", "unknown_category", "late_filing", "late_permit", "permit_unapproved",
+                 "travel_cancellation", "overpayment", "finance_resolution_required", "transfer_after_cancellation",
+                 "payment_failed", "replacement_held", "finance_event_unmatched", "finance_event_rejected"}
+EMPLOYEE_FACTS = {"missing_payment_proof", "payment_proof_mismatch", "missing_receipt", "duplicate_receipt",
+                  "receipt_mismatch", "invalid_units", "employee_correction"}
+
+
+def _routing_checks(run_dir, ds, final, items):
+    """Misplaced and duplicate requests (interview 3 10:48, interview 4 01:20)."""
+    from . import routing
+    res = []
+    cur = {}
+    for c in ds["claims"]:
+        if c["claim_id"] not in cur or c["revision"] > cur[c["claim_id"]]["revision"]:
+            cur[c["claim_id"]] = c
+    reviews = {r["decision_id"]: r for r in ds["reviews"]}
+    misplaced = []
+    for it in items.values():
+        if it["subject_type"] != "claim":
+            continue
+        emp = next(c["employee"] for c in ds["claims"] if c["claim_id"] == it["subject_id"] and c["revision"] == it["revision"])
+        d = ds["people"][emp]
+        base = it["fact_code"].split(":")[0]
+        if base in EMPLOYEE_FACTS and base != "employee_correction":
+            want = emp
+        elif base in FINANCE_FACTS:
+            want = d["Finance officer"]
+        elif base in ("funding_decision", "employee_correction", "return_unclassified"):
+            dec = next((reviews[s.rsplit(":", 1)[-1]] for s in it["source_ids"] if s.rsplit(":", 1)[-1] in reviews), None)
+            kind, src, _, _ = routing.classify(dec["repair"], dec["reason"])
+            want = routing.owner_for(src, emp, d) if kind == base else "<route %s>" % kind
+        else:
+            continue
+        if it["owner"] != want:
+            misplaced.append((it["item_id"], it["owner"], want))
+    res.append(("no misplaced requests: every evidence, Finance and returned-work item is owned by its routed party",
+                not misplaced, misplaced[:5]))
+    keyset = {}
+    for it in items.values():
+        if it["status"] == "open":
+            k = (it["subject_id"], it["revision"], it["cost_id"], routing.label(it["fact_code"]), it["owner"])
+            keyset.setdefault(k, []).append(it["item_id"])
+    dup = [v for v in keyset.values() if len(v) > 1]
+    res.append(("no duplicate open requests for the same fact and person", not dup, dup[:3]))
+    bad = []
+    for name in os.listdir(os.path.join(run_dir, "queue", "drafts")):
+        with open(os.path.join(run_dir, "queue", "drafts", name), encoding="utf-8") as f:
+            text = f.read()
+        if ".." in text.replace("...", "") or "**returned:" in text:
+            bad.append(name)
+        owner = name[:-3]
+        for it in items.values():
+            if it["status"] == "open" and it["owner"] == owner and text.count("`%s`" % it["item_id"]) != 1:
+                bad.append("%s missing or repeated in %s" % (it["item_id"], name))
+    res.append(("drafts are plain language (no raw fact codes, no double periods) and list each open item once",
+                not bad, bad[:5]))
+    return res

@@ -14,6 +14,8 @@ from collections import defaultdict
 from decimal import Decimal, ROUND_HALF_UP
 from zoneinfo import ZoneInfo
 
+from . import routing
+
 ROLES = ["administration", "budget_owner", "supervisor", "director"]
 DIRECTORY_COL = {"administration": "Administration reviewer", "budget_owner": "Budget owner",
                  "supervisor": "Supervisor", "director": "Director"}
@@ -75,6 +77,12 @@ class Engine:
     # ------------------------------------------------------------ helpers
     def log(self, kind, subject, text, refs=()):
         self.batch_log[self.batch].append({"kind": kind, "subject": subject, "text": text, "refs": list(refs)})
+
+    def avail(self, rows):
+        """Reference evidence available in the current batch. Supplied register tabs carry no arrival batch, so
+        their rows count from batch 1; a row with a `batch` arrives in that batch (INT4 01:20: work resumes as
+        soon as the missing evidence arrives)."""
+        return [r for r in rows if (r.get("batch") or 1) <= self.batch]
 
     def directory(self, emp):
         return self.ds["people"].get(emp)
@@ -373,13 +381,14 @@ class Engine:
             permit_status, permit_done, permit_dids = self.permit_state(trip)
 
         lines, allowed_total, unresolved = [], 0, False
+        evidence_batch = 1  # latest arrival batch of any evidence row this revision's lines rely on
         exc = c.get("exception")
         for ln in c["lines"]:
             cost = ln["cost_id"]
             refs, findings = [claim_ref], []   # findings: (code, owner, reason, action, coverable)
             status, allowed_orig, reason_bits, excluded = None, None, [], None
 
-            rcs = self.ds["receipts"].get(cost, [])
+            rcs = self.avail(self.ds["receipts"].get(cost, []))
             rc = None
             if not self.ds["receipts_available"]:
                 findings.append(("receipt_source_unavailable", d and d["Administration reviewer"],
@@ -389,6 +398,7 @@ class Engine:
                                  "%d receipts for %s" % (len(rcs), cost), "Employee supplies the single matching receipt", False))
             else:
                 rc = rcs[0]
+                evidence_batch = max(evidence_batch, rc.get("batch") or 1)
                 refs.append("receipts#%s:%s" % (rc["locator"], rc["receipt_ref"]))
                 bad = [k for k, a, b2 in (("receipt reference", rc["receipt_ref"], ln["receipt_ref"]),
                                           ("employee", rc["employee"], emp), ("trip", rc["trip_id"], c["trip_id"]),
@@ -396,12 +406,13 @@ class Engine:
                 if bad:
                     findings.append(("receipt_mismatch", emp, "receipt differs on " + ", ".join(bad),
                                      "Employee supplies a receipt matching the claimed cost", False))
-            txs = self.ds["merchant"].get(cost, [])
+            txs = self.avail(self.ds["merchant"].get(cost, []))
             tx = next((t for t in txs if t["status"] == "settled" and t["employee"] == emp and t["trip_id"] == c["trip_id"]
                        and t["currency"] == ln["currency"] and t["gross"] == ln["amount"]
                        and t["receipt_ref"] == ln["receipt_ref"]), None)
             if tx:
                 refs.append(tx["ref"])
+                evidence_batch = max(evidence_batch, tx.get("batch") or 1)
             elif txs:
                 findings.append(("payment_proof_mismatch", emp, "merchant transaction(s) %s not settled or not matching" % ", ".join(
                     t["txn"] for t in txs), "Employee supplies the settled merchant transaction for %s" % cost, False))
@@ -450,23 +461,25 @@ class Engine:
             if ln["currency"] == "EUR":
                 rate = Decimal(1)
             elif paid_date:
-                fx = next((f for f in self.ds["fx"] if f["currency"] == ln["currency"] and f["date"] == paid_date), None)
+                fx = next((f for f in self.avail(self.ds["fx"]) if f["currency"] == ln["currency"] and f["date"] == paid_date), None)
                 if fx:
                     rate = fx["rate"]
                     refs.append(fx["ref"])
+                    evidence_batch = max(evidence_batch, fx.get("batch") or 1)
                 else:
                     findings.append(("missing_rate", fin, "no Finance %s rate for payment date %s" % (ln["currency"], paid_date),
                                      "Finance supplies or confirms the %s rate for %s" % (ln["currency"], paid_date), False))
 
             cap_total = None
             if category in CAPPED and paid_date and trip and not excluded:
-                cap = next((k for k in self.ds["caps"] if k["destination"] == trip["destination"] and k["category"] == category
+                cap = next((k for k in self.avail(self.ds["caps"]) if k["destination"] == trip["destination"] and k["category"] == category
                             and k["currency"] == ln["currency"] and k["from"] <= paid_date <= k["to"]), None)
                 units = rc["units"] if rc else None
                 if not (units and units.isdigit() and int(units) > 0):
                     findings.append(("invalid_units", emp, "documented units %r" % units, "Employee documents positive units", False))
                 elif cap:
                     refs.append(cap["ref"])
+                    evidence_batch = max(evidence_batch, cap.get("batch") or 1)
                     cap_total = cap["amount"] * int(units)
                 else:
                     findings.append(("missing_cap", fin, "no %s cap for %s in %s on %s" % (category, trip["destination"], ln["currency"], paid_date),
@@ -553,21 +566,49 @@ class Engine:
         # Reviews for the exact current subject/revision (INT2 10:09); cancellation-aware when needed (POL ¶15).
         need_aware = sorted({k for k, _ in confirmed})
         mine = [x for x in self.decisions if x["subject_type"] == "claim" and x["subject_id"] == cid and x["revision"] == rev]
-        counted, not_aware = [], []
+        counted, not_aware, stale = [], [], []
         for x in mine:
             if need_aware and not set(need_aware) <= set(x["packet"]["cancellation_ids"]):
                 not_aware.append(x)
+            elif x["admitted_batch"] < evidence_batch:
+                # Evidence for this revision arrived after the reply; changed evidence invalidates it (INT3 10:50).
+                stale.append(x)
             else:
                 counted.append(x)
         roles_needed = ["administration", "budget_owner", "supervisor"]
         if allowed is not None and allowed > DIRECTOR_THRESHOLD_CENTS:
             roles_needed.append("director")
-        approvals = {role for x in counted if x["outcome"] == "approve" for role in x["roles"]}
-        rejects = [x for x in counted if x["outcome"] == "reject"]
-        returns = [x for x in counted if x["outcome"] == "return"]
+        # The latest reply per role on this revision is that role's position: a later reply from the role that
+        # returned the work resumes its review (INT4 01:20), without touching other roles' replies.
+        latest = {}
+        for x in sorted(counted, key=lambda x: (x["time"], x["admitted_batch"], x["decision_id"])):
+            for role in x["roles"]:
+                latest[role] = x
+        current_replies = {x["decision_id"]: x for x in latest.values()}.values()
+        approvals = {role for role, x in latest.items() if x["outcome"] == "approve"}
+        rejects = [x for x in counted if x["outcome"] == "reject"]  # an explicit rejection closes; not undone
+        returns = [x for x in current_replies if x["outcome"] == "return"]
         for x in returns:
-            issue("returned:" + x["decision_id"], emp, "%s returned r%d: %s" % ("+".join(x["roles"]), rev, x["reason"]),
-                  x["repair"] or "Employee repairs and resubmits", refs=[x["ref"]])
+            # Route by what the reviewer asked for, not by default to the employee (INT3 10:48, INT4 01:20).
+            kind, src, _, basis = routing.classify(x["repair"], x["reason"])
+            who = routing.owner_for(src, emp, d) if d else emp
+            roles = " and ".join(r.replace("_", " ") for r in x["roles"])
+            asked = routing.sentence(x["repair"]) or routing.sentence(x["reason"])
+            fields = ", ".join(x.get("affected_fields") or []) or "not stated"
+            why = "The %s (%s) returned revision %d on %s: %s. Repair requested: %s. Affected fields: %s" % (
+                roles, x["reviewer"], rev, local_date(x["time"]), routing.sentence(x["reason"]),
+                routing.sentence(x["repair"]) or "none stated", fields)
+            if kind == "funding_decision":
+                action = ("The budget owner (%s) makes the funding decision for claim %s revision %d and replies on that "
+                          "revision; the review then resumes" % (who, cid, rev))
+            elif kind == "employee_correction":
+                action = ("The employee (%s) supplies the correction asked for (%s) as an updated claim revision; the "
+                          "review then resumes on that revision" % (who, asked))
+            else:
+                action = ("The Travel Administration Lead (%s) asks the %s (%s) what exactly is needed (%s) and who "
+                          "should supply it" % (who, roles, x["reviewer"], asked))
+            issue("%s:%s" % (kind, "+".join(x["roles"])), who, why, action, refs=[x["ref"]],
+                  extra={"route_basis": basis})
         decision_ids = sorted(x["decision_id"] for x in counted)
 
         reqs = self._claim_requests(cid)
@@ -663,6 +704,9 @@ class Engine:
         if missing_roles:
             if not_aware and not counted:
                 why = "approvals predate cancellation %s; cancellation-aware review needed" % ",".join(need_aware)
+            elif stale and not counted:
+                why = "replies from batch %s predate evidence that arrived in batch %d; review of r%d resumes" % (
+                    ",".join(sorted({str(x["admitted_batch"]) for x in stale})), evidence_batch, rev)
             else:
                 why = "awaiting %s review of r%d" % ("/".join(missing_roles), rev)
             role = missing_roles[0]

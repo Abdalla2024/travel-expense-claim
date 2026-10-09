@@ -60,7 +60,8 @@ def execute(runs_dir, run_id, mode, replay_of=None, repo=None, supersedes=None, 
         files = capture.capture_replay(run_dir, prior_dir, prior)
 
     meta = {"run_id": run_id, "mode": mode, "replay_of": replay_of, "started_at": started,
-            "code_revision": git_revision(repo or "."), "outcome": None}
+            "code_revision": git_revision(repo or "."), "outcome": None,
+            "routing": "returned-work routing by request (interview 4)"}
     if supersedes:
         # Link to the earlier retained run this one replaces; the earlier run is left untouched.
         prior_meta = os.path.join(runs_dir, supersedes, "run.json")

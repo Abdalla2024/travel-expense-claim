@@ -1,6 +1,7 @@
 """Operations handoff report (report.md)."""
 from collections import Counter, defaultdict
 
+from . import routing
 from .engine import _eur, _natural
 
 CLOSED = ("closed-reimbursed", "closed-no-payment", "rejected", "withdrawn")
@@ -145,7 +146,8 @@ def build(meta, sources, snaps, eng, rq, ds):
                 owner, it.get("follow_up") or "—", it["item_id"], it["subject_type"], it["subject_id"], (" " + it["cost_id"]) if it["cost_id"] else "",
                 it["revision"] if it["revision"] is not None else "—", it["trip_id"], it["trip_revision"],
                 (" / %s r%s" % (it["permit_id"], it["permit_revision"])) if it["permit_id"] else "",
-                it["missing_fact"].replace("|", "/"), it["next_action"].replace("|", "/"),
+                ("**%s.** %s" % (routing.label(it["fact_code"]), it["missing_fact"])).replace("|", "/"),
+                it["next_action"].replace("|", "/"),
                 it["opened"]["batch_id"], it["last_changed"]["batch_id"]))
     w("")
     w("### Queue updates by batch")

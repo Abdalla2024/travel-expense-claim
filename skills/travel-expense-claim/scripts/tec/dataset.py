@@ -98,6 +98,7 @@ def load(run_dir, files):
             "revision": parse.intval(r["Revision"]), "roles": parse.lines_of(r["Review roles"]),
             "reviewer": r["Reviewer"], "outcome": r["Outcome"], "reason": r["Reason"],
             "repair": None if r["Repair requested"] in (None, "None") else r["Repair requested"],
+            "affected_fields": parse.lines_of(r["Affected fields"]),
             "source_revisions": parse.lines_of(r["Source revisions"]),
             "time": parse.serial_utc(r["Decision time (UTC)"]),
             "packet": None if not p else {

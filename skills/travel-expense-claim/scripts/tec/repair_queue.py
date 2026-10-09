@@ -8,6 +8,13 @@ Drafts are written locally and never sent.
 """
 
 
+from . import routing
+
+
+def _cap(text):
+    return text[:1].upper() + text[1:]
+
+
 def item_id(record_id):
     return "RQ-" + record_id[len("ISS-"):] if record_id.startswith("ISS-") else "RQ-" + record_id
 
@@ -37,8 +44,19 @@ class RepairQueue:
                       "permit_revision": i["permit_revision"], "cost_id": i["cost_id"], "fact_code": i["fact_code"],
                       "missing_fact": i["reason"], "owner": i["owner"], "next_action": i["resolution_needed"],
                       "decision_authority": i.get("decision_authority", i["owner"]), "follow_up": i.get("follow_up"),
+                      "route_basis": i.get("route_basis"),
                       "source_ids": i["source_ids"], "issue_record_id": i["record_id"]}
             cur = self.items.get(iid)
+            twin = next((v for k, v in self.items.items() if k != iid and v["status"] == "open"
+                         and (v["subject_id"], v["revision"], v["cost_id"], routing.label(v["fact_code"]), v["owner"]) ==
+                         (i["subject_id"], i["revision"], i["cost_id"], routing.label(i["fact_code"]), i["owner"])), None)
+            if cur is None and twin:
+                # The same fact is already being requested from the same person: do not send it twice (INT4 01:20).
+                if i["record_id"] not in twin.setdefault("also_covers", []):
+                    twin["also_covers"].append(i["record_id"])
+                    self._event(batch, "duplicate-suppressed", twin, subject=i["subject_id"], fact=i["fact_code"],
+                                suppressed_record=i["record_id"])
+                continue
             if cur is None:
                 prior = self._replaced(i)
                 item = dict(fields, item_id=iid, status="open", opened=dict(ref), last_changed=dict(ref),
@@ -118,9 +136,10 @@ class RepairQueue:
                                                ", permit %s r%s" % (it["permit_id"], it["permit_revision"]) if it["permit_id"] else "")
                     lines += (["## %s %s%s%s" % (it["subject_type"], it["subject_id"], rev, tr), ""] if lines[-1] == "" else
                               ["", "## %s %s%s%s" % (it["subject_type"], it["subject_id"], rev, tr), ""])
-                lines.append("- **%s**%s — %s. Requested: %s. Sources: %s. (`%s`, opened %s/%s)" % (
-                    it["fact_code"], " for %s" % it["cost_id"] if it["cost_id"] else "", it["missing_fact"],
-                    it["next_action"], ", ".join(it["source_ids"]), it["item_id"], it["opened"]["run_id"], it["opened"]["batch_id"]))
+                lines.append("- **%s**%s. %s. Next action: %s. Evidence: %s. Reference `%s`, opened %s / %s." % (
+                    routing.label(it["fact_code"]), " (cost %s)" % it["cost_id"] if it["cost_id"] else "",
+                    _cap(routing.sentence(it["missing_fact"])), routing.sentence(it["next_action"]),
+                    ", ".join(it["source_ids"]), it["item_id"], it["opened"]["run_id"], it["opened"]["batch_id"]))
             out[owner] = "\n".join(lines) + "\n"
         return out
 
