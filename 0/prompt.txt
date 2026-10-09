@@ -1,0 +1,168 @@
+This is Project D:
+
+<pasted_content id="13d2">
+# Travel expense claim — Task and submission
+
+## Scenario
+
+Alderbridge Consulting's operations lead needs a dependable, traceable way to handle travel expenses as claims, decisions and supporting information change. Interview the lead to understand the work, then build a reusable Agent Skill that supports the complete process. The company and records are fictional.
+
+## Your task
+
+Create your own repository from the public GitHub template. It supplies an entry README and the required snapshot schema; you build the Skill, implementation, checks and outputs. Use Git, an AI coding agent, the program's supported session capture, and browser or supported API/export access. Choose your implementation language and document any additional setup. No real employee identity, bank account or paid data source is needed.
+
+Implement the assigned work across all supplied records and arrival batches: travel permission and claim handling, monetary review, human decisions, reimbursement reconciliation and closure, corrections, and independent trip or permit cancellations, including processes without a claim. Build and demonstrate a connected ordinary path, then cover the material exceptions and later changes found in the sources. Individual cases may remain unresolved when the facts require it; report the affected work, reason, responsible person and evidence needed to resume. Missing company rules or inaccessible required sources must be raised with the lead or facilitator rather than guessed.
+
+Also implement a local work queue or request drafts for missing evidence and returned work. Choose its organization and partial-response handling. Keep individual work traceable to its subject, revision, source, missing fact or return reason, responsible person and next action. Show significant queue updates with their run/batch references in or through the report. Apply your chosen organization throughout the applicable records; the supplied later batches are fixed inputs, not events caused by your drafts.
+
+Obtain the five native source locations through the interview. Inputs include searchable PDFs, a Google Sheets workbook and a Notion page; business data is not bundled in the starter. Every new run must attempt fresh reads of all five locations through a browser or supported API/export route. Retain the complete relevant content actually used, including its original wording, identities, precision and history, and bind it in `sources.json`. Preserve the supplied case clock and arrival boundaries. Record inaccessible, partial or incompatible content and its affected scope explicitly. A URL, successful response or hash alone is not evidence of complete access. Do not alter sources or silently substitute bundled inputs, earlier downloads or an AI paraphrase. A labelled offline replay may reuse an earlier run's retained inputs without claiming fresh access.
+
+People retain business approval, exception and payment authority. The Skill prepares local work, validates and consumes authorized scenario decisions, and records their effects; it must not fabricate a reply, make professional approval recommendations, send real requests, book travel or move money.
+
+In your captured coding conversation, make and explain four source-grounded choices: how incomplete claims affect independent work; which work to revalidate after material corrections; the financial-completion conditions and delivery scope you accept after inspecting an actual result; and the organization and partial-response constraints for repair work. Adopt these constraints before they guide the work, connect them to actual source/subject and code/run references, and show their effect in the implementation and results. You may adopt an agent suggestion with your own source-grounded reason and constraint. Record an owned unresolved step where the evidence does not support completion, and reconsider affected choices when later evidence arrives. Concise statements in your normal conversation are enough; no separate decision register or fabricated mistake is required.
+
+Verify the ordinary path and every material branch in the supplied records, including later corrections, cancellations and replay. Check quantities, identities, source bindings and state transitions as well as status labels. Additional isolated test inputs are allowed but do not replace the primary run. Document unrun checks and implementation limitations honestly; a case-count or time limit does not remove assigned work.
+
+## Deliverables
+
+**Interview records — `interviews/*.md`.** Include the original Work Sim Markdown export for every interview session, with its session metadata and complete participant-visible messages. Keep one final complete export per session without rewriting or summarizing it. Commit and push these files in the submitted code revision and ensure the facilitator can read them. Coding-session capture remains a separate requirement. If the export is unavailable, contact the facilitator; do not manufacture a replacement.
+
+Paths are relative to your repository. Replace angle-bracketed placeholders with your own stable, nonempty IDs. JSON is UTF-8; output money is integer EUR cents or null when unknown, with blank unknown money in CSV. Zero is a known amount. Obtain business field meanings and date/time rules from the lead and sources.
+
+| Path | Required content |
+| --- | --- |
+| `skills/travel-expense-claim/SKILL.md` | Reusable Skill instructions with name/description metadata, inputs, invocation, human boundaries, outputs, error/retry behavior and supporting file references |
+| Supporting Skill files | Your code and focused references under the Skill or documented project paths; no case-specific hard-coded answers |
+| `README.md` | Setup, exact batch and replay commands, success/partial/failure behavior, verification commands and support/handoff instructions |
+| `artifacts/runs/<run-id>/sources.json` | `run_id`, `source_version`, `case_clock`, and `files`. Each file records `source_id`, relative retained-content `path`, observed `sha256`, `status` (`read` or `unavailable`), nullable `error`, native `url`, page/tab/section `locator`, UTC `observed_at` and observed source `version`. Cover all five URLs; use unique source IDs for multiple pieces. Bind read pieces to retained bytes. Unavailable portions retain attempted URL/locator/time and error, with null path/hash/version when unobtainable; identify missing scope separately from usable partial reads |
+| `artifacts/runs/<run-id>/batches/<batch-id>.json` | One sealed snapshot for each consumed batch, conforming to the public snapshot schema. Preserve earlier states before later information changes their basis |
+| `artifacts/runs/<run-id>/claims.csv` | One current row per claim, with columns `claim_id,revision,trip_id,status,allowed_cents,paid_cents,balance_cents,next_owner,reason` |
+| `artifacts/runs/<run-id>/report.md` | Operations handoff: completed work, amounts and outstanding obligations, unresolved work, responsible people, next evidence/action, source/run references and significant changes. Include or link the operational repair queue and its significant partial-update views; account for cancellation processes without claims without inventing claim rows |
+| Actual coding-session evidence | The capture tool's real checkpoint/session records associated with the submitted code revision; self-authored logs or generated approval claims do not substitute for them |
+
+Snapshots use `schema_version: travel-claim-snapshot/2` and all fields, types, enumerations and references in the linked schema. Preserve claim and independent trip/permit revisions, line findings/source IDs, decision and request relationships, cancellation processes, financial state, and owned issues. Keep Finance `admitted_event_ids` separate from cancellation activity references; `issue_record_ids` must resolve to `issues[].record_id`. The lead and native sources supply the rules for interpreting and changing those states.
+
+The first snapshot has `predecessor: null`; later snapshots bind the preceding retained snapshot by relative path and SHA-256. `source_binding` binds the run's `sources.json` path and SHA-256. Files must not hash themselves. An unchanged replay preserves obligation/event identity and money. If rerunning would change sealed content, retain a new run with an explicit link and explanation instead of overwriting it. Report missing or corrupt prior state, or rebuild it from retained complete source/event history without inventing historical execution times. Required outputs must agree with their source and run references, including on retry or a partial result.
+</pasted_content id="13d2">
+
+<pasted_content id="13d2">
+I've completed the first stakeholder interview for Project D. Before implementing anything, I want you to help me identify the remaining requirements and evidence gaps.
+
+The interview established these rules:
+
+* International travel permits must be approved before costs are incurred.
+* Permit reviews involve the budget owner and supervisor, with a director required when the estimate is strictly greater than €1,000.
+* Every expense needs a matching receipt and a separate settled merchant transaction.
+* Transport and conference expenses are uncapped. Lodging and meals use applicable per-unit caps. Personal expenses are ineligible.
+* Convert each allowed expense line to EUR using Finance's exact rate for the payment date, with EUR at rate 1. Round each allowed line half-up to cents before summing.
+* Late submissions require an explicit Finance exception for the specific claim version.
+* Corrections invalidate prior readiness checks and require affected evidence, calculations, permits, and approvals to be revisited.
+* Only official Finance outcomes marked settled establish payment. Multiple payments are possible.
+* Financial completion requires current approvals, net confirmed payments matching the authorized entitlement, and all Finance obligations or adjustments resolved.
+* Rejections and withdrawals can close a claim without payment. Trip closure is separate and requires applicable business cancellation confirmation and no outstanding actions.
+* Missing evidence blocks the affected claim packet. Repair work must track the subject, revision, missing fact, owner, and next action. Partial responses must be handled explicitly.
+
+Please do the following:
+
+1. Inspect the starter repository, README, snapshot schema, and existing implementation, if any. Explain the required data model and deliverables before proposing code changes.
+
+2. Use the five native source locations supplied in the interview to inspect the actual policy, workbook, initial claim binder, claim updates binder, and receipt binder. Do not assume the interview summary contains every rule. If you cannot access a source, state precisely what you attempted and what remains unavailable. Do not substitute fabricated or previously bundled data.
+
+3. Build a requirements matrix with columns for requirement, evidence source and location, current understanding, confidence or unresolved ambiguity, implementation consequence, and next action. Clearly distinguish explicit stakeholder instructions from source-supported rules and your own proposed implementation choices.
+
+4. Identify the material scenarios and later changes in the supplied records. Pay particular attention to incomplete claims, independent permit or trip work, corrections after approval or payment, late filing exceptions, partial payments, overpayments, refunds, reversals, cancellations without claims, and replay.
+
+5. Identify what is already answered by the interview or source records versus what genuinely needs a follow-up stakeholder question. Do not ask me to re-interview the stakeholder about something already clearly documented.
+
+6. Recommend an operational repair-queue design that handles partial responses without losing history. Explain how each item will be tied to its subject, revision, source, missing fact or return reason, owner, next action, and run/batch reference.
+
+7. Propose the four source-grounded implementation choices required by the assignment: handling incomplete claims and independent work, revalidation after material corrections, financial-completion conditions and delivery scope, and repair-queue organization and partial-response behavior.
+
+Do not start implementation yet. Do not invent company rules, approvals, payment outcomes, or historical events. Return a concise gap analysis, a prioritized follow-up interview plan, and the specific evidence we need to inspect before choosing the implementation design.
+</pasted_content id="13d2">
+
+---
+
+<pasted_content id="13d2">
+I've completed the second stakeholder interview for Project D. We can now move from the gap analysis toward implementation. Incorporate the following answers into the requirements matrix, implementation decisions, and tests.
+
+## 1. Answers from the second interview
+
+### Source manifest and source versions
+
+* The stakeholder confirmed there is no document named LOG-0014 or fixed source manifest in the current policy or business materials.
+* The stakeholder explicitly instructed us to proceed using the five available native sources: the policy, travel registers workbook, initial claim binder, claim updates binder, and receipt binder.
+* Do not keep LOG-0014 as a blocker. Document the policy's unresolved reference and the stakeholder's answer in the requirements and source limitations.
+* The workbooks and PDFs have no official revision numbers or version labels. Preserve the exact retrieved content, its SHA-256, retrieval time, native URL, and available locator. Do not invent native revision identifiers.
+* DW-D-2 describes the business workflow contract for review responsibilities and handoffs. The stakeholder said its rules are contained in the existing policy; it is not an additional external document to fetch.
+* Review responses must match the exact subject type, subject ID, and revision of the claim or permit being reviewed.
+
+### Batches and case clock
+
+* Batches 1–4 define the delivery order in which reviewer replies and Finance outcomes become available.
+* Batch number strictly determines information availability. A later batch's records must not affect an earlier batch's result.
+* The associated UTC timestamp represents the business time of that delivery.
+* The frozen case clock is November 15, 2026, in Europe/Amsterdam. Scenario business timestamps cannot exceed the end of that date.
+* Exact duplicate records delivered again in a later batch must not duplicate their effects. Event IDs have immutable payloads across versions.
+* A correction or cancellation in a later batch triggers reevaluation of affected approvals and reconciliation from that point onward, while preserving all earlier batch history. Finance must confirm the status before a replacement payment request can be admitted.
+
+Do not invent batch cutoff times beyond these rules. Inspect the actual supplied batch records and policy for their ordering and delivery timestamps.
+
+### Claims, payments, and reviews
+
+* An employee may submit a cost before paying. Hold the affected cost until settled merchant transaction evidence is supplied. The original submission can proceed once payment is settled and proof is provided.
+* The payment date determines the applicable currency conversion rate and expense-category caps for that cost.
+* A claim with zero eligible expenses must still complete the full required review and approval process before being closed without payment.
+* Administration reviews first, followed by the Budget Owner and Supervisor. A Director must also review when the total reviewed entitlement exceeds €1,000.
+* Finance is responsible for supplying or confirming missing exchange rates and expense caps.
+* Missing receipts or other employee-supplied evidence must be routed to the responsible employee. Missing rate or cap information must be routed to Finance. The affected claim remains on hold until the required information is supplied.
+* Preserve the existing policy rules and all other previously established interview answers unless these new answers explicitly clarify them.
+
+## 2. Adopt and explain the four required implementation choices
+
+These choices must appear in our coding conversation, be connected to source evidence and actual subjects, and be reflected in the implementation and tests.
+
+**Choice 1: Incomplete claims and independent work**
+
+Hold the affected claim revision when required evidence is missing or unresolved. Because claim reviews cover the entire revision, do not treat the rest of that revision as ready for approval. Continue processing independent claims and independently actionable permit or trip cancellation work where the policy allows it. Never let one incomplete claim block unrelated work.
+
+**Choice 2: Revalidation after material corrections**
+
+A material correction creates a new revision and triggers recalculation plus revalidation of all dependent evidence, eligibility, permits, readiness checks, and approvals. Preserve earlier decisions as history rather than overwriting them. If a Finance request has already been accepted or dispatched, hold any replacement until Finance resolves the existing request.
+
+**Choice 3: Financial completion and delivery scope**
+
+A reimbursed claim may close only when the current revision has all required approvals, its authorized entitlement is known, net confirmed payments equal that entitlement, required Finance adjustments and resolutions are complete, and no issues remain open. Keep rejection, withdrawal, closure without payment, reimbursement closure, and trip closure distinct. Trip closure requires the applicable cancellation confirmation and no outstanding actions.
+
+Implement these conditions, then validate the final delivery scope against the actual batch results, including C18, C19, C16, C120, C15, and C118. Do not force a case into a successful closed state when the evidence says it remains unresolved.
+
+**Choice 4: Repair queue and partial responses**
+
+Group repair items by responsible person, with one item per missing fact or return reason. Each item must preserve its subject, revision, relevant trip or permit revision, source and locator, missing fact, owner, next action, status, and opening/last-changed run and batch references. Use append-only queue events and preserve links between superseded and replacement items. Partial responses satisfy only the facts actually supported by the response; unresolved facts remain open. Draft requests locally and never send them.
+
+The supplied batches may not contain a genuine partial employee-evidence response. If so, use a clearly labeled synthetic test fixture, isolated from the real scenario data, to test partial satisfaction. Never represent the synthetic fixture as a historical business event.
+
+## 3. Preserve the interview records and session capture
+
+* Preserve both original Work Sim interview exports under `interviews/`, unmodified, including participant-visible messages and export metadata.
+* Check whether the second original export is available in the workspace. If it is not, ask me to provide the original export rather than reconstructing it from a summary.
+* Verify that the supported Entire session capture is active and that a real checkpoint is associated with the submitted code revision. Do not fabricate checkpoint IDs or session records.
+* After the first meaningful implementation commit, inspect the actual capture and checkpoint before continuing substantially. If capture is missing, stop and help me repair it.
+
+## 4. Implementation workflow
+
+1. Inspect the current repository, README, public snapshot schema, existing interview exports, and current implementation before editing.
+2. Update the requirements matrix with the second interview's answers. Clearly distinguish source-supported rules, stakeholder instructions, implementation choices, and remaining limitations.
+3. Give me a concise implementation plan showing the main modules, source-capture approach, batch-processing design, state transitions, outputs, and verification strategy. Then proceed with implementation; do not stop to ask me to approve ordinary technical decisions.
+4. Implement the reusable Skill, supporting code, source capture, versioned batch snapshots, repair queue, `claims.csv`, `report.md`, and setup/replay documentation required by the assignment.
+5. Read all five native sources afresh on every new run. Retain the full relevant content actually used in `artifacts/runs/<run-id>/sources.json` and linked files. Record unavailable or partial sources honestly. Do not substitute scratchpad copies while claiming a fresh read.
+6. Preserve one sealed snapshot per consumed batch using `travel-claim-snapshot/2`. Bind each snapshot to its source manifest and predecessor by relative path and SHA-256. Never overwrite an earlier sealed snapshot. Replay must preserve event and obligation identity and must not duplicate financial effects.
+7. Process the supplied records according to batch availability, not by pretending all future information was known in Batch 1. Preserve earlier conclusions and append subsequent changes.
+8. Test the ordinary path and material exceptions, including missing evidence, late filing, late or missing permits, correction after approval/payment, partial payments, failed payment followed by retry, overpayment and refund, trip and permit cancellations, cancellation without a claim, duplicate delivery, and zero-entitlement claims.
+9. Verify actual amounts, source bindings, reviewer identities, subject/revision matches, batch availability, state transitions, predecessor hashes, output consistency, and repair-queue history. Report unrun checks and limitations honestly.
+10. Commit and push the implementation and the real session-capture branch as required. Do not commit credentials or secrets.
+
+Use the actual source records and interview answers to ground every rule. Do not fabricate approvals, evidence, payment outcomes, event timestamps, source versions, or historical execution. If an unresolved rule prevents a particular case from being safely decided, preserve that case as unresolved with its reason, owner, and next action while continuing independent work.
+
+At the end, report the repository commit, run IDs, batch results, test results, report path, and verified Entire checkpoint references.
+</pasted_content id="13d2">

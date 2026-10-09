@@ -1,0 +1,43 @@
+{
+  "cli_version": "0.11.3",
+  "checkpoint_id": "01M4F8457CN8F0E1BK2MK5EFGB",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "README.md",
+    "requirements.txt",
+    "skills/travel-expense-claim/SKILL.md",
+    "skills/travel-expense-claim/references/requirements.md",
+    "skills/travel-expense-claim/scripts/tec/__init__.py",
+    "skills/travel-expense-claim/scripts/tec/capture.py",
+    "skills/travel-expense-claim/scripts/tec/dataset.py",
+    "skills/travel-expense-claim/scripts/tec/engine.py",
+    "skills/travel-expense-claim/scripts/tec/parse.py",
+    "skills/travel-expense-claim/scripts/tec/repair_queue.py",
+    "skills/travel-expense-claim/scripts/tec/report.py",
+    "skills/travel-expense-claim/scripts/tec/run.py",
+    "skills/travel-expense-claim/scripts/tec/verify.py",
+    "skills/travel-expense-claim/scripts/tec_cli.py",
+    "tests/fixtures/synthetic_partial_response.json",
+    "tests/test_engine_synthetic.py",
+    "tests/test_primary_run.py",
+    "tests/test_rules.py"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 120,
+    "cache_creation_tokens": 261322,
+    "cache_read_tokens": 10102875,
+    "output_tokens": 156959,
+    "api_call_count": 60
+  }
+}
