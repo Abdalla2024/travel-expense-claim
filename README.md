@@ -157,8 +157,14 @@ git ls-remote origin 'refs/entire/checkpoints/*'                   # checkpoint 
 | `d08c9dd` Retain the primary run, its replay, and failure-path tests | `01M4F88R8CRY3AEAFDBESDF7J6` | `refs/entire/checkpoints/J6/01M4F88R8CRY3AEAFDBESDF7J6` |
 | `0ebcd29` Apply interview 3 | `01M4F9MCXWGX0GKTVEQMEFKHXR` | `refs/entire/checkpoints/XR/01M4F9MCXWGX0GKTVEQMEFKHXR` |
 | `3d0a55f` Retain the interview-3 run and its replay | `01M4F9NY3FAVCDDJ58E425WNYQ` | `refs/entire/checkpoints/YQ/01M4F9NY3FAVCDDJ58E425WNYQ` |
+| `d280d4c` Correct README, Skill and partial-run wording after readiness audit | `01M4FA5Z1QAMRFRDDN2RTNG21R` | `refs/entire/checkpoints/1R/01M4FA5Z1QAMRFRDDN2RTNG21R` |
+| `ed40dea` Add the fourth Work Sim interview export | `01M4GV5TX59Z8MP15HEEJVN45Z` | `refs/entire/checkpoints/5Z/01M4GV5TX59Z8MP15HEEJVN45Z` |
+| `bc521a1` Route returned work by the reviewer's request; resume per fact | `01M4GVBGEZK7GAG2SHZD297H02` | `refs/entire/checkpoints/02/01M4GVBGEZK7GAG2SHZD297H02` |
+| `557b1a2` Retain a labelled synthetic partial-resumption scenario | `01M4GVG3F4B6B7NTRYHQX5FWJ6` | `refs/entire/checkpoints/J6/01M4GVG3F4B6B7NTRYHQX5FWJ6` |
+| `3f270f7` Retain the interview-4 run and replay | `01M4GVJBHER3RKPK9HJ7F2XSTM` | `refs/entire/checkpoints/TM/01M4GVJBHER3RKPK9HJ7F2XSTM` |
+| `6c5c85d` Document interview 4, synthetic-only coverage and design notes | `01M4GVNRY7R0PMV03CKQ80WDFV` | `refs/entire/checkpoints/FV/01M4GVNRY7R0PMV03CKQ80WDFV` |
 
-All six belong to Claude Code session `96590d86-1b96-4de5-9951-fef2a17d395f`. A commit made after this table (such as the one that added it) is listed by `git log` with its own `Entire-Checkpoint:` trailer.
+All twelve belong to Claude Code session `96590d86-1b96-4de5-9951-fef2a17d395f`. Each pair was checked against the commit trailer and the ref on origin. The commit that updated this table carries its own `Entire-Checkpoint:` trailer, shown by `git log`.
 
 ## Support and handoff
 
